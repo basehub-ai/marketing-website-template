@@ -1,17 +1,17 @@
 "use client";
-import type Link from "next/link";
-
+import Link from "next/link";
 import {ChevronDownIcon} from "@radix-ui/react-icons";
 import {
   NavigationMenu,
   NavigationMenuContent,
   NavigationMenuItem,
+  type NavigationMenuItemProps,
   NavigationMenuLink as NavigationMenuLinkPrimitive,
   NavigationMenuList,
   NavigationMenuTrigger,
+  type NavigationMenuLinkProps,
 } from "@radix-ui/react-navigation-menu";
-
-import {Button, ButtonLink} from "@/common/button";
+import {cx} from "class-variance-authority";
 
 interface Link {
   href: string;
@@ -38,7 +38,7 @@ const links: Link[] = [
 export function NavigationMenuHeader() {
   return (
     <NavigationMenu className="relative z-[1] flex justify-center">
-      <NavigationMenuList className="flex flex-1">
+      <NavigationMenuList className="flex flex-1 px-4">
         {links.map(({href, label, menu}) =>
           menu ? (
             <NavigationMenuLinkWithMenu
@@ -58,17 +58,25 @@ export function NavigationMenuHeader() {
   );
 }
 
-function NavigationMenuLink({children, href}: {children: React.ReactNode; href: string}) {
+function NavigationMenuLink({
+  className,
+  children,
+  href,
+  ...props
+}: {children: React.ReactNode; href: string} & NavigationMenuLinkProps) {
   return (
-    <NavigationMenuLinkPrimitive asChild>
-      <ButtonLink
-        unstyled
-        className="dark:hover:bg-dark-surface-tertiary hover:bg-surface-tertiary !px-5 !text-base"
-        href={href}
+    <li>
+      <NavigationMenuLinkPrimitive
+        asChild
+        className={cx(
+          "inline-flex h-6 shrink-0 items-center justify-center gap-1 rounded-full px-3 pb-px hover:bg-surface-tertiary dark:hover:bg-dark-surface-tertiary md:h-7",
+          className,
+        )}
+        {...props}
       >
-        {children}
-      </ButtonLink>
-    </NavigationMenuLinkPrimitive>
+        <Link href={href}>{children}</Link>
+      </NavigationMenuLinkPrimitive>
+    </li>
   );
 }
 
@@ -84,21 +92,22 @@ function NavigationMenuLinkWithMenu({
   return (
     <NavigationMenuItem key={`${href}${label}`} className="relative items-center gap-1">
       <NavigationMenuTrigger asChild>
-        <Button
-          unstyled
-          className="dark:hover:bg-dark-surface-tertiary hover:bg-surface-tertiary !px-5 !pr-3 !text-base"
-          icon={<ChevronDownIcon />}
-          iconSide="right"
-          intent="secondary"
-        >
+        <NavigationMenuLink href={href}>
           {label}
-        </Button>
+          <ChevronDownIcon className="text-text-tertiary dark:text-dark-text-tertiary" />
+        </NavigationMenuLink>
       </NavigationMenuTrigger>
-      <NavigationMenuContent className="data-[motion=from-start]:animate-enterFromLeft data-[motion=from-end]:animate-enterFromRight data-[motion=to-start]:animate-exitToLeft data-[motion=to-end]:animate-exitToRight bg-surface-tertiary dark:bg-dark-surface-tertiary absolute left-0 top-full w-full rounded-md sm:w-auto">
-        <ul>
+      <NavigationMenuContent className="data-[motion=from-start]:animate-enterFromLeft data-[motion=from-end]:animate-enterFromRight data-[motion=to-start]:animate-exitToLeft data-[motion=to-end]:animate-exitToRight absolute left-0 top-[calc(100%+4px)] min-w-[164px] rounded-md border border-border bg-surface-primary p-0.5 dark:border-dark-border dark:bg-surface-primary">
+        <ul className="flex flex-col ">
           {menu.map(({href, label}) => (
-            <li key={`${href}${label}`} className="">
-              <NavigationMenuLink href={href}>{label}</NavigationMenuLink>
+            <li key={`${href}${label}`}>
+              <NavigationMenuLinkPrimitive
+                asChild
+                className="flex items-center gap-2 rounded-md px-3 py-1.5 hover:bg-surface-tertiary dark:hover:bg-dark-surface-tertiary"
+                href={href}
+              >
+                <Link href={href}>{label}</Link>
+              </NavigationMenuLinkPrimitive>
             </li>
           ))}
         </ul>
