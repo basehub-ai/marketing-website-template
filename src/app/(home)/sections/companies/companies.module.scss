@@ -1,0 +1,6 @@
+.scrollbar {
+  /* width */
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}

@@ -37,7 +37,7 @@ const links: Link[] = [
 
 export function NavigationMenuHeader() {
   return (
-    <NavigationMenu className="relative z-[1] flex justify-center">
+    <NavigationMenu className="relative z-[1] hidden justify-center md:flex">
       <NavigationMenuList className="flex flex-1 px-4">
         {links.map(({href, label, menu}) =>
           menu ? (
@@ -48,9 +48,9 @@ export function NavigationMenuHeader() {
               menu={menu}
             />
           ) : (
-            <NavigationMenuLink key={`${href}${label}`} href={href}>
-              {label}
-            </NavigationMenuLink>
+            <li key={`${href}${label}`}>
+              <NavigationMenuLink href={href}>{label}</NavigationMenuLink>
+            </li>
           ),
         )}
       </NavigationMenuList>
@@ -65,18 +65,16 @@ function NavigationMenuLink({
   ...props
 }: {children: React.ReactNode; href: string} & NavigationMenuLinkProps) {
   return (
-    <li>
-      <NavigationMenuLinkPrimitive
-        asChild
-        className={cx(
-          "inline-flex h-6 shrink-0 items-center justify-center gap-1 rounded-full px-3 pb-px hover:bg-surface-tertiary dark:hover:bg-dark-surface-tertiary md:h-7",
-          className,
-        )}
-        {...props}
-      >
-        <Link href={href}>{children}</Link>
-      </NavigationMenuLinkPrimitive>
-    </li>
+    <NavigationMenuLinkPrimitive
+      asChild
+      className={cx(
+        "inline-flex h-6 shrink-0 items-center justify-center gap-1 rounded-full px-3 pb-px hover:bg-surface-tertiary dark:hover:bg-dark-surface-tertiary md:h-7",
+        className,
+      )}
+      {...props}
+    >
+      <Link href={href}>{children}</Link>
+    </NavigationMenuLinkPrimitive>
   );
 }
 
@@ -97,7 +95,7 @@ function NavigationMenuLinkWithMenu({
           <ChevronDownIcon className="text-text-tertiary dark:text-dark-text-tertiary" />
         </NavigationMenuLink>
       </NavigationMenuTrigger>
-      <NavigationMenuContent className="data-[motion=from-start]:animate-enterFromLeft data-[motion=from-end]:animate-enterFromRight data-[motion=to-start]:animate-exitToLeft data-[motion=to-end]:animate-exitToRight absolute left-0 top-[calc(100%+4px)] min-w-[164px] rounded-md border border-border bg-surface-primary p-0.5 dark:border-dark-border dark:bg-surface-primary">
+      <NavigationMenuContent className="absolute left-0 top-[calc(100%+4px)] min-w-[164px] rounded-md border border-border bg-surface-primary p-0.5 data-[motion=from-end]:animate-enterFromRight data-[motion=from-start]:animate-enterFromLeft data-[motion=to-end]:animate-exitToRight data-[motion=to-start]:animate-exitToLeft dark:border-dark-border dark:bg-surface-primary">
         <ul className="flex flex-col ">
           {menu.map(({href, label}) => (
             <li key={`${href}${label}`}>

@@ -12,6 +12,7 @@ const config: Config = {
       // Dynamic colors
       black: "#000",
       white: "#fff",
+      transparent: "transparent",
       neutral: {
         50: "rgb(var(--neutral-rgb-50) / <alpha-value>)",
         100: "rgb(var(--neutral-rgb-100) / <alpha-value>)",
@@ -62,7 +63,7 @@ const config: Config = {
     },
     extend: {
       gridTemplateColumns: {
-        header: "1fr auto 1fr",
+        header: "1fr max-content 1fr",
       },
       keyframes: {
         enterFromRight: {
@@ -97,6 +98,9 @@ const config: Config = {
           from: {opacity: "1"},
           to: {opacity: "0"},
         },
+      },
+      fontSize: {
+        "2xs": ["11px", {lineHeight: "1.3", letterSpacing: "-0.3", fontWeight: "400"}],
       },
     },
     animation: {
