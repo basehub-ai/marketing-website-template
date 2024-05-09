@@ -5,6 +5,9 @@ const nextConfig = {
       fullUrl: true,
     },
   },
+  images: {
+    domains: ["basehub.earth"],
+  },
 };
 
 module.exports = nextConfig;

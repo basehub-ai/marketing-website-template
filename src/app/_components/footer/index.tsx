@@ -7,7 +7,6 @@ import {Pump} from ".basehub/react-pump";
 export async function Footer() {
   return (
     <Pump
-      draft
       queries={[
         {
           footer: {

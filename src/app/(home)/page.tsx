@@ -1,9 +1,13 @@
 import {ThemeSwitcher} from "../_components/theme-switcher";
 
 import {BigFeature} from "./sections/big-feature";
+import {Callout1} from "./sections/callout-1";
+import {Callout2} from "./sections/callout-2";
 import {Companies} from "./sections/companies";
+import {FeaturesGrid} from "./sections/features-grid";
 import {FeaturesList} from "./sections/features-list";
 import {Hero} from "./sections/hero";
+import {SideFeatures} from "./sections/side-features";
 
 export default function HomePage() {
   return (
@@ -12,10 +16,10 @@ export default function HomePage() {
       <Companies />
       <FeaturesList />
       <BigFeature />
-      <section>{`<Features Grid  />`}</section>
-      <section>{`<Features side by side />`}</section>
-      <section>{`<CTA />`}</section>
-      <section>{`<Second CTA />`}</section>
+      <FeaturesGrid />
+      <SideFeatures />
+      <Callout1 />
+      <Callout2 />
       <section>{`<Testimonials big Cards />`}</section>
       <section>{`<Testimonials Grid />`}</section>
       <section>{`<Pricing />`}</section>

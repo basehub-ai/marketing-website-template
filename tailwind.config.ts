@@ -61,6 +61,22 @@ const config: Config = {
         DEFAULT: "#FF6C02",
       },
     },
+    fontSize: {
+      "2xs": ["11px", {lineHeight: "1.3", letterSpacing: "-0.3px", fontWeight: "400"}],
+      xs: ["0.75rem", {lineHeight: "1rem", letterSpacing: "-0.36px"}],
+      sm: ["0.875rem", {lineHeight: "1.25rem", letterSpacing: "-0.42px"}],
+      base: ["1rem", {lineHeight: "1.5rem", letterSpacing: "-0.48px"}],
+      lg: ["1.125rem", {lineHeight: "1.75rem", letterSpacing: "-0.72px"}],
+      xl: ["1.25rem", {lineHeight: "1.75rem", letterSpacing: "-0.8px"}],
+      "2xl": ["1.5rem", {lineHeight: "2rem", letterSpacing: "-1.04px"}],
+      "3xl": ["1.875rem", {lineHeight: "2.25rem", letterSpacing: "-1.2px"}],
+      "4xl": ["2.25rem", {lineHeight: "2.5rem", letterSpacing: "-1.44px"}],
+      "5xl": ["3rem", {lineHeight: "1"}],
+      "6xl": ["3.75rem", {lineHeight: "1"}],
+      "7xl": ["4.5rem", {lineHeight: "1"}],
+      "8xl": ["6rem", {lineHeight: "1"}],
+      "9xl": ["8rem", {lineHeight: "1"}],
+    },
     extend: {
       gridTemplateColumns: {
         header: "1fr max-content 1fr",
@@ -98,9 +114,6 @@ const config: Config = {
           from: {opacity: "1"},
           to: {opacity: "0"},
         },
-      },
-      fontSize: {
-        "2xs": ["11px", {lineHeight: "1.3", letterSpacing: "-0.3", fontWeight: "400"}],
       },
     },
     animation: {

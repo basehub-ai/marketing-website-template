@@ -1,22 +1,57 @@
 import {Slot} from "@radix-ui/react-slot";
-import {cx} from "class-variance-authority";
+import {type VariantProps, cva, cx} from "class-variance-authority";
 
-interface HeadingProps {
+const $headingContainer = cva("flex flex-col gap-3", {
+  variants: {
+    align: {
+      center: "items-center",
+      left: "items-start",
+      right: "items-end",
+    },
+  },
+  defaultVariants: {
+    align: "center",
+  },
+});
+
+type HeadingProps = {
   children: React.ReactNode;
   tag: React.ReactNode;
   subtitle: React.ReactNode;
   className?: string;
-}
+} & VariantProps<typeof $headingContainer>;
 
-export function Heading({tag, subtitle, className, ...props}: HeadingProps) {
+export function Heading({tag, subtitle, className, align, ...props}: HeadingProps) {
   const Comp = Slot;
 
   return (
-    <div className="flex flex-col items-center gap-3">
+    <div className={$headingContainer({align, className})}>
       <Tag>{tag}</Tag>
-      <div className="flex flex-col items-center justify-center gap-1">
-        <Comp className={cx("text-center text-3xl md:text-4xl", className)} {...props} />
-        <p className="text-pretty text-center text-lg font-light text-text-tertiary dark:text-dark-text-tertiary md:text-xl">
+      <div
+        className={cx("flex flex-col justify-center gap-1", {
+          "items-start": align === "left",
+          "items-center": align === "center" || !align,
+          "items-end": align === "right",
+        })}
+      >
+        <Comp
+          className={cx("text-3xl font-medium md:text-4xl", {
+            "text-center": align === "center" || !align,
+            "text-left": align === "left",
+            "text-right": align === "right",
+          })}
+          {...props}
+        />
+        <p
+          className={cx(
+            "text-pretty text-lg font-light text-text-tertiary dark:text-dark-text-tertiary md:text-xl",
+            {
+              "text-center": align === "center" || !align,
+              "text-left": align === "left",
+              "text-right": align === "right",
+            },
+          )}
+        >
           {subtitle}
         </p>
       </div>

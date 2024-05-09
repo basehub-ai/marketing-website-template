@@ -49,6 +49,7 @@ export function Button({
   iconSide = "left",
   unstyled,
   className,
+  size,
   ...props
 }: ButtonProps<"button">) {
   return (
@@ -63,6 +64,7 @@ export function Button({
               iconSide: icon ? iconSide : undefined,
               unstyled,
               className,
+              size,
             })
       }
       disabled={disabled}
@@ -83,6 +85,7 @@ export function ButtonLink({
   iconSide = "left",
   unstyled,
   className,
+  size,
   ...props
 }: ButtonProps<"a"> & LinkProps) {
   return (
@@ -97,6 +100,7 @@ export function ButtonLink({
               iconSide: icon ? iconSide : undefined,
               className,
               unstyled,
+              size,
             })
       }
       {...props}
