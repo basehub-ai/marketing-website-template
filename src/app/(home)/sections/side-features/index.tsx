@@ -78,7 +78,7 @@ const featuresGrid = {
 export function SideFeatures() {
   return (
     <Section className="gap-8 lg:!flex-row lg:gap-24 lg:p-28 xl:gap-32" container="full">
-      <div className="flex flex-1 shrink flex-col gap-10 self-stretch px-6 lg:px-0">
+      <div className="container mx-auto flex flex-1 shrink flex-col gap-10 self-stretch px-6 lg:px-0">
         <Heading
           align="left"
           className="items-start"

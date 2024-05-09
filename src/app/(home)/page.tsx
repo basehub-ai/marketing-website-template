@@ -8,6 +8,8 @@ import {FeaturesGrid} from "./sections/features-grid";
 import {FeaturesList} from "./sections/features-list";
 import {Hero} from "./sections/hero";
 import {SideFeatures} from "./sections/side-features";
+import {Testimonials} from "./sections/testimonials";
+import {TestimonialsGrid} from "./sections/testimonials-grid";
 
 export default function HomePage() {
   return (
@@ -20,8 +22,8 @@ export default function HomePage() {
       <SideFeatures />
       <Callout1 />
       <Callout2 />
-      <section>{`<Testimonials big Cards />`}</section>
-      <section>{`<Testimonials Grid />`}</section>
+      <Testimonials />
+      <TestimonialsGrid />
       <section>{`<Pricing />`}</section>
       <section>{`<FAQs />`}</section>
       <section>{`<FAQs Accordions />`}</section>

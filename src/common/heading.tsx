@@ -16,8 +16,8 @@ const $headingContainer = cva("flex flex-col gap-3", {
 
 type HeadingProps = {
   children: React.ReactNode;
-  tag: React.ReactNode;
-  subtitle: React.ReactNode;
+  tag?: React.ReactNode;
+  subtitle?: React.ReactNode;
   className?: string;
 } & VariantProps<typeof $headingContainer>;
 
@@ -26,7 +26,7 @@ export function Heading({tag, subtitle, className, align, ...props}: HeadingProp
 
   return (
     <div className={$headingContainer({align, className})}>
-      <Tag>{tag}</Tag>
+      {tag ? <Tag>{tag}</Tag> : null}
       <div
         className={cx("flex flex-col justify-center gap-1", {
           "items-start": align === "left",
@@ -42,18 +42,20 @@ export function Heading({tag, subtitle, className, align, ...props}: HeadingProp
           })}
           {...props}
         />
-        <p
-          className={cx(
-            "text-pretty text-lg font-light text-text-tertiary dark:text-dark-text-tertiary md:text-xl",
-            {
-              "text-center": align === "center" || !align,
-              "text-left": align === "left",
-              "text-right": align === "right",
-            },
-          )}
-        >
-          {subtitle}
-        </p>
+        {subtitle ? (
+          <p
+            className={cx(
+              "text-pretty text-lg font-light text-text-tertiary dark:text-dark-text-tertiary md:text-xl",
+              {
+                "text-center": align === "center" || !align,
+                "text-left": align === "left",
+                "text-right": align === "right",
+              },
+            )}
+          >
+            {subtitle}
+          </p>
+        ) : null}
       </div>
     </div>
   );
