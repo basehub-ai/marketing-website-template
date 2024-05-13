@@ -21,7 +21,7 @@ import {TestimonialsGrid} from "./sections/testimonials-grid";
 export default async function HomePage() {
   return (
     <main className="min-h-[calc(100svh-var(--header-height))]">
-      <Pump
+      {/* <Pump
         queries={[
           {
             home: {
@@ -42,7 +42,7 @@ export default async function HomePage() {
             }
           });
         }}
-      </Pump>
+      </Pump> */}
       <Hero />
       <Companies />
 
