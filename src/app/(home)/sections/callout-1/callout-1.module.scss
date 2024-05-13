@@ -1,0 +1,35 @@
+@keyframes lineAnimation {
+    0% {
+        transform: translateX(-100%);
+    }
+    100% {
+        transform: translateX(100%);
+    }
+}
+
+.line {
+    animation: lineAnimation 3s linear infinite;
+    transform-origin: right;
+    height: 1px;
+    transform: translateX(-100%);
+    // Shadow circle on the right
+    &::after {
+        content: '';
+        position: absolute;
+        right: 0;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 1px;
+        height: 1px;
+        border-radius: 50%;
+        background: transparent;
+        box-shadow: 0 0 30px rgba(255, 255, 255, 0.5);
+    }
+}
+
+
+@for $i from 1 through 10 {
+    .line:nth-child(#{$i}) {
+        animation-delay: random() * 5s;
+    }
+}
