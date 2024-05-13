@@ -27,7 +27,7 @@ export function Callout1() {
         <div className="absolute left-0 top-0 h-full w-full bg-surface-secondary blur-3xl dark:bg-dark-surface-secondary" />
         {/* -------- */}
         <div className="relative z-10 flex flex-col items-center gap-2 text-center">
-          <h4 className="text-center text-3xl font-medium tracking-tighter text-text-primary dark:text-text-secondary sm:max-w-full sm:px-0 md:text-4xl">
+          <h4 className="text-center text-3xl font-medium tracking-tighter text-text-primary dark:text-dark-text-primary sm:max-w-full sm:px-0 md:text-4xl">
             {callout.title}
           </h4>
           <p className="text-lg text-text-secondary dark:text-dark-text-secondary md:text-xl">
