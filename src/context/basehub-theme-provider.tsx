@@ -30,6 +30,7 @@ export function BaseHubThemeProvider() {
           <style>{`
       :root {
         ${css.join("\n")}
+      }
       `}</style>
         );
       }}
