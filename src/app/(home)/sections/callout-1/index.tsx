@@ -23,7 +23,7 @@ export function Callout1() {
   return (
     <Section>
       <article className="relative flex flex-col items-center justify-center gap-9 self-stretch overflow-hidden rounded-xl border border-border bg-surface-secondary p-6 dark:border-dark-border dark:bg-dark-surface-secondary">
-        {/* Lines and bg - TODO animation of rays */}
+        {/* Lines and bg  */}
         <div
           className={cx(
             "absolute left-0 top-10 h-px w-full bg-gradient-to-l from-black/40 to-transparent dark:from-white/40 dark:to-transparent",
