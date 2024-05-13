@@ -43,7 +43,7 @@ export async function Footer() {
                   <Link
                     key={_title}
                     className="font-light tracking-tight text-text-secondary hover:text-text-primary dark:text-dark-text-secondary dark:hover:text-dark-text-primary"
-                    href={url}
+                    href={url ?? ""}
                   >
                     {_title}
                   </Link>
@@ -65,8 +65,13 @@ export async function Footer() {
                 {data.footer.socialLinks.items.map((link) => {
                   return (
                     <li key={link._title}>
-                      <Link className="aspect-square hover:brightness-75" href={link.url}>
-                        <Image alt={link._title} height={20} src={link.icon.url} width={20} />
+                      <Link className="aspect-square hover:brightness-75" href={link.url ?? ""}>
+                        <Image
+                          alt={link._title}
+                          height={20}
+                          src={link.icon?.url ?? ""}
+                          width={20}
+                        />
                       </Link>
                     </li>
                   );

@@ -65,20 +65,24 @@ const companies = [
 export function Companies() {
   return (
     <Section>
-      <h2 className="text-center text-dark-text-tertiary opacity-50 ">
+      <h2 className="text-center text-dark-text-tertiary opacity-50">
         Join 4,000 companies already growing
       </h2>
-      <div className="relative max-w-full ">
-        <div className="bg-transparent absolute left-0 top-0 h-full w-[30vw] bg-gradient-to-r from-surface-primary dark:from-dark-surface-primary lg:hidden" />
-        <div className="bg-transparent absolute right-0 top-0 h-full w-[30vw] bg-gradient-to-l from-surface-primary dark:from-dark-surface-primary lg:hidden" />
-        <div className={cx("flex items-center justify-between gap-6 overflow-x-auto", s.scrollbar)}>
+      <div className="no-scrollbar relative flex max-w-full justify-center">
+        <div className="pointer-events-none absolute left-0 top-0 h-full w-[30vw] bg-transparent bg-gradient-to-r from-surface-primary dark:from-dark-surface-primary xl:hidden" />
+        <div className="pointer-events-none absolute right-0 top-0 h-full w-[30vw] bg-transparent bg-gradient-to-l from-surface-primary dark:from-dark-surface-primary xl:hidden" />
+        <div
+          className={cx(
+            "flex items-center gap-4 overflow-x-auto px-6 lg:gap-6 lg:px-12",
+            s.scrollbar,
+          )}
+        >
           {companies.map((company) => (
-            <figure key={company.url} className="p-4">
+            <figure key={company.url} className="px-2 py-3 lg:p-4">
               <svg
+                className="w-24 lg:w-32"
                 fill="none"
-                height="24"
                 viewBox="0 0 129 24"
-                width="129"
                 xmlns="http://www.w3.org/2000/svg"
               >
                 <path

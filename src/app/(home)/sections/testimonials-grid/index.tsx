@@ -158,7 +158,7 @@ export function TestimonialsGrid() {
         <h4>What our customers say</h4>
       </Heading>
       <div className="relative grid grid-cols-1 place-items-center gap-8 self-stretch md:grid-cols-3">
-        <div className="absolute left-0 top-0 h-full w-full bg-gradient-to-t from-surface-primary/90 via-transparent to-surface-primary/90 dark:from-dark-surface-primary/90 dark:to-dark-surface-primary/90" />
+        <div className="absolute left-0 top-0 h-full w-full bg-gradient-to-t from-surface-primary/90 via-transparent to-surface-primary/90 dark:from-dark-surface-primary/95 dark:via-transparent dark:to-dark-surface-primary/95" />
         {testimonials.map(({author, quote}, i) => (
           <article
             key={author.name}

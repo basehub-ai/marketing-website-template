@@ -21,7 +21,7 @@ export function BaseHubThemeProvider() {
         if (!palette) throw new Error("Palette not found");
 
         const css = Object.entries(palette).map(([key, value]) => {
-          const rgb = hexToRgb(value);
+          const rgb = hexToRgb(value); // (is used in the tailwind.config.ts to add colors with alpha values)
 
           return `--neutral-${key}: ${value}; --neutral-rgb-${key}: ${rgb};`;
         });

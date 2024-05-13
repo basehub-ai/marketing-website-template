@@ -4,9 +4,9 @@ import {type VariantProps, cva, cx} from "class-variance-authority";
 const $headingContainer = cva("flex flex-col gap-3", {
   variants: {
     align: {
-      center: "items-center",
-      left: "items-start",
-      right: "items-end",
+      center: "items-center self-center",
+      left: "items-start self-start",
+      right: "items-end self-end",
     },
   },
   defaultVariants: {
@@ -29,9 +29,9 @@ export function Heading({tag, subtitle, className, align, ...props}: HeadingProp
       {tag ? <Tag>{tag}</Tag> : null}
       <div
         className={cx("flex flex-col justify-center gap-1", {
-          "items-start": align === "left",
-          "items-center": align === "center" || !align,
-          "items-end": align === "right",
+          "items-start self-start": align === "left",
+          "items-center self-center": align === "center" || !align,
+          "items-end self-end": align === "right",
         })}
       >
         <Comp
@@ -72,7 +72,7 @@ export function Tag({
   return (
     <Comp
       className={cx(
-        "flex items-center justify-center gap-2 rounded-full border border-border bg-surface-primary px-3.5 pb-px text-text-tertiary dark:border-dark-border dark:bg-dark-surface-primary dark:text-dark-text-tertiary",
+        "flex min-h-7 items-center justify-center gap-2 rounded-full border border-border bg-surface-primary px-3.5 pb-px text-sm font-medium text-text-tertiary dark:border-dark-border dark:bg-dark-surface-primary dark:text-dark-text-tertiary md:text-base",
         className,
       )}
       {...props}

@@ -69,7 +69,7 @@ const config: Config = {
       lg: ["1.125rem", {lineHeight: "1.75rem", letterSpacing: "-0.72px"}],
       xl: ["1.25rem", {lineHeight: "1.75rem", letterSpacing: "-0.8px"}],
       "2xl": ["1.5rem", {lineHeight: "2rem", letterSpacing: "-1.04px"}],
-      "3xl": ["1.875rem", {lineHeight: "2.25rem", letterSpacing: "-1.2px"}],
+      "3xl": ["2rem", {lineHeight: "2.25rem", letterSpacing: "-1.2px"}],
       "4xl": ["2.25rem", {lineHeight: "2.5rem", letterSpacing: "-1.44px"}],
       "5xl": ["3rem", {lineHeight: "1"}],
       "6xl": ["3.75rem", {lineHeight: "1"}],
@@ -114,9 +114,19 @@ const config: Config = {
           from: {opacity: "1"},
           to: {opacity: "0"},
         },
+        slideDown: {
+          from: {height: "0px"},
+          to: {height: "var(--radix-accordion-content-height)"},
+        },
+        slideUp: {
+          from: {height: "var(--radix-accordion-content-height)"},
+          to: {height: "0px"},
+        },
       },
     },
     animation: {
+      slideDown: "slideDown 300ms cubic-bezier(0.87, 0, 0.13, 1)",
+      slideUp: "slideUp 300ms cubic-bezier(0.87, 0, 0.13, 1)",
       scaleIn: "scaleIn 200ms ease",
       scaleOut: "scaleOut 200ms ease",
       fadeIn: "fadeIn 200ms ease",
