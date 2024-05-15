@@ -2,24 +2,29 @@ import {cx} from "class-variance-authority";
 
 import {ButtonLink} from "@/common/button";
 import {Section} from "@/common/layout";
+import {fragmentOn} from ".basehub/schema";
 
 import s from "./callout-1.module.scss";
-const callout = {
-  title: "AI for Every Business",
-  subtitle: "Empower your organization with our AI-driven solutions.",
-  cta: {
-    _title: "Learn More",
-    url: "/",
-    type: "secondary",
-  },
-  secondaryCta: {
-    _title: "Get Started",
-    url: "/",
-    type: "primary",
-  },
-};
 
-export function Callout1() {
+export const calloutFragment = fragmentOn("CalloutComponent", {
+  title: true,
+  subtitle: true,
+  calloutCtAs: {
+    cta: {
+      label: true,
+      href: true,
+      type: true,
+    },
+    secondaryCta: {
+      label: true,
+      href: true,
+      type: true,
+    },
+  },
+});
+type Callout = fragmentOn.infer<typeof calloutFragment>;
+
+export function Callout(callout: Callout) {
   return (
     <Section>
       <article className="relative flex flex-col items-center justify-center gap-9 self-stretch overflow-hidden rounded-xl border border-border bg-surface-secondary p-6 dark:border-dark-border dark:bg-dark-surface-secondary">
@@ -53,11 +58,17 @@ export function Callout1() {
           </p>
         </div>
         <div className="relative z-10 flex items-center gap-2">
-          <ButtonLink href="/" intent="secondary">
-            {callout.cta._title}
+          <ButtonLink
+            href={callout.calloutCtAs.secondaryCta.href ?? ""}
+            intent={callout.calloutCtAs.cta.type}
+          >
+            {callout.calloutCtAs.secondaryCta.label}
           </ButtonLink>
-          <ButtonLink href="/" intent="primary">
-            {callout.secondaryCta._title}
+          <ButtonLink
+            href={callout.calloutCtAs.cta.href ?? ""}
+            intent={callout.calloutCtAs.cta.type}
+          >
+            {callout.calloutCtAs.cta.label}
           </ButtonLink>
         </div>
       </article>

@@ -1,22 +1,26 @@
+import {fragmentOn} from ".basehub/schema";
 import {ButtonLink} from "@/common/button";
 import {Section} from "@/common/layout";
 
-const callout = {
-  title: "AI for Every Business",
-  subtitle: "Empower your organization with our AI-driven solutions.",
-  cta: {
-    _title: "Learn More",
-    url: "/",
-    type: "secondary",
+export const calloutv2Fragment = fragmentOn("CalloutV2Component", {
+  title: true,
+  subtitle: true,
+  calloutV2CtAs: {
+    cta: {
+      label: true,
+      href: true,
+      type: true,
+    },
+    secondaryCta: {
+      label: true,
+      href: true,
+      type: true,
+    },
   },
-  secondaryCta: {
-    _title: "Get Started",
-    url: "/",
-    type: "primary",
-  },
-};
+});
+type Callout2 = fragmentOn.infer<typeof calloutv2Fragment>;
 
-export function Callout2() {
+export function Callout2(callout: Callout2) {
   return (
     <Section>
       <article className="flex flex-col justify-center gap-9 self-stretch rounded-xl bg-neutral-100 p-6 dark:bg-neutral-900/40 lg:flex-row lg:justify-between lg:p-10">
@@ -29,11 +33,17 @@ export function Callout2() {
           </p>
         </div>
         <div className="flex items-center gap-2 lg:flex-col-reverse">
-          <ButtonLink href="/" intent="secondary">
-            {callout.cta._title}
+          <ButtonLink
+            href={callout.calloutV2CtAs.secondaryCta.href ?? ""}
+            intent={callout.calloutV2CtAs.secondaryCta.type}
+          >
+            {callout.calloutV2CtAs.secondaryCta.label}
           </ButtonLink>
-          <ButtonLink href="/" intent="primary">
-            {callout.secondaryCta._title}
+          <ButtonLink
+            href={callout.calloutV2CtAs.cta.href ?? ""}
+            intent={callout.calloutV2CtAs.cta.type}
+          >
+            {callout.calloutV2CtAs.cta.label}
           </ButtonLink>
         </div>
       </article>
