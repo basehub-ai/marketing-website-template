@@ -66,9 +66,9 @@ export function TestimonialsGrid({
               <div className="px-4">
                 <figure className="aspect-square rounded-full bg-neutral-200 p-0.5">
                   <img
-                    alt="Alexandra Nguyen"
-                    className="size-6 rounded-full"
-                    src="https://api.dicebear.com/8.x/adventurer/svg"
+                    alt={author.image.alt ?? author._title}
+                    className="rounded-full"
+                    src={author.image.url}
                   />
                 </figure>
               </div>
