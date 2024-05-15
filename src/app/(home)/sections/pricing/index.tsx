@@ -5,80 +5,42 @@ import {type SVGProps} from "react";
 import {Heading} from "@/common/heading";
 import {Section} from "@/common/layout";
 import {ButtonLink} from "@/common/button";
+import {fragmentOn} from ".basehub/schema";
+import {headingFragment} from "@/lib/basehub/fragments";
 
 import s from "./pricing.module.scss";
 
-const pricing = {
-  title: "Pricing for all your needs",
-  subtitle: "Choose the better option for you",
-  tag: "Pricing",
-  pricing: [
-    {
-      _title: "Basic plan",
-      price: "$10/mo",
-      billed: "Billed annualy",
-      features: [
-        {_title: "Basic AI model access."},
-        {_title: "BLimited usage quota per month."},
-        {_title: "Standard email support included."},
-        {_title: "Basic analytics dashboard access."},
-        {_title: "Entry-level integration options available."},
-      ],
-      cta: {
-        _title: "Get started",
-        href: "#",
-        type: "secondary",
-      },
-      isMostPopular: false,
+export const pricingPlanItemFragment = fragmentOn("PlansItem", {
+  _id: true,
+  _title: true,
+  price: true,
+  billed: true,
+  isMostPopular: true,
+  list: {
+    items: {
+      _title: true,
+      _id: true,
     },
-    {
-      _title: "Pro plan",
-      price: "$20/mo",
-      billed: "Billed annualy",
-      features: [
-        {_title: "Basic AI model access."},
-        {_title: "BLimited usage quota per month."},
-        {_title: "Standard email support included."},
-        {_title: "Basic analytics dashboard access."},
-        {_title: "Entry-level integration options available."},
-      ],
-      cta: {
-        _title: "Get started",
-        href: "#",
-        type: "primary",
-      },
-      isMostPopular: true,
-    },
-    {
-      _title: "Premium plan",
-      price: "$30/mo",
-      billed: "Billed annualy",
-      features: [
-        {_title: "Basic AI model access."},
-        {_title: "BLimited usage quota per month."},
-        {_title: "Standard email support included."},
-        {_title: "Basic analytics dashboard access."},
-        {_title: "Entry-level integration options available."},
-        {_title: "Entry-level integration options available."},
-        {_title: "Entry-level integration options available."},
-      ],
-      cta: {
-        _title: "Get started",
-        href: "#",
-      },
-      isMostPopular: false,
-    },
-  ],
-};
+  },
+});
 
-export function Pricing() {
+export const pricingFragment = fragmentOn("PricingComponent", {
+  heading: headingFragment,
+  plans: {
+    items: pricingPlanItemFragment,
+  },
+});
+
+type Pricing = fragmentOn.infer<typeof pricingFragment>;
+
+export function Pricing(pricing: Pricing) {
   return (
     <Section>
-      <Heading align="left" subtitle="Choose the better option for you" tag="Pricing">
-        <h4>Pricing for all your needs</h4>
+      <Heading align="left" {...pricing.heading}>
+        <h4>{pricing.heading.title}</h4>
       </Heading>
       <div className="flex flex-col gap-5 self-stretch lg:flex-row">
-        {pricing.pricing.map((item) => (
+        {pricing.plans.items.map((item) => (
           <PricingCard key={item._title} {...item} />
         ))}
       </div>
@@ -86,14 +48,9 @@ export function Pricing() {
   );
 }
 
-function PricingCard(item: {
-  _title: string;
-  price: string;
-  billed: string;
-  features: {_title: string}[];
-  cta: {_title: string; href: string};
-  isMostPopular: boolean;
-}) {
+type PricingPlanItem = fragmentOn.infer<typeof pricingPlanItemFragment>;
+
+function PricingCard(item: PricingPlanItem) {
   return (
     <article
       key={item._title}
@@ -118,7 +75,7 @@ function PricingCard(item: {
       </header>
       <div className="flex flex-1 flex-col gap-6 p-6 !pb-12 lg:p-8">
         <ul className="flex flex-col gap-4">
-          {item.features.map((feature) => (
+          {item.list.items.map((feature) => (
             <li
               key={feature._title}
               className="flex items-start gap-3 text-sm text-text-secondary dark:text-dark-text-secondary lg:text-base"
@@ -135,11 +92,11 @@ function PricingCard(item: {
         ) : null}
         <ButtonLink
           className="z-10 w-full"
-          href={item.cta.href}
+          href="/"
           intent={item.isMostPopular ? "primary" : "secondary"}
           size="lg"
         >
-          {item.cta._title}
+          Get started
         </ButtonLink>
       </footer>
     </article>

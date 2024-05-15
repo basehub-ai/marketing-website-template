@@ -9,6 +9,7 @@ import {BaseHubThemeProvider} from "../context/basehub-theme-provider";
 import {Providers} from "./providers";
 import {Header} from "./_components/header";
 import {Footer} from "./_components/footer";
+import {Newsletter} from "./(home)/sections/newsletter/newsletter";
 
 export const metadata: Metadata = {
   title: "SaaS-template",
@@ -25,6 +26,7 @@ export default function RootLayout({children}: {children: React.ReactNode}) {
           <BaseHubThemeProvider />
           <Header />
           {children}
+          <Newsletter />
           <Footer />
         </Providers>
       </body>

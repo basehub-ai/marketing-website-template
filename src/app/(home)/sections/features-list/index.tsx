@@ -5,6 +5,20 @@ import {Section} from "@/common/layout";
 import {Heading} from "@/common/heading";
 import {fragmentOn} from ".basehub/schema";
 
+export const featureCardFragment = fragmentOn("FeaturesCardsListItem", {
+  _title: true,
+  description: true,
+  image: {
+    alt: true,
+    width: true,
+    height: true,
+    url: true,
+  },
+  characteristics: {
+    items: {_title: true},
+  },
+});
+
 export const featureCardsComponent = fragmentOn("FeaturesCardsComponent", {
   heading: {
     subtitle: true,
