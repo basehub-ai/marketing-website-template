@@ -37,6 +37,10 @@ export const $button = cva(
   },
 );
 
+const validIntents = ["primary", "secondary", "tertiary"] as const;
+const validateIntent = (intent: string): intent is (typeof validIntents)[number] =>
+  ([...validIntents] as string[]).includes(intent);
+
 type ButtonProps<C extends keyof JSX.IntrinsicElements> = Omit<
   VariantProps<typeof $button>,
   "intent"
@@ -44,12 +48,8 @@ type ButtonProps<C extends keyof JSX.IntrinsicElements> = Omit<
   JSX.IntrinsicElements[C] & {
     icon?: React.ReactNode;
     unstyled?: boolean;
-    intent: string;
+    intent?: (typeof validIntents)[number] | string;
   };
-
-const validIntents = ["primary", "secondary", "tertiary"] as const;
-const validateIntent = (intent: string): intent is (typeof validIntents)[number] =>
-  ([...validIntents] as string[]).includes(intent);
 
 export function Button({
   children,
