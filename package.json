@@ -3,8 +3,8 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "basehub && next dev",
-    "build": "next build",
+    "dev": "basehub dev & next dev",
+    "build": "basehub && next build",
     "start": "next start",
     "lint": "next lint",
     "postinstall": "basehub"

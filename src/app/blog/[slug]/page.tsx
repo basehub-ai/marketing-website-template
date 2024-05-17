@@ -107,20 +107,12 @@ export default async function BlogPage({params: {slug}}: {params: {slug: string}
               />
               <Section>
                 <div
-                  className={cx("prose prose-zinc dark:prose-invert max-w-prose text-start", "")}
+                  className={cx("prose prose-zinc max-w-prose text-start dark:prose-invert", "")}
                 >
                   <p className="text-2xl font-light">{blogpost.introduction}</p>
                   <RichText
                     components={{
-                      code: ({children, code, isInline, language}) => {
-                        if (isInline)
-                          return (
-                            <code className="prose-code:px-2 prose-code:pb-0.5 prose-code:border-b-surface-secondary dark:prose-code:bg-dark-surface-secondary prose-code:border prose-code:border-border dark:prose-code:border-dark-border prose-code:text-neutral-500">
-                              {children}
-                            </code>
-                          );
-                        else return <pre>{children}</pre>;
-                      },
+                      code: Code,
                     }}
                   >
                     {blogpost.body.json.content}
@@ -133,4 +125,22 @@ export default async function BlogPage({params: {slug}}: {params: {slug: string}
       </Pump>
     </main>
   );
+}
+
+function Code({
+  children,
+  isInline,
+}: {
+  children: React.ReactNode;
+  isInline: boolean;
+  language: string;
+  code: string;
+}) {
+  if (isInline) {
+    return (
+      <code className="prose-code:border prose-code:border-border prose-code:border-b-surface-secondary prose-code:px-2 prose-code:pb-0.5 prose-code:text-neutral-500 dark:prose-code:border-dark-border dark:prose-code:bg-dark-surface-secondary">
+        {children}
+      </code>
+    );
+  } else return <pre>{children}</pre>;
 }

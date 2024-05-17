@@ -109,11 +109,11 @@ export function Slider({
                 <div className="flex flex-1 flex-col border-r border-border py-4 dark:border-dark-border">
                   <h5 className="text-base font-medium md:text-lg">{author._title}</h5>
                   <p className="text-pretty text-sm text-text-tertiary dark:text-dark-text-tertiary md:text-base">
-                    {author._title}, {author.company?._title}
+                    {author._title}, {author.company._title}
                   </p>
                 </div>
                 <div className="pr-5">
-                  {author.company?.image ? (
+                  {author.company.image ? (
                     <Image
                       alt={author.company.image.alt ?? author.company._title}
                       className="w-12 md:w-16"
