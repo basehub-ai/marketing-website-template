@@ -1,5 +1,6 @@
 import type {Config} from "tailwindcss";
 
+import typography from "@tailwindcss/typography";
 const config: Config = {
   content: ["./src/**/*.{js,ts,jsx,tsx,mdx}"],
   darkMode: "class",
@@ -78,6 +79,9 @@ const config: Config = {
       "9xl": ["8rem", {lineHeight: "1"}],
     },
     extend: {
+      maxWidth: {
+        prose: "75ch",
+      },
       gridTemplateColumns: {
         header: "1fr max-content 1fr",
       },
@@ -137,7 +141,7 @@ const config: Config = {
       exitToRight: "exitToRight 250ms ease",
     },
   },
-  plugins: [],
+  plugins: [typography],
 };
 
 export default config;

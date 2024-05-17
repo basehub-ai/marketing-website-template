@@ -10,6 +10,7 @@ import {Providers} from "./providers";
 import {Header} from "./_components/header";
 import {Footer} from "./_components/footer";
 import {Newsletter} from "./(home)/sections/newsletter/newsletter";
+import {ThemeSwitcher} from "./_components/theme-switcher";
 
 export const metadata: Metadata = {
   title: "SaaS-template",
@@ -25,7 +26,9 @@ export default function RootLayout({children}: {children: React.ReactNode}) {
         <Providers>
           <BaseHubThemeProvider />
           <Header />
-          {children}
+          <main className="min-h-[calc(100svh-var(--header-height))]">{children}</main>
+          <ThemeSwitcher />
+
           <Newsletter />
           <Footer />
         </Providers>

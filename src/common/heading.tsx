@@ -19,13 +19,14 @@ type HeadingProps = {
   tag?: React.ReactNode;
   subtitle?: React.ReactNode;
   className?: string;
+  title?: string;
 } & VariantProps<typeof $headingContainer>;
 
-export function Heading({tag, subtitle, className, align, ...props}: HeadingProps) {
+export function Heading({tag, subtitle, className, title, align, ...props}: HeadingProps) {
   const Comp = Slot;
 
   return (
-    <div className={$headingContainer({align, className})}>
+    <div className={$headingContainer({align, className})} id={title}>
       {tag ? <Tag>{tag}</Tag> : null}
       <div
         className={cx("flex flex-col justify-center gap-1", {

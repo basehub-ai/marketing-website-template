@@ -5,7 +5,6 @@ import {
   NavigationMenu,
   NavigationMenuContent,
   NavigationMenuItem,
-  type NavigationMenuItemProps,
   NavigationMenuLink as NavigationMenuLinkPrimitive,
   NavigationMenuList,
   NavigationMenuTrigger,
@@ -31,7 +30,7 @@ const links: Link[] = [
       {href: "/blog", label: "Use cases"},
     ],
   },
-  {href: "/pricing", label: "Pricing"},
+  {href: "/#pricing", label: "Pricing"},
   {href: "/changelog", label: "Changelog"},
 ];
 
@@ -95,7 +94,7 @@ function NavigationMenuLinkWithMenu({
           <ChevronDownIcon className="text-text-tertiary dark:text-dark-text-tertiary" />
         </NavigationMenuLink>
       </NavigationMenuTrigger>
-      <NavigationMenuContent className="absolute left-0 top-[calc(100%+4px)] min-w-[164px] rounded-md border border-border bg-surface-primary p-0.5 data-[motion=from-end]:animate-enterFromRight data-[motion=from-start]:animate-enterFromLeft data-[motion=to-end]:animate-exitToRight data-[motion=to-start]:animate-exitToLeft dark:border-dark-border dark:bg-surface-primary">
+      <NavigationMenuContent className="absolute left-0 top-[calc(100%+4px)] min-w-[164px] rounded-md border border-border bg-surface-primary p-0.5 data-[motion=from-end]:animate-enterFromRight data-[motion=from-start]:animate-enterFromLeft data-[motion=to-end]:animate-exitToRight data-[motion=to-start]:animate-exitToLeft dark:border-dark-border dark:bg-dark-surface-primary">
         <ul className="flex flex-col ">
           {menu.map(({href, label}) => (
             <li key={`${href}${label}`}>

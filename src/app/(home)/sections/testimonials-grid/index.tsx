@@ -37,13 +37,13 @@ export function TestimonialsGrid({
       <Heading {...heading}>
         <h4>{title}</h4>
       </Heading>
-      <div className="relative grid grid-cols-1 place-items-center gap-8 self-stretch md:grid-cols-3">
+      <div className="relative columns-1 gap-8 overflow-hidden md:columns-3">
         <div className="absolute left-0 top-0 h-full w-full bg-gradient-to-t from-surface-primary/90 via-transparent to-surface-primary/90 dark:from-dark-surface-primary/95 dark:via-transparent dark:to-dark-surface-primary/95" />
         {testimonialsGridList.items.map(({author, quote}, i) => (
           <article
             key={author._id}
             className={cx(
-              "flex flex-1 shrink-0 snap-mandatory snap-center flex-col rounded-xl border border-border dark:border-dark-border",
+              "mb-8 flex flex-1  shrink-0 snap-mandatory snap-center flex-col rounded-xl border border-border dark:border-dark-border",
               {
                 "hidden md:block": i > 3,
               },

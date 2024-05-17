@@ -35,71 +35,68 @@ import {TestimonialsGrid, testimonialsGridFragment} from "./sections/testimonial
 
 export default async function HomePage() {
   return (
-    <main className="min-h-[calc(100svh-var(--header-height))]">
-      <Pump
-        draft={draftMode().isEnabled || isDev}
-        queries={[
-          {
-            home: {
-              __typename: true,
-              on_HeroComponent: heroFragment,
-              on_FeaturesCardsComponent: featureCardsComponent,
-              on_FeaturesSideBySideComponent: featuresSideBySideFragment,
-              on_FeaturesBigImageComponent: bigFeatureFragment,
-              on_FeaturesGridComponent: featuresGridFragment,
-              on_CompaniesComponent: companiesFragment,
-              on_CalloutComponent: calloutFragment,
-              on_CalloutV2Component: calloutv2Fragment,
-              on_TestimonialSliderComponent: testimonialsSliderFragment,
-              on_TestimonialsGridComponent: testimonialsGridFragment,
-              on_PricingComponent: pricingFragment,
-              on_FaqComponent: {
-                layout: true,
-                ...faqFragment,
-              },
+    <Pump
+      draft={draftMode().isEnabled || isDev}
+      queries={[
+        {
+          home: {
+            __typename: true,
+            on_HeroComponent: heroFragment,
+            on_FeaturesCardsComponent: featureCardsComponent,
+            on_FeaturesSideBySideComponent: featuresSideBySideFragment,
+            on_FeaturesBigImageComponent: bigFeatureFragment,
+            on_FeaturesGridComponent: featuresGridFragment,
+            on_CompaniesComponent: companiesFragment,
+            on_CalloutComponent: calloutFragment,
+            on_CalloutV2Component: calloutv2Fragment,
+            on_TestimonialSliderComponent: testimonialsSliderFragment,
+            on_TestimonialsGridComponent: testimonialsGridFragment,
+            on_PricingComponent: pricingFragment,
+            on_FaqComponent: {
+              layout: true,
+              ...faqFragment,
             },
           },
-        ]}
-      >
-        {async ([{home}]) => {
-          "use server";
-          if (!home) return null;
+        },
+      ]}
+    >
+      {async ([{home}]) => {
+        "use server";
+        if (!home) return null;
 
-          return home.map((comp) => {
-            switch (true) {
-              case isHeroComponent(comp):
-                return <Hero {...comp} />;
-              case isFeaturesCardsComponent(comp):
-                return <FeaturesList {...comp} />;
-              case isFeaturesGridComponent(comp):
-                return <FeaturesGrid {...comp} />;
-              case isCompaniesComponent(comp):
-                return <Companies {...comp} />;
-              case isFeaturesBigImageComponent(comp):
-                return <BigFeature {...comp} />;
-              case isFeaturesSideBySideComponent(comp):
-                return <SideFeatures {...comp} />;
-              case isCalloutComponent(comp):
-                return <Callout {...comp} />;
-              case isCalloutV2Component(comp):
-                return <Callout2 {...comp} />;
-              case isTestimonialSliderComponent(comp):
-                return <Testimonials {...comp} />;
-              case isTestimonialsGridComponent(comp):
-                return <TestimonialsGrid {...comp} />;
-              case isPricingComponent(comp):
-                return <Pricing {...comp} />;
-              case isFaqComponent(comp) && comp.layout === "list":
-                return <Faq {...comp} />;
-              case isFaqComponent(comp) && comp.layout === "accordion":
-                return <AccordionFaq {...comp} />;
-              default:
-                return null;
-            }
-          });
-        }}
-      </Pump>
-      <ThemeSwitcher />
-    </main>
+        return home.map((comp) => {
+          switch (true) {
+            case isHeroComponent(comp):
+              return <Hero {...comp} />;
+            case isFeaturesCardsComponent(comp):
+              return <FeaturesList {...comp} />;
+            case isFeaturesGridComponent(comp):
+              return <FeaturesGrid {...comp} />;
+            case isCompaniesComponent(comp):
+              return <Companies {...comp} />;
+            case isFeaturesBigImageComponent(comp):
+              return <BigFeature {...comp} />;
+            case isFeaturesSideBySideComponent(comp):
+              return <SideFeatures {...comp} />;
+            case isCalloutComponent(comp):
+              return <Callout {...comp} />;
+            case isCalloutV2Component(comp):
+              return <Callout2 {...comp} />;
+            case isTestimonialSliderComponent(comp):
+              return <Testimonials {...comp} />;
+            case isTestimonialsGridComponent(comp):
+              return <TestimonialsGrid {...comp} />;
+            case isPricingComponent(comp):
+              return <Pricing {...comp} />;
+            case isFaqComponent(comp) && comp.layout === "list":
+              return <Faq {...comp} />;
+            case isFaqComponent(comp) && comp.layout === "accordion":
+              return <AccordionFaq {...comp} />;
+            default:
+              return null;
+          }
+        });
+      }}
+    </Pump>
   );
 }

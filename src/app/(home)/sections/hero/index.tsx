@@ -2,6 +2,9 @@ import Image from "next/image";
 import Link from "next/link";
 
 import {fragmentOn} from ".basehub/schema";
+import {AvatarsGroup} from "@/common/avatars-group";
+import {Avatar} from "@/common/basehub-avatar";
+import {avatarFragment} from "@/lib/basehub/fragments";
 
 export const heroFragment = fragmentOn("HeroComponent", {
   customerSatisfactionBanner: {
@@ -9,9 +12,7 @@ export const heroFragment = fragmentOn("HeroComponent", {
     avatars: {
       items: {
         _id: true,
-        avatar: {
-          url: true,
-        },
+        avatar: avatarFragment,
       },
     },
   },
@@ -43,18 +44,11 @@ export function Hero(hero: Hero) {
       <div className="relative z-10 flex flex-col divide-y divide-surface-tertiary pt-[35px] dark:divide-dark-surface-tertiary">
         <div className="flex flex-col items-center justify-end">
           <div className="flex items-center gap-2 !border !border-b-0 border-surface-tertiary px-4 py-2 dark:border-dark-surface-tertiary">
-            <div className="flex -space-x-3 rtl:space-x-reverse">
-              {hero.customerSatisfactionBanner.avatars.items.map(({_id, avatar}) => (
-                <Image
-                  key={_id}
-                  alt="Avatar"
-                  className="size-7 rounded-full border-2 border-surface-primary dark:border-dark-surface-primary"
-                  height={50}
-                  src={avatar.url}
-                  width={50}
-                />
+            <AvatarsGroup>
+              {hero.customerSatisfactionBanner.avatars.items.map(({avatar, _id}) => (
+                <Avatar {...avatar} key={_id} />
               ))}
-            </div>
+            </AvatarsGroup>
             <p className="text-sm text-text-tertiary dark:text-dark-text-tertiary">
               {hero.customerSatisfactionBanner.text}
             </p>
