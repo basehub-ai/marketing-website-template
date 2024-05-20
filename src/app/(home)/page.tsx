@@ -17,19 +17,19 @@ import {
 } from ".basehub/schema";
 import { isDev } from "@/utils/constants";
 
-import { AccordionFaq } from "./sections/accordion-faq";
-import { BigFeature, bigFeatureFragment } from "./sections/big-feature";
-import { Callout, calloutFragment } from "./sections/callout-1";
-import { Callout2, calloutv2Fragment } from "./sections/callout-2";
-import { Companies, companiesFragment } from "./sections/companies";
-import { Faq, faqFragment } from "./sections/faq";
-import { FeaturesGrid, featuresGridFragment } from "./sections/features-grid";
-import { FeaturesList, featureCardsComponent } from "./sections/features-list";
-import { Hero, heroFragment } from "./sections/hero";
-import { Pricing, pricingFragment } from "./sections/pricing";
-import { SideFeatures, featuresSideBySideFragment } from "./sections/side-features";
-import { Testimonials, testimonialsSliderFragment } from "./sections/testimonials";
-import { TestimonialsGrid, testimonialsGridFragment } from "./sections/testimonials-grid";
+import { AccordionFaq } from "../_sections/accordion-faq";
+import { BigFeature, bigFeatureFragment } from "../_sections/big-feature";
+import { Callout, calloutFragment } from "../_sections/callout-1";
+import { Callout2, calloutv2Fragment } from "../_sections/callout-2";
+import { Companies, companiesFragment } from "../_sections/companies";
+import { Faq, faqFragment } from "../_sections/faq";
+import { FeaturesGrid, featuresGridFragment } from "../_sections/features-grid";
+import { FeaturesList, featureCardsComponent } from "../_sections/features-list";
+import { Hero, heroFragment } from "../_sections/hero";
+import { Pricing, pricingFragment } from "../_sections/pricing";
+import { SideFeatures, featuresSideBySideFragment } from "../_sections/side-features";
+import { Testimonials, testimonialsSliderFragment } from "../_sections/testimonials";
+import { TestimonialsGrid, testimonialsGridFragment } from "../_sections/testimonials-grid";
 
 export default async function HomePage() {
   return (
