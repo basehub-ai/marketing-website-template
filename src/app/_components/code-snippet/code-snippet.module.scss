@@ -1,0 +1,27 @@
+.code-snippet {
+    display: flex;
+    flex-direction: column;
+    background: theme('colors.surface.secondary');
+    @media (prefers-color-scheme: 'dark') {
+        background: theme('colors.dark.surface.secondary');
+    }
+    .header {
+        padding: theme('spacing.2');
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+    .content {
+        padding: theme('spacing.2');
+        overflow: auto;
+        pre {
+            margin: 0;
+            white-space: pre-wrap;
+            word-wrap: break-word;
+        }
+        &:global(span.line-indicator){
+            margin-right: theme('spacing.2')
+        }
+    }
+    
+}

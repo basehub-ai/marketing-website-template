@@ -78,7 +78,7 @@ export function BlogpostCard({type = "list", className, ...post}: BlogPostCard) 
           key={post._id}
           className={cx(
             "group flex flex-col self-stretch rounded-xl border",
-            "border-border hover:bg-surface-tertiary dark:border-dark-border dark:bg-dark-surface-tertiary dark:text-dark-text-secondary",
+            "border-border bg-surface-secondary text-text-secondary hover:brightness-90 dark:border-dark-border dark:bg-dark-surface-secondary dark:text-dark-text-secondary dark:hover:brightness-90",
             "md:last:col-span-2 md:last:flex-row",
             "xl:flex-row xl:first:col-span-1 xl:first:row-span-2 xl:first:flex-col xl:last:col-span-1",
             "outline-none focus-visible:ring focus-visible:ring-neutral-500",

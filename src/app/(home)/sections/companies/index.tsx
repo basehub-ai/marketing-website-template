@@ -22,19 +22,14 @@ type Companies = fragmentOn.infer<typeof companiesFragment>;
 
 export function Companies(props: Companies) {
   return (
-    <Section>
+    <Section container="full">
       <h2 className="text-center text-dark-text-tertiary opacity-50">
         Join 4,000 companies already growing
       </h2>
-      <div className="no-scrollbar relative flex max-w-full justify-center">
+      <div className="no-scrollbar flex max-w-full justify-center overflow-auto">
         <div className="pointer-events-none absolute left-0 top-0 h-full w-[30vw] bg-transparent bg-gradient-to-r from-surface-primary dark:from-dark-surface-primary xl:hidden" />
         <div className="pointer-events-none absolute right-0 top-0 h-full w-[30vw] bg-transparent bg-gradient-to-l from-surface-primary dark:from-dark-surface-primary xl:hidden" />
-        <div
-          className={cx(
-            "flex items-center gap-4 overflow-x-auto px-6 lg:gap-6 lg:px-12",
-            s.scrollbar,
-          )}
-        >
+        <div className={cx("flex shrink-0 items-center gap-4 px-6 lg:gap-6 lg:px-12", s.scrollbar)}>
           {props.companies.items.map((company) => (
             <figure key={company.url} className="px-2 py-3 lg:p-4">
               <Image

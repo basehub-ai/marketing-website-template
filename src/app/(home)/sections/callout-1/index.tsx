@@ -60,7 +60,7 @@ export function Callout(callout: Callout) {
         <div className="relative z-10 flex items-center gap-2">
           <ButtonLink
             href={callout.calloutCtAs.secondaryCta.href ?? ""}
-            intent={callout.calloutCtAs.cta.type}
+            intent={callout.calloutCtAs.secondaryCta.type}
           >
             {callout.calloutCtAs.secondaryCta.label}
           </ButtonLink>

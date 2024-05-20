@@ -48,7 +48,7 @@ type ButtonProps<C extends keyof JSX.IntrinsicElements> = Omit<
   JSX.IntrinsicElements[C] & {
     icon?: React.ReactNode;
     unstyled?: boolean;
-    intent?: (typeof validIntents)[number] | string;
+    intent?: string;
   };
 
 export function Button({

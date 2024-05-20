@@ -91,7 +91,7 @@ export function Slider({
           {testimonialsSliderList.items.map(({quote, author}) => (
             <article
               key={author._title}
-              className="embla__slide ml-20 flex w-full min-w-0 max-w-full shrink-0 grow-0 basis-[600px] transform touch-pan-y touch-pinch-zoom flex-col rounded-xl border border-border [backface-visibility:hidden] last:!visible last:mr-10 dark:border-dark-border"
+              className="embla__slide ml-20 flex w-full min-w-0 max-w-full shrink-0 grow-0 basis-[600px] transform touch-pan-y touch-pinch-zoom flex-col rounded-xl border border-border [backface-visibility:hidden] last:!visible dark:border-dark-border"
             >
               <div className="flex flex-1 items-start border-b border-border p-5 dark:border-dark-border">
                 <blockquote className="text-pretty text-2xl font-light text-text-primary dark:text-dark-text-primary md:text-4xl">
