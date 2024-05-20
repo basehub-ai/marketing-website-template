@@ -28,6 +28,7 @@ export default async function BlogPage({ params: { slug } }: { params: { slug: s
     <main>
       <Pump
         draft={draftMode().isEnabled || isDev}
+        next={{ revalidate: 30 }}
         queries={[
           {
             blogposts: {
@@ -88,7 +89,7 @@ export default async function BlogPage({ params: { slug } }: { params: { slug: s
                 <Heading subtitle={blogpost.description}>
                   <h1>{blogpost._title}</h1>
                 </Heading>
-                <div className="flex items-center gap-16">
+                <div className="flex max-w-screen-lg items-center gap-16">
                   {blogpost.authors.map((author) => (
                     <figure key={author._id} className="flex items-center gap-2">
                       <Avatar key={author._id} {...author.image} />

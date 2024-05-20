@@ -5,14 +5,13 @@ import { Heading } from "@/common/heading";
 import { Section } from "@/common/layout";
 import { isDev } from "@/utils/constants";
 
-import { ThemeSwitcher } from "../_components/theme-switcher";
-
 import { BlogpostCard, blogpostCardFragment } from "./components/blogpost-card";
 
 export default async function BlogPage() {
   return (
     <Pump
       draft={draftMode().isEnabled || isDev}
+      next={{ revalidate: 30 }}
       queries={[
         {
           blogIndex: {

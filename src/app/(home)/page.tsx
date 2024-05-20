@@ -35,6 +35,7 @@ export default async function HomePage() {
   return (
     <Pump
       draft={draftMode().isEnabled || isDev}
+      next={{ revalidate: 30 }}
       queries={[
         {
           home: {

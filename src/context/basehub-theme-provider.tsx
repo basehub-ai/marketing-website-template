@@ -11,7 +11,11 @@ export type BaseHubTheme = fragmentOn.infer<typeof themeFragment>;
 
 export function BaseHubThemeProvider() {
   return (
-    <Pump draft={draftMode().isEnabled || isDev} queries={[{ settings: { theme: themeFragment } }]}>
+    <Pump
+      draft={draftMode().isEnabled || isDev}
+      next={{ revalidate: 30 }}
+      queries={[{ settings: { theme: themeFragment } }]}
+    >
       {async ([data]) => {
         "use server";
         const colors = await import("tailwindcss/colors");
