@@ -1,11 +1,11 @@
-import {cx} from "class-variance-authority";
+import { cx } from "class-variance-authority";
 import Image from "next/image";
 import Link from "next/link";
 
-import {fragmentOn} from ".basehub/schema";
-import {AvatarsGroup} from "@/common/avatars-group";
-import {Author} from "@/common/basehub-avatar";
-import {authorFragment} from "@/lib/basehub/fragments";
+import { fragmentOn } from ".basehub/schema";
+import { AvatarsGroup } from "@/common/avatars-group";
+import { Author } from "@/common/basehub-avatar";
+import { authorFragment } from "@/lib/basehub/fragments";
 
 export const blogpostCardFragment = fragmentOn("BlogpostsItem", {
   _id: true,
@@ -35,7 +35,7 @@ type BlogPostCard = {
   className?: string;
 } & BlogpostCardFragment;
 
-export function BlogpostCard({type = "list", className, ...post}: BlogPostCard) {
+export function BlogpostCard({ type = "list", className, ...post }: BlogPostCard) {
   switch (type) {
     case "list": {
       return (
@@ -93,7 +93,7 @@ export function BlogpostCard({type = "list", className, ...post}: BlogPostCard) 
               className="h-full max-h-[200px] flex-1 rounded-xl md:!max-h-full"
               height={post.image.height}
               src={post.image.url}
-              style={{aspectRatio: post.image.aspectRatio}}
+              style={{ aspectRatio: post.image.aspectRatio }}
               width={post.image.width}
             />
           </figure>

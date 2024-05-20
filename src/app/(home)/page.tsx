@@ -1,6 +1,6 @@
-import {draftMode} from "next/headers";
+import { draftMode } from "next/headers";
 
-import {Pump} from ".basehub/react-pump";
+import { Pump } from ".basehub/react-pump";
 import {
   isCalloutComponent,
   isCalloutV2Component,
@@ -15,23 +15,21 @@ import {
   isTestimonialSliderComponent,
   isTestimonialsGridComponent,
 } from ".basehub/schema";
-import {isDev} from "@/utils/constants";
+import { isDev } from "@/utils/constants";
 
-import {ThemeSwitcher} from "../_components/theme-switcher";
-
-import {AccordionFaq} from "./sections/accordion-faq";
-import {BigFeature, bigFeatureFragment} from "./sections/big-feature";
-import {Callout, calloutFragment} from "./sections/callout-1";
-import {Callout2, calloutv2Fragment} from "./sections/callout-2";
-import {Companies, companiesFragment} from "./sections/companies";
-import {Faq, faqFragment} from "./sections/faq";
-import {FeaturesGrid, featuresGridFragment} from "./sections/features-grid";
-import {FeaturesList, featureCardsComponent} from "./sections/features-list";
-import {Hero, heroFragment} from "./sections/hero";
-import {Pricing, pricingFragment} from "./sections/pricing";
-import {SideFeatures, featuresSideBySideFragment} from "./sections/side-features";
-import {Testimonials, testimonialsSliderFragment} from "./sections/testimonials";
-import {TestimonialsGrid, testimonialsGridFragment} from "./sections/testimonials-grid";
+import { AccordionFaq } from "./sections/accordion-faq";
+import { BigFeature, bigFeatureFragment } from "./sections/big-feature";
+import { Callout, calloutFragment } from "./sections/callout-1";
+import { Callout2, calloutv2Fragment } from "./sections/callout-2";
+import { Companies, companiesFragment } from "./sections/companies";
+import { Faq, faqFragment } from "./sections/faq";
+import { FeaturesGrid, featuresGridFragment } from "./sections/features-grid";
+import { FeaturesList, featureCardsComponent } from "./sections/features-list";
+import { Hero, heroFragment } from "./sections/hero";
+import { Pricing, pricingFragment } from "./sections/pricing";
+import { SideFeatures, featuresSideBySideFragment } from "./sections/side-features";
+import { Testimonials, testimonialsSliderFragment } from "./sections/testimonials";
+import { TestimonialsGrid, testimonialsGridFragment } from "./sections/testimonials-grid";
 
 export default async function HomePage() {
   return (
@@ -60,7 +58,7 @@ export default async function HomePage() {
         },
       ]}
     >
-      {async ([{home}]) => {
+      {async ([{ home }]) => {
         "use server";
         if (!home) return null;
 

@@ -1,5 +1,5 @@
-import {type VariantProps, cva} from "class-variance-authority";
-import Link, {type LinkProps} from "next/link";
+import { type VariantProps, cva } from "class-variance-authority";
+import Link, { type LinkProps } from "next/link";
 
 export const $button = cva(
   "inline-flex gap-1 items-center justify-center shrink-0 rounded-full focus-visible:ring-control focus-visible:ring-2  focus:ring-control focus:ring-2 dark:focus:ring-dark-control dark:focus:ring-2",

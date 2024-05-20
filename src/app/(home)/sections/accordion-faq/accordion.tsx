@@ -1,9 +1,9 @@
 "use client";
 import * as AccordionPrimitive from "@radix-ui/react-accordion";
-import {MinusCircledIcon, PlusCircledIcon} from "@radix-ui/react-icons";
+import { MinusCircledIcon, PlusCircledIcon } from "@radix-ui/react-icons";
 import React from "react";
 
-export function Accordion({items}: {items: {question: string; answer: string}[]}) {
+export function Accordion({ items }: { items: { question: string; answer: string }[] }) {
   const [activeItems, setActiveItems] = React.useState<string[]>([]);
 
   return (
@@ -13,7 +13,7 @@ export function Accordion({items}: {items: {question: string; answer: string}[]}
       value={activeItems}
       onValueChange={(activeItems) => setActiveItems(activeItems)}
     >
-      {items.map(({question, answer}) => (
+      {items.map(({ question, answer }) => (
         <AccordionItem
           key={question}
           answer={answer}
@@ -47,7 +47,7 @@ function AccordionItem({
           <span className="text-start">{question}</span>
         </AccordionPrimitive.Trigger>
       </AccordionPrimitive.Header>
-      <AccordionPrimitive.Content className="data-[state=open]:animate-slideDown data-[state=closed]:animate-slideUp transform overflow-hidden pl-7 text-text-tertiary dark:text-dark-text-tertiary">
+      <AccordionPrimitive.Content className="transform overflow-hidden pl-7 text-text-tertiary data-[state=closed]:animate-slideUp data-[state=open]:animate-slideDown dark:text-dark-text-tertiary">
         <p className="pt-4">{answer}</p>
       </AccordionPrimitive.Content>
     </AccordionPrimitive.Item>

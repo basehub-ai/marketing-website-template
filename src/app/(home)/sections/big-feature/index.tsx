@@ -1,8 +1,8 @@
 import Image from "next/image";
 
-import {Heading} from "@/common/heading";
-import {Section} from "@/common/layout";
-import {fragmentOn} from ".basehub/schema";
+import { Heading } from "@/common/heading";
+import { Section } from "@/common/layout";
+import { fragmentOn } from ".basehub/schema";
 
 export const bigFeatureFragment = fragmentOn("FeaturesBigImageComponent", {
   featuresBigImageList: {
@@ -29,7 +29,7 @@ export const bigFeatureFragment = fragmentOn("FeaturesBigImageComponent", {
 });
 type BigFeature = fragmentOn.infer<typeof bigFeatureFragment>;
 
-export function BigFeature({featuresBigImageList, heading, image}: BigFeature) {
+export function BigFeature({ featuresBigImageList, heading, image }: BigFeature) {
   return (
     <Section container="default">
       <Image
@@ -43,7 +43,7 @@ export function BigFeature({featuresBigImageList, heading, image}: BigFeature) {
         <h4>{heading.title}</h4>
       </Heading>
       <div className="flex flex-col items-start gap-4 md:order-2 md:grid md:grid-cols-3 md:gap-16">
-        {featuresBigImageList.items.map(({_title, description, icon}) => (
+        {featuresBigImageList.items.map(({ _title, description, icon }) => (
           <article key={_title} className="flex flex-col gap-4">
             <figure className="flex size-9 items-center justify-center rounded-full border border-border bg-surface-secondary p-2 dark:border-dark-border dark:bg-dark-surface-secondary">
               <Image

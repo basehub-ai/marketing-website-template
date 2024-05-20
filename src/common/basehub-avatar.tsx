@@ -1,12 +1,12 @@
 "use client";
 import Image from "next/image";
-import {cx} from "class-variance-authority";
+import { cx } from "class-variance-authority";
 
-import {type AvatarFragment, type AuthorFragment} from "@/lib/basehub/fragments";
+import { type AvatarFragment, type AuthorFragment } from "@/lib/basehub/fragments";
 
-import {SimpleTooltip} from "./simple-tooltip";
+import { SimpleTooltip } from "./simple-tooltip";
 
-export function Author({image, _title}: AuthorFragment) {
+export function Author({ image, _title }: AuthorFragment) {
   return (
     <SimpleTooltip content={_title}>
       <Image
@@ -27,7 +27,7 @@ export function Avatar({
   height,
   url,
   ...props
-}: AvatarFragment & {className?: string}) {
+}: AvatarFragment & { className?: string }) {
   return (
     <Image
       alt={alt ?? "Avatar"}

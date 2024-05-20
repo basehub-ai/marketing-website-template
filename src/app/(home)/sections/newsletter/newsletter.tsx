@@ -1,5 +1,5 @@
-import {Button} from "@/common/button";
-import {Section} from "@/common/layout";
+import { Button } from "@/common/button";
+import { Section } from "@/common/layout";
 
 export function Newsletter() {
   return (

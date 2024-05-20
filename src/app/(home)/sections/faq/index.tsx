@@ -1,7 +1,7 @@
-import {fragmentOn} from ".basehub/schema";
-import {Heading} from "@/common/heading";
-import {Section} from "@/common/layout";
-import {headingFragment} from "@/lib/basehub/fragments";
+import { fragmentOn } from ".basehub/schema";
+import { Heading } from "@/common/heading";
+import { Section } from "@/common/layout";
+import { headingFragment } from "@/lib/basehub/fragments";
 
 export const faqFragment = fragmentOn("FaqComponent", {
   heading: headingFragment,

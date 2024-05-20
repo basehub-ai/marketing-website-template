@@ -1,5 +1,5 @@
-import {Slot} from "@radix-ui/react-slot";
-import {type VariantProps, cva, cx} from "class-variance-authority";
+import { Slot } from "@radix-ui/react-slot";
+import { type VariantProps, cva, cx } from "class-variance-authority";
 
 const $headingContainer = cva("flex flex-col gap-3", {
   variants: {
@@ -22,11 +22,11 @@ type HeadingProps = {
   title?: string;
 } & VariantProps<typeof $headingContainer>;
 
-export function Heading({tag, subtitle, className, align, ...props}: HeadingProps) {
+export function Heading({ tag, subtitle, className, align, ...props }: HeadingProps) {
   const Comp = Slot;
 
   return (
-    <div className={$headingContainer({align, className})}>
+    <div className={$headingContainer({ align, className })}>
       {tag ? <Tag>{tag}</Tag> : null}
       <div
         className={cx("flex flex-col justify-center gap-1", {
@@ -67,7 +67,7 @@ export function Tag({
   children,
   asChild,
   ...props
-}: React.AllHTMLAttributes<HTMLDivElement> & {asChild?: boolean}) {
+}: React.AllHTMLAttributes<HTMLDivElement> & { asChild?: boolean }) {
   const Comp = asChild ? Slot : "h3";
 
   return (

@@ -1,8 +1,8 @@
 import Image from "next/image";
-import {cx} from "class-variance-authority";
+import { cx } from "class-variance-authority";
 
-import {Section} from "@/common/layout";
-import {fragmentOn} from ".basehub/schema";
+import { Section } from "@/common/layout";
+import { fragmentOn } from ".basehub/schema";
 
 import s from "./companies.module.scss";
 

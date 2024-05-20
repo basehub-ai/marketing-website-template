@@ -1,12 +1,12 @@
-import {cx} from "class-variance-authority";
-import {CheckIcon} from "@radix-ui/react-icons";
-import {type SVGProps} from "react";
+import { cx } from "class-variance-authority";
+import { CheckIcon } from "@radix-ui/react-icons";
+import { type SVGProps } from "react";
 
-import {Heading} from "@/common/heading";
-import {Section} from "@/common/layout";
-import {ButtonLink} from "@/common/button";
-import {fragmentOn} from ".basehub/schema";
-import {headingFragment} from "@/lib/basehub/fragments";
+import { Heading } from "@/common/heading";
+import { Section } from "@/common/layout";
+import { ButtonLink } from "@/common/button";
+import { fragmentOn } from ".basehub/schema";
+import { headingFragment } from "@/lib/basehub/fragments";
 
 import s from "./pricing.module.scss";
 

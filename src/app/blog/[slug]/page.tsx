@@ -1,18 +1,18 @@
-import {draftMode} from "next/headers";
-import {notFound} from "next/navigation";
+import { draftMode } from "next/headers";
+import { notFound } from "next/navigation";
 import Image from "next/image";
-import {RichText, type RichTextProps} from "basehub/react-rich-text";
-import {cva, cx} from "class-variance-authority";
-import {ChevronDownIcon} from "@radix-ui/react-icons";
+import { RichText, type RichTextProps } from "basehub/react-rich-text";
+import { cva, cx } from "class-variance-authority";
+import { ChevronDownIcon } from "@radix-ui/react-icons";
 
-import {Pump} from ".basehub/react-pump";
-import {Section} from "@/common/layout";
-import {authorFragment} from "@/lib/basehub/fragments";
-import {Heading} from "@/common/heading";
-import {Avatar} from "@/common/basehub-avatar";
-import {isDev} from "@/utils/constants";
-import {CodeSnippet} from "@/app/_components/code-snippet";
-import {fragmentOn} from ".basehub/schema";
+import { Pump } from ".basehub/react-pump";
+import { Section } from "@/common/layout";
+import { authorFragment } from "@/lib/basehub/fragments";
+import { Heading } from "@/common/heading";
+import { Avatar } from "@/common/basehub-avatar";
+import { isDev } from "@/utils/constants";
+import { CodeSnippet } from "@/app/_components/code-snippet";
+import { fragmentOn } from ".basehub/schema";
 
 const richTextClasses = cx(
   "prose prose-zinc max-w-prose text-start dark:prose-invert",
@@ -23,7 +23,7 @@ const richTextClasses = cx(
   "prose-blockquote:border-border prose-blockquote:pl-5 prose-blockquote:text-2xl prose-blockquote:text-text-primary dark:prose-blockquote:border-dark-border dark:prose-blockquote:text-dark-text-primary",
 );
 
-export default async function BlogPage({params: {slug}}: {params: {slug: string}}) {
+export default async function BlogPage({ params: { slug } }: { params: { slug: string } }) {
   return (
     <main>
       <Pump
@@ -76,7 +76,7 @@ export default async function BlogPage({params: {slug}}: {params: {slug: string}
           },
         ]}
       >
-        {async ([{blogposts}]) => {
+        {async ([{ blogposts }]) => {
           "use server";
           const blogpost = blogposts.items.at(0);
 
@@ -102,7 +102,7 @@ export default async function BlogPage({params: {slug}}: {params: {slug: string}
                 className="h-full max-h-[720px] w-full object-cover"
                 height={720}
                 src={blogpost.image.url}
-                style={{aspectRatio: blogpost.image.aspectRatio}}
+                style={{ aspectRatio: blogpost.image.aspectRatio }}
                 width={1440}
               />
               <Section>
@@ -130,7 +130,7 @@ export default async function BlogPage({params: {slug}}: {params: {slug: string}
 
 export const richTextBaseComponents: RichTextProps["components"] = {
   code: Code,
-  pre: ({children}) => <>{children}</>,
+  pre: ({ children }) => <>{children}</>,
 };
 
 function Code({
@@ -162,7 +162,7 @@ export const FaqItemComponentFragment = fragmentOn("FaqItemComponent", {
 
 type FaqItemComponentRichText = fragmentOn.infer<typeof FaqItemComponentFragment>;
 
-export function FaqRichtextComponent({answer, _title}: FaqItemComponentRichText) {
+export function FaqRichtextComponent({ answer, _title }: FaqItemComponentRichText) {
   return (
     <details className="group flex flex-col gap-4 overflow-hidden rounded-lg border border-border bg-surface-secondary p-3 open:border-transparent dark:border-dark-border dark:bg-dark-surface-secondary">
       <summary className="flex items-center pl-2.5">
@@ -215,7 +215,7 @@ export const richTextCalloutComponent = ({
   switch (size) {
     case "large":
       return (
-        <article className={$richTextCallout({size})} id={_title}>
+        <article className={$richTextCallout({ size })} id={_title}>
           <div className={richTextClasses}>
             <RichText>{content?.json.content}</RichText>
           </div>

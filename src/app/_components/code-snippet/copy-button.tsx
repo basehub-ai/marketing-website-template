@@ -1,8 +1,8 @@
 "use client";
 
-import {ClipboardCopyIcon} from "@radix-ui/react-icons";
+import { ClipboardCopyIcon } from "@radix-ui/react-icons";
 
-export function CopyButton({text}: {text: string}) {
+export function CopyButton({ text }: { text: string }) {
   return (
     <button
       onClick={() => {

@@ -1,9 +1,9 @@
 import Image from "next/image";
 
-import {ButtonLink} from "@/common/button";
-import {Heading} from "@/common/heading";
-import {Section} from "@/common/layout";
-import {fragmentOn} from ".basehub/schema";
+import { ButtonLink } from "@/common/button";
+import { Heading } from "@/common/heading";
+import { Section } from "@/common/layout";
+import { fragmentOn } from ".basehub/schema";
 
 export const featuresSideBySideFragment = fragmentOn("FeaturesSideBySideComponent", {
   featuresSideBySideList: {
@@ -37,7 +37,7 @@ export const featuresSideBySideFragment = fragmentOn("FeaturesSideBySideComponen
 
 type FeaturesGrid = fragmentOn.infer<typeof featuresSideBySideFragment>;
 
-export function SideFeatures({featuresSideBySideList, heading, cta}: FeaturesGrid) {
+export function SideFeatures({ featuresSideBySideList, heading, cta }: FeaturesGrid) {
   return (
     <Section className="gap-8 lg:!flex-row lg:gap-24 lg:p-28 xl:gap-32" container="full">
       <div className="container mx-auto flex flex-1 shrink flex-col gap-10 self-stretch px-6 lg:px-0">
@@ -55,7 +55,7 @@ export function SideFeatures({featuresSideBySideList, heading, cta}: FeaturesGri
       </div>
       <div className="w-full flex-1">
         <div className="no-scrollbar flex gap-10 overflow-auto px-6 lg:flex-col lg:px-0">
-          {featuresSideBySideList.items.map(({_title, icon, subtitle}) => (
+          {featuresSideBySideList.items.map(({ _title, icon, subtitle }) => (
             <article
               key={_title}
               className="flex w-[280px] shrink-0 flex-col gap-4 rounded-lg border border-border p-4 dark:border-dark-border lg:w-full lg:flex-row lg:p-5"

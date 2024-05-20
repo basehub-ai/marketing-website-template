@@ -1,12 +1,12 @@
 "use client";
-import {type EmblaCarouselType} from "embla-carousel";
+import { type EmblaCarouselType } from "embla-carousel";
 import useEmblaCarousel from "embla-carousel-react";
 import * as React from "react";
 import Image from "next/image";
-import {ArrowLeftIcon, ArrowRightIcon} from "@radix-ui/react-icons";
-import {cx} from "class-variance-authority";
+import { ArrowLeftIcon, ArrowRightIcon } from "@radix-ui/react-icons";
+import { cx } from "class-variance-authority";
 
-import {type TestimonialsSlider} from ".";
+import { type TestimonialsSlider } from ".";
 
 export function Slider({
   testimonialsSliderList,
@@ -88,7 +88,7 @@ export function Slider({
       </div>
       <div ref={emblaRef} className="relative">
         <div className="relative flex h-full w-full">
-          {testimonialsSliderList.items.map(({quote, author}) => (
+          {testimonialsSliderList.items.map(({ quote, author }) => (
             <article
               key={author._title}
               className="embla__slide ml-20 flex w-full min-w-0 max-w-full shrink-0 grow-0 basis-[600px] transform touch-pan-y touch-pinch-zoom flex-col rounded-xl border border-border [backface-visibility:hidden] last:!visible dark:border-dark-border"

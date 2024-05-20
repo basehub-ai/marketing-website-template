@@ -1,13 +1,13 @@
-import {draftMode} from "next/headers";
+import { draftMode } from "next/headers";
 
-import {Pump} from ".basehub/react-pump";
-import {Heading} from "@/common/heading";
-import {Section} from "@/common/layout";
-import {isDev} from "@/utils/constants";
+import { Pump } from ".basehub/react-pump";
+import { Heading } from "@/common/heading";
+import { Section } from "@/common/layout";
+import { isDev } from "@/utils/constants";
 
-import {ThemeSwitcher} from "../_components/theme-switcher";
+import { ThemeSwitcher } from "../_components/theme-switcher";
 
-import {BlogpostCard, blogpostCardFragment} from "./components/blogpost-card";
+import { BlogpostCard, blogpostCardFragment } from "./components/blogpost-card";
 
 export default async function BlogPage() {
   return (
@@ -27,7 +27,7 @@ export default async function BlogPage() {
         },
       ]}
     >
-      {async ([{blogIndex}, {blogposts}]) => {
+      {async ([{ blogIndex }, { blogposts }]) => {
         "use server";
 
         return (

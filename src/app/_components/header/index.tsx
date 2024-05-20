@@ -1,8 +1,8 @@
 import Image from "next/image";
 
-import {ButtonLink} from "@/common/button";
+import { ButtonLink } from "@/common/button";
 
-import {NavigationMenuHeader} from "./navigation-menu";
+import { NavigationMenuHeader } from "./navigation-menu";
 
 export function Header() {
   return (

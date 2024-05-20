@@ -1,9 +1,9 @@
 import Image from "next/image";
-import {CheckIcon} from "@radix-ui/react-icons";
+import { CheckIcon } from "@radix-ui/react-icons";
 
-import {Section} from "@/common/layout";
-import {Heading} from "@/common/heading";
-import {fragmentOn} from ".basehub/schema";
+import { Section } from "@/common/layout";
+import { Heading } from "@/common/heading";
+import { fragmentOn } from ".basehub/schema";
 
 export const featureCardFragment = fragmentOn("FeaturesCardsListItem", {
   _title: true,
@@ -15,7 +15,7 @@ export const featureCardFragment = fragmentOn("FeaturesCardsListItem", {
     url: true,
   },
   characteristics: {
-    items: {_title: true},
+    items: { _title: true },
   },
 });
 
@@ -36,7 +36,7 @@ export const featureCardsComponent = fragmentOn("FeaturesCardsComponent", {
         url: true,
       },
       characteristics: {
-        items: {_title: true},
+        items: { _title: true },
       },
     },
   },
@@ -44,14 +44,14 @@ export const featureCardsComponent = fragmentOn("FeaturesCardsComponent", {
 
 type FeatureCard = fragmentOn.infer<typeof featureCardsComponent>;
 
-export async function FeaturesList({featuresCardsList, heading}: FeatureCard) {
+export async function FeaturesList({ featuresCardsList, heading }: FeatureCard) {
   return (
     <Section container="default">
       <Heading subtitle={heading.subtitle} tag={heading.tag}>
         <h4>{heading.title}</h4>
       </Heading>
       <div className="flex flex-col gap-6">
-        {featuresCardsList.items.map(({image, ...item}) => (
+        {featuresCardsList.items.map(({ image, ...item }) => (
           <article
             key={item._title}
             className="flex min-h-96 w-full max-w-[380px] flex-col rounded-lg border border-border bg-surface-secondary p-px dark:border-dark-border dark:bg-dark-surface-secondary sm:max-w-full md:w-full md:flex-row md:odd:flex-row-reverse xl:gap-16"
@@ -75,7 +75,7 @@ export async function FeaturesList({featuresCardsList, heading}: FeatureCard) {
                 </p>
               </div>
               <ul className="flex flex-col items-start gap-5 pl-2 md:text-lg">
-                {item.characteristics.items.map(({_title}) => (
+                {item.characteristics.items.map(({ _title }) => (
                   <li
                     key={_title}
                     className="flex items-center gap-4 font-normal text-text-secondary dark:text-dark-text-secondary"

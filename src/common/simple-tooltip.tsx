@@ -1,7 +1,7 @@
 "use client";
 
 import * as Tooltip from "@radix-ui/react-tooltip";
-import {cx} from "class-variance-authority";
+import { cx } from "class-variance-authority";
 
 export type SimpleTooltipProps = {
   content: React.ReactNode;
@@ -10,7 +10,7 @@ export type SimpleTooltipProps = {
   className?: string;
 } & Omit<Tooltip.TooltipProps, "className">;
 
-export function SimpleTooltip({children, content, className, ...props}: SimpleTooltipProps) {
+export function SimpleTooltip({ children, content, className, ...props }: SimpleTooltipProps) {
   return (
     <Tooltip.TooltipProvider>
       <Tooltip.Root>

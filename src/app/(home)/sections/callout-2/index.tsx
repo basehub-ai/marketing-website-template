@@ -1,6 +1,6 @@
-import {fragmentOn} from ".basehub/schema";
-import {ButtonLink} from "@/common/button";
-import {Section} from "@/common/layout";
+import { fragmentOn } from ".basehub/schema";
+import { ButtonLink } from "@/common/button";
+import { Section } from "@/common/layout";
 
 export const calloutv2Fragment = fragmentOn("CalloutV2Component", {
   title: true,
@@ -23,7 +23,7 @@ type Callout2 = fragmentOn.infer<typeof calloutv2Fragment>;
 export function Callout2(callout: Callout2) {
   return (
     <Section>
-      <article className="flex flex-col justify-center gap-9 self-stretch rounded-xl bg-neutral-500/10 p-6 dark:bg-neutral-500/10 lg:flex-row lg:justify-between lg:p-10">
+      <article className="bg-neutral- flex flex-col justify-center gap-9 self-stretch rounded-xl p-6 dark:bg-neutral-500/10 lg:flex-row lg:justify-between lg:p-10">
         <div className="flex flex-col gap-2">
           <h4 className="text-3xl font-medium text-text-primary dark:text-dark-text-primary lg:text-4xl">
             {callout.title}

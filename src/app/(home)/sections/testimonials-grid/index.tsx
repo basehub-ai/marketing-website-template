@@ -1,9 +1,9 @@
-import {cx} from "class-variance-authority";
+import { cx } from "class-variance-authority";
 
-import {Heading} from "@/common/heading";
-import {Section} from "@/common/layout";
-import {fragmentOn} from ".basehub/schema";
-import {headingFragment} from "@/lib/basehub/fragments";
+import { Heading } from "@/common/heading";
+import { Section } from "@/common/layout";
+import { fragmentOn } from ".basehub/schema";
+import { headingFragment } from "@/lib/basehub/fragments";
 
 export const testimonialsGridFragment = fragmentOn("TestimonialsGridComponent", {
   heading: headingFragment,
@@ -30,7 +30,7 @@ type TestimonialsGrid = fragmentOn.infer<typeof testimonialsGridFragment>;
 
 export function TestimonialsGrid({
   testimonialsGridList,
-  heading: {title, ...heading},
+  heading: { title, ...heading },
 }: TestimonialsGrid) {
   return (
     <Section>
@@ -39,7 +39,7 @@ export function TestimonialsGrid({
       </Heading>
       <div className="relative columns-1 gap-8 overflow-hidden md:columns-3">
         <div className="absolute left-0 top-0 h-full w-full bg-gradient-to-t from-surface-primary/90 via-transparent to-surface-primary/90 dark:from-dark-surface-primary/95 dark:via-transparent dark:to-dark-surface-primary/95" />
-        {testimonialsGridList.items.map(({author, quote}, i) => (
+        {testimonialsGridList.items.map(({ author, quote }, i) => (
           <article
             key={author._id}
             className={cx(

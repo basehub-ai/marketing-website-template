@@ -1,4 +1,4 @@
-import {fragmentOn} from ".basehub/schema";
+import { fragmentOn } from ".basehub/schema";
 
 export const headingFragment = fragmentOn("HeadingComponent", {
   title: true,

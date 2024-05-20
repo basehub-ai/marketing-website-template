@@ -1,4 +1,4 @@
-import {type BundledLanguage, codeToHast} from "shiki";
+import { type BundledLanguage, codeToHast } from "shiki";
 import * as prod from "react/jsx-runtime";
 import {
   transformerNotationDiff,
@@ -6,9 +6,9 @@ import {
   transformerNotationHighlight,
   transformerNotationWordHighlight,
 } from "@shikijs/transformers";
-import {toJsxRuntime, type Components} from "hast-util-to-jsx-runtime";
+import { toJsxRuntime, type Components } from "hast-util-to-jsx-runtime";
 
-const production = {Fragment: prod.Fragment, jsx: prod.jsx, jsxs: prod.jsxs};
+const production = { Fragment: prod.Fragment, jsx: prod.jsx, jsxs: prod.jsxs };
 
 type ComponentsToOverride = Pick<Components, "pre" | "code" | "span">;
 
@@ -18,7 +18,7 @@ export interface HighlighterProps {
   components?: Partial<ComponentsToOverride>;
 }
 
-export const Highlighter = async ({children, lang, components}: HighlighterProps) => {
+export const Highlighter = async ({ children, lang, components }: HighlighterProps) => {
   const hast = await codeToHast(children, {
     lang,
     theme: "dracula",
@@ -33,8 +33,8 @@ export const Highlighter = async ({children, lang, components}: HighlighterProps
             {
               type: "element",
               tagName: "span",
-              properties: {class: "line-indicator"},
-              children: [{type: "text", value: line.toString()}],
+              properties: { class: "line-indicator" },
+              children: [{ type: "text", value: line.toString() }],
             },
             ...node.children,
           ];

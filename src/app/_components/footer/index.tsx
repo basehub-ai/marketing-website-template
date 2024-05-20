@@ -1,8 +1,8 @@
-import {cx} from "class-variance-authority";
+import { cx } from "class-variance-authority";
 import Image from "next/image";
 import Link from "next/link";
 
-import {Pump} from ".basehub/react-pump";
+import { Pump } from ".basehub/react-pump";
 
 export async function Footer() {
   return (
@@ -39,7 +39,7 @@ export async function Footer() {
             <div className="container mx-auto grid grid-cols-[auto_auto] grid-rows-[auto_auto_auto] place-items-start items-center gap-y-7 sm:grid-cols-[1fr_auto_1fr] sm:grid-rows-2 sm:gap-y-16">
               <Image alt="logo" height={100} src="/acme.svg" width={100} />
               <nav className="col-start-1 row-start-2 flex flex-col gap-3 self-center sm:col-span-2 sm:col-start-2 sm:row-start-1 sm:flex-row sm:items-center sm:gap-8 sm:place-self-end">
-                {data.footer.navbar.items.map(({_title, url}) => (
+                {data.footer.navbar.items.map(({ _title, url }) => (
                   <Link
                     key={_title}
                     className="font-light tracking-tight text-text-secondary hover:text-text-primary dark:text-dark-text-secondary dark:hover:text-dark-text-primary"
@@ -85,7 +85,7 @@ export async function Footer() {
   );
 }
 
-function PoweredByBasehub({className}: {className?: string}) {
+function PoweredByBasehub({ className }: { className?: string }) {
   return (
     <span
       className={cx(

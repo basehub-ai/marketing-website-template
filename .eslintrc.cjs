@@ -1,4 +1,4 @@
-const {resolve} = require("node:path");
+const { resolve } = require("node:path");
 
 const project = resolve(__dirname, "tsconfig.json");
 
@@ -31,7 +31,7 @@ module.exports = {
         tabWidth: 2,
         semi: true,
         singleQuote: false,
-        bracketSpacing: false,
+        bracketSpacing: true,
         arrowParens: "always",
         endOfLine: "auto",
         plugins: ["prettier-plugin-tailwindcss"],
@@ -54,9 +54,9 @@ module.exports = {
     ],
     "padding-line-between-statements": [
       "warn",
-      {blankLine: "always", prev: "*", next: ["return", "export"]},
-      {blankLine: "always", prev: ["const", "let", "var"], next: "*"},
-      {blankLine: "any", prev: ["const", "let", "var"], next: ["const", "let", "var"]},
+      { blankLine: "always", prev: "*", next: ["return", "export"] },
+      { blankLine: "always", prev: ["const", "let", "var"], next: "*" },
+      { blankLine: "any", prev: ["const", "let", "var"], next: ["const", "let", "var"] },
     ],
     "no-console": "warn",
     "react/prop-types": "off",

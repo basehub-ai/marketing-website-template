@@ -1,10 +1,10 @@
 import Image from "next/image";
 import Link from "next/link";
 
-import {fragmentOn} from ".basehub/schema";
-import {AvatarsGroup} from "@/common/avatars-group";
-import {Avatar} from "@/common/basehub-avatar";
-import {avatarFragment} from "@/lib/basehub/fragments";
+import { fragmentOn } from ".basehub/schema";
+import { AvatarsGroup } from "@/common/avatars-group";
+import { Avatar } from "@/common/basehub-avatar";
+import { avatarFragment } from "@/lib/basehub/fragments";
 
 export const heroFragment = fragmentOn("HeroComponent", {
   customerSatisfactionBanner: {
@@ -32,7 +32,7 @@ export function Hero(hero: Hero) {
     <section className="relative h-[calc(630px-var(--header-height))] overflow-hidden">
       <div className="absolute left-0 top-0 z-0 grid h-full w-full grid-cols-[clamp(32px,10vw,120px)_auto_clamp(32px,10vw,120px)] grid-rows-[80px_auto_180px] divide-x divide-surface-tertiary border-b border-surface-tertiary dark:divide-dark-surface-tertiary dark:border-dark-surface-tertiary">
         {/* Decorations */}
-        {Array.from({length: 9}, (v, i) => i + 1).map((i) => (
+        {Array.from({ length: 9 }, (v, i) => i + 1).map((i) => (
           <div key={i} className="" />
         ))}
       </div>
@@ -45,7 +45,7 @@ export function Hero(hero: Hero) {
         <div className="flex flex-col items-center justify-end">
           <div className="flex items-center gap-2 !border !border-b-0 border-surface-tertiary px-4 py-2 dark:border-dark-surface-tertiary">
             <AvatarsGroup>
-              {hero.customerSatisfactionBanner.avatars.items.map(({avatar, _id}) => (
+              {hero.customerSatisfactionBanner.avatars.items.map(({ avatar, _id }) => (
                 <Avatar {...avatar} key={_id} />
               ))}
             </AvatarsGroup>
@@ -65,7 +65,7 @@ export function Hero(hero: Hero) {
         </div>
         <div className="flex items-start justify-center px-8 sm:px-24">
           <div className="flex w-full max-w-[80vw] flex-col items-center justify-start md:!max-w-[392px]">
-            {hero.actions?.map(({href, label, type, _id}) =>
+            {hero.actions?.map(({ href, label, type, _id }) =>
               type === "primary" ? (
                 <Link
                   key={_id}

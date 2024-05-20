@@ -1,17 +1,17 @@
-import {draftMode} from "next/headers";
+import { draftMode } from "next/headers";
 
-import {Pump} from ".basehub/react-pump";
-import {hexToRgb} from "@/utils/colors";
-import {fragmentOn} from ".basehub/schema";
-import {isDev} from "@/utils/constants";
+import { Pump } from ".basehub/react-pump";
+import { hexToRgb } from "@/utils/colors";
+import { fragmentOn } from ".basehub/schema";
+import { isDev } from "@/utils/constants";
 
-export const themeFragment = fragmentOn("Theme", {palette: true});
+export const themeFragment = fragmentOn("Theme", { palette: true });
 
 export type BaseHubTheme = fragmentOn.infer<typeof themeFragment>;
 
 export function BaseHubThemeProvider() {
   return (
-    <Pump draft={draftMode().isEnabled || isDev} queries={[{settings: {theme: themeFragment}}]}>
+    <Pump draft={draftMode().isEnabled || isDev} queries={[{ settings: { theme: themeFragment } }]}>
       {async ([data]) => {
         "use server";
         const colors = await import("tailwindcss/colors");

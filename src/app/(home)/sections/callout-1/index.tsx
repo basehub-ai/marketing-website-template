@@ -1,8 +1,8 @@
-import {cx} from "class-variance-authority";
+import { cx } from "class-variance-authority";
 
-import {ButtonLink} from "@/common/button";
-import {Section} from "@/common/layout";
-import {fragmentOn} from ".basehub/schema";
+import { ButtonLink } from "@/common/button";
+import { Section } from "@/common/layout";
+import { fragmentOn } from ".basehub/schema";
 
 import s from "./callout-1.module.scss";
 

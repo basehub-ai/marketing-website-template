@@ -1,9 +1,9 @@
 import Image from "next/image";
 
-import {ButtonLink} from "@/common/button";
-import {Heading} from "@/common/heading";
-import {Section} from "@/common/layout";
-import {fragmentOn} from ".basehub/schema";
+import { ButtonLink } from "@/common/button";
+import { Heading } from "@/common/heading";
+import { Section } from "@/common/layout";
+import { fragmentOn } from ".basehub/schema";
 
 export const featuresGridFragment = fragmentOn("FeaturesGridComponent", {
   featuresGridList: {
@@ -35,14 +35,14 @@ export const featuresGridFragment = fragmentOn("FeaturesGridComponent", {
 
 type FeaturesGrid = fragmentOn.infer<typeof featuresGridFragment>;
 
-export function FeaturesGrid({heading, featuresGridList, primary, secondary}: FeaturesGrid) {
+export function FeaturesGrid({ heading, featuresGridList, primary, secondary }: FeaturesGrid) {
   return (
     <Section>
       <Heading subtitle={heading.subtitle} tag={heading.tag}>
         <h4>{heading.title}</h4>
       </Heading>
       <div className="grid grid-cols-1 gap-4 lg:grid-cols-3 lg:gap-5">
-        {featuresGridList.items.map(({_title, description, icon}) => (
+        {featuresGridList.items.map(({ _title, description, icon }) => (
           <article
             key={_title}
             className="flex flex-col gap-4 rounded-lg border border-border p-4 dark:border-dark-border"

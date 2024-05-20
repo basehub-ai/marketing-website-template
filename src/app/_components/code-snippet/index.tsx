@@ -1,9 +1,9 @@
-import type {BundledLanguage} from "shiki";
+import type { BundledLanguage } from "shiki";
 
-import {fragmentOn} from ".basehub";
+import { fragmentOn } from ".basehub";
 
-import {CopyButton} from "./copy-button";
-import {Highlighter} from "./highlight";
+import { CopyButton } from "./copy-button";
+import { Highlighter } from "./highlight";
 import s from "./code-snippet.module.scss";
 
 export const codeSnippetFragment = fragmentOn("BlockCodeSnippet", {
@@ -13,7 +13,7 @@ export const codeSnippetFragment = fragmentOn("BlockCodeSnippet", {
 
 export type CodeSnippetFragment = fragmentOn.infer<typeof codeSnippetFragment>;
 
-export function CodeSnippet({code, ...props}: CodeSnippetFragment) {
+export function CodeSnippet({ code, ...props }: CodeSnippetFragment) {
   // get title from props.code is between <title> and </title>
   const [, title] = /<title>(.*?)<\/title>/.exec(code) ?? [,];
 
@@ -31,7 +31,7 @@ export function CodeSnippet({code, ...props}: CodeSnippetFragment) {
   );
 }
 
-export function CodeSnippetContent({code, language}: CodeSnippetFragment) {
+export function CodeSnippetContent({ code, language }: CodeSnippetFragment) {
   return (
     <div className={s.content}>
       <Highlighter lang={language as BundledLanguage}>{code}</Highlighter>
