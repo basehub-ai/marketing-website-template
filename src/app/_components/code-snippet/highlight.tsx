@@ -1,4 +1,4 @@
-import { type BundledLanguage, codeToHast } from "shiki";
+import { type BundledLanguage, codeToHast, createCssVariablesTheme } from "shiki";
 import * as prod from "react/jsx-runtime";
 import {
   transformerNotationDiff,
@@ -18,10 +18,18 @@ export interface HighlighterProps {
   components?: Partial<ComponentsToOverride>;
 }
 
+const theme = createCssVariablesTheme({
+  name: "css-variables",
+  variablePrefix: "--shiki-",
+  variableDefaults: {},
+  fontStyle: true,
+});
+
 export const Highlighter = async ({ children, lang, components }: HighlighterProps) => {
   const hast = await codeToHast(children, {
     lang,
-    theme: "dracula",
+    theme: theme,
+
     transformers: [
       transformerNotationDiff(),
       transformerNotationErrorLevel(),

@@ -27,49 +27,51 @@ export default async function BlogPage({ params: { slug } }: { params: { slug: s
   return (
     <main>
       <Pump
-        draft={draftMode().isEnabled || isDev}
+        draft={draftMode().isEnabled}
         next={{ revalidate: 30 }}
         queries={[
           {
-            blogposts: {
-              __args: {
-                filter: {
-                  _sys_slug: {
-                    eq: slug,
-                  },
-                },
-                first: 1,
-              },
-              items: {
-                _title: true,
-                description: true,
-                authors: authorFragment,
-                publishedAt: true,
-                image: {
-                  alt: true,
-                  width: true,
-                  height: true,
-                  aspectRatio: true,
-                  url: {
-                    __args: {
-                      width: 1440,
-                      height: 720,
-                      quality: 90,
-                      format: "webp",
+            blog: {
+              blogposts: {
+                __args: {
+                  filter: {
+                    _sys_slug: {
+                      eq: slug,
                     },
                   },
+                  first: 1,
                 },
-                introduction: true,
-                body: {
-                  json: {
-                    __typename: true,
-                    blocks: {
+                items: {
+                  _title: true,
+                  description: true,
+                  authors: authorFragment,
+                  publishedAt: true,
+                  image: {
+                    alt: true,
+                    width: true,
+                    height: true,
+                    aspectRatio: true,
+                    url: {
+                      __args: {
+                        width: 1440,
+                        height: 720,
+                        quality: 90,
+                        format: "webp",
+                      },
+                    },
+                  },
+                  introduction: true,
+                  body: {
+                    json: {
                       __typename: true,
-                      on_FaqItemComponent: FaqItemComponentFragment,
-                      on_RichTextCalloutComponent: richTextCalloutComponentFragment,
+                      blocks: {
+                        __typename: true,
+                        on_FaqItemComponent: FaqItemComponentFragment,
+                        on_RichTextCalloutComponent: richTextCalloutComponentFragment,
+                      },
+                      content: 1,
+                      toc: 1,
                     },
-                    content: 1,
-                    toc: 1,
                   },
                 },
               },
@@ -77,7 +79,11 @@ export default async function BlogPage({ params: { slug } }: { params: { slug: s
           },
         ]}
       >
-        {async ([{ blogposts }]) => {
+        {async ([
+          {
+            blog: { blogposts },
+          },
+        ]) => {
           "use server";
           const blogpost = blogposts.items.at(0);
 
@@ -218,7 +224,7 @@ export const richTextCalloutComponent = ({
       return (
         <article className={$richTextCallout({ size })} id={_title}>
           <div className={richTextClasses}>
-            <RichText>{content?.json.content}</RichText>
+            <RichText components={richTextBaseComponents}>{content?.json.content}</RichText>
           </div>
         </article>
       );
@@ -239,8 +245,8 @@ export const richTextCalloutComponent = ({
               />
             </svg>
           </div>
-          <div className={cx(richTextClasses, "inline")}>
-            <RichText>{content?.json.content}</RichText>
+          <div className={cx(richTextClasses)}>
+            <RichText components={richTextBaseComponents}>{content?.json.content}</RichText>
           </div>
         </article>
       );

@@ -11,19 +11,15 @@ export const codeSnippetFragment = fragmentOn("BlockCodeSnippet", {
   language: true,
 });
 
-export type CodeSnippetFragment = fragmentOn.infer<typeof codeSnippetFragment>;
+export type CodeSnippetFragment = fragmentOn.infer<typeof codeSnippetFragment> & {
+  title?: string;
+};
 
-export function CodeSnippet({ code, ...props }: CodeSnippetFragment) {
-  // get title from props.code is between <title> and </title>
-  const [, title] = /<title>(.*?)<\/title>/.exec(code) ?? [,];
-
-  // delete all the line with <title> and </title> for example (sarsa <title>testtitle> \n test) -> test
-  code = code.replace(/^.*<title>.*<\/title>.*\n/gm, "");
-
+export function CodeSnippet({ code, title = "Untitled", ...props }: CodeSnippetFragment) {
   return (
     <div className={s["code-snippet"]}>
       <header className={s.header}>
-        <span>{title ?? "Untitled"}</span>
+        <span>{title}</span>
         <CopyButton text={code} />
       </header>
       <CodeSnippetContent code={code} {...props} />

@@ -24,3 +24,18 @@ export const authorFragment = fragmentOn("AuthorsItem", {
 });
 
 export type AuthorFragment = fragmentOn.infer<typeof authorFragment>;
+
+export const optimizedImageFragment = fragmentOn("BlockImage", {
+  url: {
+    __args: {
+      compression: "auto",
+      quality: 100,
+      format: "webp",
+    },
+  },
+  width: true,
+  height: true,
+  alt: true,
+});
+
+export type OptimizedImageFragment = fragmentOn.infer<typeof optimizedImageFragment>;

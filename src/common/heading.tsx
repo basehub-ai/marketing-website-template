@@ -29,7 +29,7 @@ export function Heading({ tag, subtitle, className, align, ...props }: HeadingPr
     <div className={$headingContainer({ align, className })}>
       {tag ? <Tag>{tag}</Tag> : null}
       <div
-        className={cx("flex flex-col justify-center gap-1", {
+        className={cx("flex max-w-screen-lg flex-col justify-center gap-1", {
           "items-start self-start": align === "left",
           "items-center self-center": align === "center" || !align,
           "items-end self-end": align === "right",
@@ -43,21 +43,21 @@ export function Heading({ tag, subtitle, className, align, ...props }: HeadingPr
           })}
           {...props}
         />
-        {subtitle ? (
-          <p
-            className={cx(
-              "text-pretty text-lg font-light text-text-tertiary dark:text-dark-text-tertiary md:text-xl",
-              {
-                "text-center": align === "center" || !align,
-                "text-left": align === "left",
-                "text-right": align === "right",
-              },
-            )}
-          >
-            {subtitle}
-          </p>
-        ) : null}
       </div>
+      {subtitle ? (
+        <p
+          className={cx(
+            "text-pretty text-lg font-light text-text-tertiary dark:text-dark-text-tertiary md:text-xl",
+            {
+              "text-center": align === "center" || !align,
+              "text-left": align === "left",
+              "text-right": align === "right",
+            },
+          )}
+        >
+          {subtitle}
+        </p>
+      ) : null}
     </div>
   );
 }

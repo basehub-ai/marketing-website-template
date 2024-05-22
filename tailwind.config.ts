@@ -1,4 +1,4 @@
-import type {Config} from "tailwindcss";
+import type { Config } from "tailwindcss";
 
 import typography from "@tailwindcss/typography";
 const config: Config = {
@@ -63,20 +63,20 @@ const config: Config = {
       },
     },
     fontSize: {
-      "2xs": ["11px", {lineHeight: "1.3", letterSpacing: "-0.3px", fontWeight: "400"}],
-      xs: ["0.75rem", {lineHeight: "1rem", letterSpacing: "-0.36px"}],
-      sm: ["0.875rem", {lineHeight: "1.25rem", letterSpacing: "-0.42px"}],
-      base: ["1rem", {lineHeight: "1.5rem", letterSpacing: "-0.48px"}],
-      lg: ["1.125rem", {lineHeight: "1.75rem", letterSpacing: "-0.72px"}],
-      xl: ["1.25rem", {lineHeight: "1.75rem", letterSpacing: "-0.8px"}],
-      "2xl": ["1.5rem", {lineHeight: "2rem", letterSpacing: "-1.04px"}],
-      "3xl": ["2rem", {lineHeight: "2.25rem", letterSpacing: "-1.2px"}],
-      "4xl": ["2.25rem", {lineHeight: "2.5rem", letterSpacing: "-1.44px"}],
-      "5xl": ["3rem", {lineHeight: "1"}],
-      "6xl": ["3.75rem", {lineHeight: "1"}],
-      "7xl": ["4.5rem", {lineHeight: "1"}],
-      "8xl": ["6rem", {lineHeight: "1"}],
-      "9xl": ["8rem", {lineHeight: "1"}],
+      "2xs": ["11px", { lineHeight: "1.3", letterSpacing: "-0.3px", fontWeight: "400" }],
+      xs: ["0.75rem", { lineHeight: "1rem", letterSpacing: "-0.36px" }],
+      sm: ["0.875rem", { lineHeight: "1.25rem", letterSpacing: "-0.42px" }],
+      base: ["1rem", { lineHeight: "1.5rem", letterSpacing: "-0.48px" }],
+      lg: ["1.125rem", { lineHeight: "1.75rem", letterSpacing: "-0.72px" }],
+      xl: ["1.25rem", { lineHeight: "1.75rem", letterSpacing: "-0.8px" }],
+      "2xl": ["1.5rem", { lineHeight: "2rem", letterSpacing: "-1.04px" }],
+      "3xl": ["2rem", { lineHeight: "2.25rem", letterSpacing: "-1.2px" }],
+      "4xl": ["2.25rem", { lineHeight: "2.5rem", letterSpacing: "-1.44px" }],
+      "5xl": ["3rem", { lineHeight: "1" }],
+      "6xl": ["3.75rem", { lineHeight: "1" }],
+      "7xl": ["4.5rem", { lineHeight: "1" }],
+      "8xl": ["6rem", { lineHeight: "1" }],
+      "9xl": ["8rem", { lineHeight: "1" }],
     },
     extend: {
       maxWidth: {
@@ -85,46 +85,49 @@ const config: Config = {
       gridTemplateColumns: {
         header: "1fr max-content 1fr",
       },
+      boxShadow: {
+        neon: "0 0 2px 2px var(--tw-shadow), 0 0 6px 3px var(--tw-ring-offset-shadow), 0 0 8px 4px var(--tw-ring-shadow)",
+      },
       keyframes: {
         enterFromRight: {
-          from: {opacity: "0", transform: "translateX(200px)"},
-          to: {opacity: "1", transform: "translateX(0)"},
+          from: { opacity: "0", transform: "translateX(200px)" },
+          to: { opacity: "1", transform: "translateX(0)" },
         },
         enterFromLeft: {
-          from: {opacity: "0", transform: "translateX(-200px)"},
-          to: {opacity: "1", transform: "translateX(0)"},
+          from: { opacity: "0", transform: "translateX(-200px)" },
+          to: { opacity: "1", transform: "translateX(0)" },
         },
         exitToRight: {
-          from: {opacity: "1", transform: "translateX(0)"},
-          to: {opacity: "0", transform: "translateX(200px)"},
+          from: { opacity: "1", transform: "translateX(0)" },
+          to: { opacity: "0", transform: "translateX(200px)" },
         },
         exitToLeft: {
-          from: {opacity: "1", transform: "translateX(0)"},
-          to: {opacity: "0", transform: "translateX(-200px)"},
+          from: { opacity: "1", transform: "translateX(0)" },
+          to: { opacity: "0", transform: "translateX(-200px)" },
         },
         scaleIn: {
-          from: {opacity: "0", transform: "rotateX(-10deg) scale(0.9)"},
-          to: {opacity: "1", transform: "rotateX(0deg) scale(1)"},
+          from: { opacity: "0", transform: "rotateX(-10deg) scale(0.9)" },
+          to: { opacity: "1", transform: "rotateX(0deg) scale(1)" },
         },
         scaleOut: {
-          from: {opacity: "1", transform: "rotateX(0deg) scale(1)"},
-          to: {opacity: "0", transform: "rotateX(-10deg) scale(0.95)"},
+          from: { opacity: "1", transform: "rotateX(0deg) scale(1)" },
+          to: { opacity: "0", transform: "rotateX(-10deg) scale(0.95)" },
         },
         fadeIn: {
-          from: {opacity: "0"},
-          to: {opacity: "1"},
+          from: { opacity: "0" },
+          to: { opacity: "1" },
         },
         fadeOut: {
-          from: {opacity: "1"},
-          to: {opacity: "0"},
+          from: { opacity: "1" },
+          to: { opacity: "0" },
         },
         slideDown: {
-          from: {height: "0px"},
-          to: {height: "var(--radix-accordion-content-height)"},
+          from: { height: "0px" },
+          to: { height: "var(--radix-accordion-content-height)" },
         },
         slideUp: {
-          from: {height: "var(--radix-accordion-content-height)"},
-          to: {height: "0px"},
+          from: { height: "var(--radix-accordion-content-height)" },
+          to: { height: "0px" },
         },
       },
     },

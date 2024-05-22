@@ -30,7 +30,7 @@ type Hero = fragmentOn.infer<typeof heroFragment>;
 export function Hero(hero: Hero) {
   return (
     <section className="relative h-[calc(630px-var(--header-height))] overflow-hidden">
-      <div className="absolute left-0 top-0 z-0 grid h-full w-full grid-cols-[clamp(32px,10vw,120px)_auto_clamp(32px,10vw,120px)] grid-rows-[80px_auto_180px] divide-x divide-surface-tertiary border-b border-surface-tertiary dark:divide-dark-surface-tertiary dark:border-dark-surface-tertiary">
+      <div className="absolute left-0 top-0 z-0 grid h-full w-full grid-cols-[clamp(32px,10vw,120px)_auto_clamp(32px,10vw,120px)] grid-rows-[80px_auto_180px] divide-x divide-border border-b border-border dark:divide-dark-border dark:border-dark-border">
         {/* Decorations */}
         {Array.from({ length: 9 }, (v, i) => i + 1).map((i) => (
           <div key={i} className="" />
@@ -41,9 +41,9 @@ export function Hero(hero: Hero) {
       <figure className="absolute left-[4vw] top-[64px] z-20  hidden aspect-square w-[32vw] rounded-full bg-surface-primary blur-[100px] dark:bg-dark-surface-primary md:block" />
       <figure className="absolute bottom-[-50px] right-[7vw] z-20  hidden aspect-square w-[30vw] rounded-full bg-surface-primary blur-[100px] dark:bg-dark-surface-primary md:block" />
       {/* --- */}
-      <div className="relative z-10 flex flex-col divide-y divide-surface-tertiary pt-[35px] dark:divide-dark-surface-tertiary">
+      <div className="relative z-10 flex flex-col divide-y divide-border pt-[35px] dark:divide-dark-border">
         <div className="flex flex-col items-center justify-end">
-          <div className="flex items-center gap-2 !border !border-b-0 border-surface-tertiary px-4 py-2 dark:border-dark-surface-tertiary">
+          <div className="flex items-center gap-2 !border !border-b-0 border-border px-4 py-2 dark:border-dark-border">
             <AvatarsGroup>
               {hero.customerSatisfactionBanner.avatars.items.map(({ avatar, _id }) => (
                 <Avatar {...avatar} key={_id} />

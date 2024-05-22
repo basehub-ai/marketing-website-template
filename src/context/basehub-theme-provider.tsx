@@ -12,7 +12,7 @@ export type BaseHubTheme = fragmentOn.infer<typeof themeFragment>;
 export function BaseHubThemeProvider() {
   return (
     <Pump
-      draft={draftMode().isEnabled || isDev}
+      draft={draftMode().isEnabled}
       next={{ revalidate: 30 }}
       queries={[{ settings: { theme: themeFragment } }]}
     >

@@ -1,27 +1,69 @@
 .code-snippet {
     display: flex;
     flex-direction: column;
-    background: theme('colors.surface.secondary');
-    @media (prefers-color-scheme: 'dark') {
-        background: theme('colors.dark.surface.secondary');
-    }
+    background-color: theme('colors.surface.secondary');
+    border-radius: theme('borderRadius.xl');
+    margin: theme('spacing.4') 0px;
+    border: 1px solid theme('colors.border.DEFAULT');
     .header {
         padding: theme('spacing.2');
         display: flex;
         align-items: center;
         justify-content: space-between;
+        border-bottom: 1px solid theme('colors.border.DEFAULT')
     }
     .content {
-        padding: theme('spacing.2');
-        overflow: auto;
-        pre {
-            margin: 0;
+        overflow-x: auto;
+        background-color: theme('colors.surface.secondary');
+        position: relative;
+        & :global(pre) {
+            margin: 0 !important;
             white-space: pre-wrap;
             word-wrap: break-word;
+            background-color: theme('colors.surface.secondary') !important;
         }
-        &:global(span.line-indicator){
-            margin-right: theme('spacing.2')
+    
+        & :global(span.line-indicator){
+            margin-right: theme('margin.4') !important;
+        }
+    
+        --shiki-color-text: #000;
+        --shiki-background: theme('colors.surface.secondary');
+        --shiki-token-constant: #ff6b7a;
+        --shiki-token-function: theme('colors.text.secondary');
+        --shiki-token-string-expression: #f4b541;
+        --shiki-token-string: #98c379;
+        --shiki-token-comment: #94a4ad;
+        --shiki-token-keyword: #c792ea;
+        --shiki-token-parameter: #d6deeb;
+        --shiki-token-punctuation: #c792e9;
+        --shiki-token-link: #79b8ff;
+    }
+}
+
+:global(.dark) {
+    .code-snippet {
+        background-color: theme('colors.dark.surface.secondary');
+        border: 1px solid theme('colors.dark.border.DEFAULT');
+        .header {
+            border-bottom: 1px solid theme('colors.dark.border.DEFAULT')
+        }
+        .content {
+            background-color: theme('colors.dark.surface.secondary');
+            & :global(pre) {
+                background-color: theme('colors.dark.surface.secondary') !important;
+            }
+            
+
+            --shiki-color-text: #fff;
+            --shiki-background: theme('colors.dark.surface.secondary');
+            --shiki-token-constant: #ff6b7a;
+            --shiki-token-function: theme('colors.dark.text.secondary');
+            --shiki-token-string-expression: #f4b541;
+            --shiki-token-string: #98c379;
+            --shiki-token-comment: #94a4ad;
+            --shiki-token-keyword: #c792ea;
+            --shiki-token-parameter: #d6deeb;
         }
     }
-    
 }

@@ -18,13 +18,11 @@ export async function Footer() {
               },
             },
             socialLinks: {
-              items: {
-                _title: true,
-                icon: {
-                  url: true,
-                },
+              _title: true,
+              icon: {
                 url: true,
               },
+              url: true,
             },
             poweredByBaseHub: true,
           },
@@ -62,7 +60,7 @@ export async function Footer() {
                 </p>
               </div>
               <ul className="col-start-2 row-start-2 flex items-center gap-8 place-self-end self-end sm:col-start-3 sm:row-start-2 sm:self-end">
-                {data.footer.socialLinks.items.map((link) => {
+                {data.footer.socialLinks.map((link) => {
                   return (
                     <li key={link._title}>
                       <Link className="aspect-square hover:brightness-75" href={link.url ?? ""}>
