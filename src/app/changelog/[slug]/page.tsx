@@ -2,12 +2,14 @@ import { notFound } from "next/navigation";
 import Link from "next/link";
 import Image from "next/image";
 import { RichText } from "basehub/react-rich-text";
+import { ArrowRightIcon } from "@radix-ui/react-icons";
 
 import { Pump } from ".basehub/react-pump";
 import { Heading } from "@/common/heading";
 import { authorFragment, optimizedImageFragment } from "@/lib/basehub/fragments";
 import { CodeSnippet, codeSnippetFragment } from "@/app/_components/code-snippet";
 import { richTextBaseComponents, richTextClasses } from "@/app/_components/rich-text";
+import { ButtonLink } from "@/common/button";
 
 import { ChangelogLayout } from "../_components/changelog-header";
 
@@ -57,13 +59,31 @@ export default async function ChangelogPage({
             },
           },
         },
+        {
+          changelog: {
+            posts: {
+              items: {
+                _slug: true,
+                _title: true,
+              },
+              __args: {
+                orderBy: "publishedAt__DESC",
+              },
+            },
+          },
+        },
       ]}
     >
-      {async ([{ changelog }]) => {
+      {async ([{ changelog }, allPosts]) => {
         "use server";
         const post = changelog.posts.items.at(0);
 
         if (!post) return notFound();
+
+        const postIndex = changelog.posts.items.findIndex((p) => p._slug === post._slug);
+        const nextPost = changelog.posts.items.at(
+          allPosts.changelog.posts.items.length + 1 > postIndex + 1 ? postIndex + 1 : 0,
+        );
 
         return (
           <>
@@ -80,10 +100,10 @@ export default async function ChangelogPage({
                 </Heading>
               </div>
             </ChangelogLayout>
-            <div className="mx-auto flex max-w-screen-md flex-col gap-8 px-8">
+            <div className="mx-auto flex max-w-screen-md flex-col gap-8 px-8 pt-14">
               <Image
                 alt={post.image.alt ?? post._title}
-                className="h-auto w-full"
+                className="h-auto w-full rounded-xl"
                 height={post.image.height}
                 src={post.image.url}
                 style={{ aspectRatio: post.image.aspectRatio }}
@@ -99,6 +119,20 @@ export default async function ChangelogPage({
                 >
                   {post.body.json.content}
                 </RichText>
+              </div>
+              <div className="flex justify-between">
+                <p className="text-xs text-text-tertiary dark:text-dark-text-tertiary" />
+                {nextPost ? (
+                  <ButtonLink
+                    className="text-xs text-text-tertiary hover:underline dark:text-dark-text-tertiary"
+                    href={`/changelog/${nextPost._slug}`}
+                    icon={<ArrowRightIcon />}
+                    intent="secondary"
+                  >
+                    Read ({post._slug.slice(0, 20)}
+                    {post._slug.length > 20 ? "..." : ""})
+                  </ButtonLink>
+                ) : null}
               </div>
             </div>
           </>
