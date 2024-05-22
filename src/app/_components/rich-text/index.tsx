@@ -23,12 +23,12 @@ export const richTextBaseComponents: RichTextProps["components"] = {
 function Code({
   children,
   isInline,
-  language,
+
   code,
 }: {
   children: React.ReactNode;
   isInline: boolean;
-  language: string;
+
   code: string;
 }) {
   if (isInline) {
@@ -37,7 +37,8 @@ function Code({
         {children}
       </code>
     );
-  } else return <CodeSnippet code={code} language={language} />;
+  } else
+    return <pre className="rounded-lg border border-border dark:border-dark-border">{code}</pre>;
 }
 
 export const FaqItemComponentFragment = fragmentOn("FaqItemComponent", {
@@ -94,11 +95,11 @@ const $richTextCallout = cva(
   },
 );
 
-export const richTextCalloutComponent = ({
+export function RichTextCalloutComponent({
   _title,
   size,
   content,
-}: RichTextCalloutComponentFragment) => {
+}: RichTextCalloutComponentFragment) {
   switch (size) {
     case "large":
       return (
@@ -131,4 +132,4 @@ export const richTextCalloutComponent = ({
         </article>
       );
   }
-};
+}

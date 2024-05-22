@@ -12,10 +12,11 @@ import {
   FaqItemComponentFragment,
   FaqRichtextComponent,
   richTextBaseComponents,
-  richTextCalloutComponent,
+  RichTextCalloutComponent,
   richTextCalloutComponentFragment,
   richTextClasses,
 } from "@/app/_components/rich-text";
+import { CodeSnippet, codeSnippetFragment } from "@/app/_components/code-snippet";
 
 export default async function BlogPage({ params: { slug } }: { params: { slug: string } }) {
   return (
@@ -62,6 +63,7 @@ export default async function BlogPage({ params: { slug } }: { params: { slug: s
                         __typename: true,
                         on_FaqItemComponent: FaqItemComponentFragment,
                         on_RichTextCalloutComponent: richTextCalloutComponentFragment,
+                        on_CodeSnippetComponent: codeSnippetFragment,
                       },
                       content: 1,
                       toc: 1,
@@ -114,7 +116,8 @@ export default async function BlogPage({ params: { slug } }: { params: { slug: s
                     components={{
                       ...richTextBaseComponents,
                       FaqItemComponent: FaqRichtextComponent,
-                      RichTextCalloutComponent: richTextCalloutComponent,
+                      RichTextCalloutComponent: RichTextCalloutComponent,
+                      CodeSnippetComponent: CodeSnippet,
                     }}
                   >
                     {blogpost.body.json.content}

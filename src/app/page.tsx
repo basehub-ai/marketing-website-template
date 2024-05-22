@@ -15,7 +15,6 @@ import {
   isTestimonialSliderComponent,
   isTestimonialsGridComponent,
 } from ".basehub/schema";
-import { isDev } from "@/utils/constants";
 
 import { AccordionFaq } from "./_sections/accordion-faq";
 import { BigFeature, bigFeatureFragment } from "./_sections/big-feature";
@@ -34,7 +33,7 @@ import { TestimonialsGrid, testimonialsGridFragment } from "./_sections/testimon
 export default async function HomePage() {
   return (
     <Pump
-      draft={draftMode().isEnabled || isDev}
+      draft={draftMode().isEnabled}
       next={{ revalidate: 30 }}
       queries={[
         {

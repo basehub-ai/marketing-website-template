@@ -30,8 +30,8 @@ importers:
         specifier: ^10.4.19
         version: 10.4.19(postcss@8.4.38)
       basehub:
-        specifier: ^4.0.16
-        version: 4.0.16(@babel/runtime@7.24.5)(@types/react@18.3.1)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+        specifier: ^5.0.3
+        version: 5.0.3(@babel/runtime@7.24.5)(@types/react@18.3.1)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       class-variance-authority:
         specifier: ^0.7.0
         version: 0.7.0
@@ -229,8 +229,8 @@ packages:
     resolution: {integrity: sha512-6mQNsaLeXTw0nxYUYu+NSa4Hx4BlF1x1x8/PMFbiR+GBSr+2DkECc69b8hgy2frEodNcvPffeH8YfWd3LI6jhQ==}
     engines: {node: '>=6.9.0'}
 
-  '@basehub/genql@7.0.7':
-    resolution: {integrity: sha512-LgBiti9iUNKVmYkcBPDPkBY0wMuZ9Yx+bg8nDdBrd7+K990yTWoOGqB5jaRd+ANP/G1aB5U+4yk2MeeI6KLzwA==}
+  '@basehub/genql@7.0.8':
+    resolution: {integrity: sha512-vVHkAPdiIxKptciTrwIhhlChyWnGxKjYN0nuj50pWQ/ZSz7UheDyAB9RPWKJU4qdCkKpQ9urjruddEXvPMfTaQ==}
 
   '@basehub/mutation-api-helpers@1.0.5':
     resolution: {integrity: sha512-vDhKkdCvA9OgqTm6L/6ryrI6StpIkn0vcVzMKQQc7fDfeHyJAWNzGBjzHdBpFMpOacUn/KI1PN7WQAvK6UbQGg==}
@@ -1165,8 +1165,8 @@ packages:
   balanced-match@1.0.2:
     resolution: {integrity: sha512-3oSeUO0TMV67hN1AmbXsK4yaqU7tjiHlbxRDZOpH0KW9+CeX4bRAaX0Anxt0tx2MrpRpWwQaPwIlISEJhYU5Pw==}
 
-  basehub@4.0.16:
-    resolution: {integrity: sha512-5t1ismMTgRHoC02hhaS6yOXVUHi81pLDi9cPWR7OyXtDA2aXWQjX1hlvxfZSKXZ7fZVwkQaHwcJYrPl6Q5G95w==}
+  basehub@5.0.3:
+    resolution: {integrity: sha512-ZjnPUfZZIR4TpBu/z7YEW6N4STJdW/2LmiTcjb7X2fJklSo1ae2g3YyTrpYrckiEIeSNbFUU0AdiAyZha+ZU+A==}
     hasBin: true
     peerDependencies:
       react: ^18.2.0
@@ -3404,7 +3404,7 @@ snapshots:
       '@babel/helper-validator-identifier': 7.24.5
       to-fast-properties: 2.0.0
 
-  '@basehub/genql@7.0.7':
+  '@basehub/genql@7.0.8':
     dependencies:
       '@graphql-tools/graphql-file-loader': 7.5.17(graphql@16.8.1)
       '@graphql-tools/load': 7.8.14(graphql@16.8.1)
@@ -4391,9 +4391,9 @@ snapshots:
 
   balanced-match@1.0.2: {}
 
-  basehub@4.0.16(@babel/runtime@7.24.5)(@types/react@18.3.1)(react-dom@18.3.1(react@18.3.1))(react@18.3.1):
+  basehub@5.0.3(@babel/runtime@7.24.5)(@types/react@18.3.1)(react-dom@18.3.1(react@18.3.1))(react@18.3.1):
     dependencies:
-      '@basehub/genql': 7.0.7
+      '@basehub/genql': 7.0.8
       '@basehub/mutation-api-helpers': 1.0.5
       '@radix-ui/react-slot': 1.0.2(@types/react@18.3.1)(react@18.3.1)
       arg: 5.0.1

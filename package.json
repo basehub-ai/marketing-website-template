@@ -17,7 +17,7 @@
     "@radix-ui/react-tooltip": "^1.0.7",
     "@shikijs/transformers": "^1.5.2",
     "autoprefixer": "^10.4.19",
-    "basehub": "^4.0.16",
+    "basehub": "^5.0.3",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.1",
     "embla-carousel": "^8.0.4",

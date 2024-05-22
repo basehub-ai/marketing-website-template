@@ -33,6 +33,7 @@ export const optimizedImageFragment = fragmentOn("BlockImage", {
       format: "webp",
     },
   },
+  aspectRatio: true,
   width: true,
   height: true,
   alt: true,

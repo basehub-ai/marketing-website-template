@@ -6,28 +6,29 @@ import { CopyButton } from "./copy-button";
 import { Highlighter } from "./highlight";
 import s from "./code-snippet.module.scss";
 
-export const codeSnippetFragment = fragmentOn("BlockCodeSnippet", {
-  code: true,
-  language: true,
+export const codeSnippetFragment = fragmentOn("CodeSnippetComponent", {
+  code: {
+    code: true,
+    language: true,
+  },
+  _title: true,
 });
 
-export type CodeSnippetFragment = fragmentOn.infer<typeof codeSnippetFragment> & {
-  title?: string;
-};
+export type CodeSnippetFragment = fragmentOn.infer<typeof codeSnippetFragment>;
 
-export function CodeSnippet({ code, title = "Untitled", ...props }: CodeSnippetFragment) {
+export function CodeSnippet({ code, _title = "Untitled" }: CodeSnippetFragment) {
   return (
     <div className={s["code-snippet"]}>
       <header className={s.header}>
-        <span>{title}</span>
-        <CopyButton text={code} />
+        <span className="text-text-secondary dark:text-dark-text-secondary">{_title}</span>
+        <CopyButton text={code.code} />
       </header>
-      <CodeSnippetContent code={code} {...props} />
+      <CodeSnippetContent {...code} />
     </div>
   );
 }
 
-export function CodeSnippetContent({ code, language }: CodeSnippetFragment) {
+export function CodeSnippetContent({ code, language }: CodeSnippetFragment["code"]) {
   return (
     <div className={s.content}>
       <Highlighter lang={language as BundledLanguage}>{code}</Highlighter>

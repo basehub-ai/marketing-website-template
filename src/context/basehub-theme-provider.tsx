@@ -3,7 +3,6 @@ import { draftMode } from "next/headers";
 import { Pump } from ".basehub/react-pump";
 import { hexToRgb } from "@/utils/colors";
 import { fragmentOn } from ".basehub/schema";
-import { isDev } from "@/utils/constants";
 
 export const themeFragment = fragmentOn("Theme", { palette: true });
 

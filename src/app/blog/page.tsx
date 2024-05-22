@@ -3,7 +3,6 @@ import { draftMode } from "next/headers";
 import { Pump } from ".basehub/react-pump";
 import { Heading } from "@/common/heading";
 import { Section } from "@/common/layout";
-import { isDev } from "@/utils/constants";
 
 import { BlogpostCard, blogpostCardFragment } from "./_components/blogpost-card";
 
