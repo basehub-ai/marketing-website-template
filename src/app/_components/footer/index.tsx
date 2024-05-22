@@ -63,7 +63,7 @@ export async function Footer() {
                 {data.footer.socialLinks.map((link) => {
                   return (
                     <li key={link._title}>
-                      <Link className="aspect-square hover:brightness-75" href={link.url ?? ""}>
+                      <Link className="aspect-square hover:brightness-75" href={link.url}>
                         <Image
                           alt={link._title}
                           height={20}
