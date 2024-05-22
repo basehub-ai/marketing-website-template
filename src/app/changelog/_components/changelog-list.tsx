@@ -7,7 +7,7 @@ import { cx } from "class-variance-authority";
 import { ButtonLink } from "@/common/button";
 import { AvatarsGroup } from "@/common/avatars-group";
 
-import { type ChangelogListFragment } from "../page";
+import { type ChangelogListFragment } from "./changelog.fragment";
 
 export function ChangelogList({ changelogPosts }: { changelogPosts: ChangelogListFragment[] }) {
   const [activePostId, setActivePostId] = React.useState(changelogPosts[0]._id);
