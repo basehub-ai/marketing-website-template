@@ -6,13 +6,9 @@ import React from "react";
 export function CopyButton({ text }: { text: string }) {
   const [isShowingTooltip, setIsShowingTooltip] = React.useState(false);
   const handleClick = async () => {
-    try {
-      await navigator.clipboard.writeText(text);
-      setIsShowingTooltip(true);
-      setTimeout(() => setIsShowingTooltip(false), 2000);
-    } catch (error) {
-      console.error("Failed to copy text to clipboard:", error);
-    }
+    await navigator.clipboard.writeText(text);
+    setIsShowingTooltip(true);
+    setTimeout(() => setIsShowingTooltip(false), 2000);
   };
 
   return (

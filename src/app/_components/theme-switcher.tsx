@@ -3,11 +3,8 @@
 import { useTheme } from "next-themes";
 import { Half2Icon, MoonIcon, SunIcon } from "@radix-ui/react-icons";
 
-import { useHasRendered } from "@/hooks/use-has-rendered";
-
 export function ThemeSwitcher() {
-  const { theme, setTheme } = useTheme();
-  const hasRendered = useHasRendered();
+  const { setTheme } = useTheme();
 
   return (
     <div className="text-center">

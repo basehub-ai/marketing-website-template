@@ -4,8 +4,6 @@ import { cva, cx } from "class-variance-authority";
 
 import { fragmentOn } from ".basehub/schema";
 
-import { CodeSnippet } from "../code-snippet";
-
 export const richTextClasses = cx(
   "prose prose-zinc max-w-prose text-start dark:prose-invert",
   "prose-p:text-text-secondary dark:prose-p:text-dark-text-secondary",

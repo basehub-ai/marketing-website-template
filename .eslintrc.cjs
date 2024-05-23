@@ -81,6 +81,7 @@ module.exports = {
     "@typescript-eslint/no-floating-promises": "off",
     "@typescript-eslint/no-misused-promises": "off",
     "@typescript-eslint/no-confusing-void-expression": "off",
+    "@typescript-eslint/no-unnecessary-condition": "warn",
     "@typescript-eslint/no-unused-vars": [
       "warn",
       {
