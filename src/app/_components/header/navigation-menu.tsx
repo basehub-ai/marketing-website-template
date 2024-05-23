@@ -12,43 +12,18 @@ import {
 } from "@radix-ui/react-navigation-menu";
 import { cx } from "class-variance-authority";
 
-interface Link {
-  href: string;
-  label: string;
-  menu?: Link[];
-}
+import { type HeaderLiksFragment } from ".";
 
-const links: Link[] = [
-  { href: "/", label: "Home" },
-  {
-    href: "/blog",
-    label: "Blog",
-    menu: [
-      { href: "/blog", label: "Featured posts" },
-      { href: "/blog", label: "Last posts" },
-      { href: "/guides", label: "Guides" },
-      { href: "/blog", label: "Use cases" },
-    ],
-  },
-  { href: "/#pricing", label: "Pricing" },
-  { href: "/changelog", label: "Changelog" },
-];
-
-export function NavigationMenuHeader() {
+export function NavigationMenuHeader({ links }: { links: HeaderLiksFragment[] }) {
   return (
     <NavigationMenu className="relative z-[1] hidden justify-center md:flex">
       <NavigationMenuList className="flex flex-1 px-4">
-        {links.map(({ href, label, menu }) =>
-          menu ? (
-            <NavigationMenuLinkWithMenu
-              key={`${href}${label}`}
-              href={href}
-              label={label}
-              menu={menu}
-            />
+        {links.map((props) =>
+          props.sublinks.items.length > 0 ? (
+            <NavigationMenuLinkWithMenu key={props._id} {...props} />
           ) : (
-            <li key={`${href}${label}`}>
-              <NavigationMenuLink href={href}>{label}</NavigationMenuLink>
+            <li key={props._id}>
+              <NavigationMenuLink href={props.href ?? "#"}>{props._title}</NavigationMenuLink>
             </li>
           ),
         )}
@@ -77,33 +52,28 @@ function NavigationMenuLink({
   );
 }
 
-function NavigationMenuLinkWithMenu({
-  href,
-  label,
-  menu,
-}: {
-  href: string;
-  label: string;
-  menu: Link[];
-}) {
+function NavigationMenuLinkWithMenu({ _id, _title, href, sublinks }: HeaderLiksFragment) {
   return (
-    <NavigationMenuItem key={`${href}${label}`} className="relative items-center gap-1">
+    <NavigationMenuItem key={`${href ?? ""}${_title}`} className="relative items-center gap-1">
       <NavigationMenuTrigger asChild>
-        <NavigationMenuLink href={href}>
-          {label}
-          <ChevronDownIcon className="text-text-tertiary dark:text-dark-text-tertiary" />
-        </NavigationMenuLink>
+        {href ? (
+          <NavigationMenuLink href={href}>{_title}</NavigationMenuLink>
+        ) : (
+          <button className="inline-flex items-center gap-1 rounded-full px-3 pb-px hover:bg-surface-tertiary dark:hover:bg-dark-surface-tertiary md:h-7">
+            {_title}
+            <ChevronDownIcon className="text-text-tertiary dark:text-dark-text-tertiary" />
+          </button>
+        )}
       </NavigationMenuTrigger>
       <NavigationMenuContent className="absolute left-0 top-[calc(100%+4px)] min-w-[164px] rounded-md border border-border bg-surface-primary p-0.5 data-[motion=from-end]:animate-enterFromRight data-[motion=from-start]:animate-enterFromLeft data-[motion=to-end]:animate-exitToRight data-[motion=to-start]:animate-exitToLeft dark:border-dark-border dark:bg-dark-surface-primary">
         <ul className="flex flex-col ">
-          {menu.map(({ href, label }) => (
-            <li key={`${href}${label}`}>
+          {sublinks.items.map(({ href, _title }) => (
+            <li key={`${href ?? ""}${_title}`}>
               <NavigationMenuLinkPrimitive
                 asChild
                 className="flex items-center gap-2 rounded-md px-3 py-1.5 hover:bg-surface-tertiary dark:hover:bg-dark-surface-tertiary"
-                href={href}
               >
-                <Link href={href}>{label}</Link>
+                <Link href={href ?? "#"}>{_title}</Link>
               </NavigationMenuLinkPrimitive>
             </li>
           ))}
