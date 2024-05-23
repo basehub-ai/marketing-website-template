@@ -3,11 +3,11 @@
 @tailwind utilities;
 
 :root {
-  color-scheme: dark;
-  color: CanvasText;
-  background-color: Canvas;
-  --header-height: 80px;
-  background-color: theme('colors.surface.primary');
+  --header-height: 64px;
+  color-scheme: light;
+  color: theme("colors.text.primary");
+  background-color: theme("colors.surface.primary");
+  background-color: theme("colors.surface.primary");
 }
 
 // prefer dark mode
@@ -15,11 +15,10 @@
 @media (prefers-color-scheme: dark) {
   :root {
     color-scheme: dark;
-    color: CanvasText;
-    background-color: theme('colors.dark.surface.primary');
+    color: theme("colors.dark.text.primary");
+    background-color: theme("colors.dark.surface.primary");
   }
 }
-
 
 .no-scrollbar {
   &::-webkit-scrollbar {

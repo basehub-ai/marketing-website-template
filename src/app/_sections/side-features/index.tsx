@@ -39,18 +39,25 @@ type FeaturesGrid = fragmentOn.infer<typeof featuresSideBySideFragment>;
 
 export function SideFeatures({ featuresSideBySideList, heading, cta }: FeaturesGrid) {
   return (
-    <Section className="gap-8 lg:!flex-row lg:gap-24 lg:p-28 xl:gap-32" container="full">
-      <div className="container mx-auto flex flex-1 shrink flex-col gap-10 self-stretch px-6 lg:px-0">
-        <Heading align="left" className="items-start" subtitle={heading.subtitle} tag={heading.tag}>
-          <h4>{heading.title}</h4>
-        </Heading>
-        <div className="flex items-center gap-3 md:order-3">
-          <ButtonLink href={cta.primary.href ?? ""} intent={cta.primary.type} size="lg">
-            {cta.primary.label}
-          </ButtonLink>
-          <ButtonLink href={cta.secondary.href ?? ""} intent={cta.secondary.type} size="lg">
-            {cta.secondary.label}
-          </ButtonLink>
+    <Section className="relative gap-8 lg:!flex-row lg:gap-24 lg:p-28 xl:gap-32" container="full">
+      <div className="container relative top-0 mx-auto flex-1 shrink self-stretch px-6 lg:px-0">
+        <div className="sticky bottom-0 top-16 flex flex-col gap-10">
+          <Heading
+            align="left"
+            className="items-start"
+            subtitle={heading.subtitle}
+            tag={heading.tag}
+          >
+            <h4>{heading.title}</h4>
+          </Heading>
+          <div className="flex items-center gap-3 md:order-3">
+            <ButtonLink href={cta.primary.href ?? ""} intent={cta.primary.type} size="lg">
+              {cta.primary.label}
+            </ButtonLink>
+            <ButtonLink href={cta.secondary.href ?? ""} intent={cta.secondary.type} size="lg">
+              {cta.secondary.label}
+            </ButtonLink>
+          </div>
         </div>
       </div>
       <div className="w-full flex-1">

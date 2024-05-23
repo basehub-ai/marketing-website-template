@@ -93,24 +93,26 @@ export function Slider({
               key={author._title}
               className="embla__slide ml-20 flex w-full min-w-0 max-w-full shrink-0 grow-0 basis-[600px] transform touch-pan-y touch-pinch-zoom flex-col rounded-xl border border-border [backface-visibility:hidden] last:!visible dark:border-dark-border"
             >
-              <div className="flex flex-1 items-start border-b border-border p-5 dark:border-dark-border">
-                <blockquote className="text-pretty text-2xl font-light text-text-primary dark:text-dark-text-primary md:text-4xl">
+              <div className="flex flex-1 items-start border-b border-border px-8 py-7 dark:border-dark-border">
+                <blockquote className="text-pretty text-2xl font-extralight leading-snug text-text-primary dark:text-dark-text-primary md:text-4xl">
                   “{quote}”
                 </blockquote>
               </div>
               <div className="flex items-center gap-4 pl-5">
-                <Image
-                  alt={author._title}
-                  className="hidden size-16 rounded-full md:block"
-                  height={64}
-                  src={author.image.url}
-                  width={64}
-                />
-                <div className="flex flex-1 flex-col border-r border-border py-4 dark:border-dark-border">
-                  <h5 className="text-base font-medium md:text-lg">{author._title}</h5>
-                  <p className="text-pretty text-sm text-text-tertiary dark:text-dark-text-tertiary md:text-base">
-                    {author._title}, {author.company._title}
-                  </p>
+                <div className="flex flex-1 items-center gap-5 border-r border-border py-4 dark:border-dark-border">
+                  <Image
+                    alt={author._title}
+                    className="hidden size-16 rounded-full md:block"
+                    height={64}
+                    src={author.image.url}
+                    width={64}
+                  />
+                  <div className="flex flex-1 flex-col">
+                    <h5 className="text-base font-medium md:text-lg">{author._title}</h5>
+                    <p className="text-pretty text-sm text-text-tertiary dark:text-dark-text-tertiary md:text-base">
+                      {author._title}, {author.company._title}
+                    </p>
+                  </div>
                 </div>
                 <div className="pr-5">
                   {author.company.image ? (

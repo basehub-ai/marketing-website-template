@@ -45,7 +45,7 @@ export function FeaturesGrid({ heading, featuresGridList, primary, secondary }: 
         {featuresGridList.items.map(({ _title, description, icon }) => (
           <article
             key={_title}
-            className="flex flex-col gap-4 rounded-lg border border-border p-4 dark:border-dark-border"
+            className="flex flex-col gap-4 rounded-lg border border-border p-4 [box-shadow:_70px_-20px_130px_0px_rgba(255,255,255,0.05)_inset] dark:border-dark-border dark:[box-shadow:_70px_-20px_130px_0px_rgba(255,255,255,0.05)_inset]"
           >
             <figure className="flex size-9 items-center justify-center rounded-full border border-border bg-surface-secondary p-2 dark:border-dark-border dark:bg-dark-surface-secondary">
               <Image
@@ -58,7 +58,7 @@ export function FeaturesGrid({ heading, featuresGridList, primary, secondary }: 
             </figure>
             <div className="flex flex-col items-start gap-1">
               <h5 className="text-lg font-medium">{_title}</h5>
-              <p className="text-pretty text-text-tertiary dark:text-dark-text-tertiary">
+              <p className="text-pretty text-text-secondary dark:text-dark-text-secondary">
                 {description}
               </p>
             </div>

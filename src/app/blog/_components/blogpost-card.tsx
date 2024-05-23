@@ -4,8 +4,9 @@ import Link from "next/link";
 
 import { fragmentOn } from ".basehub/schema";
 import { AvatarsGroup } from "@/common/avatars-group";
-import { Author } from "@/common/basehub-avatar";
+import { Author } from "@/common/avatar";
 import { authorFragment } from "@/lib/basehub/fragments";
+import { formatDate } from "@/utils/dates";
 
 export const blogpostCardFragment = fragmentOn("BlogpostsItem", {
   _id: true,
@@ -54,13 +55,7 @@ export function BlogpostCard({ type = "list", className, ...post }: BlogPostCard
               {post._title}
             </h3>
             <p>{post.categories.length > 0 ? post.categories.join(",") : "No categories"}</p>
-            <p>
-              {new Date(post.publishedAt).toLocaleString("en-US", {
-                day: "numeric",
-                month: "long",
-                year: "numeric",
-              })}
-            </p>
+            <p>{formatDate(post.publishedAt)}</p>
             <div className="flex items-center justify-self-end">
               <AvatarsGroup>
                 {post.authors.map((author) => (
@@ -107,11 +102,7 @@ export function BlogpostCard({ type = "list", className, ...post }: BlogPostCard
           >
             <header className="flex items-center justify-between gap-2">
               <p className="text-sm text-text-tertiary dark:text-dark-text-tertiary lg:text-base">
-                {new Date(post.publishedAt).toLocaleString("en-US", {
-                  day: "numeric",
-                  month: "long",
-                  year: "numeric",
-                })}
+                {formatDate(post.publishedAt)}
               </p>
               <AvatarsGroup>
                 {post.authors.map((author) => (

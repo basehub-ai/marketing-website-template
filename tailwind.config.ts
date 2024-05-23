@@ -63,8 +63,8 @@ const config: Config = {
       },
     },
     fontSize: {
-      "2xs": ["11px", { lineHeight: "1.3", letterSpacing: "-0.3px", fontWeight: "400" }],
-      xs: ["0.75rem", { lineHeight: "1rem", letterSpacing: "-0.36px" }],
+      "2xs": ["11px", { lineHeight: "1.3", letterSpacing: "-0.3px", fontWeight: "300" }],
+      xs: ["0.75rem", { lineHeight: "1rem", letterSpacing: "-0.36px", fontWeight: "300" }],
       sm: ["0.875rem", { lineHeight: "1.25rem", letterSpacing: "-0.42px" }],
       base: ["1rem", { lineHeight: "1.5rem", letterSpacing: "-0.48px" }],
       lg: ["1.125rem", { lineHeight: "1.75rem", letterSpacing: "-0.72px" }],

@@ -35,9 +35,9 @@ export function Avatar({
         "size-7 rounded-full border-2 border-surface-primary dark:border-dark-surface-primary",
         className,
       )}
-      height={height}
+      height={100}
       src={url}
-      width={width}
+      width={100}
       {...props}
     />
   );

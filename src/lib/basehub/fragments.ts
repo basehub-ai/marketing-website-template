@@ -9,7 +9,14 @@ export const headingFragment = fragmentOn("HeadingComponent", {
 export type HeadingFragment = fragmentOn.infer<typeof headingFragment>;
 
 export const avatarFragment = fragmentOn("BlockImage", {
-  url: true,
+  url: {
+    __args: {
+      quality: 100,
+      compression: "auto",
+      width: 100,
+      height: 100,
+    },
+  },
   width: true,
   height: true,
   alt: true,

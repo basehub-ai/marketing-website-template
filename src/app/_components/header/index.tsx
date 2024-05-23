@@ -50,7 +50,7 @@ export async function Header() {
                 <ButtonLink unstyled href="/">
                   <Image
                     alt={header.logo?.alt ?? "Logo"}
-                    className="dark:invert"
+                    className="h-16 dark:invert"
                     height={header.logo.height}
                     layout="fixed"
                     src={header.logo.url}

@@ -1,4 +1,5 @@
 import { draftMode } from "next/headers";
+import { type Metadata } from "next";
 
 import { Pump } from ".basehub/react-pump";
 import {
@@ -15,6 +16,7 @@ import {
   isTestimonialSliderComponent,
   isTestimonialsGridComponent,
 } from ".basehub/schema";
+import { basehub } from ".basehub/index";
 
 import { AccordionFaq } from "./_sections/accordion-faq";
 import { BigFeature, bigFeatureFragment } from "./_sections/big-feature";
@@ -29,6 +31,33 @@ import { Pricing, pricingFragment } from "./_sections/pricing";
 import { SideFeatures, featuresSideBySideFragment } from "./_sections/side-features";
 import { Testimonials, testimonialsSliderFragment } from "./_sections/testimonials";
 import { TestimonialsGrid, testimonialsGridFragment } from "./_sections/testimonials-grid";
+
+export const generateMetadata = async (): Promise<Metadata> => {
+  const data = await basehub({ cache: "no-store" }).query({
+    settings: {
+      metadata: {
+        sitename: true,
+        titleTemplate: true,
+        favicon: {
+          url: true,
+          mimeType: true,
+        },
+      },
+    },
+  });
+
+  return {
+    title: "Home",
+    description: "Home page",
+    icons: [
+      {
+        url: data.settings.metadata.favicon.url,
+        rel: "icon",
+        type: data.settings.metadata.favicon.mimeType,
+      },
+    ],
+  };
+};
 
 export default async function HomePage() {
   return (

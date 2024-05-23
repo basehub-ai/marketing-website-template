@@ -11,9 +11,31 @@ import { CodeSnippet } from "@/app/_components/code-snippet";
 import { richTextBaseComponents, richTextClasses } from "@/app/_components/rich-text";
 import { ButtonLink } from "@/common/button";
 import { AvatarsGroup } from "@/common/avatars-group";
-import { Avatar } from "@/common/basehub-avatar";
+import { Avatar } from "@/common/avatar";
+import { basehub } from ".basehub/index";
+import { formatDate } from "@/utils/dates";
 
 import { ChangelogLayout } from "../_components/changelog-header";
+
+export const generateStaticParams = async () => {
+  const data = await basehub({ cache: "no-store" }).query({
+    changelog: {
+      posts: {
+        items: {
+          _slug: true,
+        },
+      },
+    },
+  });
+
+  return data.changelog.posts.items.map((post) => {
+    return {
+      params: {
+        slug: post._slug,
+      },
+    };
+  });
+};
 
 export default async function ChangelogPage({
   params,
@@ -96,12 +118,15 @@ export default async function ChangelogPage({
                 >
                   Back to changelog
                 </Link>
-                <Heading align="left" subtitle={new Date(post.publishedAt).toLocaleDateString()}>
+                <Heading align="left">
                   <h1>{post._title}</h1>
                 </Heading>
+                <p className="text-sm text-text-tertiary dark:text-dark-text-tertiary md:text-base">
+                  {formatDate(post.publishedAt)}
+                </p>
               </div>
             </ChangelogLayout>
-            <div className="mx-auto flex max-w-screen-md flex-col gap-8 px-8 pt-14">
+            <div className="mx-auto flex max-w-screen-md flex-col gap-8 px-8 pb-20 pt-16">
               <Image
                 alt={post.image.alt ?? post._title}
                 className="h-auto w-full rounded-xl"

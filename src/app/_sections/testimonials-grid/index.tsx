@@ -4,6 +4,7 @@ import { Heading } from "@/common/heading";
 import { Section } from "@/common/layout";
 import { fragmentOn } from ".basehub/schema";
 import { headingFragment } from "@/lib/basehub/fragments";
+import { Button } from "@/common/button";
 
 export const testimonialsGridFragment = fragmentOn("TestimonialsGridComponent", {
   heading: headingFragment,
@@ -38,7 +39,6 @@ export function TestimonialsGrid({
         <h4>{title}</h4>
       </Heading>
       <div className="relative columns-1 gap-8 overflow-hidden md:columns-3">
-        <div className="absolute left-0 top-0 h-full w-full bg-gradient-to-t from-surface-primary/90 via-transparent to-surface-primary/90 dark:from-dark-surface-primary/95 dark:via-transparent dark:to-dark-surface-primary/95" />
         {testimonialsGridList.items.map(({ author, quote }, i) => (
           <article
             key={author._id}
@@ -54,7 +54,7 @@ export function TestimonialsGrid({
                 {quote}
               </blockquote>
             </div>
-            <div className="flex items-center px-4 py-3">
+            <div className="flex items-center bg-surface-secondary px-4 py-3 dark:bg-dark-surface-secondary">
               <div className="flex flex-1 flex-col gap-0.5">
                 <h5 className="text-xs font-medium text-text-tertiary dark:text-dark-text-tertiary md:text-sm">
                   {author._title}
@@ -75,6 +75,9 @@ export function TestimonialsGrid({
             </div>
           </article>
         ))}
+      </div>
+      <div className="flex justify-center">
+        <Button intent="secondary">View more</Button>
       </div>
     </Section>
   );

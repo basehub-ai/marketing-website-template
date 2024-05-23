@@ -2,7 +2,7 @@ import Link from "next/link";
 
 import { fragmentOn } from ".basehub/schema";
 import { AvatarsGroup } from "@/common/avatars-group";
-import { Avatar } from "@/common/basehub-avatar";
+import { Avatar } from "@/common/avatar";
 import { avatarFragment } from "@/lib/basehub/fragments";
 
 export const heroFragment = fragmentOn("HeroComponent", {

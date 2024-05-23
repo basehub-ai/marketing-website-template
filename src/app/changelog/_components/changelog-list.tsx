@@ -6,6 +6,7 @@ import { cx } from "class-variance-authority";
 
 import { ButtonLink } from "@/common/button";
 import { AvatarsGroup } from "@/common/avatars-group";
+import { formatDate } from "@/utils/dates";
 
 import { type ChangelogListFragment } from "./changelog.fragment";
 
@@ -63,7 +64,7 @@ export function ChangelogList({ changelogPosts }: { changelogPosts: ChangelogLis
                 prevPostIdx === activeIdx - 1 && "delay-500",
               )}
             >
-              {new Date(post.publishedAt).toLocaleDateString()}
+              {formatDate(post.publishedAt)}
             </p>
             <div
               className={cx(

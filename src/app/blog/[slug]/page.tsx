@@ -7,7 +7,7 @@ import { Pump } from ".basehub/react-pump";
 import { Section } from "@/common/layout";
 import { authorFragment } from "@/lib/basehub/fragments";
 import { Heading } from "@/common/heading";
-import { Avatar } from "@/common/basehub-avatar";
+import { Avatar } from "@/common/avatar";
 import {
   FaqItemComponentFragment,
   FaqRichtextComponent,
@@ -17,6 +17,27 @@ import {
   richTextClasses,
 } from "@/app/_components/rich-text";
 import { CodeSnippet, codeSnippetFragment } from "@/app/_components/code-snippet";
+import { basehub } from ".basehub/index";
+
+export const generateStaticParams = async () => {
+  const data = await basehub({ cache: "no-store" }).query({
+    blog: {
+      blogposts: {
+        items: {
+          _slug: true,
+        },
+      },
+    },
+  });
+
+  return data.blog.blogposts.items.map((post) => {
+    return {
+      params: {
+        slug: post._slug,
+      },
+    };
+  });
+};
 
 export default async function BlogPage({ params: { slug } }: { params: { slug: string } }) {
   return (
