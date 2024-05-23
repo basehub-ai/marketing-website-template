@@ -7,9 +7,11 @@ import { ArrowRightIcon } from "@radix-ui/react-icons";
 import { Pump } from ".basehub/react-pump";
 import { Heading } from "@/common/heading";
 import { authorFragment, optimizedImageFragment } from "@/lib/basehub/fragments";
-import { CodeSnippet, codeSnippetFragment } from "@/app/_components/code-snippet";
+import { CodeSnippet } from "@/app/_components/code-snippet";
 import { richTextBaseComponents, richTextClasses } from "@/app/_components/rich-text";
 import { ButtonLink } from "@/common/button";
+import { AvatarsGroup } from "@/common/avatars-group";
+import { Avatar } from "@/common/basehub-avatar";
 
 import { ChangelogLayout } from "../_components/changelog-header";
 
@@ -80,10 +82,9 @@ export default async function ChangelogPage({
 
         if (!post) return notFound();
 
-        const postIndex = changelog.posts.items.findIndex((p) => p._slug === post._slug);
-        const nextPost = changelog.posts.items.at(
-          allPosts.changelog.posts.items.length + 1 > postIndex + 1 ? postIndex + 1 : 0,
-        );
+        const postIndex = allPosts.changelog.posts.items.findIndex((p) => p._slug === post._slug);
+        const nextPost =
+          allPosts.changelog.posts.items[postIndex + 1] ?? allPosts.changelog.posts.items[0];
 
         return (
           <>
@@ -120,19 +121,31 @@ export default async function ChangelogPage({
                   {post.body.json.content}
                 </RichText>
               </div>
-              <div className="flex justify-between">
-                <p className="text-xs text-text-tertiary dark:text-dark-text-tertiary" />
-                {nextPost ? (
-                  <ButtonLink
-                    className="text-xs text-text-tertiary hover:underline dark:text-dark-text-tertiary"
-                    href={`/changelog/${nextPost._slug}`}
-                    icon={<ArrowRightIcon />}
-                    intent="secondary"
-                  >
-                    Read ({post._slug.slice(0, 20)}
-                    {post._slug.length > 20 ? "..." : ""})
-                  </ButtonLink>
-                ) : null}
+              <div className="flex items-center justify-between">
+                {post.authors.length > 1 ? (
+                  <AvatarsGroup>
+                    {post.authors.map((author) => (
+                      <Avatar {...author.image} key={author._id} />
+                    ))}
+                  </AvatarsGroup>
+                ) : (
+                  <div className="flex items-center gap-2">
+                    <Avatar {...post.authors[0].image} />
+                    <p className="text-sm text-text-secondary dark:text-dark-text-secondary md:text-base">
+                      {post.authors[0]._title}
+                    </p>
+                  </div>
+                )}
+
+                <ButtonLink
+                  className="text-xs text-text-tertiary hover:underline dark:text-dark-text-tertiary"
+                  href={`/changelog/${nextPost._slug}`}
+                  icon={<ArrowRightIcon />}
+                  intent="secondary"
+                >
+                  Read ({nextPost._slug.slice(0, 20)}
+                  {nextPost._slug.length > 20 ? "..." : ""})
+                </ButtonLink>
               </div>
             </div>
           </>
