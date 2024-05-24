@@ -3,6 +3,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { RichText } from "basehub/react-rich-text";
 import { ArrowRightIcon } from "@radix-ui/react-icons";
+import { type ResolvingMetadata, type Metadata } from "next";
 
 import { Pump } from ".basehub/react-pump";
 import { Heading } from "@/common/heading";
@@ -16,6 +17,12 @@ import { basehub } from ".basehub/index";
 import { formatDate } from "@/utils/dates";
 
 import { ChangelogLayout } from "../_components/changelog-header";
+
+interface ChangelogPageParams {
+  params: {
+    slug: string;
+  };
+}
 
 export const generateStaticParams = async () => {
   const data = await basehub({ cache: "no-store" }).query({
@@ -37,13 +44,53 @@ export const generateStaticParams = async () => {
   });
 };
 
-export default async function ChangelogPage({
-  params,
-}: {
-  params: {
-    slug: string;
+export const generateMetadata = async (
+  { params }: ChangelogPageParams,
+  parent: ResolvingMetadata,
+): Promise<Metadata | ResolvingMetadata> => {
+  const prevData = await parent;
+  const data = await basehub().query({
+    settings: {
+      metadata: {
+        titleTemplate: true,
+      },
+    },
+    changelog: {
+      posts: {
+        __args: {
+          filter: {
+            _sys_slug: { eq: params.slug },
+          },
+          first: 1,
+        },
+        items: {
+          _title: true,
+          excerpt: true,
+          _id: true,
+        },
+      },
+    },
+  });
+
+  if (!data.changelog.posts.items.length) return await parent;
+  const images = [
+    {
+      url: `/dynamic-og?type=changelog&id=${data.changelog.posts.items[0]._id}`,
+      alt: data.changelog.posts.items[0]._title,
+    },
+    ...(prevData.openGraph?.images ?? []),
+  ];
+
+  return {
+    title: `${data.changelog.posts.items[0]._title} ${data.settings.metadata.titleTemplate ?? ""}`,
+    description: data.changelog.posts.items[0].excerpt,
+    openGraph: {
+      images,
+    },
   };
-}) {
+};
+
+export default async function ChangelogPage({ params }: ChangelogPageParams) {
   return (
     <Pump
       queries={[

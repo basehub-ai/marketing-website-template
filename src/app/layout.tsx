@@ -4,6 +4,8 @@ import "./globals.scss";
 import { GeistSans } from "geist/font/sans";
 import { GeistMono } from "geist/font/mono";
 
+import { basehub } from ".basehub/index";
+
 import { BaseHubThemeProvider } from "../context/basehub-theme-provider";
 
 import { Providers } from "./providers";
@@ -12,9 +14,31 @@ import { Footer } from "./_components/footer";
 import { Newsletter } from "./_sections/newsletter/newsletter";
 import { ThemeSwitcher } from "./_components/theme-switcher";
 
-export const metadata: Metadata = {
-  title: "SaaS-template",
-  description: "Template for SaaS applications",
+export const generateMetadata = async (): Promise<Metadata> => {
+  const data = await basehub({ cache: "no-store" }).query({
+    settings: {
+      metadata: {
+        sitename: true,
+        titleTemplate: true,
+        favicon: {
+          url: true,
+          mimeType: true,
+        },
+      },
+    },
+  });
+
+  return {
+    title: `Home ${data.settings.metadata.titleTemplate ?? ""}`,
+    description: "Homepage",
+    icons: [
+      {
+        url: data.settings.metadata.favicon.url,
+        rel: "icon",
+        type: data.settings.metadata.favicon.mimeType,
+      },
+    ],
+  };
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

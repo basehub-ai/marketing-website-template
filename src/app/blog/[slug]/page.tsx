@@ -2,6 +2,7 @@ import { draftMode } from "next/headers";
 import { notFound } from "next/navigation";
 import Image from "next/image";
 import { RichText } from "basehub/react-rich-text";
+import { type Metadata, type ResolvingMetadata } from "next";
 
 import { Pump } from ".basehub/react-pump";
 import { Section } from "@/common/layout";
@@ -37,6 +38,53 @@ export const generateStaticParams = async () => {
       },
     };
   });
+};
+
+export const generateMetadata = async (
+  { params: { slug } }: { params: { slug: string } },
+  parent: ResolvingMetadata,
+): Promise<Metadata | ResolvingMetadata> => {
+  const prevData = await parent;
+  const data = await basehub().query({
+    settings: {
+      metadata: {
+        titleTemplate: true,
+      },
+    },
+    blog: {
+      blogposts: {
+        __args: {
+          filter: {
+            _sys_slug: { eq: slug },
+          },
+          first: 1,
+        },
+        items: {
+          _id: true,
+          _title: true,
+          description: true,
+        },
+      },
+    },
+  });
+
+  if (!data.blog.blogposts.items.length) return notFound();
+  const images = [
+    {
+      url: `/dynamic-og?type=blogpost&id=${data.blog.blogposts.items[0]._id}`,
+      alt: data.blog.blogposts.items[0]._title,
+    },
+    ...(prevData.openGraph?.images ?? []),
+  ];
+
+  return {
+    title: `${data.blog.blogposts.items[0]._title} ${data.settings.metadata.titleTemplate ?? ""}`,
+    description: data.blog.blogposts.items[0].description,
+    openGraph: {
+      images,
+      type: "article",
+    },
+  };
 };
 
 export default async function BlogPage({ params: { slug } }: { params: { slug: string } }) {
