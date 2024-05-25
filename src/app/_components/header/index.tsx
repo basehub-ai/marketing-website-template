@@ -6,7 +6,7 @@ import { Pump } from ".basehub/react-pump";
 import { optimizedImageFragment } from "@/lib/basehub/fragments";
 import { fragmentOn } from ".basehub/schema";
 
-import { NavigationMenuHeader } from "./navigation-menu";
+import { DesktopMenu, MobileMenu } from "./navigation-menu";
 import { DraftModeButton } from "./draft-mode";
 
 const headerLinksFragment = fragmentOn("NavbarItem", {
@@ -49,7 +49,7 @@ export async function Header() {
               <div className="container mx-auto grid w-full grid-cols-header place-items-center content-center items-center px-4 first:*:justify-self-start last:*:justify-self-end">
                 <ButtonLink unstyled href="/">
                   <Image
-                    alt={header.logo?.alt ?? "Logo"}
+                    alt={header.logo.alt ?? "Logo"}
                     className="h-16 dark:invert"
                     height={header.logo.height}
                     layout="fixed"
@@ -57,15 +57,8 @@ export async function Header() {
                     width={header.logo.width}
                   />
                 </ButtonLink>
-                <NavigationMenuHeader links={header.navbar.items} />
-                <div className="hidden items-center gap-4 lg:flex">
-                  <ButtonLink href="/login" intent="secondary">
-                    Login
-                  </ButtonLink>
-                  <ButtonLink href="/signup" intent="tertiary">
-                    Get Started Today
-                  </ButtonLink>
-                </div>
+                <DesktopMenu links={header.navbar.items} />
+                <MobileMenu links={header.navbar.items} />
               </div>
             </div>
             {draftMode().isEnabled ? (
