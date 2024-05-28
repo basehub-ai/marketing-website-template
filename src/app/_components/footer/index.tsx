@@ -9,27 +9,33 @@ export async function Footer() {
     <Pump
       queries={[
         {
-          footer: {
-            copyright: true,
-            navbar: {
-              items: {
+          site: {
+            footer: {
+              copyright: true,
+              navbar: {
+                items: {
+                  _title: true,
+                  url: true,
+                },
+              },
+              socialLinks: {
                 _title: true,
+                icon: {
+                  url: true,
+                },
                 url: true,
               },
+              poweredByBaseHub: true,
             },
-            socialLinks: {
-              _title: true,
-              icon: {
-                url: true,
-              },
-              url: true,
-            },
-            poweredByBaseHub: true,
           },
         },
       ]}
     >
-      {async ([data]) => {
+      {async ([
+        {
+          site: { footer },
+        },
+      ]) => {
         "use server";
 
         return (
@@ -37,7 +43,7 @@ export async function Footer() {
             <div className="container mx-auto grid grid-cols-[auto_auto] grid-rows-[auto_auto_auto] place-items-start items-center gap-y-7 sm:grid-cols-[1fr_auto_1fr] sm:grid-rows-2 sm:gap-y-16">
               <Image alt="logo" height={100} src="/acme.svg" width={100} />
               <nav className="col-start-1 row-start-2 flex flex-col gap-3 self-center sm:col-span-2 sm:col-start-2 sm:row-start-1 sm:flex-row sm:items-center sm:gap-8 sm:place-self-end">
-                {data.footer.navbar.items.map(({ _title, url }) => (
+                {footer.navbar.items.map(({ _title, url }) => (
                   <Link
                     key={_title}
                     className="font-light tracking-tight text-text-secondary hover:text-text-primary dark:text-dark-text-secondary dark:hover:text-dark-text-primary"
@@ -47,7 +53,7 @@ export async function Footer() {
                   </Link>
                 ))}
               </nav>
-              {data.footer.poweredByBaseHub ? (
+              {footer.poweredByBaseHub ? (
                 <PoweredByBasehub className="col-start-2 col-end-3 row-start-1 place-self-end self-center sm:col-start-2 sm:row-start-2 sm:translate-y-1.5 sm:transform sm:place-self-center sm:self-end" />
               ) : null}
               <div className="col-span-2 flex flex-col items-start gap-3 sm:col-span-1">
@@ -60,7 +66,7 @@ export async function Footer() {
                 </p>
               </div>
               <ul className="col-start-2 row-start-2 flex items-center gap-8 place-self-end self-end sm:col-start-3 sm:row-start-2 sm:self-end">
-                {data.footer.socialLinks.map((link) => {
+                {footer.socialLinks.map((link) => {
                   return (
                     <li key={link._title}>
                       <Link className="aspect-square hover:brightness-75" href={link.url}>

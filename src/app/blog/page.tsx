@@ -13,17 +13,23 @@ export default async function BlogPage() {
       next={{ revalidate: 30 }}
       queries={[
         {
-          blog: {
-            mainTitle: true,
-            featuredPosts: blogpostCardFragment,
-            blogposts: {
-              items: blogpostCardFragment,
+          site: {
+            blog: {
+              mainTitle: true,
+              featuredPosts: blogpostCardFragment,
+              blogposts: {
+                items: blogpostCardFragment,
+              },
             },
           },
         },
       ]}
     >
-      {async ([{ blog }]) => {
+      {async ([
+        {
+          site: { blog },
+        },
+      ]) => {
         "use server";
         const { blogposts } = blog;
 

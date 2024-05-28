@@ -34,13 +34,15 @@ import { TestimonialsGrid, testimonialsGridFragment } from "./_sections/testimon
 
 export const generateMetadata = async (): Promise<Metadata> => {
   const data = await basehub({ cache: "no-store" }).query({
-    settings: {
-      metadata: {
-        sitename: true,
-        titleTemplate: true,
-        favicon: {
-          url: true,
-          mimeType: true,
+    site: {
+      settings: {
+        metadata: {
+          sitename: true,
+          titleTemplate: true,
+          favicon: {
+            url: true,
+            mimeType: true,
+          },
         },
       },
     },
@@ -51,9 +53,9 @@ export const generateMetadata = async (): Promise<Metadata> => {
     description: "Home page",
     icons: [
       {
-        url: data.settings.metadata.favicon.url,
+        url: data.site.settings.metadata.favicon.url,
         rel: "icon",
-        type: data.settings.metadata.favicon.mimeType,
+        type: data.site.settings.metadata.favicon.mimeType,
       },
     ],
   };
@@ -66,28 +68,34 @@ export default async function HomePage() {
       next={{ revalidate: 30 }}
       queries={[
         {
-          home: {
-            __typename: true,
-            on_HeroComponent: heroFragment,
-            on_FeaturesCardsComponent: featureCardsComponent,
-            on_FeaturesSideBySideComponent: featuresSideBySideFragment,
-            on_FeaturesBigImageComponent: bigFeatureFragment,
-            on_FeaturesGridComponent: featuresGridFragment,
-            on_CompaniesComponent: companiesFragment,
-            on_CalloutComponent: calloutFragment,
-            on_CalloutV2Component: calloutv2Fragment,
-            on_TestimonialSliderComponent: testimonialsSliderFragment,
-            on_TestimonialsGridComponent: testimonialsGridFragment,
-            on_PricingComponent: pricingFragment,
-            on_FaqComponent: {
-              layout: true,
-              ...faqFragment,
+          site: {
+            home: {
+              __typename: true,
+              on_HeroComponent: heroFragment,
+              on_FeaturesCardsComponent: featureCardsComponent,
+              on_FeaturesSideBySideComponent: featuresSideBySideFragment,
+              on_FeaturesBigImageComponent: bigFeatureFragment,
+              on_FeaturesGridComponent: featuresGridFragment,
+              on_CompaniesComponent: companiesFragment,
+              on_CalloutComponent: calloutFragment,
+              on_CalloutV2Component: calloutv2Fragment,
+              on_TestimonialSliderComponent: testimonialsSliderFragment,
+              on_TestimonialsGridComponent: testimonialsGridFragment,
+              on_PricingComponent: pricingFragment,
+              on_FaqComponent: {
+                layout: true,
+                ...faqFragment,
+              },
             },
           },
         },
       ]}
     >
-      {async ([{ home }]) => {
+      {async ([
+        {
+          site: { home },
+        },
+      ]) => {
         "use server";
         if (!home) return null;
 

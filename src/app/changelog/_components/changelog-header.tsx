@@ -27,14 +27,20 @@ export function ChangelogLayout({
         <Pump
           queries={[
             {
-              changelog: {
-                socialLinksTitle: true,
-                socialLinks: { icon: { url: true }, url: true, _title: true, _id: true },
+              site: {
+                changelog: {
+                  socialLinksTitle: true,
+                  socialLinks: { icon: { url: true }, url: true, _title: true, _id: true },
+                },
               },
             },
           ]}
         >
-          {async ([{ changelog }]) => {
+          {async ([
+            {
+              site: { changelog },
+            },
+          ]) => {
             "use server";
             const socialLinks = changelog.socialLinks;
 

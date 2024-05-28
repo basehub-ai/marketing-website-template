@@ -26,16 +26,18 @@ interface ChangelogPageParams {
 
 export const generateStaticParams = async () => {
   const data = await basehub({ cache: "no-store" }).query({
-    changelog: {
-      posts: {
-        items: {
-          _slug: true,
+    site: {
+      changelog: {
+        posts: {
+          items: {
+            _slug: true,
+          },
         },
       },
     },
   });
 
-  return data.changelog.posts.items.map((post) => {
+  return data.site.changelog.posts.items.map((post) => {
     return {
       params: {
         slug: post._slug,
@@ -50,40 +52,42 @@ export const generateMetadata = async (
 ): Promise<Metadata | ResolvingMetadata> => {
   const prevData = await parent;
   const data = await basehub().query({
-    settings: {
-      metadata: {
-        titleTemplate: true,
-      },
-    },
-    changelog: {
-      posts: {
-        __args: {
-          filter: {
-            _sys_slug: { eq: params.slug },
-          },
-          first: 1,
+    site: {
+      settings: {
+        metadata: {
+          titleTemplate: true,
         },
-        items: {
-          _title: true,
-          excerpt: true,
-          _id: true,
+      },
+      changelog: {
+        posts: {
+          __args: {
+            filter: {
+              _sys_slug: { eq: params.slug },
+            },
+            first: 1,
+          },
+          items: {
+            _title: true,
+            excerpt: true,
+            _id: true,
+          },
         },
       },
     },
   });
 
-  if (!data.changelog.posts.items.length) return await parent;
+  if (!data.site.changelog.posts.items.length) return await parent;
   const images = [
     {
-      url: `/dynamic-og?type=changelog&id=${data.changelog.posts.items[0]._id}`,
-      alt: data.changelog.posts.items[0]._title,
+      url: `/dynamic-og?type=changelog&id=${data.site.changelog.posts.items[0]._id}`,
+      alt: data.site.changelog.posts.items[0]._title,
     },
     ...(prevData.openGraph?.images ?? []),
   ];
 
   return {
-    title: `${data.changelog.posts.items[0]._title} ${data.settings.metadata.titleTemplate ?? ""}`,
-    description: data.changelog.posts.items[0].excerpt,
+    title: `${data.site.changelog.posts.items[0]._title} ${data.site.settings.metadata.titleTemplate ?? ""}`,
+    description: data.site.changelog.posts.items[0].excerpt,
     openGraph: {
       images,
     },
@@ -95,35 +99,37 @@ export default async function ChangelogPage({ params }: ChangelogPageParams) {
     <Pump
       queries={[
         {
-          changelog: {
-            posts: {
-              __args: {
-                filter: {
-                  _sys_slug: { eq: params.slug },
+          site: {
+            changelog: {
+              posts: {
+                __args: {
+                  filter: {
+                    _sys_slug: { eq: params.slug },
+                  },
+                  first: 1,
                 },
-                first: 1,
-              },
-              items: {
-                _title: true,
-                excerpt: true,
-                publishedAt: true,
-                _slug: true,
-                image: optimizedImageFragment,
-                authors: authorFragment,
-                body: {
-                  json: {
-                    content: true,
-                    blocks: {
-                      _id: true,
-                      __typename: true,
-                      code: {
-                        code: true,
-                        language: true,
-                        allowedLanguages: true,
+                items: {
+                  _title: true,
+                  excerpt: true,
+                  publishedAt: true,
+                  _slug: true,
+                  image: optimizedImageFragment,
+                  authors: authorFragment,
+                  body: {
+                    json: {
+                      content: true,
+                      blocks: {
+                        _id: true,
+                        __typename: true,
+                        code: {
+                          code: true,
+                          language: true,
+                          allowedLanguages: true,
+                        },
+                        _title: true,
                       },
-                      _title: true,
+                      __typename: true,
                     },
-                    __typename: true,
                   },
                 },
               },
@@ -131,29 +137,39 @@ export default async function ChangelogPage({ params }: ChangelogPageParams) {
           },
         },
         {
-          changelog: {
-            posts: {
-              items: {
-                _slug: true,
-                _title: true,
-              },
-              __args: {
-                orderBy: "publishedAt__DESC",
+          site: {
+            changelog: {
+              posts: {
+                items: {
+                  _slug: true,
+                  _title: true,
+                },
+                __args: {
+                  orderBy: "publishedAt__DESC",
+                },
               },
             },
           },
         },
       ]}
     >
-      {async ([{ changelog }, allPosts]) => {
+      {async ([
+        {
+          site: { changelog },
+        },
+        allPosts,
+      ]) => {
         "use server";
         const post = changelog.posts.items.at(0);
 
         if (!post) return notFound();
 
-        const postIndex = allPosts.changelog.posts.items.findIndex((p) => p._slug === post._slug);
+        const postIndex = allPosts.site.changelog.posts.items.findIndex(
+          (p) => p._slug === post._slug,
+        );
         const nextPost =
-          allPosts.changelog.posts.items[postIndex + 1] ?? allPosts.changelog.posts.items[0];
+          allPosts.site.changelog.posts.items[postIndex + 1] ??
+          allPosts.site.changelog.posts.items[0];
 
         return (
           <>

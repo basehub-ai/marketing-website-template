@@ -14,17 +14,23 @@ export default async function ChangelogPage() {
       next={{ revalidate: 30 }}
       queries={[
         {
-          changelog: {
-            title: true,
-            subtitle: true,
-            posts: {
-              items: changelogListFragment,
+          site: {
+            changelog: {
+              title: true,
+              subtitle: true,
+              posts: {
+                items: changelogListFragment,
+              },
             },
           },
         },
       ]}
     >
-      {async ([{ changelog }]) => {
+      {async ([
+        {
+          site: { changelog },
+        },
+      ]) => {
         "use server";
 
         return (

@@ -16,26 +16,28 @@ import { ThemeSwitcher } from "./_components/theme-switcher";
 
 export const generateMetadata = async (): Promise<Metadata> => {
   const data = await basehub({ cache: "no-store" }).query({
-    settings: {
-      metadata: {
-        sitename: true,
-        titleTemplate: true,
-        favicon: {
-          url: true,
-          mimeType: true,
+    site: {
+      settings: {
+        metadata: {
+          sitename: true,
+          titleTemplate: true,
+          favicon: {
+            url: true,
+            mimeType: true,
+          },
         },
       },
     },
   });
 
   return {
-    title: `Home ${data.settings.metadata.titleTemplate ?? ""}`,
+    title: `Home ${data.site.settings.metadata.titleTemplate ?? ""}`,
     description: "Homepage",
     icons: [
       {
-        url: data.settings.metadata.favicon.url,
+        url: data.site.settings.metadata.favicon.url,
         rel: "icon",
-        type: data.settings.metadata.favicon.mimeType,
+        type: data.site.settings.metadata.favicon.mimeType,
       },
     ],
   };

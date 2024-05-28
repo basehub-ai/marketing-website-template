@@ -31,16 +31,22 @@ export async function Header() {
       next={{ revalidate: 30 }}
       queries={[
         {
-          header: {
-            logo: optimizedImageFragment,
-            navbar: {
-              items: headerLinksFragment,
+          site: {
+            header: {
+              logo: optimizedImageFragment,
+              navbar: {
+                items: headerLinksFragment,
+              },
             },
           },
         },
       ]}
     >
-      {async ([{ header }]) => {
+      {async ([
+        {
+          site: { header },
+        },
+      ]) => {
         "use server";
 
         return (

@@ -56,44 +56,46 @@ const getChangelogOgData = async (changelogPostId: string) => {
     next: { tags: ["basehub"] },
     cache: "no-store",
   }).query({
-    changelog: {
-      posts: {
-        __args: {
-          filter: {
-            _sys_id: { eq: changelogPostId },
+    site: {
+      changelog: {
+        posts: {
+          __args: {
+            filter: {
+              _sys_id: { eq: changelogPostId },
+            },
+            first: 1,
           },
-          first: 1,
-        },
-        items: {
-          _title: true,
-          excerpt: true,
+          items: {
+            _title: true,
+            excerpt: true,
+          },
         },
       },
-    },
-    settings: {
-      logo: { url: true, alt: true },
-      logoLite: { url: true, alt: true },
-      metadata: {
-        titleTemplate: true,
-      },
-      theme: {
-        palette: true,
-        preferedTheme: true,
+      settings: {
+        logo: { url: true, alt: true },
+        logoLite: { url: true, alt: true },
+        metadata: {
+          titleTemplate: true,
+        },
+        theme: {
+          palette: true,
+          preferedTheme: true,
+        },
       },
     },
   });
 
-  if (!data.changelog.posts.items.length) return null;
+  if (!data.site.changelog.posts.items.length) return null;
 
   return {
-    title: `${data.changelog.posts.items[0]._title} ${data.settings.metadata.titleTemplate ?? ""}`,
-    subtitle: data.changelog.posts.items[0].excerpt,
-    theme: data.settings.theme.preferedTheme,
+    title: `${data.site.changelog.posts.items[0]._title} ${data.site.settings.metadata.titleTemplate ?? ""}`,
+    subtitle: data.site.changelog.posts.items[0].excerpt,
+    theme: data.site.settings.theme.preferedTheme,
     logo: {
-      url: data.settings.logoLite.url,
-      alt: data.settings.logoLite.alt,
+      url: data.site.settings.logoLite.url,
+      alt: data.site.settings.logoLite.alt,
     },
-    accentColor: data.settings.theme.palette,
+    accentColor: data.site.settings.theme.palette,
   };
 };
 
@@ -102,46 +104,48 @@ const getBlogpostData = async (blogpostId: string) => {
     next: { tags: ["basehub"] },
     cache: "no-store",
   }).query({
-    blog: {
-      blogposts: {
-        __args: {
-          filter: {
-            _sys_id: { eq: blogpostId },
+    site: {
+      blog: {
+        blogposts: {
+          __args: {
+            filter: {
+              _sys_id: { eq: blogpostId },
+            },
+            first: 1,
           },
-          first: 1,
-        },
-        items: {
-          _title: true,
-          introduction: true,
-          authors: {
+          items: {
             _title: true,
+            introduction: true,
+            authors: {
+              _title: true,
+            },
           },
         },
       },
-    },
-    settings: {
-      logo: { url: true, alt: true },
-      logoLite: { url: true, alt: true },
-      metadata: {
-        titleTemplate: true,
-      },
-      theme: {
-        palette: true,
-        preferedTheme: true,
+      settings: {
+        logo: { url: true, alt: true },
+        logoLite: { url: true, alt: true },
+        metadata: {
+          titleTemplate: true,
+        },
+        theme: {
+          palette: true,
+          preferedTheme: true,
+        },
       },
     },
   });
 
-  if (!data.blog.blogposts.items.length) return null;
+  if (!data.site.blog.blogposts.items.length) return null;
 
   return {
-    title: `${data.blog.blogposts.items[0]._title} ${data.settings.metadata.titleTemplate ?? ""}`,
-    subtitle: data.blog.blogposts.items[0].introduction,
+    title: `${data.site.blog.blogposts.items[0]._title} ${data.site.settings.metadata.titleTemplate ?? ""}`,
+    subtitle: data.site.blog.blogposts.items[0].introduction,
     logo: {
-      url: data.settings.logoLite.url,
-      alt: data.settings.logoLite.alt,
+      url: data.site.settings.logoLite.url,
+      alt: data.site.settings.logoLite.alt,
     },
-    accentColor: data.settings.theme.palette,
-    theme: data.settings.theme.preferedTheme,
+    accentColor: data.site.settings.theme.palette,
+    theme: data.site.settings.theme.preferedTheme,
   };
 };

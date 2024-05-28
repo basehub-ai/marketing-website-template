@@ -22,16 +22,18 @@ import { basehub } from ".basehub/index";
 
 export const generateStaticParams = async () => {
   const data = await basehub({ cache: "no-store" }).query({
-    blog: {
-      blogposts: {
-        items: {
-          _slug: true,
+    site: {
+      blog: {
+        blogposts: {
+          items: {
+            _slug: true,
+          },
         },
       },
     },
   });
 
-  return data.blog.blogposts.items.map((post) => {
+  return data.site.blog.blogposts.items.map((post) => {
     return {
       params: {
         slug: post._slug,
@@ -46,40 +48,42 @@ export const generateMetadata = async (
 ): Promise<Metadata | ResolvingMetadata> => {
   const prevData = await parent;
   const data = await basehub().query({
-    settings: {
-      metadata: {
-        titleTemplate: true,
-      },
-    },
-    blog: {
-      blogposts: {
-        __args: {
-          filter: {
-            _sys_slug: { eq: slug },
-          },
-          first: 1,
+    site: {
+      settings: {
+        metadata: {
+          titleTemplate: true,
         },
-        items: {
-          _id: true,
-          _title: true,
-          description: true,
+      },
+      blog: {
+        blogposts: {
+          __args: {
+            filter: {
+              _sys_slug: { eq: slug },
+            },
+            first: 1,
+          },
+          items: {
+            _id: true,
+            _title: true,
+            description: true,
+          },
         },
       },
     },
   });
 
-  if (!data.blog.blogposts.items.length) return notFound();
+  if (!data.site.blog.blogposts.items.length) return notFound();
   const images = [
     {
-      url: `/dynamic-og?type=blogpost&id=${data.blog.blogposts.items[0]._id}`,
-      alt: data.blog.blogposts.items[0]._title,
+      url: `/dynamic-og?type=blogpost&id=${data.site.blog.blogposts.items[0]._id}`,
+      alt: data.site.blog.blogposts.items[0]._title,
     },
     ...(prevData.openGraph?.images ?? []),
   ];
 
   return {
-    title: `${data.blog.blogposts.items[0]._title} ${data.settings.metadata.titleTemplate ?? ""}`,
-    description: data.blog.blogposts.items[0].description,
+    title: `${data.site.blog.blogposts.items[0]._title} ${data.site.settings.metadata.titleTemplate ?? ""}`,
+    description: data.site.blog.blogposts.items[0].description,
     openGraph: {
       images,
       type: "article",
@@ -95,47 +99,49 @@ export default async function BlogPage({ params: { slug } }: { params: { slug: s
         next={{ revalidate: 30 }}
         queries={[
           {
-            blog: {
-              blogposts: {
-                __args: {
-                  filter: {
-                    _sys_slug: {
-                      eq: slug,
-                    },
-                  },
-                  first: 1,
-                },
-                items: {
-                  _title: true,
-                  description: true,
-                  authors: authorFragment,
-                  publishedAt: true,
-                  image: {
-                    alt: true,
-                    width: true,
-                    height: true,
-                    aspectRatio: true,
-                    url: {
-                      __args: {
-                        width: 1440,
-                        height: 720,
-                        quality: 90,
-                        format: "webp",
+            site: {
+              blog: {
+                blogposts: {
+                  __args: {
+                    filter: {
+                      _sys_slug: {
+                        eq: slug,
                       },
                     },
+                    first: 1,
                   },
-                  introduction: true,
-                  body: {
-                    json: {
-                      __typename: true,
-                      blocks: {
+                  items: {
+                    _title: true,
+                    description: true,
+                    authors: authorFragment,
+                    publishedAt: true,
+                    image: {
+                      alt: true,
+                      width: true,
+                      height: true,
+                      aspectRatio: true,
+                      url: {
+                        __args: {
+                          width: 1440,
+                          height: 720,
+                          quality: 90,
+                          format: "webp",
+                        },
+                      },
+                    },
+                    introduction: true,
+                    body: {
+                      json: {
                         __typename: true,
-                        on_FaqItemComponent: FaqItemComponentFragment,
-                        on_RichTextCalloutComponent: richTextCalloutComponentFragment,
-                        on_CodeSnippetComponent: codeSnippetFragment,
+                        blocks: {
+                          __typename: true,
+                          on_FaqItemComponent: FaqItemComponentFragment,
+                          on_RichTextCalloutComponent: richTextCalloutComponentFragment,
+                          on_CodeSnippetComponent: codeSnippetFragment,
+                        },
+                        content: 1,
+                        toc: 1,
                       },
-                      content: 1,
-                      toc: 1,
                     },
                   },
                 },
@@ -146,7 +152,9 @@ export default async function BlogPage({ params: { slug } }: { params: { slug: s
       >
         {async ([
           {
-            blog: { blogposts },
+            site: {
+              blog: { blogposts },
+            },
           },
         ]) => {
           "use server";
