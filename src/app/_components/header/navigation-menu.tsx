@@ -12,9 +12,15 @@ import {
   type NavigationMenuLinkProps,
 } from "@radix-ui/react-navigation-menu";
 
-export function NavigationMenuHeader({ links }: { links: HeaderLiksFragment[] }) {
+export function NavigationMenuHeader({
+  links,
+  className,
+}: {
+  links: HeaderLiksFragment[];
+  className?: string;
+}) {
   return (
-    <NavigationMenu className="relative z-[1] flex-col justify-center lg:flex">
+    <NavigationMenu className={cx("relative z-[1] flex-col justify-center lg:flex", className)}>
       <NavigationMenuList className="flex flex-1 px-4 ">
         {links.map((props) =>
           props.sublinks.items.length > 0 ? (
@@ -83,8 +89,8 @@ function NavigationMenuLinkWithMenu({ _id, _title, href, sublinks }: HeaderLiksF
 
 export function DesktopMenu({ links }: { links: HeaderLiksFragment[] }) {
   return (
-    <div className="hidden items-center gap-4 lg:flex">
-      <NavigationMenuHeader links={links} />
+    <>
+      <NavigationMenuHeader className="hidden lg:flex" links={links} />
       <div className="hidden items-center gap-4 lg:flex">
         <ButtonLink href="/login" intent="secondary">
           Login
@@ -93,7 +99,7 @@ export function DesktopMenu({ links }: { links: HeaderLiksFragment[] }) {
           Get Started Today
         </ButtonLink>
       </div>
-    </div>
+    </>
   );
 }
 
@@ -101,7 +107,6 @@ import * as React from "react";
 import { useSelectedLayoutSegment } from "next/navigation";
 
 import { ButtonLink } from "@/common/button";
-import { Button } from "@/common/button";
 
 import { type HeaderLiksFragment } from ".";
 
@@ -116,7 +121,7 @@ const useToggleState = (initialState = false) => {
 };
 
 export function MobileMenu({ links }: { links: HeaderLiksFragment[] }) {
-  const { handleOff, handleToggle, isOn } = useToggleState();
+  const { handleToggle, isOn } = useToggleState();
   const selectedLayoutSegment = useSelectedLayoutSegment();
 
   const headerLinks = React.useMemo(() => {

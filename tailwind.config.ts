@@ -61,6 +61,9 @@ const config: Config = {
       control: {
         DEFAULT: "#FF6C02",
       },
+      error: {
+        DEFAULT: "#FF453A",
+      },
     },
     fontSize: {
       "2xs": ["11px", { lineHeight: "1.3", letterSpacing: "-0.3px", fontWeight: "300" }],

@@ -1,7 +1,45 @@
+"use client";
+import React from "react";
+
 import { Button } from "@/common/button";
+import { Input } from "@/common/input";
 import { Section } from "@/common/layout";
+interface NewsletterFormState {
+  isSubscribed: boolean;
+  isSubmitting: boolean;
+  error: null | string;
+}
 
 export function Newsletter() {
+  const [formState, setFormState] = React.useState<NewsletterFormState>({
+    isSubscribed: false,
+    isSubmitting: false,
+    error: null,
+  });
+  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+    setFormState({ ...formState, isSubmitting: true, error: null });
+    event.preventDefault();
+
+    const formData = new FormData(event.currentTarget);
+    const email = formData.get("email") as string;
+
+    if (!email) {
+      return setFormState({ isSubscribed: false, isSubmitting: false, error: "Email is required" });
+    }
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+      return setFormState({ isSubscribed: false, isSubmitting: false, error: "Invalid email" });
+    }
+    // Integrate with your email marketing platform here
+    // e.g resend
+
+    new Promise((resolve) =>
+      setTimeout(() => {
+        setFormState({ isSubscribed: true, isSubmitting: false, error: null });
+        resolve(true);
+      }, 200),
+    );
+  };
+
   return (
     <Section
       className="bg-surface-secondary p-6 pt-4 dark:bg-dark-surface-secondary"
@@ -15,13 +53,16 @@ export function Newsletter() {
           </p>
         </div>
 
-        <form className="group flex h-10 w-full max-w-[400px] items-center justify-between gap-3 rounded-full border border-border bg-surface-primary py-2 pl-5 pr-1 outline-control has-[:focus]:outline dark:border-dark-border dark:bg-dark-surface-primary lg:h-12">
-          <input
-            className="flex-1 bg-transparent text-xs text-text-primary placeholder-text-tertiary outline-none dark:text-dark-text-primary dark:placeholder-dark-text-tertiary lg:text-sm"
-            placeholder="Your email"
+        <form className="max-w-[400px]" onSubmit={handleSubmit}>
+          <Input
+            required
+            buttonContent={formState.isSubscribed ? "Submitted" : "Subscribe"}
+            disabled={formState.isSubscribed}
+            error={formState.error}
+            name="email"
+            placeholder="Enter your email"
             type="email"
           />
-          <Button className="lg:h-9">Submit</Button>
         </form>
       </div>
     </Section>
