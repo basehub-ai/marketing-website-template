@@ -13,7 +13,7 @@ export function Input({
     <div className="relative">
       <input
         className={cx(
-          "h-11 w-full rounded-full border border-border py-2 pl-4 pr-24 dark:border-dark-border",
+          "h-11 w-full rounded-full border border-border py-2 pl-4 pr-28 dark:border-dark-border",
           "disabled:opacity-50",
           "placeholder:text-sm",
           "text-sm text-text-primary dark:text-dark-text-primary",

@@ -53,7 +53,7 @@ export function Newsletter() {
           </p>
         </div>
 
-        <form className="max-w-[400px]" onSubmit={handleSubmit}>
+        <form className="w-full max-w-[400px] flex-1" onSubmit={handleSubmit}>
           <Input
             required
             buttonContent={formState.isSubscribed ? "Submitted" : "Subscribe"}
