@@ -108,7 +108,11 @@ export async function Footer() {
 
 function PoweredByBasehub({ className }: { className?: string }) {
   return (
-    <Link className={className} href="https://basehub.com/basehub/marketing-website">
+    <Link
+      className={className}
+      href="https://basehub.com/basehub/marketing-website"
+      target="_blank"
+    >
       <Image
         alt="Edit in BaseHub"
         height={28}

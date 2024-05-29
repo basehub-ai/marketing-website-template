@@ -6,8 +6,6 @@ import { GeistMono } from "geist/font/mono";
 
 import { basehub } from ".basehub/index";
 
-import { BaseHubThemeProvider } from "../context/basehub-theme-provider";
-
 import { Providers } from "./providers";
 import { Header } from "./_components/header";
 import { Footer } from "./_components/footer";
@@ -31,7 +29,7 @@ export const generateMetadata = async (): Promise<Metadata> => {
   });
 
   return {
-    title: `Home ${data.site.settings.metadata.titleTemplate ?? ""}`,
+    title: `Home ${data.site.settings.metadata.titleTemplate}`,
     description: "Homepage",
     icons: [
       {
@@ -50,7 +48,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         className={`min-h-svh bg-surface-primary text-text-primary dark:bg-dark-surface-primary dark:text-dark-text-primary ${GeistMono.variable} ${GeistSans.variable} overflow-x-clip font-sans`}
       >
         <Providers>
-          <BaseHubThemeProvider />
           <Header />
           <main className="min-h-[calc(100svh-var(--header-height))]">{children}</main>
           <ThemeSwitcher />

@@ -65,6 +65,9 @@ const config: Config = {
         DEFAULT: "#FF453A",
       },
     },
+    zIndex: {
+      modal: "9999",
+    },
     fontSize: {
       "2xs": ["11px", { lineHeight: "1.3", letterSpacing: "-0.3px", fontWeight: "300" }],
       xs: ["0.75rem", { lineHeight: "1rem", letterSpacing: "-0.36px", fontWeight: "300" }],
