@@ -116,7 +116,7 @@ function PoweredByBasehub({ className }: { className?: string }) {
       <Image
         alt="Edit in BaseHub"
         height={28}
-        src="https://basehub.dev/edit-in-basehub.svg"
+        src="https://basehub.com/edit-in-basehub.svg"
         width={150}
       />
     </Link>
