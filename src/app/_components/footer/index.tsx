@@ -1,4 +1,3 @@
-import { cx } from "class-variance-authority";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -10,6 +9,14 @@ export async function Footer() {
       queries={[
         {
           site: {
+            header: {
+              logo: {
+                url: true,
+                alt: true,
+                width: true,
+                height: true,
+              },
+            },
             footer: {
               copyright: true,
               navbar: {
@@ -33,16 +40,25 @@ export async function Footer() {
     >
       {async ([
         {
-          site: { footer },
+          site: { footer, header },
         },
       ]) => {
         "use server";
 
         return (
           <footer className="border-t border-border px-6 py-16 dark:border-dark-border">
-            <div className="container mx-auto grid grid-cols-[auto_auto] grid-rows-[auto_auto_auto] place-items-start items-center gap-y-7 sm:grid-cols-[1fr_auto_1fr] sm:grid-rows-2 sm:gap-y-16">
-              <Image alt="logo" height={100} src="/acme.svg" width={100} />
-              <nav className="col-start-1 row-start-2 flex flex-col gap-3 self-center sm:col-span-2 sm:col-start-2 sm:row-start-1 sm:flex-row sm:items-center sm:gap-8 sm:place-self-end">
+            <div className="container mx-auto grid grid-cols-[auto_auto] grid-rows-[auto_auto_auto] place-items-start items-center gap-y-7 sm:grid-cols-2 sm:grid-rows-2 sm:gap-y-16">
+              <Image
+                {...header.logo}
+                alt={header.logo.alt ?? ""}
+                className="max-h-[100px] max-w-[100px] dark:invert"
+                src={header.logo.url}
+              />
+              {footer.poweredByBaseHub ? (
+                <PoweredByBasehub className="col-span-full row-start-1 ml-auto sm:hidden" />
+              ) : null}
+
+              <nav className="col-start-1 row-start-2 flex flex-col gap-x-8 gap-y-3 self-center sm:col-span-2 sm:col-start-2 sm:row-start-1 sm:flex-row sm:items-center sm:place-self-end">
                 {footer.navbar.items.map(({ _title, url }) => (
                   <Link
                     key={_title}
@@ -53,9 +69,7 @@ export async function Footer() {
                   </Link>
                 ))}
               </nav>
-              {footer.poweredByBaseHub ? (
-                <PoweredByBasehub className="col-start-2 col-end-3 row-start-1 place-self-end self-center sm:col-start-2 sm:row-start-2 sm:translate-y-1.5 sm:transform sm:place-self-center sm:self-end" />
-              ) : null}
+
               <div className="col-span-2 flex flex-col items-start gap-3 sm:col-span-1">
                 <span className="inline-flex items-center gap-1 text-[#14C9A2]">
                   <span className="size-1.5 rounded-full bg-[#14C9A2]" />
@@ -65,21 +79,24 @@ export async function Footer() {
                   @ 2024 Acme Corp. All rights reserved.
                 </p>
               </div>
-              <ul className="col-start-2 row-start-2 flex items-center gap-8 place-self-end self-end sm:col-start-3 sm:row-start-2 sm:self-end">
+              <ul className="col-start-2 row-start-2 flex items-center gap-3.5 place-self-end self-end sm:row-start-2 sm:self-end">
                 {footer.socialLinks.map((link) => {
                   return (
-                    <li key={link._title}>
+                    <li key={link._title} className="shrink-0">
                       <Link className="aspect-square hover:brightness-75" href={link.url}>
                         <Image
                           alt={link._title}
-                          height={20}
+                          height={24}
                           src={link.icon?.url ?? ""}
-                          width={20}
+                          width={24}
                         />
                       </Link>
                     </li>
                   );
                 })}
+                {footer.poweredByBaseHub ? (
+                  <PoweredByBasehub className="hidden shrink-0 sm:block" />
+                ) : null}
               </ul>
             </div>
           </footer>
@@ -91,19 +108,13 @@ export async function Footer() {
 
 function PoweredByBasehub({ className }: { className?: string }) {
   return (
-    <span
-      className={cx(
-        "inline-flex shrink-0 items-center gap-2 rounded-full border border-border px-4 py-1.5 text-xs text-text-secondary dark:border-dark-border dark:text-dark-text-secondary",
-        className,
-      )}
-    >
-      <Image alt="basehub" height={16} src="/basehub.svg" width={12} />
-      <span>
-        Powered by{" "}
-        <Link className="text-text-primary dark:text-dark-text-primary" href="https://basehub.com">
-          BaseHub
-        </Link>
-      </span>
-    </span>
+    <Link className={className} href="https://basehub.com/basehub/marketing-website">
+      <Image
+        alt="Edit in BaseHub"
+        height={28}
+        src="https://basehub.dev/edit-in-basehub.svg"
+        width={150}
+      />
+    </Link>
   );
 }
