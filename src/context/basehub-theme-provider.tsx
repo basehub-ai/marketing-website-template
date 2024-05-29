@@ -13,12 +13,12 @@ export function BaseHubThemeProvider() {
     <Pump
       draft={draftMode().isEnabled}
       next={{ revalidate: 30 }}
-      queries={[{ settings: { theme: themeFragment } }]}
+      queries={[{ site: { settings: { theme: themeFragment } } }]}
     >
       {async ([data]) => {
         "use server";
         const colors = await import("tailwindcss/colors");
-        const palette = colors[data.settings.theme.palette as keyof typeof colors] as
+        const palette = colors[data.site.settings.theme.palette as keyof typeof colors] as
           | Record<number, string>
           | undefined;
 
