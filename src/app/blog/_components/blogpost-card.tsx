@@ -75,7 +75,7 @@ export function BlogpostCard({ type = "list", className, ...post }: BlogPostCard
             "group flex flex-col self-stretch rounded-xl border",
             "border-border bg-surface-secondary text-text-secondary hover:brightness-90 dark:border-dark-border dark:bg-dark-surface-secondary dark:text-dark-text-secondary dark:hover:brightness-90",
             "md:last:col-span-2 md:last:flex-row",
-            "xl:flex-row xl:first:col-span-1 xl:first:row-span-2 xl:first:flex-col xl:last:col-span-1",
+            "xl:flex-row xl:last:col-span-1 xl:first-of-type:col-span-1 xl:first-of-type:row-span-2 xl:first-of-type:flex-col",
             "outline-none focus-visible:ring focus-visible:ring-neutral-500",
             className,
           )}
