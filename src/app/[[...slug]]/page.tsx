@@ -51,9 +51,7 @@ export const generateStaticParams = async () => {
   });
 
   return data.site.pages.items.map((item) => ({
-    params: {
-      slug: item.pathname.split("/").filter(Boolean),
-    },
+    slug: item.pathname.split("/").filter(Boolean),
   }));
 };
 

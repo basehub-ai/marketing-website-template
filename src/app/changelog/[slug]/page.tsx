@@ -43,9 +43,7 @@ export const generateStaticParams = async () => {
 
   return data.site.changelog.posts.items.map((post) => {
     return {
-      params: {
-        slug: post._slug,
-      },
+      slug: post._slug,
     };
   });
 };
@@ -90,7 +88,7 @@ export const generateMetadata = async (
   ];
 
   return {
-    title: `${data.site.changelog.posts.items[0]._title} ${data.site.settings.metadata.titleTemplate ?? ""}`,
+    title: data.site.changelog.posts.items[0]._title,
     description: data.site.changelog.posts.items[0].excerpt,
     openGraph: {
       images,
@@ -236,7 +234,7 @@ export default async function ChangelogPage({ params }: ChangelogPageParams) {
                   intent="secondary"
                 >
                   Read ({nextPost._slug.slice(0, 20)}
-                  {nextPost._slug.length > 20 ? "..." : ""})
+                  {nextPost._title.length > 20 ? "..." : ""})
                 </ButtonLink>
               </div>
             </div>

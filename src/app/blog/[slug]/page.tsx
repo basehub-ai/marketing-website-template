@@ -39,9 +39,7 @@ export const generateStaticParams = async () => {
 
   return data.site.blog.blogposts.items.map((post) => {
     return {
-      params: {
-        slug: post._slug,
-      },
+      slug: post._slug,
     };
   });
 };
@@ -86,7 +84,7 @@ export const generateMetadata = async (
   ];
 
   return {
-    title: `${data.site.blog.blogposts.items[0]._title} ${data.site.settings.metadata.titleTemplate ?? ""}`,
+    title: data.site.blog.blogposts.items[0]._title,
     description: data.site.blog.blogposts.items[0].description,
     openGraph: {
       images,
