@@ -9,6 +9,7 @@ export const testimonialsSliderFragment = fragmentOn("TestimonialSliderComponent
   heading: headingFragment,
   testimonialsSliderList: {
     items: {
+      _id: true,
       quote: true,
       author: {
         _title: true,

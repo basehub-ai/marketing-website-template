@@ -11,15 +11,17 @@ import { headingFragment } from "@/lib/basehub/fragments";
 import s from "./pricing.module.scss";
 
 export const pricingPlanItemFragment = fragmentOn("PlansItem", {
-  _id: true,
-  _title: true,
-  price: true,
-  billed: true,
-  isMostPopular: true,
-  list: {
-    items: {
-      _title: true,
-      _id: true,
+  plan: {
+    _id: true,
+    _title: true,
+    price: true,
+    billed: true,
+    isMostPopular: true,
+    list: {
+      items: {
+        _title: true,
+        _id: true,
+      },
     },
   },
 });
@@ -40,8 +42,8 @@ export function Pricing(pricing: Pricing) {
         <h4>{pricing.heading.title}</h4>
       </Heading>
       <div className="flex flex-col gap-5 self-stretch lg:flex-row">
-        {pricing.plans.items.map((item) => (
-          <PricingCard key={item._title} {...item} />
+        {pricing.plans.items.map(({ plan }) => (
+          <PricingCard key={plan._title} {...plan} />
         ))}
       </div>
     </Section>
@@ -50,7 +52,7 @@ export function Pricing(pricing: Pricing) {
 
 type PricingPlanItem = fragmentOn.infer<typeof pricingPlanItemFragment>;
 
-function PricingCard(item: PricingPlanItem) {
+function PricingCard(item: PricingPlanItem["plan"]) {
   return (
     <article
       key={item._title}
@@ -88,7 +90,7 @@ function PricingCard(item: PricingPlanItem) {
       </div>
       <footer className="relative flex w-full items-center self-stretch p-8 pt-0">
         {item.isMostPopular ? (
-          <Shadow className="absolute left-0 top-0 h-full w-full origin-bottom scale-[2.0] text-neutral-500" />
+          <Shadow className="pointer-events-none absolute left-0 top-0 h-full w-full origin-bottom scale-[2.0] text-neutral-500" />
         ) : null}
         <ButtonLink
           className="z-10 w-full"

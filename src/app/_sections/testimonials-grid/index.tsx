@@ -7,6 +7,7 @@ import { TestimonialsGridClient } from "./testimonials-list";
 
 const testimonialList = fragmentOn("TestimonialsGridList", {
   items: {
+    _id: true,
     author: {
       _id: true,
       _title: true,

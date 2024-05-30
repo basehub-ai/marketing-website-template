@@ -24,6 +24,8 @@
         }
     
         & :global(span.line-indicator){
+            pointer-events: none;
+            user-select: none;
             margin-right: theme('margin.4') !important;
         }
     

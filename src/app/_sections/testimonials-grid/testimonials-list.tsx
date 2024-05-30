@@ -55,9 +55,9 @@ export function TestimonialsGridClient({
           // eslint-disable-next-line react/no-array-index-key
           <div key={i} className={cx("h-auto flex-1")}>
             <div className={cx("flex flex-1 flex-col gap-8", { "md:mt-8": i === 1 })}>
-              {chunk.map(({ quote, author }, i) => (
+              {chunk.map(({ quote, author, _id }, i) => (
                 <article
-                  key={author._id}
+                  key={_id}
                   className={cx(
                     "flex flex-1 shrink-0 flex-col rounded-xl border border-border dark:border-dark-border",
                     { "hidden md:flex": i !== 0 && !showMore },

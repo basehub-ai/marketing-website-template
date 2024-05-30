@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "basehub dev & next dev",
+    "dev": "basehub dev --watch & next dev",
     "build": "basehub && next build",
     "start": "next start",
     "lint": "next lint"

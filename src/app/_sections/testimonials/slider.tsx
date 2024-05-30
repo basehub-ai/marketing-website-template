@@ -88,9 +88,9 @@ export function Slider({
       </div>
       <div ref={emblaRef} className="relative">
         <div className="relative flex h-full w-full">
-          {testimonialsSliderList.items.map(({ quote, author }) => (
+          {testimonialsSliderList.items.map(({ _id, quote, author }) => (
             <article
-              key={author._title}
+              key={_id}
               className="embla__slide ml-20 flex w-full min-w-0 max-w-full shrink-0 grow-0 basis-[600px] transform touch-pan-y touch-pinch-zoom flex-col rounded-xl border border-border [backface-visibility:hidden] last:!visible dark:border-dark-border"
             >
               <div className="flex flex-1 items-start border-b border-border px-8 py-7 dark:border-dark-border">
