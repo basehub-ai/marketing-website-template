@@ -4,6 +4,7 @@ import { ButtonLink } from "@/common/button";
 import { Heading } from "@/common/heading";
 import { Section } from "@/common/layout";
 import { fragmentOn } from ".basehub/schema";
+import { headingFragment } from "@/lib/basehub/fragments";
 
 export const featuresGridFragment = fragmentOn("FeaturesGridComponent", {
   featuresGridList: {
@@ -16,11 +17,7 @@ export const featuresGridFragment = fragmentOn("FeaturesGridComponent", {
       },
     },
   },
-  heading: {
-    tag: true,
-    subtitle: true,
-    title: true,
-  },
+  heading: headingFragment,
   primary: {
     label: true,
     href: true,

@@ -35,8 +35,8 @@ type Pricing = fragmentOn.infer<typeof pricingFragment>;
 
 export function Pricing(pricing: Pricing) {
   return (
-    <Section id="pricing">
-      <Heading align="left" {...pricing.heading}>
+    <Section className="xl:max-w-screen-xl" id="pricing">
+      <Heading {...pricing.heading}>
         <h4>{pricing.heading.title}</h4>
       </Heading>
       <div className="flex flex-col gap-5 self-stretch lg:flex-row">

@@ -29,7 +29,11 @@ export const generateMetadata = async (): Promise<Metadata> => {
   });
 
   return {
-    title: `Home ${data.site.settings.metadata.titleTemplate}`,
+    title: {
+      default: "Home",
+      template: data.site.settings.metadata.titleTemplate,
+    },
+    applicationName: data.site.settings.metadata.sitename,
     description: "Homepage",
     icons: [
       {

@@ -1,7 +1,6 @@
 "use client";
 import React from "react";
 
-import { Button } from "@/common/button";
 import { Input } from "@/common/input";
 import { Section } from "@/common/layout";
 interface NewsletterFormState {

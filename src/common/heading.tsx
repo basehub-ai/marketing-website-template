@@ -20,11 +20,14 @@ type HeadingProps = {
   subtitle?: React.ReactNode;
   className?: string;
   title?: string;
+  align?: string | null;
 } & VariantProps<typeof $headingContainer>;
 
-export function Heading({ tag, subtitle, className, align, ...props }: HeadingProps) {
-  const Comp = Slot;
 
+
+export function Heading({ tag, subtitle, className, align = 'center', ...props }: HeadingProps) {
+  align = align ?? "center";
+  const Comp = Slot;
   return (
     <div className={$headingContainer({ align, className })}>
       {tag ? <Tag>{tag}</Tag> : null}
@@ -37,7 +40,7 @@ export function Heading({ tag, subtitle, className, align, ...props }: HeadingPr
       >
         <Comp
           className={cx("text-3xl font-medium md:text-4xl", {
-            "text-center": align === "center" || !align,
+            "text-center": align === "center",
             "text-left": align === "left",
             "text-right": align === "right",
           })}
@@ -49,7 +52,7 @@ export function Heading({ tag, subtitle, className, align, ...props }: HeadingPr
           className={cx(
             "text-pretty text-lg font-light text-text-tertiary dark:text-dark-text-tertiary md:text-xl",
             {
-              "text-center": align === "center" || !align,
+              "text-center": align === "center",
               "text-left": align === "left",
               "text-right": align === "right",
             },

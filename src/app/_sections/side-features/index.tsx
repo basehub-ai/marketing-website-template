@@ -4,6 +4,7 @@ import { ButtonLink } from "@/common/button";
 import { Heading } from "@/common/heading";
 import { Section } from "@/common/layout";
 import { fragmentOn } from ".basehub/schema";
+import { headingFragment } from "@/lib/basehub/fragments";
 
 export const featuresSideBySideFragment = fragmentOn("FeaturesSideBySideComponent", {
   featuresSideBySideList: {
@@ -16,11 +17,7 @@ export const featuresSideBySideFragment = fragmentOn("FeaturesSideBySideComponen
       },
     },
   },
-  heading: {
-    tag: true,
-    subtitle: true,
-    title: true,
-  },
+  heading: headingFragment,
   cta: {
     primary: {
       label: true,
@@ -42,12 +39,7 @@ export function SideFeatures({ featuresSideBySideList, heading, cta }: FeaturesG
     <Section className="relative gap-8 lg:!flex-row lg:gap-24 lg:p-28 xl:gap-32" container="full">
       <div className="container relative top-0 mx-auto flex-1 shrink self-stretch px-6 lg:px-0">
         <div className="sticky bottom-0 top-16 flex flex-col gap-10">
-          <Heading
-            align="left"
-            className="items-start"
-            subtitle={heading.subtitle}
-            tag={heading.tag}
-          >
+          <Heading className="items-start" {...heading}>
             <h4>{heading.title}</h4>
           </Heading>
           <div className="flex items-center gap-3 md:order-3">

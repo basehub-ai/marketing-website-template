@@ -3,6 +3,7 @@ import Image from "next/image";
 import { Heading } from "@/common/heading";
 import { Section } from "@/common/layout";
 import { fragmentOn } from ".basehub/schema";
+import { headingFragment } from "@/lib/basehub/fragments";
 
 export const bigFeatureFragment = fragmentOn("FeaturesBigImageComponent", {
   featuresBigImageList: {
@@ -15,11 +16,7 @@ export const bigFeatureFragment = fragmentOn("FeaturesBigImageComponent", {
       },
     },
   },
-  heading: {
-    subtitle: true,
-    tag: true,
-    title: true,
-  },
+  heading: headingFragment,
   image: {
     alt: true,
     width: true,
@@ -39,7 +36,7 @@ export function BigFeature({ featuresBigImageList, heading, image }: BigFeature)
         src={image.url}
         width={image.width}
       />
-      <Heading subtitle={heading.subtitle} tag={heading.tag}>
+      <Heading {...heading}>
         <h4>{heading.title}</h4>
       </Heading>
       <div className="flex flex-col items-start gap-4 md:order-2 md:grid md:grid-cols-3 md:gap-16">

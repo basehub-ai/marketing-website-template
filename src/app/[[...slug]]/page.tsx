@@ -1,5 +1,6 @@
+import type { Metadata, ResolvingMetadata } from "next";
+
 import { draftMode } from "next/headers";
-import { type Metadata } from "next";
 import { notFound } from "next/navigation";
 
 import { Pump } from ".basehub/react-pump";
@@ -18,6 +19,7 @@ import {
   isTestimonialsGridComponent,
 } from ".basehub/schema";
 import { basehub } from ".basehub/index";
+import { isDev } from "@/utils/constants";
 
 import { AccordionFaq } from "../_sections/accordion-faq";
 import { BigFeature, bigFeatureFragment } from "../_sections/big-feature";
@@ -33,32 +35,71 @@ import { SideFeatures, featuresSideBySideFragment } from "../_sections/side-feat
 import { Testimonials, testimonialsSliderFragment } from "../_sections/testimonials";
 import { TestimonialsGrid, testimonialsGridFragment } from "../_sections/testimonials-grid";
 
-export const generateMetadata = async (): Promise<Metadata> => {
-  const data = await basehub({ cache: "no-store" }).query({
+export const generateStaticParams = async () => {
+  const data = await basehub({ cache: "no-store", draft: isDev }).query({
     site: {
-      settings: {
-        metadata: {
-          sitename: true,
-          titleTemplate: true,
-          favicon: {
-            url: true,
-            mimeType: true,
+      pages: {
+        items: {
+          pathname: true,
+        },
+      },
+    },
+  });
+
+  return data.site.pages.items.map((item) => ({
+    params: {
+      slug: item.pathname.split("/").filter(Boolean),
+    },
+  }));
+};
+
+export const generateMetadata = async (
+  { params }: { params: { slug?: string[] } },
+  currentMetadata: ResolvingMetadata,
+): Promise<Metadata | undefined> => {
+  const meta = await currentMetadata;
+
+  const data = await basehub({ cache: "no-store", draft: isDev }).query({
+    site: {
+      pages: {
+        __args: {
+          filter: {
+            pathname: {
+              eq: params.slug ? params.slug.join("/") : "/",
+            },
+          },
+        },
+        items: {
+          metadataOverrides: {
+            title: true,
+            description: true,
+            ogImage: {
+              url: true,
+              mimeType: true,
+              alt: true,
+            },
           },
         },
       },
     },
   });
 
+  const page = data.site.pages.items.at(0);
+
+  if (!page) {
+    return undefined;
+  }
+
   return {
-    title: "Home",
-    description: "Home page",
-    icons: [
-      {
-        url: data.site.settings.metadata.favicon.url,
-        rel: "icon",
-        type: data.site.settings.metadata.favicon.mimeType,
-      },
-    ],
+    title: page.metadataOverrides.title,
+    description: page.metadataOverrides.description,
+    openGraph: {
+      type: "website",
+      images: [
+        ...(page.metadataOverrides.ogImage ? [page.metadataOverrides.ogImage.url] : []),
+        ...(meta.openGraph?.images ?? []),
+      ],
+    },
   };
 };
 
@@ -74,7 +115,7 @@ export default async function DynamicPage({ params }: { params: { slug?: string[
               __args: {
                 filter: {
                   pathname: {
-                    eq: params.slug ? params.slug.join("/") : "/",
+                    eq: params.slug ? "/" + params.slug.join("/") : "/",
                   },
                 },
               },

@@ -37,18 +37,10 @@ export const $button = cva(
   },
 );
 
-const validIntents = ["primary", "secondary", "tertiary"] as const;
-const validateIntent = (intent: string): intent is (typeof validIntents)[number] =>
-  ([...validIntents] as string[]).includes(intent);
-
-type ButtonProps<C extends keyof JSX.IntrinsicElements> = Omit<
-  VariantProps<typeof $button>,
-  "intent"
-> &
+type ButtonProps<C extends keyof JSX.IntrinsicElements> = VariantProps<typeof $button> &
   JSX.IntrinsicElements[C] & {
     icon?: React.ReactNode;
     unstyled?: boolean;
-    intent?: string;
   };
 
 export function Button({
@@ -63,10 +55,6 @@ export function Button({
   size,
   ...props
 }: ButtonProps<"button">) {
-  if (!validateIntent(intent)) {
-    throw new Error(`Invalid intent: ${intent}`);
-  }
-
   return (
     <button
       className={
@@ -103,10 +91,6 @@ export function ButtonLink({
   size,
   ...props
 }: ButtonProps<"a"> & LinkProps) {
-  if (!validateIntent(intent)) {
-    throw new Error(`Invalid intent: ${intent}`);
-  }
-
   return (
     <Link
       className={

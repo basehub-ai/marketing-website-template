@@ -1,18 +1,21 @@
 import Image from "next/image";
 import Link from "next/link";
+import { draftMode } from "next/headers";
 
 import { Pump } from ".basehub/react-pump";
 
 export async function Footer() {
   return (
     <Pump
+      draft={draftMode().isEnabled}
+      next={{ revalidate: 30 }}
       queries={[
         {
           site: {
             header: {
               logo: {
-                url: true,
                 alt: true,
+                url: true,
                 width: true,
                 height: true,
               },
