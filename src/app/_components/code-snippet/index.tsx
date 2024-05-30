@@ -7,6 +7,7 @@ import { Highlighter } from "./highlight";
 import s from "./code-snippet.module.scss";
 
 export const codeSnippetFragment = fragmentOn("CodeSnippetComponent", {
+  _id: true,
   code: {
     code: true,
     language: true,
