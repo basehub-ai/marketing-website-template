@@ -16,11 +16,28 @@ export function SearchContent({ _searchKey }: { _searchKey: string }) {
   });
 
   const [open, setOpen] = React.useState(false);
+  const searchInputRef = React.useRef<HTMLInputElement>(null);
 
   React.useEffect(() => {
     if (search.query) setOpen(true);
     else setOpen(false);
   }, [search.query]);
+
+  React.useEffect(() => {
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key === "k" && event.metaKey) {
+        event.preventDefault();
+        searchInputRef.current?.blur();
+        searchInputRef.current?.focus();
+      }
+    };
+
+    document.addEventListener("keydown", handleKeyDown);
+
+    return () => {
+      document.removeEventListener("keydown", handleKeyDown);
+    };
+  }, []);
 
   return (
     <SearchBox.Root search={search}>
@@ -44,6 +61,7 @@ export function SearchContent({ _searchKey }: { _searchKey: string }) {
               }}
             >
               <input
+                ref={searchInputRef}
                 className="grow bg-transparent outline-none placeholder:text-[inherit]"
                 placeholder="Search"
                 type="text"
