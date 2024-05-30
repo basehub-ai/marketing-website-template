@@ -1,6 +1,7 @@
 import type { Config } from "tailwindcss";
 
 import typography from "@tailwindcss/typography";
+
 const config: Config = {
   content: ["./src/**/*.{js,ts,jsx,tsx,mdx}"],
   darkMode: "class",
@@ -135,6 +136,11 @@ const config: Config = {
           from: { height: "var(--radix-accordion-content-height)" },
           to: { height: "0px" },
         },
+        pulse: {
+          "50%": {
+            opacity: "0.5",
+          },
+        },
       },
     },
     animation: {
@@ -148,6 +154,7 @@ const config: Config = {
       enterFromRight: "enterFromRight 250ms ease",
       exitToLeft: "exitToLeft 250ms ease",
       exitToRight: "exitToRight 250ms ease",
+      pulse: "pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite",
     },
   },
   plugins: [typography],

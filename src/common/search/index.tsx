@@ -4,7 +4,6 @@ import { useSearch, SearchBox, type Hit } from "basehub/react-search";
 import { MagnifyingGlassIcon } from "@radix-ui/react-icons";
 import NextLink from "next/link";
 import { cx } from "class-variance-authority";
-import * as ScrollArea from "@radix-ui/react-scroll-area";
 import * as Popover from "@radix-ui/react-popover";
 
 import { getArticleSlugFromSlugPath } from "@/lib/basehub/utils";
@@ -28,9 +27,14 @@ export function SearchContent({ _searchKey }: { _searchKey: string }) {
       <Popover.Root open={open} onOpenChange={setOpen}>
         <Popover.Anchor asChild>
           {/* eslint-disable-next-line jsx-a11y/label-has-associated-control */}
-          <label className="ml-auto flex w-fit max-w-[280px] items-center gap-x-1 rounded-full border border-border px-3.5 py-3 focus-within:!border-neutral-500 dark:border-dark-border">
+          <label
+            className={cx(
+              "ml-auto flex w-fit max-w-[280px] items-center gap-x-1 rounded-full border border-border px-3.5 py-2.5 focus-within:!border-neutral-500 dark:border-dark-border",
+              search.query || "text-border dark:text-dark-border",
+            )}
+          >
             <MagnifyingGlassIcon
-              className="pointer-events-none size-5 shrink-0"
+              className="pointer-events-none size-5 shrink-0 transition-colors duration-75"
               color="currentColor"
             />
             <SearchBox.Input
@@ -40,7 +44,7 @@ export function SearchContent({ _searchKey }: { _searchKey: string }) {
               }}
             >
               <input
-                className="grow bg-transparent outline-none"
+                className="grow bg-transparent outline-none placeholder:text-[inherit]"
                 placeholder="Search"
                 type="text"
               />
@@ -59,24 +63,21 @@ export function SearchContent({ _searchKey }: { _searchKey: string }) {
               e.preventDefault();
             }}
           >
-            <ScrollArea.Root className="relative h-[290px] max-h-[290px] w-[550px] overflow-hidden rounded-xl border border-surface-tertiary bg-surface-primary p-2 shadow-md">
-              <ScrollArea.Viewport className="h-full w-full overscroll-y-contain rounded-xl [&>div]:!block">
-                <SearchBox.Empty asChild>
-                  <div className="absolute left-1/2 top-1/2 w-fit -translate-x-1/2 -translate-y-1/2 items-center px-2 py-1 text-lg text-dark-text-tertiary">
-                    No results for <span className="font-bold">&ldquo;{search.query}&rdquo;</span>
-                  </div>
-                </SearchBox.Empty>
+            <div className="relative max-h-[290px] min-h-20 w-[550px] overflow-y-auto  overscroll-y-contain rounded-xl border border-surface-tertiary bg-surface-primary p-2 shadow-md dark:border-dark-surface-tertiary dark:bg-dark-surface-primary">
+              <SearchBox.Empty asChild>
+                <div className="absolute left-1/2 top-1/2 w-fit -translate-x-1/2 -translate-y-1/2 items-center px-2 py-1 text-dark-text-tertiary">
+                  No results for <span className="font-bold">&ldquo;{search.query}&rdquo;</span>
+                </div>
+              </SearchBox.Empty>
 
-                <HitList hits={search.result?.hits ?? []} />
-              </ScrollArea.Viewport>
-              <ScrollArea.Scrollbar
-                className="flex h-full w-2.5 touch-none select-none border-l border-l-transparent p-[1px] transition-colors"
-                orientation="vertical"
-              >
-                <ScrollArea.Thumb className="relative flex-1 rounded-full bg-border dark:bg-dark-border" />
-              </ScrollArea.Scrollbar>
-              <ScrollArea.Corner />
-            </ScrollArea.Root>
+              <SearchBox.Placeholder>
+                <div className="animate-pulse flex h-[54px] flex-col gap-y-0.5 rounded-md border border-transparent bg-surface-tertiary px-4 dark:bg-dark-surface-secondary" />
+                <div className="animate-pulse mt-3 flex h-[54px] flex-col gap-y-0.5 rounded-md border border-transparent bg-surface-tertiary px-4 dark:bg-dark-surface-secondary" />
+                <div className="animate-pulse mt-3 flex h-[54px] flex-col gap-y-0.5 rounded-md border border-transparent bg-surface-tertiary px-4 dark:bg-dark-surface-secondary" />
+              </SearchBox.Placeholder>
+
+              <HitList hits={search.result?.hits ?? []} />
+            </div>
           </Popover.Content>
         </Popover.Portal>
       </Popover.Root>
@@ -112,6 +113,7 @@ function HitList({ hits }: { hits: Hit[] }) {
                 className={cx(
                   "flex flex-col gap-y-0.5 rounded-md border border-transparent px-4 py-3 transition-colors",
                   "data-[selected='true']:border-surface-tertiary data-[selected='true']:bg-surface-secondary",
+                  "dark:data-[selected='true']:border-dark-surface-tertiary dark:data-[selected='true']:bg-dark-surface-secondary",
                   "[&>*]:truncate [&_mark]:bg-transparent [&_mark]:text-neutral-500",
                 )}
                 href={pathname}
@@ -138,11 +140,11 @@ function HitList({ hits }: { hits: Hit[] }) {
 }
 
 function HitTitleContainer({ children }: React.PropsWithChildren) {
-  return <p className="leading-normal text-text-primary">{children}</p>;
+  return <p className="leading-normal text-text-primary dark:text-dark-text-primary">{children}</p>;
 }
 
 function HitBodyContainer({ children }: React.PropsWithChildren) {
-  return <p className="text-sm text-text-secondary">{children}</p>;
+  return <p className="text-sm text-text-secondary dark:text-dark-text-secondary">{children}</p>;
 }
 
 export function DialogTriggerMobile() {
