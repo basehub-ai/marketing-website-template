@@ -46,7 +46,7 @@ export function SearchContent({ _searchKey }: { _searchKey: string }) {
           {/* eslint-disable-next-line jsx-a11y/label-has-associated-control */}
           <label
             className={cx(
-              "ml-auto flex w-fit max-w-[280px] items-center gap-x-1 rounded-full border border-border px-3.5 py-2.5 focus-within:!border-neutral-500 dark:border-dark-border",
+              "ml-auto flex w-full items-center gap-x-1 rounded-full border border-border px-3.5 py-2.5 focus-within:!border-neutral-500 dark:border-dark-border md:max-w-[280px]",
               search.query || "text-border dark:text-dark-border",
             )}
           >
@@ -81,7 +81,7 @@ export function SearchContent({ _searchKey }: { _searchKey: string }) {
               e.preventDefault();
             }}
           >
-            <div className="relative max-h-[290px] min-h-20 w-[550px] overflow-y-auto  overscroll-y-contain rounded-xl border border-surface-tertiary bg-surface-primary p-2 shadow-md dark:border-dark-surface-tertiary dark:bg-dark-surface-primary">
+            <div className="relative mx-5 min-h-20 w-[calc(100vw_-_2.5rem)] overflow-y-auto overscroll-y-contain rounded-xl border border-surface-tertiary bg-surface-primary p-2 shadow-md dark:border-dark-surface-tertiary dark:bg-dark-surface-primary md:mx-0 md:max-h-[290px] md:w-[550px]">
               <SearchBox.Empty asChild>
                 <div className="absolute left-1/2 top-1/2 w-fit -translate-x-1/2 -translate-y-1/2 items-center px-2 py-1 text-dark-text-tertiary">
                   No results for <span className="font-bold">&ldquo;{search.query}&rdquo;</span>
@@ -163,12 +163,4 @@ function HitTitleContainer({ children }: React.PropsWithChildren) {
 
 function HitBodyContainer({ children }: React.PropsWithChildren) {
   return <p className="text-sm text-text-secondary dark:text-dark-text-secondary">{children}</p>;
-}
-
-export function DialogTriggerMobile() {
-  return (
-    <button>
-      <MagnifyingGlassIcon height={18} width={18} />
-    </button>
-  );
 }
