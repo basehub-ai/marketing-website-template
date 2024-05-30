@@ -6,6 +6,10 @@ import { Section } from "@/common/layout";
 
 import { BlogpostCard, blogpostCardFragment } from "./_components/blogpost-card";
 
+export const dynamic = "force-static";
+
+export const revalidate = 30;
+
 export default async function BlogPage() {
   return (
     <Pump

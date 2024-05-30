@@ -18,6 +18,10 @@ import { formatDate } from "@/utils/dates";
 
 import { ChangelogLayout } from "../_components/changelog-header";
 
+export const dynamic = "force-static";
+
+export const revalidate = 30;
+
 interface ChangelogPageParams {
   params: {
     slug: string;

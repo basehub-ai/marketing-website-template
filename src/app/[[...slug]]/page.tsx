@@ -35,6 +35,10 @@ import { SideFeatures, featuresSideBySideFragment } from "../_sections/side-feat
 import { Testimonials, testimonialsSliderFragment } from "../_sections/testimonials";
 import { TestimonialsGrid, testimonialsGridFragment } from "../_sections/testimonials-grid";
 
+export const dynamic = "force-static";
+
+export const revalidate = 30;
+
 export const generateStaticParams = async () => {
   const data = await basehub({ cache: "no-store", draft: isDev }).query({
     site: {

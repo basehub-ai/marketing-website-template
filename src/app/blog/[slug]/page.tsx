@@ -20,6 +20,10 @@ import {
 import { CodeSnippet, codeSnippetFragment } from "@/app/_components/code-snippet";
 import { basehub } from ".basehub/index";
 
+export const dynamic = "force-static";
+
+export const revalidate = 30;
+
 export const generateStaticParams = async () => {
   const data = await basehub({ cache: "no-store" }).query({
     site: {

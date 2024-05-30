@@ -6,8 +6,7 @@
     "dev": "basehub dev & next dev",
     "build": "basehub && next build",
     "start": "next start",
-    "lint": "next lint",
-    "postinstall": "basehub"
+    "lint": "next lint"
   },
   "dependencies": {
     "@radix-ui/react-accordion": "^1.1.2",

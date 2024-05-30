@@ -7,6 +7,10 @@ import { ChangelogList } from "./_components/changelog-list";
 import { ChangelogLayout } from "./_components/changelog-header";
 import { changelogListFragment } from "./_components/changelog.fragment";
 
+export const dynamic = "force-static";
+
+export const revalidate = 30;
+
 export default async function ChangelogPage() {
   return (
     <Pump
