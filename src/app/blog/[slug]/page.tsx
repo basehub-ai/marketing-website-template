@@ -28,7 +28,7 @@ export const generateStaticParams = async () => {
   const data = await basehub({ cache: "no-store" }).query({
     site: {
       blog: {
-        blogposts: {
+        posts: {
           items: {
             _slug: true,
           },
@@ -37,7 +37,7 @@ export const generateStaticParams = async () => {
     },
   });
 
-  return data.site.blog.blogposts.items.map((post) => {
+  return data.site.blog.posts.items.map((post) => {
     return {
       slug: post._slug,
     };
@@ -57,7 +57,7 @@ export const generateMetadata = async (
         },
       },
       blog: {
-        blogposts: {
+        posts: {
           __args: {
             filter: {
               _sys_slug: { eq: slug },
@@ -74,18 +74,18 @@ export const generateMetadata = async (
     },
   });
 
-  if (!data.site.blog.blogposts.items.length) return notFound();
+  if (!data.site.blog.posts.items.length) return notFound();
   const images = [
     {
-      url: `/dynamic-og?type=blogpost&id=${data.site.blog.blogposts.items[0]._id}`,
-      alt: data.site.blog.blogposts.items[0]._title,
+      url: `/dynamic-og?type=blogpost&id=${data.site.blog.posts.items[0]._id}`,
+      alt: data.site.blog.posts.items[0]._title,
     },
     ...(prevData.openGraph?.images ?? []),
   ];
 
   return {
-    title: data.site.blog.blogposts.items[0]._title,
-    description: data.site.blog.blogposts.items[0].description,
+    title: data.site.blog.posts.items[0]._title,
+    description: data.site.blog.posts.items[0].description,
     openGraph: {
       images,
       type: "article",
@@ -103,7 +103,7 @@ export default async function BlogPage({ params: { slug } }: { params: { slug: s
           {
             site: {
               blog: {
-                blogposts: {
+                posts: {
                   __args: {
                     filter: {
                       _sys_slug: {
@@ -155,12 +155,12 @@ export default async function BlogPage({ params: { slug } }: { params: { slug: s
         {async ([
           {
             site: {
-              blog: { blogposts },
+              blog: { posts },
             },
           },
         ]) => {
           "use server";
-          const blogpost = blogposts.items.at(0);
+          const blogpost = posts.items.at(0);
 
           if (!blogpost) return notFound();
 

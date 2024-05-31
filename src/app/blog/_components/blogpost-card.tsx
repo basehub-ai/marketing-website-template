@@ -8,7 +8,7 @@ import { Author } from "@/common/avatar";
 import { authorFragment } from "@/lib/basehub/fragments";
 import { formatDate } from "@/utils/dates";
 
-export const blogpostCardFragment = fragmentOn("BlogpostsItem", {
+export const blogpostCardFragment = fragmentOn("BlogPostComponent", {
   _id: true,
   _title: true,
   _slug: true,
