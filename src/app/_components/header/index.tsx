@@ -7,7 +7,6 @@ import { optimizedImageFragment } from "@/lib/basehub/fragments";
 import { fragmentOn } from ".basehub/schema";
 
 import { DesktopMenu, MobileMenu } from "./navigation-menu";
-import { DraftModeButton } from "./draft-mode";
 
 const headerLinksFragment = fragmentOn("NavbarItem", {
   _title: true,
@@ -67,14 +66,6 @@ export async function Header() {
                 <MobileMenu links={header.navbar.items} />
               </div>
             </div>
-            {draftMode().isEnabled ? (
-              <div className="flex items-center justify-center bg-surface-secondary dark:bg-dark-surface-secondary">
-                <p className="text-pretty text-sm text-text-tertiary dark:text-dark-text-tertiary">
-                  Draft mode is enabled
-                </p>
-                <DraftModeButton />
-              </div>
-            ) : null}
           </header>
         );
       }}
