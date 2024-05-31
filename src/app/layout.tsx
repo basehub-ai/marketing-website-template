@@ -23,6 +23,9 @@ export const generateMetadata = async (): Promise<Metadata> => {
             url: true,
             mimeType: true,
           },
+          ogImage: {
+            url: true,
+          },
         },
       },
     },
@@ -42,6 +45,14 @@ export const generateMetadata = async (): Promise<Metadata> => {
         type: data.site.settings.metadata.favicon.mimeType,
       },
     ],
+    openGraph: {
+      type: "website",
+      images: [
+        {
+          url: data.site.settings.metadata.ogImage.url,
+        },
+      ],
+    },
   };
 };
 
