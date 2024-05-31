@@ -91,7 +91,7 @@ export function DesktopMenu({ links }: { links: HeaderLiksFragment[] }) {
   return (
     <>
       <NavigationMenuHeader className="hidden lg:flex" links={links} />
-      <div className="hidden items-center gap-4 lg:flex">
+      <div className="hidden items-center gap-4 justify-self-end lg:flex">
         <ButtonLink href="/login" intent="secondary">
           Login
         </ButtonLink>
@@ -121,8 +121,10 @@ const useToggleState = (initialState = false) => {
 };
 
 export function MobileMenu({ links }: { links: HeaderLiksFragment[] }) {
-  const { handleToggle, isOn } = useToggleState();
+  const { handleToggle, isOn, handleOff } = useToggleState();
   const selectedLayoutSegment = useSelectedLayoutSegment();
+
+  // When click, we need to hide the menu
 
   const headerLinks = React.useMemo(() => {
     return links.map((link) => ({
@@ -149,7 +151,7 @@ export function MobileMenu({ links }: { links: HeaderLiksFragment[] }) {
       </button>
       <div className="block lg:hidden">
         {isOn ? (
-          <div className="fixed left-0 top-[calc(var(--header-height)+1)] z-10 h-auto w-full bg-surface-primary dark:bg-dark-surface-primary">
+          <div className="z-10 fixed left-0 top-[calc(var(--header-height)+1)] h-auto w-full bg-surface-primary dark:bg-dark-surface-primary">
             <div className="flex flex-col gap-8 px-6 py-8">
               {/* <Button unstyled onClick={handleOff}>
                 Close
@@ -162,12 +164,14 @@ export function MobileMenu({ links }: { links: HeaderLiksFragment[] }) {
                       _id={props._id}
                       _title={props._title}
                       sublinks={props.sublinks.items}
+                      onClick={handleOff}
                     />
                   ) : (
                     <Link
                       key={props._id}
                       className="flex items-center gap-2 rounded px-3 py-1.5 hover:bg-surface-tertiary dark:hover:bg-dark-surface-tertiary"
                       href={props.href ?? "#"}
+                      onClick={handleOff}
                     >
                       {props._title}
                     </Link>
@@ -194,10 +198,12 @@ function ItemWithSublinks({
   _id,
   _title,
   sublinks,
+  onClick,
 }: {
   _id: string;
   _title: string;
   sublinks: HeaderLiksFragment["sublinks"]["items"];
+  onClick: () => void;
 }) {
   const { isOn, handleOff, handleOn } = useToggleState(false);
 
@@ -254,6 +260,7 @@ function ItemWithSublinks({
             <Link
               className="flex items-center gap-2 rounded-md px-3 py-1.5 text-text-tertiary hover:bg-surface-tertiary dark:text-dark-text-tertiary dark:hover:bg-dark-surface-tertiary"
               href={href ?? "#"}
+              onClick={onClick}
             >
               {_title}
             </Link>
