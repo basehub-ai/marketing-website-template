@@ -4,7 +4,7 @@ export function getArticleSlugFromSlugPath(slugPath: string) {
   return (
     "/" +
     slugPath
-      .replace(/(root|site|blogposts)\s/gm, "")
+      .replace(/(root|site|posts)\s/gm, "")
       .split(/\s/)
       .join("/")
   );

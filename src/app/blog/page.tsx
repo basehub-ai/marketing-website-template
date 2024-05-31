@@ -19,7 +19,7 @@ export default async function BlogPage() {
       queries={[
         {
           _componentInstances: {
-            postsItem: {
+            blogPost: {
               _searchKey: true,
             },
           },
@@ -37,7 +37,7 @@ export default async function BlogPage() {
     >
       {async ([
         {
-          _componentInstances: { postsItem },
+          _componentInstances: { blogPost },
           site: { blog },
         },
       ]) => {
@@ -50,7 +50,7 @@ export default async function BlogPage() {
               <Heading align="left">
                 <h2>{blog.mainTitle}</h2>
               </Heading>
-              <Search _searchKey={postsItem._searchKey} />
+              <Search _searchKey={blogPost._searchKey} />
               {blog.featuredPosts.slice(0, 3).map((post) => (
                 <BlogpostCard key={post._id} type="card" {...post} />
               ))}

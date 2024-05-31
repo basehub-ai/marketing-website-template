@@ -11,8 +11,8 @@ import { getArticleSlugFromSlugPath } from "@/lib/basehub/utils";
 export function SearchContent({ _searchKey }: { _searchKey: string }) {
   const search = useSearch({
     _searchKey,
-    queryBy: ["_title", "body", "introduction"],
-    // "description",
+    queryBy: ["_title", "body", "introduction", "categories", "authors"],
+    limit: 20,
   });
 
   const [open, setOpen] = React.useState(false);
@@ -89,9 +89,9 @@ export function SearchContent({ _searchKey }: { _searchKey: string }) {
               </SearchBox.Empty>
 
               <SearchBox.Placeholder>
-                <div className="animate-pulse flex h-[54px] flex-col gap-y-0.5 rounded-md border border-transparent bg-surface-tertiary px-4 dark:bg-dark-surface-secondary" />
-                <div className="animate-pulse mt-3 flex h-[54px] flex-col gap-y-0.5 rounded-md border border-transparent bg-surface-tertiary px-4 dark:bg-dark-surface-secondary" />
-                <div className="animate-pulse mt-3 flex h-[54px] flex-col gap-y-0.5 rounded-md border border-transparent bg-surface-tertiary px-4 dark:bg-dark-surface-secondary" />
+                <div className="flex h-[64px] animate-pulse flex-col gap-y-0.5 rounded-md border border-transparent bg-surface-tertiary px-4 dark:bg-dark-surface-secondary" />
+                <div className="mt-3 flex h-[64px] animate-pulse flex-col gap-y-0.5 rounded-md border border-transparent bg-surface-tertiary px-4 dark:bg-dark-surface-secondary" />
+                <div className="mt-3 flex h-[64px] animate-pulse flex-col gap-y-0.5 rounded-md border border-transparent bg-surface-tertiary px-4 dark:bg-dark-surface-secondary" />
               </SearchBox.Placeholder>
 
               <HitList hits={search.result?.hits ?? []} />
@@ -108,20 +108,13 @@ function HitList({ hits }: { hits: Hit[] }) {
     <SearchBox.HitList>
       {hits.map((hit) => {
         let pathname = getArticleSlugFromSlugPath(hit.document._slugPath ?? "");
+        const bodyHighlight = hit._getFieldHighlight("body");
 
-        // TODO is there an opportunity to build a helper function in our SDK here? looks like a common usecase
-        const bodyHighlight = hit.highlights
-          .map((h) => {
-            if (!h.fieldPath.startsWith("body")) return;
-            const splitted = h.fieldPath.split(".").slice(0, 2);
-            const fullField = hit._getField(splitted.join("."));
-
-            return fullField;
-          })
-          .filter(Boolean)[0] as { _id: string | undefined } | undefined;
-
-        if (bodyHighlight?._id) {
-          pathname += `#${bodyHighlight._id}`;
+        if (
+          bodyHighlight?.highlightedField?._type === "rich-text-section" &&
+          bodyHighlight.highlightedField._id
+        ) {
+          pathname += `#${bodyHighlight.highlightedField._id}`;
         }
 
         return (
@@ -129,10 +122,10 @@ function HitList({ hits }: { hits: Hit[] }) {
             <SearchBox.HitItem asChild hit={hit} href={pathname}>
               <NextLink
                 className={cx(
-                  "flex flex-col gap-y-0.5 rounded-md border border-transparent px-4 py-3 transition-colors",
+                  "grid grid-cols-[1fr_auto] grid-rows-[auto_1fr_auto] gap-x-1 gap-y-0.5 rounded-md border border-transparent px-4 py-3 transition-colors",
                   "data-[selected='true']:border-surface-tertiary data-[selected='true']:bg-surface-secondary",
                   "dark:data-[selected='true']:border-dark-surface-tertiary dark:data-[selected='true']:bg-dark-surface-secondary",
-                  "[&>*]:truncate [&_mark]:bg-transparent [&_mark]:text-neutral-500",
+                  "[&_mark]:bg-transparent [&_mark]:text-neutral-500",
                 )}
                 href={pathname}
               >
@@ -146,7 +139,30 @@ function HitList({ hits }: { hits: Hit[] }) {
                   components={{
                     container: HitBodyContainer,
                   }}
+                  fallbackFieldPaths={["introduction"]}
                   fieldPath="body"
+                />
+                <SearchBox.HitSnippet
+                  components={{
+                    container: HitAvatarContainer,
+                    // text: ({ children }) => {
+                    //   return <span>children</span>;
+                    // },
+                  }}
+                  // fallbackFieldPaths={[
+                  //   "authors.1._title",
+                  //   "authors.2._title",
+                  //   "authors.3._title",
+                  //   "authors.4._title",
+                  //   "authors.5._title",
+                  // ]}
+                  fieldPath="authors"
+                />
+                <SearchBox.HitSnippet
+                  components={{
+                    container: HitCategoryContainer,
+                  }}
+                  fieldPath="categories"
                 />
               </NextLink>
             </SearchBox.HitItem>
@@ -158,9 +174,36 @@ function HitList({ hits }: { hits: Hit[] }) {
 }
 
 function HitTitleContainer({ children }: React.PropsWithChildren) {
-  return <p className="leading-normal text-text-primary dark:text-dark-text-primary">{children}</p>;
+  return (
+    <p className="col-span-full truncate leading-normal text-text-primary dark:text-dark-text-primary">
+      {children}
+    </p>
+  );
 }
 
 function HitBodyContainer({ children }: React.PropsWithChildren) {
-  return <p className="text-sm text-text-secondary dark:text-dark-text-secondary">{children}</p>;
+  return (
+    <p className="col-span-full line-clamp-2 text-sm text-text-secondary dark:text-dark-text-secondary">
+      {children}
+    </p>
+  );
+}
+
+const getNodeText = (node: React.ReactNode): string | number => {
+  if (["string", "number"].includes(typeof node)) return node as string | number;
+  if (node instanceof Array) return node.map(getNodeText).join("");
+
+  // eslint-disable-next-line @typescript-eslint/no-unsafe-argument, @typescript-eslint/no-unsafe-member-access
+  if (typeof node === "object" && node && "props" in node) return getNodeText(node.props.children);
+  throw new Error(`Unsupported node type: ${typeof node}`);
+};
+
+function HitAvatarContainer({ children }: React.PropsWithChildren) {
+  console.log(getNodeText(children));
+
+  return <p className="text-sm text-text-tertiary dark:text-dark-text-tertiary">{children}</p>;
+}
+
+function HitCategoryContainer({ children }: React.PropsWithChildren) {
+  return <p className="text-sm text-text-tertiary dark:text-dark-text-tertiary">{children}</p>;
 }

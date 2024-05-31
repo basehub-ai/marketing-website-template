@@ -1,7 +1,7 @@
 import { fragmentOn } from ".basehub/schema";
 import { authorFragment, optimizedImageFragment } from "@/lib/basehub/fragments";
 
-export const changelogListFragment = fragmentOn("PostsItem", {
+export const changelogListFragment = fragmentOn("ChangelogPostComponent", {
   _id: true,
   _title: true,
   image: optimizedImageFragment,
