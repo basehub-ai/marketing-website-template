@@ -4,7 +4,7 @@ import useEmblaCarousel from "embla-carousel-react";
 import * as React from "react";
 import Image from "next/image";
 import { ArrowLeftIcon, ArrowRightIcon } from "@radix-ui/react-icons";
-import { cx } from "class-variance-authority";
+import clsx from "clsx";
 
 import { type TestimonialsSlider } from ".";
 
@@ -133,14 +133,14 @@ export function Slider({
           {scrollSnaps.map((snap, index) => (
             <button
               key={snap}
-              className={cx(
+              className={clsx(
                 "group flex items-center justify-center rounded-full p-1",
                 index === selectedIndex ? "bg-neutral-500/50" : "",
               )}
               onClick={() => onDotButtonClick(index)}
             >
               <span
-                className={cx(
+                className={clsx(
                   "size-2 rounded-full",
                   index === selectedIndex
                     ? "bg-neutral-500"

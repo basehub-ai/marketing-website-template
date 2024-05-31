@@ -35,7 +35,8 @@ import { Pricing, pricingFragment } from "../_sections/pricing";
 import { SideFeatures, featuresSideBySideFragment } from "../_sections/side-features";
 import { Testimonials, testimonialsSliderFragment } from "../_sections/testimonials";
 import { TestimonialsGrid, testimonialsGridFragment } from "../_sections/testimonials-grid";
-import { PricingTable, pricingTableFragment } from "../_sections/pricing-comparation";
+import { PricingTable } from "../_sections/pricing-comparation";
+import { pricingTableFragment } from "../_sections/pricing-comparation/fragments";
 
 export const dynamic = "force-static";
 

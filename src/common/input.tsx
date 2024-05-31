@@ -1,4 +1,4 @@
-import { cx } from "class-variance-authority";
+import clsx from "clsx";
 
 import { Button } from "./button";
 
@@ -12,7 +12,7 @@ export function Input({
   return (
     <div className="relative">
       <input
-        className={cx(
+        className={clsx(
           "h-11 w-full rounded-full border border-border py-2 pl-4 pr-28 dark:border-dark-border",
           "disabled:opacity-50",
           "placeholder:text-sm",
@@ -28,7 +28,10 @@ export function Input({
         <p className="dark:text-dark-error absolute -bottom-5 left-4 text-xs text-error">{error}</p>
       ) : null}
       <Button
-        className={cx("absolute right-1.5 top-1.5 peer-disabled:opacity-50", error && "opacity-50")}
+        className={clsx(
+          "absolute right-1.5 top-1.5 peer-disabled:opacity-50",
+          error && "opacity-50",
+        )}
         disabled={disabled}
         intent="tertiary"
         type="submit"

@@ -1,7 +1,7 @@
 "use client";
 
 import * as React from "react";
-import { cx } from "class-variance-authority";
+import clsx from "clsx";
 
 import { ButtonLink } from "@/common/button";
 
@@ -28,8 +28,8 @@ export function ForkInBaseHub() {
 
   return (
     <ButtonLink
-      className={cx(
-        "z-modal fixed bottom-14 left-1/2 -translate-x-1/2 gap-x-1 border border-black border-opacity-30 shadow-[0px_2px_30px_0px_rgba(0,_0,_0,_0.30)] transition-opacity duration-500",
+      className={clsx(
+        "fixed bottom-14 left-1/2 z-modal -translate-x-1/2 gap-x-1 border border-black border-opacity-30 shadow-[0px_2px_30px_0px_rgba(0,_0,_0,_0.30)] transition-opacity duration-500",
         showButton || "pointer-events-none opacity-0",
       )}
       href="https://basehub.com/basehub/marketing-website"

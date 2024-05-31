@@ -1,5 +1,6 @@
 import { Slot } from "@radix-ui/react-slot";
-import { type VariantProps, cva, cx } from "class-variance-authority";
+import { type VariantProps, cva } from "class-variance-authority";
+import clsx from "clsx";
 
 const $headingContainer = cva("flex flex-col gap-3", {
   variants: {
@@ -23,23 +24,22 @@ type HeadingProps = {
   align?: string | null;
 } & VariantProps<typeof $headingContainer>;
 
-
-
-export function Heading({ tag, subtitle, className, align = 'center', ...props }: HeadingProps) {
+export function Heading({ tag, subtitle, className, align = "center", ...props }: HeadingProps) {
   align = align ?? "center";
   const Comp = Slot;
+
   return (
     <div className={$headingContainer({ align, className })}>
       {tag ? <Tag>{tag}</Tag> : null}
       <div
-        className={cx("flex max-w-screen-lg flex-col justify-center gap-1", {
+        className={clsx("flex max-w-screen-lg flex-col justify-center gap-1", {
           "items-start self-start": align === "left",
           "items-center self-center": align === "center" || !align,
           "items-end self-end": align === "right",
         })}
       >
         <Comp
-          className={cx("text-3xl font-medium md:text-4xl", {
+          className={clsx("text-3xl font-medium md:text-4xl", {
             "text-center": align === "center",
             "text-left": align === "left",
             "text-right": align === "right",
@@ -49,7 +49,7 @@ export function Heading({ tag, subtitle, className, align = 'center', ...props }
       </div>
       {subtitle ? (
         <p
-          className={cx(
+          className={clsx(
             "text-pretty text-lg font-light text-text-tertiary dark:text-dark-text-tertiary md:text-xl",
             {
               "text-center": align === "center",
@@ -75,7 +75,7 @@ export function Tag({
 
   return (
     <Comp
-      className={cx(
+      className={clsx(
         "flex min-h-7 items-center justify-center gap-2 rounded-full border border-border bg-surface-primary px-3.5 pb-px text-sm font-medium text-text-tertiary dark:border-dark-border dark:bg-dark-surface-primary dark:text-dark-text-tertiary md:text-base",
         className,
       )}

@@ -3,7 +3,7 @@ import * as React from "react";
 import { useSearch, SearchBox, type Hit } from "basehub/react-search";
 import { MagnifyingGlassIcon } from "@radix-ui/react-icons";
 import NextLink from "next/link";
-import { cx } from "class-variance-authority";
+import clsx from "clsx";
 import * as Popover from "@radix-ui/react-popover";
 
 import { getArticleSlugFromSlugPath } from "@/lib/basehub/utils";
@@ -45,7 +45,7 @@ export function SearchContent({ _searchKey }: { _searchKey: string }) {
         <Popover.Anchor asChild>
           {/* eslint-disable-next-line jsx-a11y/label-has-associated-control */}
           <label
-            className={cx(
+            className={clsx(
               "ml-auto flex w-full items-center gap-x-1 rounded-full border border-border px-3.5 py-2.5 focus-within:!border-neutral-500 dark:border-dark-border md:max-w-[280px]",
               search.query || "text-border dark:text-dark-border",
             )}
@@ -89,9 +89,9 @@ export function SearchContent({ _searchKey }: { _searchKey: string }) {
               </SearchBox.Empty>
 
               <SearchBox.Placeholder>
-                <div className="animate-pulse flex h-[54px] flex-col gap-y-0.5 rounded-md border border-transparent bg-surface-tertiary px-4 dark:bg-dark-surface-secondary" />
-                <div className="animate-pulse mt-3 flex h-[54px] flex-col gap-y-0.5 rounded-md border border-transparent bg-surface-tertiary px-4 dark:bg-dark-surface-secondary" />
-                <div className="animate-pulse mt-3 flex h-[54px] flex-col gap-y-0.5 rounded-md border border-transparent bg-surface-tertiary px-4 dark:bg-dark-surface-secondary" />
+                <div className="flex h-[54px] animate-pulse flex-col gap-y-0.5 rounded-md border border-transparent bg-surface-tertiary px-4 dark:bg-dark-surface-secondary" />
+                <div className="mt-3 flex h-[54px] animate-pulse flex-col gap-y-0.5 rounded-md border border-transparent bg-surface-tertiary px-4 dark:bg-dark-surface-secondary" />
+                <div className="mt-3 flex h-[54px] animate-pulse flex-col gap-y-0.5 rounded-md border border-transparent bg-surface-tertiary px-4 dark:bg-dark-surface-secondary" />
               </SearchBox.Placeholder>
 
               <HitList hits={search.result?.hits ?? []} />
@@ -128,7 +128,7 @@ function HitList({ hits }: { hits: Hit[] }) {
           <div key={hit._key} className="relative w-full last:mb-2">
             <SearchBox.HitItem asChild hit={hit} href={pathname}>
               <NextLink
-                className={cx(
+                className={clsx(
                   "flex flex-col gap-y-0.5 rounded-md border border-transparent px-4 py-3 transition-colors",
                   "data-[selected='true']:border-surface-tertiary data-[selected='true']:bg-surface-secondary",
                   "dark:data-[selected='true']:border-dark-surface-tertiary dark:data-[selected='true']:bg-dark-surface-secondary",

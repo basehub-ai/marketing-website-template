@@ -1,6 +1,6 @@
 "use client";
+import clsx from "clsx";
 import Image from "next/image";
-import { cx } from "class-variance-authority";
 
 import { type AvatarFragment, type AuthorFragment } from "@/lib/basehub/fragments";
 
@@ -31,7 +31,7 @@ export function Avatar({
   return (
     <Image
       alt={alt ?? "Avatar"}
-      className={cx(
+      className={clsx(
         "size-7 rounded-full border-2 border-surface-primary dark:border-dark-surface-primary",
         className,
       )}

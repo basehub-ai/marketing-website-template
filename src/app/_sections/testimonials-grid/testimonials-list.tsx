@@ -1,7 +1,7 @@
 "use client";
 
-import { cx } from "class-variance-authority";
 import React from "react";
+import clsx from "clsx";
 
 import { Button } from "@/common/button";
 
@@ -53,12 +53,12 @@ export function TestimonialsGridClient({
       <div className="relative flex flex-col items-center gap-8 overflow-hidden md:flex-row">
         {filteredItems.map((chunk, i) => (
           // eslint-disable-next-line react/no-array-index-key
-          <div key={i} className={cx("h-auto flex-1")}>
-            <div className={cx("flex flex-1 flex-col gap-8", { "md:mt-8": i === 1 })}>
+          <div key={i} className={clsx("h-auto flex-1")}>
+            <div className={clsx("flex flex-1 flex-col gap-8", { "md:mt-8": i === 1 })}>
               {chunk.map(({ quote, author, _id }, i) => (
                 <article
                   key={_id}
-                  className={cx(
+                  className={clsx(
                     "flex flex-1 shrink-0 flex-col rounded-xl border border-border dark:border-dark-border",
                     { "hidden md:flex": i !== 0 && !showMore },
                   )}

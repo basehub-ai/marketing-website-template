@@ -74,8 +74,8 @@ export async function Footer() {
               </nav>
 
               <div className="col-span-2 flex flex-col items-start gap-3 sm:col-span-1">
-                <span className="inline-flex items-center gap-1 text-[#14C9A2]">
-                  <span className="size-1.5 rounded-full bg-[#14C9A2]" />
+                <span className="text-success inline-flex items-center gap-1">
+                  <span className="bg-success size-1.5 rounded-full" />
                   <span className="text-xs">All systems operational</span>
                 </span>
                 <p className="text-sm text-text-tertiary dark:text-dark-text-tertiary ">

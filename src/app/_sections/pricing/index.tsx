@@ -1,6 +1,6 @@
-import { cx } from "class-variance-authority";
 import { CheckIcon } from "@radix-ui/react-icons";
 import { type SVGProps } from "react";
+import clsx from "clsx";
 
 import { Heading } from "@/common/heading";
 import { Section } from "@/common/layout";
@@ -56,7 +56,7 @@ function PricingCard(item: PricingPlanItem["plan"]) {
   return (
     <article
       key={item._title}
-      className={cx(
+      className={clsx(
         "relative flex flex-1 flex-col overflow-hidden rounded-2xl border border-border dark:border-dark-border",
         s.pricingCard,
       )}

@@ -1,59 +1,190 @@
-import { CheckIcon } from "@radix-ui/react-icons";
+import { CheckCircledIcon } from "@radix-ui/react-icons";
 import React from "react";
+import { cva, type VariantProps } from "class-variance-authority";
+import clsx from "clsx";
 
 import { Heading } from "@/common/heading";
 import { Section } from "@/common/layout";
 import { ButtonLink } from "@/common/button";
-import { fragmentOn, isBooleanComponent, isCustomTextComponent } from ".basehub/schema";
-import { headingFragment } from "@/lib/basehub/fragments";
+import { type fragmentOn, isBooleanComponent, isCustomTextComponent } from ".basehub/schema";
 
-export const pricingTableFragment = fragmentOn("PricingTableComponent", {
-  heading: headingFragment,
-  categories: {
-    items: {
-      _id: true,
-      _title: true,
-      tooltip: true,
-      features: {
-        items: {
-          _id: true,
-          _title: true,
-          values: {
-            items: {
-              _id: true,
-              plan: {
-                _id: true,
-                _title: true,
-                price: true,
-                isMostPopular: true,
-              },
-              value: {
-                __typename: true,
-                on_BooleanComponent: {
-                  _id: true,
-                  boolean: true,
-                },
-                on_CustomTextComponent: {
-                  _id: true,
-                  text: true,
-                },
-              },
-            },
-          },
-        },
-      },
+import { MobilePricingComparation } from "./mobile-pricing-comparition";
+import { type planFragment, type pricingTableFragment, type valueFragment } from "./fragments";
+
+export type PricingTableProps = fragmentOn.infer<typeof pricingTableFragment>;
+
+export function PricingTable({ heading, categories }: PricingTableProps) {
+  const plans = extractPlans(categories);
+
+  return (
+    <Section className="xl:max-w-screen-xl" id="pricing">
+      <Heading {...heading}>
+        <h4>{heading.title}</h4>
+      </Heading>
+      <table className="hidden w-full table-fixed lg:table">
+        <thead>
+          <tr>
+            <PlanHeader plan={null} />
+            {plans.map((plan) => (
+              <PlanHeader key={plan._id} plan={plan} />
+            ))}
+          </tr>
+        </thead>
+        <tbody>
+          {categories.items.map((category, i) => (
+            <React.Fragment key={category._id}>
+              <CategoryHeader category={category} className={clsx(i === 0 && "py-4")} />
+              {category.features.items.map((feature) => (
+                <tr key={feature._id}>
+                  <th className="w-auto">
+                    <TableCell align="start" as="div" className="w-" type="primary">
+                      <p>{feature._title}</p>
+                    </TableCell>
+                  </th>
+                  {feature.values.items.map((value) => (
+                    <FeatureValue key={value._id} value={value} />
+                  ))}
+                </tr>
+              ))}
+            </React.Fragment>
+          ))}
+        </tbody>
+      </table>
+      <MobilePricingComparation {...{ categories, plans }} />
+    </Section>
+  );
+}
+
+/* -------------------------------------------------------------------------- */
+/*                                 Components                                 */
+/* -------------------------------------------------------------------------- */
+
+/* ------------------------------- Table cell ------------------------------- */
+const $tableCell = cva("min-h-16 px-3 text-base flex items-center gap-1.5 font-normal", {
+  variants: {
+    align: {
+      start: "text-start justify-start",
+      center: "text-center justify-center",
+      end: "text-end justify-end",
     },
+    type: {
+      default: "text-text-secondary dark:text-dark-text-secondary",
+      primary: "text-primary dark:text-dark-primary",
+    },
+  },
+  defaultVariants: {
+    align: "center",
+    type: "default",
   },
 });
 
-type PricingTable = fragmentOn.infer<typeof pricingTableFragment>;
+interface TableCellProps<T extends React.ElementType> {
+  as?: T;
+  className?: string;
+  children: React.ReactNode;
+}
 
-export function PricingTable(pricing: PricingTable) {
-  const { heading, categories } = pricing;
-  const plans = new Map<
-    string,
-    PricingTable["categories"]["items"][0]["features"]["items"][0]["values"]["items"][0]["plan"]
-  >();
+function TableCell<T extends React.ElementType = "td">({
+  as,
+  className,
+  children,
+  align,
+  type,
+  ...props
+}: TableCellProps<T> &
+  React.ComponentPropsWithoutRef<T> &
+  VariantProps<typeof $tableCell>): JSX.Element {
+  const Component = as ?? "div";
+
+  return (
+    <Component className={$tableCell({ class: className, type, align })} {...props}>
+      {children}
+    </Component>
+  );
+}
+
+/* ------------------------------ Category header ---------------------------- */
+
+function CategoryHeader({
+  category,
+  className,
+}: {
+  category: PricingTableProps["categories"]["items"][0];
+  className?: string;
+}) {
+  return (
+    <tr>
+      <th className="w-auto">
+        <TableCell
+          align="start"
+          as="div"
+          className={clsx("px-3 pb-2 pt-10", className)}
+          type="primary"
+        >
+          <p className="text-lg font-medium">{category._title}</p>
+        </TableCell>
+      </th>
+      {Array.from(category.features.items[0].values.items).map((_) => (
+        <th key={`${category._title}${_._id}`} className="w-[1fr]" />
+      ))}
+    </tr>
+  );
+}
+
+type ValueFragment = fragmentOn.infer<typeof valueFragment>;
+
+function PlanHeader({ plan }: { plan: ValueFragment["plan"] | null }) {
+  return plan ? (
+    <th className="w-[1fr]">
+      <span className="flex flex-col items-center gap-3 font-normal">
+        <div className="flex flex-col items-center gap-0.5">
+          <p className="text-base text-text-secondary dark:text-dark-text-secondary md:text-base">
+            {plan._title}
+          </p>
+          <p className="text-lg font-medium">{plan.price}</p>
+        </div>
+        <ButtonLink href="#" intent={plan.isMostPopular ? "primary" : "secondary"}>
+          Get started
+        </ButtonLink>
+      </span>
+    </th>
+  ) : (
+    <th className="w-auto" />
+  );
+}
+
+function FeatureValue({ value }: { value?: ValueFragment }) {
+  return (
+    <td className="w-[1fr]">
+      <TableCell>
+        {value ? (
+          isBooleanComponent(value.value) ? (
+            value.value.boolean ? (
+              <span className="bg-success/10 flex items-center justify-center rounded-full p-1.5">
+                <CheckCircledIcon className="text-success size-5" />
+              </span>
+            ) : (
+              <span className="text-xl text-text-tertiary/50 dark:text-dark-text-tertiary/50 ">
+                &mdash;
+              </span>
+            )
+          ) : isCustomTextComponent(value.value) ? (
+            <p>{value.value.text}</p>
+          ) : null
+        ) : null}
+      </TableCell>
+    </td>
+  );
+}
+
+/* -------------------------------------------------------------------------- */
+/*                                    Utils                                   */
+/* -------------------------------------------------------------------------- */
+
+export type PlanFragment = fragmentOn.infer<typeof planFragment>;
+
+const extractPlans = (categories: PricingTableProps["categories"]) => {
+  const plans = new Map<string, PlanFragment>();
 
   categories.items.forEach((category) => {
     category.features.items.forEach((feature) => {
@@ -63,90 +194,5 @@ export function PricingTable(pricing: PricingTable) {
     });
   });
 
-  return (
-    <Section className="xl:max-w-screen-xl" id="pricing">
-      <Heading {...heading}>
-        <h4>{heading.title}</h4>
-      </Heading>
-      <div className="flex flex-col gap-5 self-stretch lg:flex-row" />
-      <table className="w-full table-auto">
-        <tr>
-          <th />
-          {Array.from(plans.values()).map((plan) => (
-            <th key={plan._id} className="flex flex-1 flex-col items-center">
-              <p className="text-sm text-text-secondary dark:text-dark-text-secondary md:text-base">
-                {plan._title}
-              </p>
-              <p>{plan.price}</p>
-              <ButtonLink href="#" intent={plan.isMostPopular ? "primary" : "secondary"}>
-                Get started
-              </ButtonLink>
-            </th>
-          ))}
-        </tr>
-        {categories.items.map((category) => (
-          <React.Fragment key={category._id}>
-            <tr>
-              <th colSpan={plans.size}>
-                <p>{category._title}</p>
-              </th>
-            </tr>
-            <tr key={category._id}>
-              <td>{category._title}</td>
-              {Array.from(plans.values()).map((plan) => {
-                const value = category.features.items
-                  .flatMap((feature) => feature.values.items)
-                  .find((value) => value.plan._id === plan._id);
-
-                return (
-                  <td key={plan._id}>
-                    {value ? (
-                      <div>
-                        {isBooleanComponent(value.value) ? (
-                          value.value.boolean ? (
-                            <CheckIcon />
-                          ) : (
-                            <span>&mdash;</span>
-                          )
-                        ) : isCustomTextComponent(value.value) ? (
-                          <p>{value.value.text}</p>
-                        ) : null}
-                      </div>
-                    ) : null}
-                  </td>
-                );
-              })}
-            </tr>
-          </React.Fragment>
-        ))}
-      </table>
-      {categories.items.map((category) => (
-        <div key={category._id} className="flex flex-col items-start self-stretch">
-          <p>{category._title}</p>
-          <div className="flex flex-col items-start gap-2">
-            {category.features.items.map((feature) => (
-              <div key={feature._id} className="flex gap-4">
-                <p>{feature._title}</p>
-                <div className="flex gap-2">
-                  {feature.values.items.map((value) => (
-                    <div key={value._id}>
-                      {isBooleanComponent(value.value) ? (
-                        value.value.boolean ? (
-                          <CheckIcon />
-                        ) : (
-                          <span>&mdash;</span>
-                        )
-                      ) : isCustomTextComponent(value.value) ? (
-                        <p>{value.value.text}</p>
-                      ) : null}
-                    </div>
-                  ))}
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      ))}
-    </Section>
-  );
-}
+  return Array.from(plans.values());
+};

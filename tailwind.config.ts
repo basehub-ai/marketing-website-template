@@ -1,6 +1,7 @@
 import type { Config } from "tailwindcss";
 
 import typography from "@tailwindcss/typography";
+import radix from "tailwindcss-radix";
 
 const config: Config = {
   content: ["./src/**/*.{js,ts,jsx,tsx,mdx}"],
@@ -64,6 +65,9 @@ const config: Config = {
       },
       error: {
         DEFAULT: "#FF453A",
+      },
+      success: {
+        DEFAULT: "#14C9A2",
       },
     },
     zIndex: {
@@ -157,7 +161,7 @@ const config: Config = {
       pulse: "pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite",
     },
   },
-  plugins: [typography],
+  plugins: [typography, radix],
 };
 
 export default config;

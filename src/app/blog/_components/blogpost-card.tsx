@@ -1,6 +1,6 @@
-import { cx } from "class-variance-authority";
 import Image from "next/image";
 import Link from "next/link";
+import clsx from "clsx";
 
 import { fragmentOn } from ".basehub/schema";
 import { AvatarsGroup } from "@/common/avatars-group";
@@ -8,7 +8,7 @@ import { Author } from "@/common/avatar";
 import { authorFragment } from "@/lib/basehub/fragments";
 import { formatDate } from "@/utils/dates";
 
-export const blogpostCardFragment = fragmentOn("BlogpostsItem", {
+export const blogpostCardFragment = fragmentOn("BlogpostItem", {
   _id: true,
   _title: true,
   _slug: true,
@@ -46,7 +46,7 @@ export function BlogpostCard({ type = "list", className, ...post }: BlogPostCard
           href={`/blog/${post._slug}`}
         >
           <article
-            className={cx(
+            className={clsx(
               "lg:text-md grid grid-cols-[2fr,repeat(3,1fr)] place-items-center items-center border-b border-border px-4 py-6 text-text-secondary *:first:place-items-start *:last:place-items-end hover:bg-surface-secondary dark:border-dark-border dark:text-dark-text-secondary dark:hover:bg-dark-surface-secondary",
               className,
             )}
@@ -71,7 +71,7 @@ export function BlogpostCard({ type = "list", className, ...post }: BlogPostCard
       return (
         <Link
           key={post._id}
-          className={cx(
+          className={clsx(
             "group flex flex-col self-stretch rounded-xl border",
             "border-border bg-surface-secondary text-text-secondary hover:brightness-90 dark:border-dark-border dark:bg-dark-surface-secondary dark:text-dark-text-secondary dark:hover:brightness-90",
             "md:last:col-span-2 md:last:flex-row",
@@ -93,7 +93,7 @@ export function BlogpostCard({ type = "list", className, ...post }: BlogPostCard
             />
           </figure>
           <div
-            className={cx(
+            className={clsx(
               "flex flex-col justify-between gap-4 p-4",
               "md:max-w-[400px]",
               "lg:max-w-[500px] lg:group-first:!max-w-full lg:group-first:flex-1",

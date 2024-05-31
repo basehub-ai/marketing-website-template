@@ -2,7 +2,6 @@
 import React from "react";
 import { ArrowRightIcon } from "@radix-ui/react-icons";
 import Image from "next/image";
-import { cx } from "class-variance-authority";
 
 import { ButtonLink } from "@/common/button";
 import { AvatarsGroup } from "@/common/avatars-group";
@@ -58,7 +57,7 @@ export function ChangelogList({ changelogPosts }: { changelogPosts: ChangelogLis
         >
           <div className="relative flex w-[110px] shrink-0 items-start justify-between">
             <p
-              className={cx(
+              className={clsx(
                 "relative bottom-1.5 text-sm text-text-tertiary dark:text-dark-text-tertiary",
                 post._id === activePostId && "!text-neutral-500",
                 prevPostIdx === activeIdx - 1 && "delay-500",
@@ -67,12 +66,12 @@ export function ChangelogList({ changelogPosts }: { changelogPosts: ChangelogLis
               {formatDate(post.publishedAt)}
             </p>
             <div
-              className={cx(
+              className={clsx(
                 "relative hidden h-full border-r border-border group-last:border-transparent dark:border-dark-border md:block",
               )}
             >
               <div
-                className={cx(
+                className={clsx(
                   "absolute -left-[3.5px] top-0 size-2 transform rounded-full bg-text-tertiary shadow-neon shadow-text-tertiary/10 transition-all dark:bg-dark-text-tertiary dark:shadow-dark-text-tertiary/20",
                   {
                     "!bg-neutral-500 !shadow-neutral-500/10": post._id === activePostId,
@@ -81,8 +80,8 @@ export function ChangelogList({ changelogPosts }: { changelogPosts: ChangelogLis
                 )}
               />
               <div
-                className={cx(
-                  "absolute -left-0 top-0 z-10 h-full w-px origin-top scale-y-0 transform-gpu rounded-full !bg-neutral-500 !shadow-neutral-500/10 transition-transform duration-500 group-last:hidden",
+                className={clsx(
+                  "z-10 absolute -left-0 top-0 h-full w-px origin-top scale-y-0 transform-gpu rounded-full !bg-neutral-500 !shadow-neutral-500/10 transition-transform duration-500 group-last:hidden",
                   activeIdx - 1 === idx && "scale-y-100",
                   activeIdx > idx && "scale-y-100 delay-150",
                 )}

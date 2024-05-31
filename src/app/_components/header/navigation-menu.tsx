@@ -1,7 +1,7 @@
 "use client";
+import clsx from "clsx";
 import Link from "next/link";
 import { ChevronDownIcon, HamburgerMenuIcon } from "@radix-ui/react-icons";
-import { cx } from "class-variance-authority";
 import {
   NavigationMenu,
   NavigationMenuContent,
@@ -20,7 +20,7 @@ export function NavigationMenuHeader({
   className?: string;
 }) {
   return (
-    <NavigationMenu className={cx("relative z-[1] flex-col justify-center lg:flex", className)}>
+    <NavigationMenu className={clsx("relative z-[1] flex-col justify-center lg:flex", className)}>
       <NavigationMenuList className="flex flex-1 px-4 ">
         {links.map((props) =>
           props.sublinks.items.length > 0 ? (
@@ -45,7 +45,7 @@ function NavigationMenuLink({
   return (
     <NavigationMenuLinkPrimitive
       asChild
-      className={cx(
+      className={clsx(
         "inline-flex h-6 shrink-0 items-center justify-center gap-1 rounded-full px-3 pb-px hover:bg-surface-tertiary dark:hover:bg-dark-surface-tertiary lg:h-7",
         className,
       )}
@@ -244,7 +244,7 @@ function ItemWithSublinks({
       <button className="flex items-center gap-2 px-3 py-1.5" onClick={handleToggle}>
         {_title}
         <ChevronDownIcon
-          className={cx(
+          className={clsx(
             "h-min text-text-tertiary transition-transform dark:text-dark-text-tertiary",
             isOn ? "rotate-180 transform" : "rotate-0 transform",
           )}
@@ -253,7 +253,7 @@ function ItemWithSublinks({
 
       <ul
         ref={listRef}
-        className={cx("flex origin-top transform-gpu flex-col gap-2 pl-4 transition-transform")}
+        className={clsx("flex origin-top transform-gpu flex-col gap-2 pl-4 transition-transform")}
       >
         {sublinks.map(({ href, _title }) => (
           <li key={_id}>
