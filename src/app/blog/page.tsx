@@ -4,6 +4,8 @@ import { Pump } from ".basehub/react-pump";
 import { Heading } from "@/common/heading";
 import { Section } from "@/common/layout";
 import { SearchContent as Search } from "@/common/search";
+import { SearchHitsProvider } from "@/context/search-hits-context";
+import { type AvatarFragment, avatarFragment } from "@/lib/basehub/fragments";
 
 import { BlogpostCard, blogpostCardFragment } from "./_components/blogpost-card";
 
@@ -23,6 +25,14 @@ export default async function BlogPage() {
               _searchKey: true,
             },
           },
+          collections: {
+            authors: {
+              items: {
+                _id: true,
+                image: avatarFragment,
+              },
+            },
+          },
           site: {
             blog: {
               mainTitle: true,
@@ -39,6 +49,7 @@ export default async function BlogPage() {
         {
           _componentInstances: { blogPost },
           site: { blog },
+          collections: { authors },
         },
       ]) => {
         "use server";
@@ -50,7 +61,18 @@ export default async function BlogPage() {
               <Heading align="left">
                 <h2>{blog.mainTitle}</h2>
               </Heading>
-              <Search _searchKey={blogPost._searchKey} />
+              <SearchHitsProvider
+                authorsAvatars={authors.items.reduce(
+                  (acc: Record<string, AvatarFragment>, author) => {
+                    acc[author._id] = author.image;
+
+                    return acc;
+                  },
+                  {},
+                )}
+              >
+                <Search _searchKey={blogPost._searchKey} />
+              </SearchHitsProvider>
               {blog.featuredPosts.slice(0, 3).map((post) => (
                 <BlogpostCard key={post._id} type="card" {...post} />
               ))}

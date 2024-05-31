@@ -6,7 +6,12 @@ import NextLink from "next/link";
 import { cx } from "class-variance-authority";
 import * as Popover from "@radix-ui/react-popover";
 
+import { useSearchHits } from "@/context/search-hits-context";
+import { type AuthorFragment } from "@/lib/basehub/fragments";
 import { getArticleSlugFromSlugPath } from "@/lib/basehub/utils";
+
+import { Avatar } from "../avatar";
+import { AvatarsGroup } from "../avatars-group";
 
 export function SearchContent({ _searchKey }: { _searchKey: string }) {
   const search = useSearch({
@@ -46,7 +51,7 @@ export function SearchContent({ _searchKey }: { _searchKey: string }) {
           {/* eslint-disable-next-line jsx-a11y/label-has-associated-control */}
           <label
             className={cx(
-              "ml-auto flex w-full items-center gap-x-1 rounded-full border border-border px-3.5 py-2.5 focus-within:!border-neutral-500 dark:border-dark-border md:max-w-[280px]",
+              "ml-auto flex  w-full items-center gap-x-1 rounded-full border border-border px-3.5 py-2.5 focus-within:!border-neutral-500 dark:border-dark-border md:max-w-[280px]",
               search.query || "text-border dark:text-dark-border",
             )}
           >
@@ -117,12 +122,27 @@ function HitList({ hits }: { hits: Hit[] }) {
           pathname += `#${bodyHighlight.highlightedField._id}`;
         }
 
+        const field = hit._getField("authors");
+        let firstHighlightedAuthorId: string | undefined = undefined;
+
+        for (const h of hit.highlights) {
+          if (h.fieldPath.startsWith("authors")) {
+            const index = h.fieldPath.split(".")[1];
+            const id = hit._getField(`authors.${index}._id`);
+
+            if (typeof id === "string") {
+              firstHighlightedAuthorId = id;
+            }
+            break;
+          }
+        }
+
         return (
           <div key={hit._key} className="relative w-full last:mb-2">
             <SearchBox.HitItem asChild hit={hit} href={pathname}>
               <NextLink
                 className={cx(
-                  "grid grid-cols-[1fr_auto] grid-rows-[auto_1fr_auto] gap-x-1 gap-y-0.5 rounded-md border border-transparent px-4 py-3 transition-colors",
+                  "flex grid-rows-[auto_1fr_auto] flex-col gap-y-0.5 rounded-md border border-transparent px-4 py-3 transition-colors",
                   "data-[selected='true']:border-surface-tertiary data-[selected='true']:bg-surface-secondary",
                   "dark:data-[selected='true']:border-dark-surface-tertiary dark:data-[selected='true']:bg-dark-surface-secondary",
                   "[&_mark]:bg-transparent [&_mark]:text-neutral-500",
@@ -142,28 +162,18 @@ function HitList({ hits }: { hits: Hit[] }) {
                   fallbackFieldPaths={["introduction"]}
                   fieldPath="body"
                 />
-                <SearchBox.HitSnippet
-                  components={{
-                    container: HitAvatarContainer,
-                    // text: ({ children }) => {
-                    //   return <span>children</span>;
-                    // },
-                  }}
-                  // fallbackFieldPaths={[
-                  //   "authors.1._title",
-                  //   "authors.2._title",
-                  //   "authors.3._title",
-                  //   "authors.4._title",
-                  //   "authors.5._title",
-                  // ]}
-                  fieldPath="authors"
-                />
-                <SearchBox.HitSnippet
-                  components={{
-                    container: HitCategoryContainer,
-                  }}
-                  fieldPath="categories"
-                />
+                <div className="mt-3 flex justify-between gap-x-1">
+                  <CustomAvatarHit
+                    authors={field as AuthorFragment[]}
+                    match={firstHighlightedAuthorId}
+                  />
+                  <SearchBox.HitSnippet
+                    components={{
+                      container: HitContainer,
+                    }}
+                    fieldPath="categories"
+                  />
+                </div>
               </NextLink>
             </SearchBox.HitItem>
           </div>
@@ -175,7 +185,7 @@ function HitList({ hits }: { hits: Hit[] }) {
 
 function HitTitleContainer({ children }: React.PropsWithChildren) {
   return (
-    <p className="col-span-full truncate leading-normal text-text-primary dark:text-dark-text-primary">
+    <p className="truncate leading-normal text-text-primary dark:text-dark-text-primary">
       {children}
     </p>
   );
@@ -183,27 +193,44 @@ function HitTitleContainer({ children }: React.PropsWithChildren) {
 
 function HitBodyContainer({ children }: React.PropsWithChildren) {
   return (
-    <p className="col-span-full line-clamp-2 text-sm text-text-secondary dark:text-dark-text-secondary">
-      {children}
-    </p>
+    <p className="truncate text-sm text-text-secondary dark:text-dark-text-secondary">{children}</p>
   );
 }
 
-const getNodeText = (node: React.ReactNode): string | number => {
-  if (["string", "number"].includes(typeof node)) return node as string | number;
-  if (node instanceof Array) return node.map(getNodeText).join("");
+function CustomAvatarHit({
+  match,
+  authors,
+}: {
+  match: string | undefined;
+  authors: { _title: string; _id: string }[];
+}) {
+  const { authorsAvatars } = useSearchHits();
 
-  // eslint-disable-next-line @typescript-eslint/no-unsafe-argument, @typescript-eslint/no-unsafe-member-access
-  if (typeof node === "object" && node && "props" in node) return getNodeText(node.props.children);
-  throw new Error(`Unsupported node type: ${typeof node}`);
-};
+  if (match) {
+    return (
+      <div className="flex items-center gap-x-1.5">
+        <Avatar {...authorsAvatars[match]} />
+        <SearchBox.HitSnippet
+          components={{
+            container: HitContainer,
+          }}
+          fieldPath="authors"
+        />
+      </div>
+    );
+  }
 
-function HitAvatarContainer({ children }: React.PropsWithChildren) {
-  console.log(getNodeText(children));
+  return (
+    <AvatarsGroup>
+      {authors.map((author) => {
+        const avatar = authorsAvatars[author._id];
 
-  return <p className="text-sm text-text-tertiary dark:text-dark-text-tertiary">{children}</p>;
+        return <Avatar key={author._id} {...avatar} alt={author._title} />;
+      })}
+    </AvatarsGroup>
+  );
 }
 
-function HitCategoryContainer({ children }: React.PropsWithChildren) {
+function HitContainer({ children }: React.PropsWithChildren) {
   return <p className="text-sm text-text-tertiary dark:text-dark-text-tertiary">{children}</p>;
 }

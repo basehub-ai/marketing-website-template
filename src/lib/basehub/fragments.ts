@@ -18,8 +18,6 @@ export const avatarFragment = fragmentOn("BlockImage", {
       height: 100,
     },
   },
-  width: true,
-  height: true,
   alt: true,
 });
 
@@ -27,8 +25,8 @@ export type AvatarFragment = fragmentOn.infer<typeof avatarFragment>;
 
 export const authorFragment = fragmentOn("AuthorsItem", {
   _id: true,
-  image: avatarFragment,
   _title: true,
+  image: { ...avatarFragment, height: true, width: true },
 });
 
 export type AuthorFragment = fragmentOn.infer<typeof authorFragment>;
