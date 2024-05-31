@@ -8,7 +8,7 @@ import { Author } from "@/common/avatar";
 import { authorFragment } from "@/lib/basehub/fragments";
 import { formatDate } from "@/utils/dates";
 
-export const blogpostCardFragment = fragmentOn("BlogpostItem", {
+export const blogpostCardFragment = fragmentOn("BlogPostComponent", {
   _id: true,
   _title: true,
   _slug: true,
@@ -85,7 +85,7 @@ export function BlogpostCard({ type = "list", className, ...post }: BlogPostCard
             <Image
               alt={post.image.url}
               blurDataURL={post.image.url}
-              className="h-full max-h-[200px] flex-1 rounded-xl md:!max-h-full"
+              className="h-full max-h-[200px] flex-1 rounded-xl object-cover md:!max-h-full"
               height={post.image.height}
               src={post.image.url}
               style={{ aspectRatio: post.image.aspectRatio }}
@@ -95,9 +95,10 @@ export function BlogpostCard({ type = "list", className, ...post }: BlogPostCard
           <div
             className={clsx(
               "flex flex-col justify-between gap-4 p-4",
-              "md:max-w-[400px]",
-              "lg:max-w-[500px] lg:group-first:!max-w-full lg:group-first:flex-1",
-              "xl:max-w-[300px]",
+              "md:min-w-[400px]",
+              "lg:group-first:!max-w-full lg:group-first:flex-1",
+              // "lg:max-w-[500px] lg:group-first:!max-w-full lg:group-first:flex-1",
+              "xl:min-w-[300px]",
             )}
           >
             <header className="flex items-center justify-between gap-2">

@@ -20,25 +20,18 @@ export function Author({ image, _title }: AuthorFragment) {
   );
 }
 
-export function Avatar({
-  className,
-  alt,
-  width,
-  height,
-  url,
-  ...props
-}: AvatarFragment & { className?: string }) {
+export function Avatar({ className, alt, url, ...props }: AvatarFragment & { className?: string }) {
   return (
     <Image
       alt={alt ?? "Avatar"}
       className={clsx(
-        "size-7 rounded-full border-2 border-surface-primary dark:border-dark-surface-primary",
+        "size-7 shrink-0 rounded-full border-2 border-surface-primary dark:border-dark-surface-primary",
         className,
       )}
-      height={100}
       src={url}
-      width={100}
       {...props}
+      height={28}
+      width={28}
     />
   );
 }
