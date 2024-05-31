@@ -30,8 +30,8 @@ dependencies:
     specifier: ^10.4.19
     version: 10.4.19(postcss@8.4.38)
   basehub:
-    specifier: ^5.2.1
-    version: 5.2.1(@babel/runtime@7.24.6)(@types/react@18.3.3)(react-dom@18.3.1)(react@18.3.1)(typescript@5.4.5)
+    specifier: ^5.2.2
+    version: 5.2.2(@babel/runtime@7.24.6)(@types/react@18.3.3)(react-dom@18.3.1)(react@18.3.1)(typescript@5.4.5)
   class-variance-authority:
     specifier: ^0.7.0
     version: 0.7.0
@@ -2124,8 +2124,8 @@ packages:
   /balanced-match@1.0.2:
     resolution: {integrity: sha512-3oSeUO0TMV67hN1AmbXsK4yaqU7tjiHlbxRDZOpH0KW9+CeX4bRAaX0Anxt0tx2MrpRpWwQaPwIlISEJhYU5Pw==}
 
-  /basehub@5.2.1(@babel/runtime@7.24.6)(@types/react@18.3.3)(react-dom@18.3.1)(react@18.3.1)(typescript@5.4.5):
-    resolution: {integrity: sha512-GVpF+uWTbGYta4nCZtIKe5HXcTiveLpI+OFN2lAhLuBnrxhUJ5JpGDiDRmUSVCTle1bgAc91LVr22k+/YkAagg==}
+  /basehub@5.2.2(@babel/runtime@7.24.6)(@types/react@18.3.3)(react-dom@18.3.1)(react@18.3.1)(typescript@5.4.5):
+    resolution: {integrity: sha512-7iONBImT3ICpa2SeN4GRLQtOxEO1wQTQEEhwntYZFE14UAwMcpKuSWtnhhN0IBU6XwILJGo3OJ9u3XKA0mEW8w==}
     hasBin: true
     peerDependencies:
       react: ^18.2.0

@@ -233,7 +233,7 @@ export default async function ChangelogPage({ params }: ChangelogPageParams) {
                   icon={<ArrowRightIcon />}
                   intent="secondary"
                 >
-                  Read ({nextPost._slug.slice(0, 20)}
+                  Read ({nextPost._title.slice(0, 20)}
                   {nextPost._title.length > 20 ? "..." : ""})
                 </ButtonLink>
               </div>

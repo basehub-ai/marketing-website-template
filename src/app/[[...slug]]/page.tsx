@@ -15,6 +15,7 @@ import {
   isFeaturesSideBySideComponent,
   isHeroComponent,
   isPricingComponent,
+  isPricingTableComponent,
   isTestimonialSliderComponent,
   isTestimonialsGridComponent,
 } from ".basehub/schema";
@@ -34,8 +35,11 @@ import { Pricing, pricingFragment } from "../_sections/pricing";
 import { SideFeatures, featuresSideBySideFragment } from "../_sections/side-features";
 import { Testimonials, testimonialsSliderFragment } from "../_sections/testimonials";
 import { TestimonialsGrid, testimonialsGridFragment } from "../_sections/testimonials-grid";
+import { PricingTable, pricingTableFragment } from "../_sections/pricing-comparation";
 
 export const dynamic = "force-static";
+
+export const dynamicParams = false;
 
 export const revalidate = 30;
 
@@ -67,7 +71,7 @@ export const generateMetadata = async (
         __args: {
           filter: {
             pathname: {
-              eq: params.slug ? params.slug.join("/") : "/",
+              eq: params.slug ? `/${params.slug.join("/")}` : "/",
             },
           },
         },
@@ -89,7 +93,7 @@ export const generateMetadata = async (
   const page = data.site.pages.items.at(0);
 
   if (!page) {
-    return undefined;
+    return notFound();
   }
 
   return {
@@ -106,6 +110,8 @@ export const generateMetadata = async (
 };
 
 export default async function DynamicPage({ params }: { params: { slug?: string[] } }) {
+  const slugs = params.slug;
+
   return (
     <Pump
       draft={draftMode().isEnabled}
@@ -117,11 +123,14 @@ export default async function DynamicPage({ params }: { params: { slug?: string[
               __args: {
                 filter: {
                   pathname: {
-                    eq: params.slug ? "/" + params.slug.join("/") : "/",
+                    eq: slugs ? `/${slugs.join("/")}` : "/",
                   },
                 },
+                first: 1,
               },
               items: {
+                _id: true,
+                pathname: true,
                 sections: {
                   __typename: true,
                   on_HeroComponent: heroFragment,
@@ -135,6 +144,7 @@ export default async function DynamicPage({ params }: { params: { slug?: string[
                   on_TestimonialSliderComponent: testimonialsSliderFragment,
                   on_TestimonialsGridComponent: testimonialsGridFragment,
                   on_PricingComponent: pricingFragment,
+                  on_PricingTableComponent: pricingTableFragment,
                   on_FaqComponent: {
                     layout: true,
                     ...faqFragment,
@@ -153,9 +163,8 @@ export default async function DynamicPage({ params }: { params: { slug?: string[
       ]) => {
         "use server";
 
-        const page = pages.items.at(0);
+        const page = pages.items[0];
 
-        if (!page) return notFound();
         const sections = page.sections;
 
         return sections?.map((comp) => {
@@ -186,6 +195,8 @@ export default async function DynamicPage({ params }: { params: { slug?: string[
               return <Faq {...comp} />;
             case isFaqComponent(comp) && comp.layout === "accordion":
               return <AccordionFaq {...comp} />;
+            case isPricingTableComponent(comp):
+              return <PricingTable {...comp} />;
             default:
               return null;
           }
