@@ -2,6 +2,7 @@
 import React from "react";
 import { ArrowRightIcon } from "@radix-ui/react-icons";
 import Image from "next/image";
+import clsx from "clsx";
 
 import { ButtonLink } from "@/common/button";
 import { AvatarsGroup } from "@/common/avatars-group";
