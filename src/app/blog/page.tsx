@@ -19,7 +19,7 @@ export default async function BlogPage() {
       queries={[
         {
           _componentInstances: {
-            blogpostsItem: {
+            postsItem: {
               _searchKey: true,
             },
           },
@@ -27,7 +27,7 @@ export default async function BlogPage() {
             blog: {
               mainTitle: true,
               featuredPosts: blogpostCardFragment,
-              blogposts: {
+              posts: {
                 items: blogpostCardFragment,
               },
             },
@@ -37,12 +37,12 @@ export default async function BlogPage() {
     >
       {async ([
         {
-          _componentInstances: { blogpostsItem },
+          _componentInstances: { postsItem },
           site: { blog },
         },
       ]) => {
         "use server";
-        const { blogposts } = blog;
+        const { posts } = blog;
 
         return (
           <Section>
@@ -50,7 +50,7 @@ export default async function BlogPage() {
               <Heading align="left">
                 <h2>{blog.mainTitle}</h2>
               </Heading>
-              <Search _searchKey={blogpostsItem._searchKey} />
+              <Search _searchKey={postsItem._searchKey} />
               {blog.featuredPosts.slice(0, 3).map((post) => (
                 <BlogpostCard key={post._id} type="card" {...post} />
               ))}
@@ -59,7 +59,7 @@ export default async function BlogPage() {
               <h3 className="!text-xl lg:!text-2xl">More posts</h3>
             </Heading>
             <div className="flex flex-col self-stretch">
-              {blogposts.items.map((post) => (
+              {posts.items.map((post) => (
                 <BlogpostCard key={post._id} {...post} />
               ))}
             </div>

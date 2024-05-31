@@ -106,7 +106,7 @@ const getBlogpostData = async (blogpostId: string) => {
   }).query({
     site: {
       blog: {
-        blogposts: {
+        posts: {
           __args: {
             filter: {
               _sys_id: { eq: blogpostId },
@@ -136,11 +136,11 @@ const getBlogpostData = async (blogpostId: string) => {
     },
   });
 
-  if (!data.site.blog.blogposts.items.length) return null;
+  if (!data.site.blog.posts.items.length) return null;
 
   return {
-    title: `${data.site.blog.blogposts.items[0]._title} ${data.site.settings.metadata.titleTemplate ?? ""}`,
-    subtitle: data.site.blog.blogposts.items[0].introduction,
+    title: `${data.site.blog.posts.items[0]._title} ${data.site.settings.metadata.titleTemplate ?? ""}`,
+    subtitle: data.site.blog.posts.items[0].introduction,
     logo: {
       url: data.site.settings.logoLite.url,
       alt: data.site.settings.logoLite.alt,
