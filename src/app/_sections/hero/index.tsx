@@ -1,4 +1,5 @@
 import Link from "next/link";
+import clsx from "clsx";
 
 import { fragmentOn } from ".basehub/schema";
 import { AvatarsGroup } from "@/common/avatars-group";
@@ -68,7 +69,10 @@ export function Hero(hero: Hero) {
               type === "primary" ? (
                 <Link
                   key={_id}
-                  className=" flex h-14 w-full flex-col items-center justify-center bg-text-primary text-dark-text-primary dark:bg-dark-text-primary dark:text-text-primary"
+                  className={clsx(
+                    "flex h-14 w-full flex-col items-center justify-center bg-text-primary text-dark-text-primary dark:bg-dark-text-primary dark:text-text-primary",
+                    "transition-[opacity] hover:opacity-90",
+                  )}
                   href={href ?? "#"}
                 >
                   {label}
@@ -76,7 +80,10 @@ export function Hero(hero: Hero) {
               ) : (
                 <Link
                   key={_id}
-                  className="flex h-14 w-full flex-col items-center justify-center border-x border-surface-tertiary dark:border-dark-surface-tertiary"
+                  className={clsx(
+                    "flex h-14 w-full flex-col items-center justify-center border-x border-border dark:border-dark-border",
+                    "backdrop-blur-xl transition-colors duration-150 hover:bg-black/5 dark:hover:bg-white/5",
+                  )}
                   href={href ?? "#"}
                 >
                   {label}
