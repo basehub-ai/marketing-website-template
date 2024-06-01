@@ -19,9 +19,15 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@radix-ui/react-accordion";
-import { CaretSortIcon, CheckIcon, ChevronDownIcon } from "@radix-ui/react-icons";
+import {
+  CaretSortIcon,
+  CheckIcon,
+  ChevronDownIcon,
+  QuestionMarkCircledIcon,
+} from "@radix-ui/react-icons";
 
 import { isBooleanComponent, isCustomTextComponent } from ".basehub/schema";
+import { SimpleTooltip } from "@/common/simple-tooltip";
 
 import { type PlanFragment, type PricingTableProps } from ".";
 
@@ -113,21 +119,28 @@ export function MobilePricingComparation({
               <span className="shrink-0">
                 <ChevronDownIcon
                   className={clsx(
-                    "group-radix-state-open:rotate-180 transform transition-transform",
+                    "transform transition-transform group-radix-state-open:rotate-180",
                   )}
                 />
               </span>
             </AccordionTrigger>
             <AccordionContent>
-              <table className="group-radix-state-closed:scale-y-0 w-full">
+              <table className="w-full group-radix-state-closed:scale-y-0">
                 <tbody className="grid grid-cols-[min-content_auto] gap-x-6">
                   {category.features.items.map((feature) => (
                     <tr
                       key={feature._id}
                       className="col-span-2 grid grid-cols-subgrid place-content-end justify-start border-b border-border px-3 py-3.5 dark:border-dark-border"
                     >
-                      <th className="flex w-auto place-self-start text-nowrap text-sm font-normal">
+                      <th className="flex flex w-auto items-center gap-1 place-self-start text-nowrap text-sm font-normal">
                         <p>{feature._title}</p>
+                        {feature.tooltip ? (
+                          <SimpleTooltip content={feature.tooltip}>
+                            <span className="ml-1 text-text-tertiary dark:text-dark-text-tertiary">
+                              <QuestionMarkCircledIcon className="size-4" />
+                            </span>
+                          </SimpleTooltip>
+                        ) : null}
                       </th>
                       <FeatureValue activePlan={activePlan} feature={feature} />
                     </tr>
@@ -157,8 +170,8 @@ function FeatureValue({
     <td className="flex flex-1 items-center justify-end text-sm font-normal text-text-secondary dark:text-dark-text-secondary">
       {isBooleanComponent(value.value) ? (
         value.value.boolean ? (
-          <span className="bg-success/10 flex items-center justify-center rounded-full p-1.5">
-            <CheckIcon className="text-success size-5" />
+          <span className="flex items-center justify-center rounded-full bg-success/10 p-1.5">
+            <CheckIcon className="size-5 text-success" />
           </span>
         ) : (
           <span className="text-text-tertiary/50 dark:text-dark-text-tertiary/50">&mdash;</span>

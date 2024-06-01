@@ -30,11 +30,11 @@ export const pricingTableFragment = fragmentOn("PricingTableComponent", {
     items: {
       _id: true,
       _title: true,
-      tooltip: true,
       features: {
         items: {
           _id: true,
           _title: true,
+          tooltip: true,
           values: {
             items: valueFragment,
           },

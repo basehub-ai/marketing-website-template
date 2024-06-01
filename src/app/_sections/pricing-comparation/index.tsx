@@ -1,19 +1,22 @@
-import { CheckCircledIcon } from "@radix-ui/react-icons";
+import { CheckCircledIcon, QuestionMarkCircledIcon } from "@radix-ui/react-icons";
 import React from "react";
 import { cva, type VariantProps } from "class-variance-authority";
 import clsx from "clsx";
+import { Tooltip } from "@radix-ui/react-tooltip";
 
 import { Heading } from "@/common/heading";
 import { Section } from "@/common/layout";
 import { ButtonLink } from "@/common/button";
 import { type fragmentOn, isBooleanComponent, isCustomTextComponent } from ".basehub/schema";
+import { SimpleTooltip } from "@/common/simple-tooltip";
 
 import { MobilePricingComparation } from "./mobile-pricing-comparition";
 import { type planFragment, type pricingTableFragment, type valueFragment } from "./fragments";
 
 export type PricingTableProps = fragmentOn.infer<typeof pricingTableFragment>;
 
-export function PricingTable({ heading, categories }: PricingTableProps) {
+export function PricingTable(props: PricingTableProps) {
+  const { heading, categories } = props;
   const plans = extractPlans(categories);
 
   return (
@@ -21,6 +24,7 @@ export function PricingTable({ heading, categories }: PricingTableProps) {
       <Heading {...heading}>
         <h4>{heading.title}</h4>
       </Heading>
+      {/* Desktop pricing */}
       <table className="hidden w-full table-fixed lg:table">
         <thead>
           <tr>
@@ -36,11 +40,7 @@ export function PricingTable({ heading, categories }: PricingTableProps) {
               <CategoryHeader category={category} className={clsx(i === 0 && "py-4")} />
               {category.features.items.map((feature) => (
                 <tr key={feature._id}>
-                  <th className="w-auto">
-                    <TableCell align="start" as="div" className="w-" type="primary">
-                      <p>{feature._title}</p>
-                    </TableCell>
-                  </th>
+                  <FeatureTitle {...feature} />
                   {feature.values.items.map((value) => (
                     <FeatureValue key={value._id} value={value} />
                   ))}
@@ -50,7 +50,7 @@ export function PricingTable({ heading, categories }: PricingTableProps) {
           ))}
         </tbody>
       </table>
-      <MobilePricingComparation {...{ categories, plans }} />
+      <MobilePricingComparation {...{ ...props, plans }} />
     </Section>
   );
 }
@@ -59,7 +59,7 @@ export function PricingTable({ heading, categories }: PricingTableProps) {
 /*                                 Components                                 */
 /* -------------------------------------------------------------------------- */
 
-/* ------------------------------- Table cell ------------------------------- */
+/* ------------------------------- Generic cell ------------------------------- */
 const $tableCell = cva("min-h-16 px-3 text-base flex items-center gap-1.5 font-normal", {
   variants: {
     align: {
@@ -103,6 +103,25 @@ function TableCell<T extends React.ElementType = "td">({
   );
 }
 
+/* ------------------------------ Feature Title ----------------------------- */
+
+function FeatureTitle(
+  feature: PricingTableProps["categories"]["items"][0]["features"]["items"][0],
+) {
+  return (
+    <th className="w-auto">
+      <TableCell align="start" as="div" className="w-" type="primary">
+        <p>{feature._title}</p>
+        {feature.tooltip ? (
+          <SimpleTooltip content={feature.tooltip}>
+            <QuestionMarkCircledIcon className="dark:text-dark-text-tetext-text-tertiary size-4 text-text-tertiary" />
+          </SimpleTooltip>
+        ) : null}
+      </TableCell>
+    </th>
+  );
+}
+
 /* ------------------------------ Category header ---------------------------- */
 
 function CategoryHeader({
@@ -131,6 +150,8 @@ function CategoryHeader({
   );
 }
 
+/* --------------------------------- Plan Header --------------------------------- */
+
 type ValueFragment = fragmentOn.infer<typeof valueFragment>;
 
 function PlanHeader({ plan }: { plan: ValueFragment["plan"] | null }) {
@@ -153,6 +174,8 @@ function PlanHeader({ plan }: { plan: ValueFragment["plan"] | null }) {
   );
 }
 
+/* --------------------------------- Cell td (value) -------------------------------- */
+
 function FeatureValue({ value }: { value?: ValueFragment }) {
   return (
     <td className="w-[1fr]">
@@ -160,8 +183,8 @@ function FeatureValue({ value }: { value?: ValueFragment }) {
         {value ? (
           isBooleanComponent(value.value) ? (
             value.value.boolean ? (
-              <span className="bg-success/10 flex items-center justify-center rounded-full p-1.5">
-                <CheckCircledIcon className="text-success size-5" />
+              <span className="flex items-center justify-center rounded-full bg-success/10 p-1.5">
+                <CheckCircledIcon className="size-5 text-success" />
               </span>
             ) : (
               <span className="text-xl text-text-tertiary/50 dark:text-dark-text-tertiary/50 ">

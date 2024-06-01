@@ -17,7 +17,7 @@ export function SimpleTooltip({ children, content, className, ...props }: Simple
         <Tooltip.Portal>
           <Tooltip.Content
             className={clsx(
-              "rounded-md border border-border bg-surface-primary p-2 text-sm text-text-secondary dark:border-dark-border dark:bg-dark-surface-primary dark:text-dark-text-secondary",
+              "max-w-[160px] rounded-md border border-border bg-surface-primary p-2 text-sm text-text-secondary dark:border-dark-border dark:bg-dark-surface-primary dark:text-dark-text-secondary",
               className,
             )}
             {...props}

@@ -95,10 +95,10 @@ export function BlogpostCard({ type = "list", className, ...post }: BlogPostCard
           <div
             className={clsx(
               "flex flex-col justify-between gap-4 p-4",
-              "md:min-w-[400px]",
+              "md:min-w-[min(400px,100%)]",
               "lg:group-first:!max-w-full lg:group-first:flex-1",
               // "lg:max-w-[500px] lg:group-first:!max-w-full lg:group-first:flex-1",
-              "xl:min-w-[300px]",
+              "xl:min-w-[min(400px,100%)]",
             )}
           >
             <header className="flex items-center justify-between gap-2">
