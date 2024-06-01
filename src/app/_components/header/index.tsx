@@ -15,8 +15,19 @@ const headerLinksFragment = fragmentOn("NavbarItem", {
   sublinks: {
     items: {
       _id: true,
-      href: true,
       _title: true,
+      link: {
+        __typename: true,
+        on_CustomTextComponent: {
+          text: true,
+        },
+        on_PageReferenceComponent: {
+          page: {
+            pathname: true,
+            _title: true,
+          },
+        },
+      },
     },
   },
 });

@@ -71,16 +71,28 @@ function NavigationMenuLinkWithMenu({ _id, _title, href, sublinks }: HeaderLiksF
       </NavigationMenuTrigger>
       <NavigationMenuContent className="absolute left-0 top-[calc(100%+4px)] min-w-[164px] rounded-md border border-border bg-surface-primary p-0.5 dark:border-dark-border dark:bg-dark-surface-primary">
         <ul className="flex flex-col ">
-          {sublinks.items.map(({ href, _title }) => (
-            <li key={`${href ?? ""}${_title}`}>
-              <NavigationMenuLinkPrimitive
-                asChild
-                className="flex items-center gap-2 rounded-md px-3 py-1.5 hover:bg-surface-tertiary dark:hover:bg-dark-surface-tertiary"
-              >
-                <Link href={href ?? "#"}>{_title}</Link>
-              </NavigationMenuLinkPrimitive>
-            </li>
-          ))}
+          {sublinks.items.map((props) => {
+            const { href, _title } = isPageReferenceComponent(props.link)
+              ? {
+                  href: props.link.page.pathname,
+                  _title: props.link.page._title,
+                }
+              : {
+                  href: props.link.text,
+                  _title: props._title,
+                };
+
+            return (
+              <li key={props._id}>
+                <NavigationMenuLinkPrimitive
+                  asChild
+                  className="flex items-center gap-2 rounded-md px-3 py-1.5 hover:bg-surface-tertiary dark:hover:bg-dark-surface-tertiary"
+                >
+                  <Link href={href}>{_title}</Link>
+                </NavigationMenuLinkPrimitive>
+              </li>
+            );
+          })}
         </ul>
       </NavigationMenuContent>
     </NavigationMenuItem>
@@ -107,6 +119,7 @@ import * as React from "react";
 import { useSelectedLayoutSegment } from "next/navigation";
 
 import { ButtonLink } from "@/common/button";
+import { isPageReferenceComponent } from ".basehub/schema";
 
 import { type HeaderLiksFragment } from ".";
 
@@ -131,9 +144,10 @@ export function MobileMenu({ links }: { links: HeaderLiksFragment[] }) {
       ...link,
       isActive: link.sublinks.items.length
         ? (selectedLayoutSegment: string) =>
-            link.sublinks.items.some(
-              (sublink) =>
-                sublink.href && selectedLayoutSegment.startsWith(sublink.href.split("/")[1]),
+            link.sublinks.items.some((sublink) =>
+              sublink.link.__typename === "PageReferenceComponent"
+                ? sublink.link.page.pathname.split("/").pop() === selectedLayoutSegment
+                : sublink.link.text === selectedLayoutSegment,
             )
         : link.href
           ? link.href.split("/")[1] === selectedLayoutSegment
@@ -255,17 +269,29 @@ function ItemWithSublinks({
         ref={listRef}
         className={clsx("flex origin-top transform-gpu flex-col gap-2 pl-4 transition-transform")}
       >
-        {sublinks.map(({ href, _title }) => (
-          <li key={_id}>
-            <Link
-              className="flex items-center gap-2 rounded-md px-3 py-1.5 text-text-tertiary hover:bg-surface-tertiary dark:text-dark-text-tertiary dark:hover:bg-dark-surface-tertiary"
-              href={href ?? "#"}
-              onClick={onClick}
-            >
-              {_title}
-            </Link>
-          </li>
-        ))}
+        {sublinks.map((props) => {
+          const { href, _title } = isPageReferenceComponent(props.link)
+            ? {
+                href: props.link.page.pathname,
+                _title: props.link.page._title,
+              }
+            : {
+                href: props.link.text,
+                _title: props._title,
+              };
+
+          return (
+            <li key={_id}>
+              <Link
+                className="flex items-center gap-2 rounded-md px-3 py-1.5 text-text-tertiary hover:bg-surface-tertiary dark:text-dark-text-tertiary dark:hover:bg-dark-surface-tertiary"
+                href={href}
+                onClick={onClick}
+              >
+                {_title}
+              </Link>
+            </li>
+          );
+        })}
       </ul>
     </div>
   );

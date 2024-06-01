@@ -9,6 +9,7 @@ import {
   isCalloutV2Component,
   isCompaniesComponent,
   isFaqComponent,
+  isFeatureHeroComponent,
   isFeaturesBigImageComponent,
   isFeaturesCardsComponent,
   isFeaturesGridComponent,
@@ -23,20 +24,21 @@ import { basehub } from ".basehub/index";
 import { isDev } from "@/utils/constants";
 
 import { AccordionFaq } from "../_sections/accordion-faq";
-import { BigFeature, bigFeatureFragment } from "../_sections/big-feature";
+import { BigFeature, bigFeatureFragment } from "../_sections/features/big-feature";
 import { Callout, calloutFragment } from "../_sections/callout-1";
 import { Callout2, calloutv2Fragment } from "../_sections/callout-2";
 import { Companies, companiesFragment } from "../_sections/companies";
 import { Faq, faqFragment } from "../_sections/faq";
-import { FeaturesGrid, featuresGridFragment } from "../_sections/features-grid";
-import { FeaturesList, featureCardsComponent } from "../_sections/features-list";
+import { FeaturesGrid, featuresGridFragment } from "../_sections/features/features-grid";
+import { FeaturesList, featureCardsComponent } from "../_sections/features/features-list";
 import { Hero, heroFragment } from "../_sections/hero";
 import { Pricing, pricingFragment } from "../_sections/pricing";
-import { SideFeatures, featuresSideBySideFragment } from "../_sections/side-features";
+import { SideFeatures, featuresSideBySideFragment } from "../_sections/features/side-features";
 import { Testimonials, testimonialsSliderFragment } from "../_sections/testimonials";
 import { TestimonialsGrid, testimonialsGridFragment } from "../_sections/testimonials-grid";
 import { PricingTable } from "../_sections/pricing-comparation";
 import { pricingTableFragment } from "../_sections/pricing-comparation/fragments";
+import FeatureHero, { featureHeroFragment } from "../_sections/features/hero";
 
 export const dynamic = "force-static";
 
@@ -146,6 +148,7 @@ export default async function DynamicPage({ params }: { params: { slug?: string[
                   on_TestimonialsGridComponent: testimonialsGridFragment,
                   on_PricingComponent: pricingFragment,
                   on_PricingTableComponent: pricingTableFragment,
+                  on_FeatureHeroComponent: featureHeroFragment,
                   on_FaqComponent: {
                     layout: true,
                     ...faqFragment,
@@ -198,6 +201,8 @@ export default async function DynamicPage({ params }: { params: { slug?: string[
               return <AccordionFaq {...comp} />;
             case isPricingTableComponent(comp):
               return <PricingTable {...comp} />;
+            case isFeatureHeroComponent(comp):
+              return <FeatureHero {...comp} />;
             default:
               return null;
           }
