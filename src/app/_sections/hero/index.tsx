@@ -37,7 +37,7 @@ export function Hero(hero: Hero) {
         ))}
       </div>
       {/* --- */}
-      <figure className="bg-accent-500/40 pointer-events-none absolute -bottom-[70%] left-1/2 z-0 block aspect-square w-[520px] -translate-x-1/2 rounded-full blur-[200px]" />
+      <figure className="pointer-events-none absolute -bottom-[70%] left-1/2 z-0 block aspect-square w-[520px] -translate-x-1/2 rounded-full bg-accent-500/40 blur-[200px]" />
       <figure className="pointer-events-none absolute left-[4vw] top-[64px] z-20 hidden  aspect-square w-[32vw] rounded-full bg-surface-primary opacity-50 blur-[100px] dark:bg-dark-surface-primary md:block" />
       <figure className="pointer-events-none absolute bottom-[-50px] right-[7vw] z-20 hidden  aspect-square w-[30vw] rounded-full bg-surface-primary opacity-50 blur-[100px] dark:bg-dark-surface-primary md:block" />
       {/* --- */}

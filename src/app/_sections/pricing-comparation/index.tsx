@@ -38,7 +38,10 @@ export function PricingTable(props: PricingTableProps) {
             <React.Fragment key={category._id}>
               <CategoryHeader category={category} className={clsx(i === 0 && "py-4")} />
               {category.features.items.map((feature) => (
-                <tr key={feature._id}>
+                <tr
+                  key={feature._id}
+                  className="border-b border-border/70 dark:border-dark-border/70"
+                >
                   <FeatureTitle {...feature} />
                   {feature.values.items.map((value) => (
                     <FeatureValue key={value._id} value={value} />
