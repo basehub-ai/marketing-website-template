@@ -1,7 +1,6 @@
 {
-  "name": "basehub-saas-template",
+  "name": "basehub-marketing-website-template",
   "version": "0.1.0",
-  "private": true,
   "scripts": {
     "dev": "basehub dev --watch & next dev",
     "build": "basehub && next build",
