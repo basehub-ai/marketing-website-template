@@ -74,7 +74,6 @@ const getChangelogOgData = async (changelogPostId: string) => {
         },
         theme: {
           accent: true,
-          preferedTheme: true,
         },
       },
     },
@@ -85,7 +84,6 @@ const getChangelogOgData = async (changelogPostId: string) => {
   return {
     title: data.site.changelog.posts.items[0]._title,
     subtitle: data.site.changelog.posts.items[0].excerpt,
-    theme: data.site.settings.theme.preferedTheme,
     logo: {
       url: data.site.settings.logoLite.url,
       alt: data.site.settings.logoLite.alt,
@@ -125,7 +123,6 @@ const getBlogpostData = async (blogpostId: string) => {
         },
         theme: {
           accent: true,
-          preferedTheme: true,
         },
       },
     },
@@ -141,6 +138,5 @@ const getBlogpostData = async (blogpostId: string) => {
       alt: data.site.settings.logoLite.alt,
     },
     accentColor: data.site.settings.theme.accent,
-    theme: data.site.settings.theme.preferedTheme,
   };
 };
