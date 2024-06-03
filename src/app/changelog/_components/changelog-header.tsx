@@ -47,7 +47,7 @@ export function ChangelogLayout({
 
             return (
               <div className={`flex items-center gap-2 md:flex-col ${socialLinksClassName}`}>
-                <p className="text-grayscale-500 dark:text-grayscale-500 text-sm">
+                <p className="text-sm text-text-tertiary dark:text-dark-text-tertiary">
                   {changelog.socialLinksTitle}
                 </p>
                 <div className="flex gap-2">

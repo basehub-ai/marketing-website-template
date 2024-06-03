@@ -141,7 +141,7 @@ export function VainillaCard({ quote, author }: TestimonialsSlider["quotes"][0])
           />
           <div className="flex flex-1 flex-col">
             <h5 className="text-base font-medium md:text-lg">{author._title}</h5>
-            <p className="text-pretty text-sm text-grayscale-500 dark:text-grayscale-500 md:text-base">
+            <p className="text-pretty text-sm text-text-tertiary dark:text-dark-text-tertiary md:text-base">
               {author._title}, {author.company._title}
             </p>
           </div>

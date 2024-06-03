@@ -72,7 +72,7 @@ function NavigationMenuLinkWithMenu({ _id, _title, href, sublinks }: HeaderLiksF
         ) : (
           <button className="inline-flex items-center gap-1 rounded-full px-3 pb-px hover:bg-surface-tertiary dark:hover:bg-dark-surface-tertiary lg:h-7">
             {_title}
-            <ChevronDownIcon className="text-grayscale-500 dark:text-grayscale-500" />
+            <ChevronDownIcon className="text-text-tertiary dark:text-dark-text-tertiary" />
           </button>
         )}
       </NavigationMenuTrigger>
@@ -238,7 +238,7 @@ function ItemWithSublinks({
         {_title}
         <ChevronDownIcon
           className={clsx(
-            "h-min text-grayscale-500 transition-transform dark:text-grayscale-500",
+            "h-min text-text-tertiary transition-transform dark:text-dark-text-tertiary",
             isOn ? "rotate-180 transform" : "rotate-0 transform",
           )}
         />
@@ -263,7 +263,7 @@ function ItemWithSublinks({
           return (
             <li key={sublink._id}>
               <Link
-                className="flex items-center gap-2 rounded-md px-3 py-1.5 text-grayscale-500 hover:bg-surface-tertiary dark:text-grayscale-500 dark:hover:bg-dark-surface-tertiary"
+                className="flex items-center gap-2 rounded-md px-3 py-1.5 text-text-tertiary hover:bg-surface-tertiary dark:text-dark-text-tertiary dark:hover:bg-dark-surface-tertiary"
                 href={href}
                 onClick={onClick}
               >

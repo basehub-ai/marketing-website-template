@@ -60,7 +60,7 @@ export function ChangelogList({ changelogPosts }: { changelogPosts: ChangelogLis
           <div className="relative flex w-[110px] shrink-0 items-start justify-between">
             <p
               className={clsx(
-                "relative bottom-1.5 text-sm text-grayscale-500 dark:text-grayscale-500",
+                "relative bottom-1.5 text-sm text-text-tertiary dark:text-dark-text-tertiary",
                 post._id === activePostId && "!text-accent-500",
                 prevPostIdx === activeIdx - 1 && "delay-500",
               )}
@@ -127,7 +127,7 @@ export function ChangelogList({ changelogPosts }: { changelogPosts: ChangelogLis
                     src={post.authors[0].image.url}
                     width={24}
                   />
-                  <p className="text-sm text-grayscale-500 dark:text-grayscale-500">
+                  <p className="text-sm text-text-tertiary dark:text-dark-text-tertiary">
                     {post.authors[0]._title}
                   </p>
                 </div>

@@ -136,7 +136,7 @@ export function MobilePricingComparation({
                         <p>{feature._title}</p>
                         {feature.tooltip ? (
                           <SimpleTooltip content={feature.tooltip}>
-                            <span className="ml-1 text-grayscale-500 dark:text-grayscale-500">
+                            <span className="ml-1 text-text-tertiary dark:text-dark-text-tertiary">
                               <QuestionMarkCircledIcon className="size-4" />
                             </span>
                           </SimpleTooltip>
@@ -174,7 +174,7 @@ function FeatureValue({
             <CheckIcon className="size-5 text-success" />
           </span>
         ) : (
-          <span className="text-grayscale-500/50 dark:text-grayscale-500/50">&mdash;</span>
+          <span className="text-text-tertiary/50 dark:text-dark-text-tertiary/50">&mdash;</span>
         )
       ) : isCustomTextComponent(value.value) ? (
         <span className="text-right text-text-secondary dark:text-dark-text-secondary">

@@ -25,7 +25,7 @@ export function PricingTable(props: PricingTableProps) {
       </Heading>
       {/* Desktop pricing */}
       <table className="hidden w-full table-fixed lg:table">
-        <thead className="sticky top-[--header-height] bg-surface-primary dark:bg-dark-surface-primary">
+        <thead className="sticky top-[--header-height] border bg-surface-primary dark:bg-dark-surface-primary">
           <tr>
             <PlanHeader plan={null} />
             {plans.map((plan) => (
@@ -113,7 +113,7 @@ function FeatureTitle(
         <p>{feature._title}</p>
         {feature.tooltip ? (
           <SimpleTooltip content={feature.tooltip}>
-            <QuestionMarkCircledIcon className="dark:text-dark-text-tetext-grayscale-500 size-4 text-grayscale-500" />
+            <QuestionMarkCircledIcon className="dark:text-dark-text-tetext-text-tertiary size-4 text-text-tertiary" />
           </SimpleTooltip>
         ) : null}
       </TableCell>
@@ -155,7 +155,7 @@ type ValueFragment = fragmentOn.infer<typeof valueFragment>;
 
 function PlanHeader({ plan }: { plan: ValueFragment["plan"] | null }) {
   return plan ? (
-    <th className="w-[1fr] pt-6">
+    <th className="w-[1fr] pb-2 pt-6">
       <span className="flex flex-col items-center gap-3 font-normal">
         <div className="flex flex-col items-center gap-0.5">
           <p className="text-base text-text-secondary dark:text-dark-text-secondary md:text-base">
@@ -186,7 +186,7 @@ function FeatureValue({ value }: { value?: ValueFragment }) {
                 <CheckCircledIcon className="size-5 text-success" />
               </span>
             ) : (
-              <span className="text-xl text-grayscale-500/50 dark:text-grayscale-500/50 ">
+              <span className="text-xl text-text-tertiary/50 dark:text-dark-text-tertiary/50 ">
                 &mdash;
               </span>
             )

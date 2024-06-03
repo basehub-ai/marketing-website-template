@@ -67,7 +67,7 @@ export async function Footer() {
                 {footer.navbar.items.map(({ _title, url }) => (
                   <Link
                     key={_title}
-                    className="font-light tracking-tight text-grayscale-500 hover:text-text-primary dark:text-dark-text-secondary dark:hover:text-dark-text-primary"
+                    className="font-light tracking-tight text-text-tertiary hover:text-text-primary dark:text-dark-text-secondary dark:hover:text-dark-text-primary"
                     href={url ?? "#"}
                     target={isExternalLink(url) ? "_blank" : "_self"}
                   >
@@ -76,7 +76,7 @@ export async function Footer() {
                 ))}
               </nav>
               <div className="col-start-2 row-start-1 flex items-center gap-3 self-center justify-self-end sm:col-span-1 sm:col-start-3 sm:row-start-1">
-                <p className="hidden text-sm text-grayscale-500 dark:text-grayscale-500 sm:block">
+                <p className="hidden text-sm text-text-tertiary dark:text-dark-text-tertiary sm:block">
                   Appearance
                 </p>
                 <ThemeSwitcher />
@@ -87,7 +87,7 @@ export async function Footer() {
                   <span className="size-1.5 rounded-full bg-success" />
                   <span className="text-[13px]">All systems operational</span>
                 </span>
-                <p className="text-sm text-grayscale-500 dark:text-grayscale-500 ">
+                <p className="text-sm text-text-tertiary dark:text-dark-text-tertiary ">
                   @ 2024 Acme Corp. All rights reserved.
                 </p>
               </div>

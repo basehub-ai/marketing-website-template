@@ -178,7 +178,7 @@ export default async function ChangelogPage({ params }: ChangelogPageParams) {
             <ChangelogLayout>
               <div className="flex flex-col gap-1">
                 <Link
-                  className="text-xs text-grayscale-500 hover:underline dark:text-grayscale-500 md:text-sm"
+                  className="text-xs text-text-tertiary hover:underline dark:text-dark-text-tertiary md:text-sm"
                   href={`/changelog#${post._slug}`}
                 >
                   Back to changelog
@@ -186,7 +186,7 @@ export default async function ChangelogPage({ params }: ChangelogPageParams) {
                 <Heading align="left">
                   <h1>{post._title}</h1>
                 </Heading>
-                <p className="text-sm text-grayscale-500 dark:text-grayscale-500 md:text-base">
+                <p className="text-sm text-text-tertiary dark:text-dark-text-tertiary md:text-base">
                   {formatDate(post.publishedAt)}
                 </p>
               </div>
@@ -228,7 +228,7 @@ export default async function ChangelogPage({ params }: ChangelogPageParams) {
                 )}
 
                 <ButtonLink
-                  className="text-xs text-grayscale-500 hover:underline dark:text-grayscale-500"
+                  className="text-xs text-text-tertiary hover:underline dark:text-dark-text-tertiary"
                   href={`/changelog/${nextPost._slug}`}
                   icon={<ArrowRightIcon />}
                   iconSide="right"

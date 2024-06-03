@@ -49,7 +49,7 @@ export function Hero(hero: Hero) {
                 <Avatar {...avatar} key={_id} />
               ))}
             </AvatarsGroup>
-            <p className="text-sm text-grayscale-500 dark:text-grayscale-500">
+            <p className="text-sm text-text-tertiary dark:text-dark-text-tertiary">
               {hero.customerSatisfactionBanner.text}
             </p>
           </div>
@@ -59,7 +59,7 @@ export function Hero(hero: Hero) {
           <h1 className="max-w-screen-md text-pretty text-center text-[clamp(32px,7vw,64px)] font-normal leading-none tracking-tighter text-text-primary dark:text-dark-text-primary">
             {hero.title}
           </h1>
-          <h2 className="text-md max-w-2xl text-pretty text-center text-grayscale-500 dark:text-grayscale-500 md:text-lg">
+          <h2 className="text-md max-w-2xl text-pretty text-center text-text-tertiary dark:text-dark-text-tertiary md:text-lg">
             {hero.subtitle}
           </h2>
         </div>

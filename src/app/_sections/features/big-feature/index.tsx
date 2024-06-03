@@ -53,7 +53,7 @@ export function BigFeature({ featuresBigImageList, heading, image }: BigFeature)
             </figure>
             <div className="flex flex-col items-start gap-1">
               <h5 className="text-lg font-medium">{_title}</h5>
-              <p className="text-grayscale-500 dark:text-grayscale-500">{description}</p>
+              <p className="text-text-tertiary dark:text-dark-text-tertiary">{description}</p>
             </div>
           </article>
         ))}

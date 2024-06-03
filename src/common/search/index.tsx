@@ -52,7 +52,7 @@ export function SearchContent({ _searchKey }: { _searchKey: string }) {
           <label
             className={clsx(
               "focus-within:!border-accent-500 ml-auto  flex w-full items-center gap-x-1 rounded-full border border-border px-3.5 py-2.5 dark:border-dark-border md:max-w-[280px]",
-              search.query || "text-grayscale-500 dark:text-grayscale-500 opacity-70",
+              search.query || "text-text-tertiary dark:text-dark-text-tertiary opacity-70",
             )}
           >
             <MagnifyingGlassIcon
@@ -192,7 +192,7 @@ function HitTitleContainer({ children }: React.PropsWithChildren) {
 }
 
 function HitBodyContainer({ children }: React.PropsWithChildren) {
-  return <p className="text-grayscale-500 dark:text-grayscale-500 truncate text-sm">{children}</p>;
+  return <p className="text-text-tertiary dark:text-dark-text-tertiary truncate text-sm">{children}</p>;
 }
 
 function CustomAvatarHit({

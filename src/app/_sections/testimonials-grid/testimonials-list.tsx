@@ -45,10 +45,10 @@ export function TestimonialsGridClient({ quotes }: { quotes: QuoteFragment[] }) 
             </div>
             <div className="flex items-center bg-surface-secondary px-4 py-3 dark:bg-dark-surface-secondary">
               <div className="flex flex-1 flex-col gap-0.5">
-                <h5 className="text-xs font-medium text-grayscale-500 dark:text-grayscale-500 md:text-sm">
+                <h5 className="text-xs font-medium text-text-tertiary dark:text-dark-text-tertiary md:text-sm">
                   {author._title}
                 </h5>
-                <p className="text-pretty text-xs text-grayscale-500 dark:text-grayscale-500 md:text-sm">
+                <p className="text-pretty text-xs text-text-tertiary dark:text-dark-text-tertiary md:text-sm">
                   {author.role}, {author.company._title}
                 </p>
               </div>

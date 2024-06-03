@@ -70,7 +70,7 @@ function PricingCard(item: PricingPlanItem["plan"]) {
         <span className="text-center text-3xl font-medium lg:text-4xl">{item.price}</span>
         <div className="flex flex-col">
           <h5 className="text-center text-lg font-medium lg:text-xl">{item._title}</h5>
-          <p className="text-center text-sm text-grayscale-500 dark:text-grayscale-500 lg:text-base">
+          <p className="text-center text-sm text-text-tertiary dark:text-dark-text-tertiary lg:text-base">
             {item.billed}
           </p>
         </div>

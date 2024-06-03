@@ -70,7 +70,9 @@ export function SideFeatures({ featuresSideBySideList, heading, cta }: FeaturesG
               </figure>
               <div className="flex flex-col items-start gap-1">
                 <h5 className="text-lg font-medium">{_title}</h5>
-                <p className="text-pretty text-grayscale-500 dark:text-grayscale-500">{subtitle}</p>
+                <p className="text-pretty text-text-tertiary dark:text-dark-text-tertiary">
+                  {subtitle}
+                </p>
               </div>
             </article>
           ))}

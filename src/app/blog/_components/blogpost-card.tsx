@@ -101,7 +101,7 @@ export function BlogpostCard({ type = "list", className, ...post }: BlogPostCard
             )}
           >
             <header className="flex items-center justify-between gap-2">
-              <p className="text-sm text-grayscale-500 dark:text-grayscale-500 lg:text-base">
+              <p className="text-sm text-text-tertiary dark:text-dark-text-tertiary lg:text-base">
                 {formatDate(post.publishedAt)}
               </p>
               <AvatarsGroup>
