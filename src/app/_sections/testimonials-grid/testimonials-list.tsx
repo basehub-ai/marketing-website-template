@@ -1,103 +1,81 @@
 "use client";
 
 import React from "react";
-import clsx from "clsx";
 
 import { Button } from "@/common/button";
-import { type QuoteFragment } from "@/lib/basehub/fragments";
+import type { QuoteFragment } from "@/lib/basehub/fragments";
+import { cx } from "class-variance-authority";
 
-const MAX_TO_SHOW = 9;
+const ITEMS_PER_COLUMN = 3;
 
-export function TestimonialsGridClient({
-  testimonialsList,
-}: {
-  testimonialsList: QuoteFragment[];
-}) {
+export function TestimonialsGridClient({ quotes }: { quotes: QuoteFragment[] }) {
   const [showMore, setShowMore] = React.useState(false);
 
   const filteredItems = React.useMemo(() => {
-    const itemsToDisplay = showMore ? testimonialsList : testimonialsList.slice(0, MAX_TO_SHOW);
+    if (showMore) return quotes;
+    // split in three
+    const chunkSize = Math.ceil(quotes.length / 3);
+    const itemsToDisplay: QuoteFragment[] = [];
 
-    // chunk it into 3 columns
-    const chunks = Array.from({ length: 3 }, () => []) as QuoteFragment[][];
-
-    const chunkSize = Math.floor(itemsToDisplay.length / 3);
-    const itemsResting = itemsToDisplay.length % 3;
-
-    // Distribute the items into chunks
-    let currentChunkIndex = 0;
-
-    itemsToDisplay.forEach((item, i) => {
-      chunks[currentChunkIndex].push(item);
-      if ((i + 1) % chunkSize === 0 && currentChunkIndex < 2) {
-        currentChunkIndex++;
-      }
-    });
-
-    // Distribute the remaining items
-    if (itemsResting === 1) {
-      chunks[1].push(itemsToDisplay[itemsToDisplay.length - 1]);
-    } else if (itemsResting === 2) {
-      chunks[0].push(itemsToDisplay[itemsToDisplay.length - 2]);
-      chunks[2].push(itemsToDisplay[itemsToDisplay.length - 1]);
+    for (let i = 0; i < 3; i++) {
+      // Push the first 3 items for each column
+      itemsToDisplay.push(
+        ...quotes.slice(i * chunkSize, (i + 1) * chunkSize).slice(0, ITEMS_PER_COLUMN),
+      );
     }
 
-    return chunks;
-  }, [testimonialsList, showMore]);
+    return itemsToDisplay;
+  }, [quotes, showMore]);
 
   return (
     <>
-      <div className="relative flex flex-col items-center gap-8 overflow-hidden md:flex-row">
-        {filteredItems.map((chunk, i) => (
-          // eslint-disable-next-line react/no-array-index-key
-          <div key={i} className={clsx("h-auto flex-1")}>
-            <div className={clsx("flex flex-1 flex-col gap-8", { "md:mt-8": i === 1 })}>
-              {chunk.map(({ quote, author, _id }, i) => (
-                <article
-                  key={_id}
-                  className={clsx(
-                    "flex flex-1 shrink-0 flex-col rounded-xl border border-border dark:border-dark-border",
-                    { "hidden md:flex": i !== 0 && !showMore },
-                  )}
-                >
-                  <div className="flex flex-1 shrink-0 items-start border-b border-border p-5 dark:border-dark-border">
-                    <blockquote className="text-pretty text-base font-light text-grayscale-600 dark:text-grayscale-400 md:text-lg">
-                      {quote}
-                    </blockquote>
-                  </div>
-                  <div className="flex items-center bg-surface-secondary px-4 py-3 dark:bg-dark-surface-secondary">
-                    <div className="flex flex-1 flex-col gap-0.5">
-                      <h5 className="text-xs font-medium text-grayscale-500 dark:text-grayscale-500 md:text-sm">
-                        {author._title}
-                      </h5>
-                      <p className="text-pretty text-xs text-grayscale-500 dark:text-grayscale-500 md:text-sm">
-                        {author.role}, {author.company._title}
-                      </p>
-                    </div>
-                    <div className="px-4">
-                      <figure className="aspect-square rounded-full bg-accent-200 p-0.5">
-                        <img
-                          alt={author.image.alt ?? author._title}
-                          className="size-8 rounded-full"
-                          src={author.image.url}
-                        />
-                      </figure>
-                    </div>
-                  </div>
-                </article>
-              ))}
+      <div className="relative overflow-hidden md:columns-3">
+        {filteredItems.map(({ quote, author, _id }, i) => (
+          <article
+            key={_id}
+            className={cx(
+              "mb-8 break-inside-avoid overflow-hidden rounded-xl border border-border last:mb-0 dark:border-dark-border",
+              { "hidden md:block": i > 2 && !showMore },
+            )}
+          >
+            <div className="flex items-start border-b border-border p-5 dark:border-dark-border">
+              <blockquote className="text-pretty text-base font-light text-grayscale-600 dark:text-grayscale-400 md:text-lg">
+                {quote}
+              </blockquote>
             </div>
-          </div>
+            <div className="flex items-center bg-surface-secondary px-4 py-3 dark:bg-dark-surface-secondary">
+              <div className="flex flex-1 flex-col gap-0.5">
+                <h5 className="text-xs font-medium text-grayscale-500 dark:text-grayscale-500 md:text-sm">
+                  {author._title}
+                </h5>
+                <p className="text-pretty text-xs text-grayscale-500 dark:text-grayscale-500 md:text-sm">
+                  {author.role}, {author.company._title}
+                </p>
+              </div>
+              <div className="px-4">
+                <figure className="aspect-square rounded-full bg-accent-200 p-0.5">
+                  <img
+                    alt={author.image.alt ?? author._title}
+                    className="size-8 rounded-full"
+                    src={author.image.url}
+                  />
+                </figure>
+              </div>
+            </div>
+          </article>
         ))}
       </div>
 
-      {testimonialsList.length > MAX_TO_SHOW && (
-        <div className="flex justify-center">
-          <Button intent="secondary" onClick={() => setShowMore(!showMore)}>
-            {showMore ? "Show less" : "Show more"}
-          </Button>
-        </div>
-      )}
+      <div
+        className={cx(
+          "justify-center",
+          quotes.length > ITEMS_PER_COLUMN * 3 ? "flex" : quotes.length > 3 && "flex md:hidden",
+        )}
+      >
+        <Button intent="secondary" onClick={() => setShowMore(!showMore)}>
+          {showMore ? "Show less" : "Show more"}
+        </Button>
+      </div>
     </>
   );
 }
