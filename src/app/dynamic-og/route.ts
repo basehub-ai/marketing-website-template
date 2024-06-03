@@ -4,7 +4,7 @@ export const revalidate = 60;
 
 import { notFound } from "next/navigation";
 
-import { basehub } from ".basehub";
+import { basehub } from "basehub";
 
 import { ContentOGWrapperResponse } from "./content";
 

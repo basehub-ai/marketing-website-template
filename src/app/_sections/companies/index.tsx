@@ -2,7 +2,7 @@ import Image from "next/image";
 import clsx from "clsx";
 
 import { Section } from "@/common/layout";
-import { fragmentOn } from ".basehub/schema";
+import { fragmentOn } from "basehub";
 
 import s from "./companies.module.scss";
 

@@ -3,7 +3,7 @@ import type { Metadata, ResolvingMetadata } from "next";
 import { draftMode } from "next/headers";
 import { notFound } from "next/navigation";
 
-import { Pump } from ".basehub/react-pump";
+import { Pump } from "basehub/react-pump";
 import {
   isCalloutComponent,
   isCalloutV2Component,
@@ -20,8 +20,7 @@ import {
   isTestimonialSliderComponent,
   isTestimonialsGridComponent,
 } from ".basehub/schema";
-import { basehub } from ".basehub/index";
-import { isDev } from "@/utils/constants";
+import { basehub } from "basehub";
 
 import { AccordionFaq } from "../_sections/accordion-faq";
 import { BigFeature, bigFeatureFragment } from "../_sections/features/big-feature";
@@ -47,7 +46,7 @@ export const dynamicParams = false;
 export const revalidate = 30;
 
 export const generateStaticParams = async () => {
-  const data = await basehub({ cache: "no-store", draft: isDev }).query({
+  const data = await basehub({ cache: "no-store" }).query({
     site: {
       pages: {
         items: {
@@ -68,7 +67,7 @@ export const generateMetadata = async (
 ): Promise<Metadata | undefined> => {
   const meta = await currentMetadata;
 
-  const data = await basehub({ cache: "no-store", draft: isDev }).query({
+  const data = await basehub({ cache: "no-store", draft: draftMode().isEnabled }).query({
     site: {
       pages: {
         __args: {

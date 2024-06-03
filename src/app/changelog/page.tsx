@@ -1,6 +1,6 @@
 import { draftMode } from "next/headers";
 
-import { Pump } from ".basehub/react-pump";
+import { Pump } from "basehub/react-pump";
 import { Heading } from "@/common/heading";
 
 import { ChangelogList } from "./_components/changelog-list";

@@ -1,8 +1,8 @@
 import { draftMode } from "next/headers";
 
-import { Pump } from ".basehub/react-pump";
+import { Pump } from "basehub/react-pump";
 import { hexToRgb } from "@/utils/colors";
-import { fragmentOn } from ".basehub/schema";
+import { fragmentOn } from "basehub";
 
 export const themeFragment = fragmentOn("Theme", { palette: true });
 
@@ -18,11 +18,7 @@ export function BaseHubThemeProvider() {
       {async ([data]) => {
         "use server";
         const colors = await import("tailwindcss/colors");
-        const palette = colors[data.site.settings.theme.palette as keyof typeof colors] as
-          | Record<number, string>
-          | undefined;
-
-        if (!palette) throw new Error("Palette not found");
+        const palette = colors[data.site.settings.theme.palette];
 
         const css = Object.entries(palette).map(([key, value]) => {
           const rgb = hexToRgb(value); // (is used in the tailwind.config.ts to add colors with alpha values)

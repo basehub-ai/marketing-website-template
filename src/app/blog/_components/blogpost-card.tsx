@@ -2,7 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import clsx from "clsx";
 
-import { fragmentOn } from ".basehub/schema";
+import { fragmentOn } from "basehub";
 import { AvatarsGroup } from "@/common/avatars-group";
 import { Author } from "@/common/avatar";
 import { authorFragment } from "@/lib/basehub/fragments";
@@ -85,7 +85,7 @@ export function BlogpostCard({ type = "list", className, ...post }: BlogPostCard
             <Image
               alt={post.image.url}
               blurDataURL={post.image.url}
-              className="h-full max-h-[200px] flex-1 rounded-xl object-cover md:!max-h-full"
+              className="h-full max-h-[200px] flex-1 rounded-lg object-cover md:!max-h-full"
               height={post.image.height}
               src={post.image.url}
               style={{ aspectRatio: post.image.aspectRatio }}

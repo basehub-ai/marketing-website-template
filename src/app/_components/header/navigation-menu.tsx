@@ -1,4 +1,5 @@
 "use client";
+import * as React from "react";
 import clsx from "clsx";
 import Link from "next/link";
 import { ChevronDownIcon, HamburgerMenuIcon } from "@radix-ui/react-icons";
@@ -11,6 +12,11 @@ import {
   NavigationMenuTrigger,
   type NavigationMenuLinkProps,
 } from "@radix-ui/react-navigation-menu";
+import { useSelectedLayoutSegment } from "next/navigation";
+import { ButtonLink } from "@/common/button";
+import { isPageReferenceComponent } from ".basehub/schema";
+import { type HeaderLiksFragment } from ".";
+import { useToggleState } from "@/hooks/use-toggle-state";
 
 export function NavigationMenuHeader({
   links,
@@ -115,24 +121,6 @@ export function DesktopMenu({ links }: { links: HeaderLiksFragment[] }) {
   );
 }
 
-import * as React from "react";
-import { useSelectedLayoutSegment } from "next/navigation";
-
-import { ButtonLink } from "@/common/button";
-import { isPageReferenceComponent } from ".basehub/schema";
-
-import { type HeaderLiksFragment } from ".";
-
-const useToggleState = (initialState = false) => {
-  const [isOn, setIsOn] = React.useState(initialState);
-
-  const handleToggle = () => setIsOn((prev) => !prev);
-  const handleOff = () => setIsOn(false);
-  const handleOn = () => setIsOn(true);
-
-  return { isOn, handleToggle, handleOff, handleOn };
-};
-
 export function MobileMenu({ links }: { links: HeaderLiksFragment[] }) {
   const { handleToggle, isOn, handleOff } = useToggleState();
   const selectedLayoutSegment = useSelectedLayoutSegment();
@@ -165,11 +153,8 @@ export function MobileMenu({ links }: { links: HeaderLiksFragment[] }) {
       </button>
       <div className="block lg:hidden">
         {isOn ? (
-          <div className="z-10 fixed left-0 top-[calc(var(--header-height)+1)] h-auto w-full bg-surface-primary dark:bg-dark-surface-primary">
+          <div className="fixed left-0 top-[calc(var(--header-height)+1)] z-10 h-auto w-full bg-surface-primary dark:bg-dark-surface-primary">
             <div className="flex flex-col gap-8 px-6 py-8">
-              {/* <Button unstyled onClick={handleOff}>
-                Close
-              </Button> */}
               <nav className="flex flex-col gap-4">
                 {headerLinks.map((props) =>
                   props.sublinks.items.length > 0 ? (

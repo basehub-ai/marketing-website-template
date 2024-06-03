@@ -2,7 +2,6 @@ import { CheckCircledIcon, QuestionMarkCircledIcon } from "@radix-ui/react-icons
 import React from "react";
 import { cva, type VariantProps } from "class-variance-authority";
 import clsx from "clsx";
-import { Tooltip } from "@radix-ui/react-tooltip";
 
 import { Heading } from "@/common/heading";
 import { Section } from "@/common/layout";

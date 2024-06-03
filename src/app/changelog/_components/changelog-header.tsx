@@ -1,6 +1,7 @@
 import Image from "next/image";
+import Link from "next/link";
 
-import { Pump } from ".basehub/react-pump";
+import { Pump } from "basehub/react-pump";
 
 interface ChangelogLayoutProps {
   className?: string;
@@ -45,15 +46,20 @@ export function ChangelogLayout({
             const socialLinks = changelog.socialLinks;
 
             return (
-              <div className={`flex items-center gap-2 md:flex-col ${socialLinksClassName}`}>
+              <div className={`flex items-start gap-2 md:flex-col ${socialLinksClassName}`}>
                 <p className="text-sm text-text-tertiary dark:text-dark-text-tertiary">
                   {changelog.socialLinksTitle}
                 </p>
-                <div className="flex gap-4">
+                <div className="flex gap-2">
                   {socialLinks.map((link) => (
-                    <a key={link._id} href={link.url}>
-                      <Image alt={link._title} height={24} src={link.icon?.url ?? ""} width={24} />
-                    </a>
+                    <Link
+                      key={link._id}
+                      className="aspect-square hover:brightness-90"
+                      href={link.url}
+                      target="_blank"
+                    >
+                      <Image alt={link._title} height={18} src={link.icon?.url ?? ""} width={18} />
+                    </Link>
                   ))}
                 </div>
               </div>

@@ -1,6 +1,6 @@
 import type { BundledLanguage } from "shiki";
 
-import { fragmentOn } from ".basehub";
+import { fragmentOn } from "basehub";
 
 import { CopyButton } from "./copy-button";
 import { Highlighter } from "./highlight";

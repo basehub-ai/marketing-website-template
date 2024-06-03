@@ -5,7 +5,7 @@ import { RichText } from "basehub/react-rich-text";
 import { ArrowRightIcon } from "@radix-ui/react-icons";
 import { type ResolvingMetadata, type Metadata } from "next";
 
-import { Pump } from ".basehub/react-pump";
+import { Pump } from "basehub/react-pump";
 import { Heading } from "@/common/heading";
 import { authorFragment, optimizedImageFragment } from "@/lib/basehub/fragments";
 import { CodeSnippet } from "@/app/_components/code-snippet";
@@ -13,7 +13,7 @@ import { richTextBaseComponents, richTextClasses } from "@/app/_components/rich-
 import { ButtonLink } from "@/common/button";
 import { AvatarsGroup } from "@/common/avatars-group";
 import { Avatar } from "@/common/avatar";
-import { basehub } from ".basehub/index";
+import { basehub } from "basehub/index";
 import { formatDate } from "@/utils/dates";
 
 import { ChangelogLayout } from "../_components/changelog-header";

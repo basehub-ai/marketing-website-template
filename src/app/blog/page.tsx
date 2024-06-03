@@ -1,6 +1,6 @@
 import { draftMode } from "next/headers";
 
-import { Pump } from ".basehub/react-pump";
+import { Pump } from "basehub/react-pump";
 import { Heading } from "@/common/heading";
 import { Section } from "@/common/layout";
 import { SearchContent as Search } from "@/common/search";

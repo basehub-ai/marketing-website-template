@@ -132,7 +132,7 @@ export function MobilePricingComparation({
                       key={feature._id}
                       className="col-span-2 grid grid-cols-subgrid place-content-end justify-start border-b border-border px-3 py-3.5 dark:border-dark-border"
                     >
-                      <th className="flex flex w-auto items-center gap-1 place-self-start text-nowrap text-sm font-normal">
+                      <th className="flex w-auto items-center gap-1 place-self-start text-nowrap text-sm font-normal">
                         <p>{feature._title}</p>
                         {feature.tooltip ? (
                           <SimpleTooltip content={feature.tooltip}>
