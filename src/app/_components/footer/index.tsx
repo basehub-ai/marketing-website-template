@@ -6,6 +6,10 @@ import { Pump } from ".basehub/react-pump";
 
 import { ThemeSwitcher } from "../theme-switcher";
 
+function isExternalLink(url: string | null | undefined) {
+  return url && /^https?:\/\//.test(url);
+}
+
 export async function Footer() {
   return (
     <Pump
@@ -64,7 +68,8 @@ export async function Footer() {
                   <Link
                     key={_title}
                     className="font-light tracking-tight text-text-secondary hover:text-text-primary dark:text-dark-text-secondary dark:hover:text-dark-text-primary"
-                    href={url ?? ""}
+                    href={url ?? "#"}
+                    target={isExternalLink(url) ? "_blank" : "_self"}
                   >
                     {_title}
                   </Link>
@@ -92,7 +97,11 @@ export async function Footer() {
                     {footer.socialLinks.map((link) => {
                       return (
                         <li key={link._title} className="shrink-0">
-                          <Link className="aspect-square hover:brightness-75" href={link.url}>
+                          <Link
+                            className="aspect-square hover:brightness-75"
+                            href={link.url}
+                            target="_blank"
+                          >
                             <Image
                               alt={link._title}
                               height={24}
