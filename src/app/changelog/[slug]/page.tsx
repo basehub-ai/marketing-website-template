@@ -234,8 +234,8 @@ export default async function ChangelogPage({ params }: ChangelogPageParams) {
                   iconSide="right"
                   intent="secondary"
                 >
-                  {nextPost._title.slice(0, 20)}
-                  {nextPost._title.length > 20 ? "..." : ""}
+                  {nextPost._title.slice(0, 35)}
+                  {nextPost._title.length > 35 ? "..." : ""}
                 </ButtonLink>
               </div>
             </div>

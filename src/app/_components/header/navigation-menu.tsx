@@ -19,6 +19,11 @@ import type { HeaderFragment, HeaderLiksFragment } from ".";
 import { useToggleState } from "@/hooks/use-toggle-state";
 import { useHasRendered } from "@/hooks/use-has-rendered";
 
+// #region desktop 💻
+/* -------------------------------------------------------------------------- */
+/*                                   Desktop                                  */
+/* -------------------------------------------------------------------------- */
+
 export function NavigationMenuHeader({
   links,
   className,
@@ -122,6 +127,11 @@ export function DesktopMenu({ navbar, ctaS }: HeaderFragment) {
   );
 }
 
+// #region mobile 📱
+/* -------------------------------------------------------------------------- */
+/*                                   Mobile                                   */
+/* -------------------------------------------------------------------------- */
+
 export function MobileMenu({ ctaS, navbar }: HeaderFragment) {
   const { handleToggle, isOn, handleOff } = useToggleState();
   const selectedLayoutSegment = useSelectedLayoutSegment();
@@ -145,7 +155,7 @@ export function MobileMenu({ ctaS, navbar }: HeaderFragment) {
   return (
     <>
       <button
-        className="col-start-3 flex items-center justify-center gap-2 justify-self-end rounded border border-border bg-surface-secondary p-2 hover:bg-surface-tertiary dark:border-dark-border dark:bg-dark-surface-secondary dark:hover:bg-dark-surface-tertiary lg:hidden lg:h-7"
+        className="col-start-3 flex items-center justify-center gap-2 justify-self-end rounded border border-border bg-surface-secondary p-2 dark:border-dark-border dark:bg-dark-surface-secondary lg:hidden lg:h-7"
         onClick={handleToggle}
       >
         <HamburgerMenuIcon className="size-4" />
@@ -167,7 +177,7 @@ export function MobileMenu({ ctaS, navbar }: HeaderFragment) {
                   ) : (
                     <Link
                       key={link._id}
-                      className="flex items-center gap-2 rounded px-3 py-1.5 hover:bg-surface-tertiary dark:hover:bg-dark-surface-tertiary"
+                      className="flex items-center gap-2 rounded px-3 py-1.5"
                       href={link.href ?? "#"}
                       onClick={handleOff}
                     >
@@ -211,7 +221,13 @@ function ItemWithSublinks({
     if (!hasRendered) return;
 
     if (isOn) {
-      listRef.current?.animate([{ transform: "scaleY(1)" }, { transform: "scaleY(0)" }], {
+      listRef.current?.animate([{ transform: "scaleY(1)" }], {
+        duration: 200,
+        easing: "ease-in-out",
+        fill: "forwards",
+      });
+    } else {
+      listRef.current?.animate([{ transform: "scaleY(0)" }], {
         duration: 200,
         easing: "ease-in-out",
         fill: "forwards",
@@ -222,11 +238,6 @@ function ItemWithSublinks({
   const handleToggle = () => {
     if (isOn) {
       handleOff();
-      listRef.current?.animate([{ transform: "scaleY(0)" }, { transform: "scaleY(1)" }], {
-        duration: 200,
-        easing: "ease-in-out",
-        fill: "forwards",
-      });
     } else {
       handleOn();
     }
@@ -238,8 +249,8 @@ function ItemWithSublinks({
         {_title}
         <ChevronDownIcon
           className={clsx(
-            "h-min text-text-tertiary transition-transform dark:text-dark-text-tertiary",
-            isOn ? "rotate-180 transform" : "rotate-0 transform",
+            "h-min transform text-text-tertiary transition-transform dark:text-dark-text-tertiary",
+            isOn ? "rotate-180" : "rotate-0",
           )}
         />
       </button>
@@ -263,7 +274,7 @@ function ItemWithSublinks({
           return (
             <li key={sublink._id}>
               <Link
-                className="flex items-center gap-2 rounded-md px-3 py-1.5 text-text-tertiary hover:bg-surface-tertiary dark:text-dark-text-tertiary dark:hover:bg-dark-surface-tertiary"
+                className="flex items-center gap-2 rounded-md px-3 py-1.5 text-text-tertiary dark:text-dark-text-tertiary"
                 href={href}
                 onClick={onClick}
               >
