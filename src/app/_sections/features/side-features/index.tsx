@@ -38,7 +38,7 @@ export function SideFeatures({ featuresSideBySideList, heading, cta }: FeaturesG
   return (
     <Section className="relative gap-8 lg:!flex-row lg:gap-24 lg:p-28 xl:gap-32" container="full">
       <div className="container relative top-0 mx-auto flex-1 shrink self-stretch px-6 lg:px-0">
-        <div className="top-[calc(var(--header-height)+64px))] sticky bottom-0 flex flex-col gap-10">
+        <div className="sticky bottom-0 top-[calc(var(--header-height)+64px)] flex flex-col gap-10">
           <Heading className="items-start" {...heading}>
             <h4>{heading.title}</h4>
           </Heading>
@@ -70,7 +70,7 @@ export function SideFeatures({ featuresSideBySideList, heading, cta }: FeaturesG
               </figure>
               <div className="flex flex-col items-start gap-1">
                 <h5 className="text-lg font-medium">{_title}</h5>
-                <p className="text-grayscale-500 dark:text-grayscale-500 text-pretty">{subtitle}</p>
+                <p className="text-pretty text-grayscale-500 dark:text-grayscale-500">{subtitle}</p>
               </div>
             </article>
           ))}
