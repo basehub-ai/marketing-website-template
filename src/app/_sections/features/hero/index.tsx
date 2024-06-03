@@ -89,7 +89,7 @@ export default function FeatureHero({ heading, heroLayout, image, actions }: Fea
         <>
           <Image
             alt={image.alt ?? heading.title}
-            className="block max-h-[560px] border-y border-border object-cover dark:border-dark-border"
+            className="block max-h-[560px] border-y border-t-0 border-border object-cover dark:border-dark-border"
             height={image.height}
             src={image.url}
             width={image.width}
@@ -99,18 +99,20 @@ export default function FeatureHero({ heading, heroLayout, image, actions }: Fea
               <Heading {...heading} align="left">
                 <h4>{heading.title}</h4>
               </Heading>
-              <div className="flex gap-3">
-                {actions?.map((action) => (
-                  <ButtonLink
-                    key={action._id}
-                    href={action.href ?? "#"}
-                    intent={action.type}
-                    size="lg"
-                  >
-                    {action.label}
-                  </ButtonLink>
-                ))}
-              </div>
+              {actions && actions.length > 0 ? (
+                <div className="flex gap-3">
+                  {actions.map((action) => (
+                    <ButtonLink
+                      key={action._id}
+                      href={action.href ?? "#"}
+                      intent={action.type}
+                      size="lg"
+                    >
+                      {action.label}
+                    </ButtonLink>
+                  ))}
+                </div>
+              ) : null}
             </div>
           </Section>
         </>

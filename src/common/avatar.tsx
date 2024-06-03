@@ -8,9 +8,9 @@ import { SimpleTooltip } from "./simple-tooltip";
 
 export function Author({ image, _title }: AuthorFragment) {
   return (
-    <SimpleTooltip content={_title}>
+    <SimpleTooltip content={_title} delayDuration={100}>
       <Image
-        alt={image.alt ?? "Avatar"}
+        alt={image.alt ?? `Avatar for ${_title}`}
         className="size-7 rounded-full border-2 border-surface-primary dark:border-dark-surface-primary"
         height={image.height}
         src={image.url}
