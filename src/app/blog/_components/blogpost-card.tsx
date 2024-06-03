@@ -47,7 +47,7 @@ export function BlogpostCard({ type = "list", className, ...post }: BlogPostCard
         >
           <article
             className={clsx(
-              "lg:text-md grid grid-cols-[2fr,repeat(3,1fr)] place-items-center items-center border-b border-border px-4 py-6 text-text-secondary *:first:place-items-start *:last:place-items-end hover:bg-surface-secondary dark:border-dark-border dark:text-dark-text-secondary dark:hover:bg-dark-surface-secondary",
+              "lg:text-md grid grid-cols-[2fr,repeat(3,1fr)] place-items-center items-center border-b border-border px-4 py-6 text-text-secondary transition-colors *:first:place-items-start *:last:place-items-end hover:bg-surface-secondary dark:border-dark-border dark:text-dark-text-secondary dark:hover:bg-dark-surface-secondary",
               className,
             )}
           >
@@ -72,10 +72,10 @@ export function BlogpostCard({ type = "list", className, ...post }: BlogPostCard
         <Link
           key={post._id}
           className={clsx(
-            "group flex flex-col self-stretch rounded-xl border",
-            "border-border bg-surface-secondary text-text-secondary hover:brightness-90 dark:border-dark-border dark:bg-dark-surface-secondary dark:text-dark-text-secondary dark:hover:brightness-90",
-            "md:last:col-span-2 md:last:flex-row",
-            "xl:flex-row xl:last:col-span-1 xl:first-of-type:col-span-1 xl:first-of-type:row-span-2 xl:first-of-type:flex-col",
+            "group flex flex-col self-stretch rounded-xl border transition-shadow [--heading-size:_1.1250rem]",
+            "border-border bg-surface-secondary text-text-secondary hover:shadow-md dark:border-dark-border dark:bg-dark-surface-secondary dark:text-dark-text-secondary dark:hover:shadow dark:hover:shadow-grayscale-500",
+            "md:last:col-span-2 md:last:flex-row md:last:[--heading-size:_1.25rem]",
+            "xl:flex-row xl:last:col-span-1 xl:last:[--heading-size:_1.1250rem] xl:first-of-type:col-span-1 xl:first-of-type:row-span-2 xl:first-of-type:flex-col xl:first-of-type:[--heading-size:_1.25rem]",
             "outline-none focus-visible:ring focus-visible:ring-accent-500",
             className,
           )}
@@ -111,7 +111,9 @@ export function BlogpostCard({ type = "list", className, ...post }: BlogPostCard
               </AvatarsGroup>
             </header>
             <main className="flex flex-col gap-2 lg:flex-1">
-              <h3 className="text-xl font-medium lg:flex-1 lg:text-2xl">{post._title}</h3>
+              <h3 className="text-[length:var(--heading-size)] font-medium text-text-primary dark:text-dark-text-primary lg:flex-1">
+                {post._title}
+              </h3>
               <p className="line-clamp-4 text-sm text-text-secondary dark:text-dark-text-secondary lg:text-base">
                 {post.description}
               </p>

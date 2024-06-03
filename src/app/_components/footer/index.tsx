@@ -131,7 +131,7 @@ function PoweredByBasehub({ className }: { className?: string }) {
       <Image
         alt="Edit in BaseHub"
         height={28}
-        src="https://basehub.com/edit-in-basehub.svg"
+        src="https://basehub.com/template-button.svg"
         width={150}
       />
     </Link>
