@@ -33,7 +33,7 @@ function Code({
 }) {
   if (isInline) {
     return (
-      <code className="text-accent-500 rounded border border-border px-2 py-0.5 before:[content:none] after:[content:none] dark:border-dark-border dark:bg-dark-surface-secondary">
+      <code className="rounded border border-border px-2 py-0.5 text-accent-500 before:[content:none] after:[content:none] dark:border-dark-border dark:bg-dark-surface-secondary">
         {children}
       </code>
     );
@@ -52,14 +52,14 @@ type FaqItemComponentRichText = fragmentOn.infer<typeof FaqItemComponentFragment
 
 export function FaqRichtextComponent({ answer, _title }: FaqItemComponentRichText) {
   return (
-    <details className="group flex flex-col gap-4 overflow-hidden rounded-lg border border-border bg-surface-secondary p-3 open:border-transparent dark:border-dark-border dark:bg-dark-surface-secondary">
-      <summary className="flex items-center pl-2.5">
+    <details className="group flex flex-col gap-4 overflow-hidden rounded-lg border border-border bg-surface-secondary dark:border-dark-border dark:bg-dark-surface-secondary">
+      <summary className="flex cursor-pointer items-center p-3 pl-6">
         <span className="flex w-8">
           <ChevronDownIcon className="transform group-open:rotate-180" />
         </span>
         {_title}
       </summary>
-      <p className="pl-10 ">{answer}</p>
+      <p className="not-prose pb-3 pl-10 pr-3">{answer}</p>
     </details>
   );
 }
@@ -112,7 +112,7 @@ export function RichTextCalloutComponent({
     default:
       return (
         <article className={$richTextCallout()} id={_title}>
-          <div className="text-accent-500 mt-0.5 pr-2">
+          <div className="pr-2 text-accent-500">
             <svg
               fill="none"
               height="24"

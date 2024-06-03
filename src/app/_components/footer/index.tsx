@@ -77,7 +77,7 @@ export async function Footer() {
               </nav>
               <div className="col-start-2 row-start-1 flex items-center gap-3 self-center justify-self-end sm:col-span-1 sm:col-start-3 sm:row-start-1">
                 <p className="hidden text-sm text-grayscale-500 dark:text-grayscale-500 sm:block">
-                  Preferences
+                  Appearance
                 </p>
                 <ThemeSwitcher />
               </div>
