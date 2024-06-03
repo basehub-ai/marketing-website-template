@@ -89,3 +89,13 @@ export const quoteFragment = fragmentOn("QuoteComponent", {
 });
 
 export type QuoteFragment = fragmentOn.infer<typeof quoteFragment>;
+
+/* -------------------------------------------------------------------------- */
+/*                                   Button                                   */
+/* -------------------------------------------------------------------------- */
+
+export const buttonFragment = fragmentOn("ButtonComponent", {
+  label: true,
+  href: true,
+  type: true,
+});

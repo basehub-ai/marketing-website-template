@@ -25,7 +25,7 @@ export function PricingTable(props: PricingTableProps) {
       </Heading>
       {/* Desktop pricing */}
       <table className="hidden w-full table-fixed lg:table">
-        <thead>
+        <thead className="sticky top-[--header-height] bg-surface-primary dark:bg-dark-surface-primary">
           <tr>
             <PlanHeader plan={null} />
             {plans.map((plan) => (
@@ -155,7 +155,7 @@ type ValueFragment = fragmentOn.infer<typeof valueFragment>;
 
 function PlanHeader({ plan }: { plan: ValueFragment["plan"] | null }) {
   return plan ? (
-    <th className="w-[1fr]">
+    <th className="w-[1fr] pt-6">
       <span className="flex flex-col items-center gap-3 font-normal">
         <div className="flex flex-col items-center gap-0.5">
           <p className="text-base text-grayscale-600 dark:text-grayscale-400 md:text-base">

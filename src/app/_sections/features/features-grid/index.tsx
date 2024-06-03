@@ -4,7 +4,7 @@ import { ButtonLink } from "@/common/button";
 import { Heading } from "@/common/heading";
 import { Section } from "@/common/layout";
 import { fragmentOn } from "basehub";
-import { headingFragment } from "@/lib/basehub/fragments";
+import { buttonFragment, headingFragment } from "@/lib/basehub/fragments";
 
 export const featuresGridFragment = fragmentOn("FeaturesGridComponent", {
   featuresGridList: {
@@ -18,16 +18,8 @@ export const featuresGridFragment = fragmentOn("FeaturesGridComponent", {
     },
   },
   heading: headingFragment,
-  primary: {
-    label: true,
-    href: true,
-    type: true,
-  },
-  secondary: {
-    label: true,
-    href: true,
-    type: true,
-  },
+  primary: buttonFragment,
+  secondary: buttonFragment,
 });
 
 type FeaturesGrid = fragmentOn.infer<typeof featuresGridFragment>;

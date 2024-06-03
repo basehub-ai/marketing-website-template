@@ -231,10 +231,11 @@ export default async function ChangelogPage({ params }: ChangelogPageParams) {
                   className="text-xs text-grayscale-500 hover:underline dark:text-grayscale-500"
                   href={`/changelog/${nextPost._slug}`}
                   icon={<ArrowRightIcon />}
+                  iconSide="right"
                   intent="secondary"
                 >
-                  Read ({nextPost._title.slice(0, 20)}
-                  {nextPost._title.length > 20 ? "..." : ""})
+                  {nextPost._title.slice(0, 20)}
+                  {nextPost._title.length > 20 ? "..." : ""}
                 </ButtonLink>
               </div>
             </div>
