@@ -6,7 +6,7 @@ import { fragmentOn } from "basehub";
 
 export const richTextClasses = cx(
   "prose prose-zinc max-w-prose text-start dark:prose-invert",
-  "prose-p:text-text-secondary dark:prose-p:text-dark-text-secondary",
+  "prose-p:text-grayscale-600 dark:prose-p:text-dark-text-secondary",
   "prose-h1:text-4xl prose-h1:font-medium prose-h1:text-text-primary dark:prose-h1:text-dark-text-primary",
   "prose-h2:text-3xl prose-h2:font-medium prose-h2:text-text-primary dark:prose-h2:text-dark-text-primary",
   "prose-h3:text-2xl prose-h3:font-medium prose-h3:text-text-primary dark:prose-h3:text-dark-text-primary",

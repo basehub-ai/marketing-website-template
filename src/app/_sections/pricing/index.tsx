@@ -70,7 +70,7 @@ function PricingCard(item: PricingPlanItem["plan"]) {
         <span className="text-center text-3xl font-medium lg:text-4xl">{item.price}</span>
         <div className="flex flex-col">
           <h5 className="text-center text-lg font-medium lg:text-xl">{item._title}</h5>
-          <p className="text-center text-sm text-text-tertiary dark:text-dark-text-tertiary lg:text-base">
+          <p className="text-center text-sm text-grayscale-500 dark:text-grayscale-500 lg:text-base">
             {item.billed}
           </p>
         </div>
@@ -80,7 +80,7 @@ function PricingCard(item: PricingPlanItem["plan"]) {
           {item.list.items.map((feature) => (
             <li
               key={feature._title}
-              className="flex items-start gap-3 text-sm text-text-secondary dark:text-dark-text-secondary lg:text-base"
+              className="flex items-start gap-3 text-sm text-grayscale-600 dark:text-grayscale-400 lg:text-base"
             >
               <CheckIcon className="mt-0.5 size-4 shrink-0 lg:size-5" />
               <span>{feature._title}</span>

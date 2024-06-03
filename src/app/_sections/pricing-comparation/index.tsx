@@ -67,7 +67,7 @@ const $tableCell = cva("min-h-16 px-3 text-base flex items-center gap-1.5 font-n
       end: "text-end justify-end",
     },
     type: {
-      default: "text-text-secondary dark:text-dark-text-secondary",
+      default: "text-grayscale-600 dark:text-grayscale-400",
       primary: "text-primary dark:text-dark-primary",
     },
   },
@@ -113,7 +113,7 @@ function FeatureTitle(
         <p>{feature._title}</p>
         {feature.tooltip ? (
           <SimpleTooltip content={feature.tooltip}>
-            <QuestionMarkCircledIcon className="dark:text-dark-text-tetext-text-tertiary size-4 text-text-tertiary" />
+            <QuestionMarkCircledIcon className="dark:text-dark-text-tetext-grayscale-500 size-4 text-grayscale-500" />
           </SimpleTooltip>
         ) : null}
       </TableCell>
@@ -158,7 +158,7 @@ function PlanHeader({ plan }: { plan: ValueFragment["plan"] | null }) {
     <th className="w-[1fr]">
       <span className="flex flex-col items-center gap-3 font-normal">
         <div className="flex flex-col items-center gap-0.5">
-          <p className="text-base text-text-secondary dark:text-dark-text-secondary md:text-base">
+          <p className="text-base text-grayscale-600 dark:text-grayscale-400 md:text-base">
             {plan._title}
           </p>
           <p className="text-lg font-medium">{plan.price}</p>
@@ -186,7 +186,7 @@ function FeatureValue({ value }: { value?: ValueFragment }) {
                 <CheckCircledIcon className="size-5 text-success" />
               </span>
             ) : (
-              <span className="text-xl text-text-tertiary/50 dark:text-dark-text-tertiary/50 ">
+              <span className="text-xl text-grayscale-500/50 dark:text-grayscale-500/50 ">
                 &mdash;
               </span>
             )

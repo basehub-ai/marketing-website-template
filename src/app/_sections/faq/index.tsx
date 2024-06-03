@@ -25,7 +25,7 @@ export function Faq(faq: Faq) {
         {faq.questions.items.map((question) => (
           <li key={question._title} className="flex flex-col gap-1.5">
             <p className="font-medium">{question._title}</p>
-            <p className="text-sm text-text-tertiary dark:text-dark-text-tertiary">
+            <p className="text-sm text-grayscale-500 dark:text-grayscale-500">
               {question.answer}
             </p>
           </li>

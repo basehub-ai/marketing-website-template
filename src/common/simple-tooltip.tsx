@@ -17,13 +17,13 @@ export function SimpleTooltip({ children, content, className, ...props }: Simple
         <Tooltip.Portal>
           <Tooltip.Content
             className={clsx(
-              "max-w-[160px] rounded-md border border-border bg-surface-primary p-2 text-sm text-text-secondary dark:border-dark-border dark:bg-dark-surface-primary dark:text-dark-text-secondary",
+              "text-grayscale-600 dark:text-grayscale-400 max-w-[160px] rounded-md border border-border bg-surface-primary p-2 text-sm dark:border-dark-border dark:bg-dark-surface-primary",
               className,
             )}
             {...props}
           >
             {content}
-            <Tooltip.Arrow className="fill-surface-primary dark:fill-dark-surface-primary" />
+            <Tooltip.Arrow className="z-20 border-b fill-surface-primary dark:fill-dark-surface-primary" />
           </Tooltip.Content>
         </Tooltip.Portal>
       </Tooltip.Root>

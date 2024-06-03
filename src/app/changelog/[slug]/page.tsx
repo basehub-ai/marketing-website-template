@@ -178,7 +178,7 @@ export default async function ChangelogPage({ params }: ChangelogPageParams) {
             <ChangelogLayout>
               <div className="flex flex-col gap-1">
                 <Link
-                  className="text-xs text-text-tertiary hover:underline dark:text-dark-text-tertiary md:text-sm"
+                  className="text-xs text-grayscale-500 hover:underline dark:text-grayscale-500 md:text-sm"
                   href={`/changelog#${post._slug}`}
                 >
                   Back to changelog
@@ -186,7 +186,7 @@ export default async function ChangelogPage({ params }: ChangelogPageParams) {
                 <Heading align="left">
                   <h1>{post._title}</h1>
                 </Heading>
-                <p className="text-sm text-text-tertiary dark:text-dark-text-tertiary md:text-base">
+                <p className="text-sm text-grayscale-500 dark:text-grayscale-500 md:text-base">
                   {formatDate(post.publishedAt)}
                 </p>
               </div>
@@ -200,7 +200,7 @@ export default async function ChangelogPage({ params }: ChangelogPageParams) {
                 style={{ aspectRatio: post.image.aspectRatio }}
                 width={post.image.width}
               />
-              <p className="text-sm text-text-secondary dark:text-dark-text-secondary md:text-base">
+              <p className="text-sm text-grayscale-600 dark:text-grayscale-400 md:text-base">
                 {post.excerpt}
               </p>
               <div className={richTextClasses}>
@@ -221,14 +221,14 @@ export default async function ChangelogPage({ params }: ChangelogPageParams) {
                 ) : (
                   <div className="flex items-center gap-2">
                     <Avatar {...post.authors[0].image} />
-                    <p className="text-sm text-text-secondary dark:text-dark-text-secondary md:text-base">
+                    <p className="text-sm text-grayscale-600 dark:text-grayscale-400 md:text-base">
                       {post.authors[0]._title}
                     </p>
                   </div>
                 )}
 
                 <ButtonLink
-                  className="text-xs text-text-tertiary hover:underline dark:text-dark-text-tertiary"
+                  className="text-xs text-grayscale-500 hover:underline dark:text-grayscale-500"
                   href={`/changelog/${nextPost._slug}`}
                   icon={<ArrowRightIcon />}
                   intent="secondary"

@@ -64,16 +64,16 @@ export function TestimonialsGridClient({
                   )}
                 >
                   <div className="flex flex-1 shrink-0 items-start border-b border-border p-5 dark:border-dark-border">
-                    <blockquote className="text-pretty text-base font-light text-text-secondary dark:text-dark-text-secondary md:text-lg">
+                    <blockquote className="text-pretty text-base font-light text-grayscale-600 dark:text-grayscale-400 md:text-lg">
                       {quote}
                     </blockquote>
                   </div>
                   <div className="flex items-center bg-surface-secondary px-4 py-3 dark:bg-dark-surface-secondary">
                     <div className="flex flex-1 flex-col gap-0.5">
-                      <h5 className="text-xs font-medium text-text-tertiary dark:text-dark-text-tertiary md:text-sm">
+                      <h5 className="text-xs font-medium text-grayscale-500 dark:text-grayscale-500 md:text-sm">
                         {author._title}
                       </h5>
-                      <p className="text-pretty text-xs text-text-tertiary dark:text-dark-text-tertiary md:text-sm">
+                      <p className="text-pretty text-xs text-grayscale-500 dark:text-grayscale-500 md:text-sm">
                         {author.role}, {author.company._title}
                       </p>
                     </div>

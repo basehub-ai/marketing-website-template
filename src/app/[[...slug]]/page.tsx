@@ -5,6 +5,7 @@ import { notFound } from "next/navigation";
 
 import { Pump } from "basehub/react-pump";
 import {
+  fragmentOn,
   isCalloutComponent,
   isCalloutV2Component,
   isCompaniesComponent,
@@ -110,6 +111,8 @@ export const generateMetadata = async (
     },
   };
 };
+
+const dynamicFragement = fragmentOn("PagesItem", {});
 
 export default async function DynamicPage({ params }: { params: { slug?: string[] } }) {
   const slugs = params.slug;

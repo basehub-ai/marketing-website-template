@@ -29,6 +29,19 @@ const config: Config = {
         900: "rgb(var(--neutral-rgb-900) / <alpha-value>)",
         950: "rgb(var(--neutral-rgb-950) / <alpha-value>)",
       },
+      grayscale: {
+        50: "rgb(var(--grayscale-rgb-50) / <alpha-value>)",
+        100: "rgb(var(--grayscale-rgb-100) / <alpha-value>)",
+        200: "rgb(var(--grayscale-rgb-200) / <alpha-value>)",
+        300: "rgb(var(--grayscale-rgb-300) / <alpha-value>)",
+        400: "rgb(var(--grayscale-rgb-400) / <alpha-value>)",
+        500: "rgb(var(--grayscale-rgb-500) / <alpha-value>)",
+        600: "rgb(var(--grayscale-rgb-600) / <alpha-value>)",
+        700: "rgb(var(--grayscale-rgb-700) / <alpha-value>)",
+        800: "rgb(var(--grayscale-rgb-800) / <alpha-value>)",
+        900: "rgb(var(--grayscale-rgb-900) / <alpha-value>)",
+        950: "rgb(var(--grayscale-rgb-950) / <alpha-value>)",
+      },
       dark: {
         text: {
           primary: "#FAFAFA",
@@ -36,9 +49,9 @@ const config: Config = {
           tertiary: "#787882",
         },
         surface: {
-          primary: "#09090B",
-          secondary: "#151519",
-          tertiary: "#252528",
+          primary: "rgb(var(--grayscale-rgb-950) / <alpha-value>)",
+          secondary: "rgb(var(--grayscale-rgb-900) / <alpha-value>)",
+          tertiary: "rgb(var(--grayscale-rgb-800) / <alpha-value>)",
         },
         border: {
           DEFAULT: "#252528",
@@ -53,9 +66,9 @@ const config: Config = {
         tertiary: "#787882",
       },
       surface: {
-        primary: "#FAFAFA",
-        secondary: "#F7F7F8",
-        tertiary: "#EFEFF1",
+        primary: "rgb(var(--grayscale-rgb-50) / <alpha-value>)",
+        secondary: "rgb(var(--grayscale-rgb-100) / <alpha-value>)",
+        tertiary: "rgb(var(--grayscale-rgb-200) / <alpha-value>)",
       },
       border: {
         DEFAULT: "#D4D4D8",

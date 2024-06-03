@@ -4,7 +4,7 @@ import { Pump } from "basehub/react-pump";
 import { hexToRgb } from "@/utils/colors";
 import { fragmentOn } from "basehub";
 
-export const themeFragment = fragmentOn("Theme", { palette: true });
+export const themeFragment = fragmentOn("Theme", { accent: true, grayScale: true });
 
 export type BaseHubTheme = fragmentOn.infer<typeof themeFragment>;
 
@@ -18,12 +18,19 @@ export function BaseHubThemeProvider() {
       {async ([data]) => {
         "use server";
         const colors = await import("tailwindcss/colors");
-        const palette = colors[data.site.settings.theme.palette];
+        const accent = colors[data.site.settings.theme.accent];
+        const grayScale = colors[data.site.settings.theme.grayScale];
 
-        const css = Object.entries(palette).map(([key, value]) => {
+        const css = Object.entries(accent).map(([key, value]) => {
           const rgb = hexToRgb(value); // (is used in the tailwind.config.ts to add colors with alpha values)
 
           return `--neutral-${key}: ${value}; --neutral-rgb-${key}: ${rgb};`;
+        });
+
+        Object.entries(grayScale).forEach(([key, value]) => {
+          const rgb = hexToRgb(value);
+
+          css.push(`--grayscale-${key}: ${value}; --grayscale-rgb-${key}: ${rgb};`);
         });
 
         return (

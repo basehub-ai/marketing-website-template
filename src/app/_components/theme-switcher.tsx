@@ -36,7 +36,7 @@ function SwitchButton({
   return (
     <button
       className={clsx(
-        "flex size-5 items-center justify-center rounded-full p-1 text-text-secondary dark:text-dark-text-secondary",
+        "text-gra flex size-5 items-center justify-center rounded-full p-1 text-grayscale-600 dark:text-grayscale-400",
         theme === selectedTheme &&
           "bg-surface-tertiary text-text-primary dark:bg-dark-surface-secondary dark:text-dark-text-primary",
         "hover:bg-surface-secondary hover:text-text-primary dark:hover:bg-dark-surface-secondary dark:hover:text-dark-text-primary",
