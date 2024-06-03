@@ -34,6 +34,19 @@ const headerLinksFragment = fragmentOn("NavbarItem", {
 
 export type HeaderLiksFragment = fragmentOn.infer<typeof headerLinksFragment>;
 
+export const headerFragment = fragmentOn("Header", {
+  logo: optimizedImageFragment,
+  navbar: {
+    items: headerLinksFragment,
+  },
+  ctaS: {
+    primary: buttonFragment,
+    secondary: buttonFragment,
+  },
+});
+
+export type HeaderFragment = fragmentOn.infer<typeof headerFragment>;
+
 export async function Header() {
   return (
     <Pump
@@ -42,16 +55,7 @@ export async function Header() {
       queries={[
         {
           site: {
-            header: {
-              logo: optimizedImageFragment,
-              navbar: {
-                items: headerLinksFragment,
-              },
-              ctaS: {
-                primary: buttonFragment,
-                secondary: buttonFragment,
-              },
-            },
+            header: headerFragment,
           },
         },
       ]}
@@ -77,8 +81,8 @@ export async function Header() {
                     width={header.logo.width}
                   />
                 </ButtonLink>
-                <DesktopMenu links={header.navbar.items} />
-                <MobileMenu links={header.navbar.items} />
+                <DesktopMenu {...header} />
+                <MobileMenu {...header} />
               </div>
             </div>
           </header>

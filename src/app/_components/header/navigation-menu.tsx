@@ -15,7 +15,7 @@ import {
 import { useSelectedLayoutSegment } from "next/navigation";
 import { ButtonLink } from "@/common/button";
 import { isPageReferenceComponent } from ".basehub/schema";
-import { type HeaderLiksFragment } from ".";
+import type { HeaderFragment, HeaderLiksFragment } from ".";
 import { useToggleState } from "@/hooks/use-toggle-state";
 import { useHasRendered } from "@/hooks/use-has-rendered";
 
@@ -106,28 +106,28 @@ function NavigationMenuLinkWithMenu({ _id, _title, href, sublinks }: HeaderLiksF
   );
 }
 
-export function DesktopMenu({ links }: { links: HeaderLiksFragment[] }) {
+export function DesktopMenu({ navbar, ctaS }: HeaderFragment) {
   return (
     <>
-      <NavigationMenuHeader className="hidden lg:flex" links={links} />
+      <NavigationMenuHeader className="hidden lg:flex" links={navbar.items} />
       <div className="hidden items-center gap-4 justify-self-end lg:flex">
-        <ButtonLink href="/login" intent="secondary">
-          Login
+        <ButtonLink href={ctaS.secondary.href} intent={ctaS.secondary.type}>
+          {ctaS.secondary.label}
         </ButtonLink>
-        <ButtonLink href="/signup" intent="tertiary">
-          Get Started Today
+        <ButtonLink href={ctaS.primary.href} intent={ctaS.primary.type}>
+          {ctaS.primary.label}
         </ButtonLink>
       </div>
     </>
   );
 }
 
-export function MobileMenu({ links }: { links: HeaderLiksFragment[] }) {
+export function MobileMenu({ ctaS, navbar }: HeaderFragment) {
   const { handleToggle, isOn, handleOff } = useToggleState();
   const selectedLayoutSegment = useSelectedLayoutSegment();
 
   const headerLinks = React.useMemo(() => {
-    return links.map((link) => ({
+    return navbar.items.map((link) => ({
       ...link,
       isActive: link.sublinks.items.length
         ? (segment: string) =>
@@ -140,7 +140,7 @@ export function MobileMenu({ links }: { links: HeaderLiksFragment[] }) {
           ? link.href.split("/")[1] === selectedLayoutSegment
           : undefined,
     }));
-  }, [links, selectedLayoutSegment]);
+  }, [navbar, selectedLayoutSegment]);
 
   return (
     <>
@@ -177,11 +177,11 @@ export function MobileMenu({ links }: { links: HeaderLiksFragment[] }) {
                 )}
               </nav>
               <div className="flex items-center justify-start gap-2">
-                <ButtonLink href="/login" intent="secondary">
-                  Login
+                <ButtonLink href={ctaS.secondary.href} intent={ctaS.secondary.type}>
+                  {ctaS.secondary.label}
                 </ButtonLink>
-                <ButtonLink href="/signup" intent="primary">
-                  Get Started Today
+                <ButtonLink href={ctaS.primary.href} intent={ctaS.primary.type}>
+                  {ctaS.primary.label}
                 </ButtonLink>
               </div>
             </div>
