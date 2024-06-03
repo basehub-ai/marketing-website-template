@@ -4,19 +4,19 @@ import Image from "next/image";
 
 import { type AvatarFragment, type AuthorFragment } from "@/lib/basehub/fragments";
 
-import { SimpleTooltip } from "./simple-tooltip";
+import { CustomTooltip } from "./simple-tooltip";
 
 export function Author({ image, _title }: AuthorFragment) {
   return (
-    <SimpleTooltip content={_title} delayDuration={100}>
+    <CustomTooltip content={_title}>
       <Image
         alt={image.alt ?? `Avatar for ${_title}`}
-        className="size-7 rounded-full border-2 border-surface-primary dark:border-dark-surface-primary"
+        className="size-8 rounded-full border-2 border-surface-primary transition-all dark:border-dark-surface-primary"
         height={image.height}
         src={image.url}
         width={image.width}
       />
-    </SimpleTooltip>
+    </CustomTooltip>
   );
 }
 

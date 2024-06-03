@@ -1,5 +1,6 @@
 import clsx from "clsx";
 import React from "react";
+import { TooltipProvider } from "./simple-tooltip";
 
 export function AvatarsGroup({
   className,
@@ -7,8 +8,13 @@ export function AvatarsGroup({
   ...props
 }: React.HTMLAttributes<HTMLImageElement>) {
   return (
-    <div className={clsx("flex -space-x-3 rtl:space-x-reverse", className)} {...props}>
-      {children}
-    </div>
+    <TooltipProvider delayDuration={50}>
+      <div
+        className={clsx("flex -space-x-3 hover:space-x-0.5 rtl:space-x-reverse", className)}
+        {...props}
+      >
+        {children}
+      </div>
+    </TooltipProvider>
   );
 }
