@@ -3,6 +3,7 @@ import { ChevronDownIcon } from "@radix-ui/react-icons";
 import { cva, cx } from "class-variance-authority";
 
 import { fragmentOn } from "basehub";
+import s from "./rich-text.module.scss";
 
 export const richTextClasses = cx(
   "prose prose-zinc max-w-prose text-start dark:prose-invert",
@@ -11,6 +12,7 @@ export const richTextClasses = cx(
   "prose-h2:text-3xl prose-h2:font-medium prose-h2:text-text-primary dark:prose-h2:text-dark-text-primary",
   "prose-h3:text-2xl prose-h3:font-medium prose-h3:text-text-primary dark:prose-h3:text-dark-text-primary",
   "prose-blockquote:border-border prose-blockquote:pl-5 prose-blockquote:text-2xl prose-blockquote:text-text-primary dark:prose-blockquote:border-dark-border dark:prose-blockquote:text-dark-text-primary",
+  s["rich-text"],
 );
 
 export const richTextBaseComponents: RichTextProps["components"] = {
@@ -31,7 +33,7 @@ function Code({
 }) {
   if (isInline) {
     return (
-      <code className="rounded border border-border px-2 py-0.5 text-accent-500 before:[content:none] after:[content:none] dark:border-dark-border dark:bg-dark-surface-secondary">
+      <code className="text-accent-500 rounded border border-border px-2 py-0.5 before:[content:none] after:[content:none] dark:border-dark-border dark:bg-dark-surface-secondary">
         {children}
       </code>
     );
@@ -110,7 +112,7 @@ export function RichTextCalloutComponent({
     default:
       return (
         <article className={$richTextCallout()} id={_title}>
-          <div className="mt-0.5 pr-2 text-accent-500">
+          <div className="text-accent-500 mt-0.5 pr-2">
             <svg
               fill="none"
               height="24"
