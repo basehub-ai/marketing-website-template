@@ -36,7 +36,7 @@ export type TestimonialsSlider = fragmentOn.infer<typeof testimonialsSliderFragm
 export function Testimonials({ heading, testimonialsSliderList }: TestimonialsSlider) {
   return (
     <div className="relative">
-      <span className="z-30 absolute left-0 top-0 h-full bg-gradient-to-r from-surface-primary via-surface-primary to-transparent dark:from-dark-surface-primary dark:via-dark-surface-primary dark:to-transparent md:w-[8vw] lg:w-[5vw]" />
+      <span className="z-40 absolute left-0 top-0 h-full bg-gradient-to-r from-surface-primary via-surface-primary to-transparent dark:from-dark-surface-primary dark:via-dark-surface-primary dark:to-transparent md:w-[8vw] lg:w-[5vw]" />
       <Section>
         <Slider testimonialsSliderList={testimonialsSliderList}>
           <Heading className="self-stretch" {...heading}>

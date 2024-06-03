@@ -70,9 +70,7 @@ const config: Config = {
         DEFAULT: "#14C9A2",
       },
     },
-    zIndex: {
-      modal: "9999",
-    },
+
     fontSize: {
       "2xs": ["11px", { lineHeight: "1.3", letterSpacing: "-0.3px", fontWeight: "300" }],
       xs: ["0.75rem", { lineHeight: "1rem", letterSpacing: "-0.36px", fontWeight: "300" }],
@@ -98,6 +96,9 @@ const config: Config = {
       },
       boxShadow: {
         neon: "0 0 2px 2px var(--tw-shadow), 0 0 6px 3px var(--tw-ring-offset-shadow), 0 0 8px 4px var(--tw-ring-shadow)",
+      },
+      zIndex: {
+        modal: "9999",
       },
       keyframes: {
         enterFromRight: {

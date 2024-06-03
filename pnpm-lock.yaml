@@ -47,6 +47,9 @@ dependencies:
   embla-carousel-react:
     specifier: ^8.0.4
     version: 8.1.3(react@18.3.1)
+  embla-carousel-wheel-gestures:
+    specifier: ^8.0.1
+    version: 8.0.1(embla-carousel@8.1.3)
   geist:
     specifier: ^1.3.0
     version: 1.3.0(next@14.2.3)
@@ -2626,6 +2629,16 @@ packages:
       embla-carousel: 8.1.3
     dependencies:
       embla-carousel: 8.1.3
+    dev: false
+
+  /embla-carousel-wheel-gestures@8.0.1(embla-carousel@8.1.3):
+    resolution: {integrity: sha512-LMAnruDqDmsjL6UoQD65aLotpmfO49Fsr3H0bMi7I+BH6jbv9OJiE61kN56daKsVtCQEt0SU1MrJslbhtgF3yQ==}
+    engines: {node: '>=10'}
+    peerDependencies:
+      embla-carousel: ^8.0.0 || ~8.0.0-rc03
+    dependencies:
+      embla-carousel: 8.1.3
+      wheel-gestures: 2.2.5
     dev: false
 
   /embla-carousel@8.1.3:
@@ -6132,6 +6145,11 @@ packages:
     dependencies:
       '@types/unist': 3.0.2
       unist-util-stringify-position: 4.0.0
+    dev: false
+
+  /wheel-gestures@2.2.5:
+    resolution: {integrity: sha512-01BlXRjBVt5Gy0VH2rRqMeccHruTGq2Gd1fx0UqCPN8KDeDCmlTXsRGc/hXJk6W+wnO9CNJp2xfntMNRArBxKQ==}
+    engines: {node: '>=10'}
     dev: false
 
   /which-boxed-primitive@1.0.2:

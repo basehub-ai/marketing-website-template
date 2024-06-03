@@ -65,7 +65,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <Providers>
           <Header />
           <main className="min-h-[calc(100svh-var(--header-height))]">{children}</main>
-          <ThemeSwitcher />
           <Newsletter />
           <Footer />
         </Providers>
