@@ -74,16 +74,16 @@ export function ChangelogList({ changelogPosts }: { changelogPosts: ChangelogLis
             >
               <div
                 className={clsx(
-                  "absolute -left-[3.5px] top-0 size-2 transform rounded-full bg-text-tertiary shadow-neon shadow-text-tertiary/10 transition-all dark:bg-dark-text-tertiary dark:shadow-dark-text-tertiary/20",
+                  "absolute -left-[3.5px] top-0 size-2 transform rounded-full bg-grayscale-400 shadow-neon shadow-grayscale-400/10 transition-all dark:bg-grayscale-600 dark:shadow-grayscale-600/20",
                   {
-                    "!bg-accent-500 !shadow-accent-500/10": post._id === activePostId,
+                    "!bg-accent-500 !shadow-accent-500/10": activeIdx >= idx,
                     "delay-500": prevPostIdx === activeIdx - 1,
                   },
                 )}
               />
               <div
                 className={clsx(
-                  "!bg-accent-500 !shadow-accent-500/10 absolute -left-0 top-0 z-10 h-full w-px origin-top scale-y-0 transform-gpu rounded-full transition-transform duration-500 group-last:hidden",
+                  "absolute -left-0 top-0 z-10 h-full w-px origin-top scale-y-0 transform-gpu rounded-full !bg-accent-500 !shadow-accent-500/10 transition-transform duration-500 group-last:hidden",
                   activeIdx - 1 === idx && "scale-y-100",
                   activeIdx > idx && "scale-y-100 delay-150",
                 )}

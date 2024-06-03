@@ -45,8 +45,6 @@ const config: Config = {
       dark: {
         text: {
           primary: "#FAFAFA",
-          secondary: "#A1A1AA",
-          tertiary: "#787882",
         },
         surface: {
           primary: "rgb(var(--grayscale-rgb-950) / <alpha-value>)",
@@ -54,7 +52,7 @@ const config: Config = {
           tertiary: "rgb(var(--grayscale-rgb-800) / <alpha-value>)",
         },
         border: {
-          DEFAULT: "#252528",
+          DEFAULT: "rgb(var(--grayscale-rgb-700) / <alpha-value>)",
         },
         control: {
           DEFAULT: "rgb(var(--accent-rgb-500) / <alpha-value>)",
@@ -62,8 +60,6 @@ const config: Config = {
       },
       text: {
         primary: "#09090B",
-        secondary: "#52525B",
-        tertiary: "#787882",
       },
       surface: {
         primary: "rgb(var(--grayscale-rgb-50) / <alpha-value>)",
@@ -71,7 +67,7 @@ const config: Config = {
         tertiary: "rgb(var(--grayscale-rgb-200) / <alpha-value>)",
       },
       border: {
-        DEFAULT: "#D4D4D8",
+        DEFAULT: "rgb(var(--grayscale-rgb-300) / <alpha-value>)",
       },
       control: {
         DEFAULT: "rgb(var(--accent-rgb-500) / <alpha-value>)",
