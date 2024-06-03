@@ -44,7 +44,7 @@ const config: Config = {
           DEFAULT: "#252528",
         },
         control: {
-          DEFAULT: "#FF6C02",
+          DEFAULT: "var(--neutral-500)",
         },
       },
       text: {
@@ -61,7 +61,7 @@ const config: Config = {
         DEFAULT: "#D4D4D8",
       },
       control: {
-        DEFAULT: "#FF6C02",
+        DEFAULT: "var(--neutral-400)",
       },
       error: {
         DEFAULT: "#FF453A",
