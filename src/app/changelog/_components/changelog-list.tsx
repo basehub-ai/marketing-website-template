@@ -3,6 +3,7 @@ import React from "react";
 import { ArrowRightIcon } from "@radix-ui/react-icons";
 import Image from "next/image";
 import clsx from "clsx";
+import Link from "next/link";
 
 import { ButtonLink } from "@/common/button";
 import { AvatarsGroup } from "@/common/avatars-group";
@@ -82,7 +83,7 @@ export function ChangelogList({ changelogPosts }: { changelogPosts: ChangelogLis
               />
               <div
                 className={clsx(
-                  "z-10 absolute -left-0 top-0 h-full w-px origin-top scale-y-0 transform-gpu rounded-full !bg-neutral-500 !shadow-neutral-500/10 transition-transform duration-500 group-last:hidden",
+                  "absolute -left-0 top-0 z-10 h-full w-px origin-top scale-y-0 transform-gpu rounded-full !bg-neutral-500 !shadow-neutral-500/10 transition-transform duration-500 group-last:hidden",
                   activeIdx - 1 === idx && "scale-y-100",
                   activeIdx > idx && "scale-y-100 delay-150",
                 )}
@@ -98,7 +99,9 @@ export function ChangelogList({ changelogPosts }: { changelogPosts: ChangelogLis
               width={647}
             />
             <div className="flex flex-col gap-1">
-              <h2 className="text-xl font-medium">{post._title}</h2>
+              <Link href={`/changelog/${post._slug}`}>
+                <h2 className="text-xl font-medium">{post._title}</h2>
+              </Link>
               <p className="text-sm text-text-secondary dark:text-dark-text-secondary md:text-base">
                 {post.excerpt}
               </p>
