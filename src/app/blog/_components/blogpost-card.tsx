@@ -81,11 +81,11 @@ export function BlogpostCard({ type = "list", className, ...post }: BlogPostCard
           )}
           href={`/blog/${post._slug}`}
         >
-          <figure className="p-1">
+          <figure className="p-2">
             <Image
               alt={post.image.url}
               blurDataURL={post.image.url}
-              className="h-full max-h-[200px] flex-1 rounded-lg object-cover md:!max-h-full"
+              className="h-full max-h-[200px] flex-1 rounded object-cover md:!max-h-full"
               height={post.image.height}
               src={post.image.url}
               style={{ aspectRatio: post.image.aspectRatio }}
