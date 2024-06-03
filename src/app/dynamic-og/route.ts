@@ -43,11 +43,7 @@ export const GET = async (request: Request) => {
     accentColor,
     logo,
     subtitle,
-    theme: forcedTheme
-      ? (forcedTheme as "light" | "dark")
-      : theme !== "dark" && theme !== "light"
-        ? "light"
-        : theme,
+    theme: forcedTheme ? (forcedTheme as "light" | "dark") : theme,
   });
 };
 
@@ -78,7 +74,7 @@ const getChangelogOgData = async (changelogPostId: string) => {
           titleTemplate: true,
         },
         theme: {
-          palette: true,
+          accent: true,
           preferedTheme: true,
         },
       },
@@ -88,14 +84,14 @@ const getChangelogOgData = async (changelogPostId: string) => {
   if (!data.site.changelog.posts.items.length) return null;
 
   return {
-    title: `${data.site.changelog.posts.items[0]._title} ${data.site.settings.metadata.titleTemplate ?? ""}`,
+    title: data.site.changelog.posts.items[0]._title,
     subtitle: data.site.changelog.posts.items[0].excerpt,
     theme: data.site.settings.theme.preferedTheme,
     logo: {
       url: data.site.settings.logoLite.url,
       alt: data.site.settings.logoLite.alt,
     },
-    accentColor: data.site.settings.theme.palette,
+    accentColor: data.site.settings.theme.accent,
   };
 };
 
@@ -115,7 +111,7 @@ const getBlogpostData = async (blogpostId: string) => {
           },
           items: {
             _title: true,
-            introduction: true,
+            description: true,
             authors: {
               _title: true,
             },
@@ -129,7 +125,7 @@ const getBlogpostData = async (blogpostId: string) => {
           titleTemplate: true,
         },
         theme: {
-          palette: true,
+          accent: true,
           preferedTheme: true,
         },
       },
@@ -139,13 +135,13 @@ const getBlogpostData = async (blogpostId: string) => {
   if (!data.site.blog.posts.items.length) return null;
 
   return {
-    title: `${data.site.blog.posts.items[0]._title} ${data.site.settings.metadata.titleTemplate ?? ""}`,
-    subtitle: data.site.blog.posts.items[0].introduction,
+    title: data.site.blog.posts.items[0]._title,
+    subtitle: data.site.blog.posts.items[0].description,
     logo: {
       url: data.site.settings.logoLite.url,
       alt: data.site.settings.logoLite.alt,
     },
-    accentColor: data.site.settings.theme.palette,
+    accentColor: data.site.settings.theme.accent,
     theme: data.site.settings.theme.preferedTheme,
   };
 };
