@@ -63,7 +63,7 @@ function PricingCard(item: PricingPlanItem["plan"]) {
     >
       <header className="flex flex-col gap-4 px-8 pb-0 pt-10">
         {item.isMostPopular ? (
-          <span className="tranform bg-primary absolute left-1/2 top-4 -translate-x-1/2 text-center text-2xs font-medium text-neutral-500 lg:text-xs">
+          <span className="tranform bg-primary absolute left-1/2 top-4 -translate-x-1/2 text-center text-2xs font-medium text-accent-500 lg:text-xs">
             Most popular
           </span>
         ) : null}
@@ -90,7 +90,7 @@ function PricingCard(item: PricingPlanItem["plan"]) {
       </div>
       <footer className="relative flex w-full items-center self-stretch p-8 pt-0">
         {item.isMostPopular ? (
-          <Shadow className="pointer-events-none absolute left-0 top-0 h-full w-full origin-bottom scale-[2.0] text-neutral-500" />
+          <Shadow className="pointer-events-none absolute left-0 top-0 h-full w-full origin-bottom scale-[2.0] text-accent-500" />
         ) : null}
         <ButtonLink
           className="z-10 w-full"

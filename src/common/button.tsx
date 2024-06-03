@@ -7,7 +7,7 @@ export const $button = cva(
     variants: {
       intent: {
         primary:
-          "bg-neutral-500 text-neutral-50 hover:bg-neutral-600 hover:text-neutral-50 border-neutral-600",
+          "bg-accent-500 text-accent-50 hover:bg-accent-600 hover:text-accent-50 border-accent-600",
         secondary:
           "bg-surface-secondary text-text-primary border-border border dark:bg-dark-surface-secondary dark:text-dark-text-primary dark:border-dark-border hover:bg-surface-tertiary dark:hover:bg-dark-surface-tertiary",
         tertiary:

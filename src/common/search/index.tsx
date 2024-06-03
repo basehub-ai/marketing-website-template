@@ -51,7 +51,7 @@ export function SearchContent({ _searchKey }: { _searchKey: string }) {
           {/* eslint-disable-next-line jsx-a11y/label-has-associated-control */}
           <label
             className={clsx(
-              "ml-auto flex  w-full items-center gap-x-1 rounded-full border border-border px-3.5 py-2.5 focus-within:!border-neutral-500 dark:border-dark-border md:max-w-[280px]",
+              "focus-within:!border-accent-500 ml-auto  flex w-full items-center gap-x-1 rounded-full border border-border px-3.5 py-2.5 dark:border-dark-border md:max-w-[280px]",
               search.query || "text-grayscale-500 opacity-70 dark:text-grayscale-500",
             )}
           >
@@ -148,7 +148,7 @@ function HitList({ hits }: { hits: Hit[] }) {
                     "flex grid-rows-[auto_1fr_auto] flex-col gap-y-0.5 rounded-md px-4 py-3 transition-colors",
                     "data-[selected='true']:bg-surface-tertiary",
                     "dark:data-[selected='true']:bg-dark-surface-tertiary",
-                    "[&_mark]:bg-transparent [&_mark]:text-neutral-500",
+                    "[&_mark]:text-accent-500 [&_mark]:bg-transparent",
                   )}
                   href={pathname}
                 >
@@ -196,9 +196,7 @@ function HitTitleContainer({ children }: React.PropsWithChildren) {
 }
 
 function HitBodyContainer({ children }: React.PropsWithChildren) {
-  return (
-    <p className="truncate text-sm text-grayscale-500 dark:text-grayscale-500">{children}</p>
-  );
+  return <p className="truncate text-sm text-grayscale-500 dark:text-grayscale-500">{children}</p>;
 }
 
 function CustomAvatarHit({

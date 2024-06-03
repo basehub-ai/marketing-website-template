@@ -78,7 +78,7 @@ export function TestimonialsGridClient({
                       </p>
                     </div>
                     <div className="px-4">
-                      <figure className="aspect-square rounded-full bg-neutral-200 p-0.5">
+                      <figure className="aspect-square rounded-full bg-accent-200 p-0.5">
                         <img
                           alt={author.image.alt ?? author._title}
                           className="size-8 rounded-full"

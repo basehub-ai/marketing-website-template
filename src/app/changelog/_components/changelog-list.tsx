@@ -60,8 +60,8 @@ export function ChangelogList({ changelogPosts }: { changelogPosts: ChangelogLis
           <div className="relative flex w-[110px] shrink-0 items-start justify-between">
             <p
               className={clsx(
-                "text-grayscale-500 dark:text-grayscale-500 relative bottom-1.5 text-sm",
-                post._id === activePostId && "!text-neutral-500",
+                "relative bottom-1.5 text-sm text-grayscale-500 dark:text-grayscale-500",
+                post._id === activePostId && "!text-accent-500",
                 prevPostIdx === activeIdx - 1 && "delay-500",
               )}
             >
@@ -76,14 +76,14 @@ export function ChangelogList({ changelogPosts }: { changelogPosts: ChangelogLis
                 className={clsx(
                   "absolute -left-[3.5px] top-0 size-2 transform rounded-full bg-text-tertiary shadow-neon shadow-text-tertiary/10 transition-all dark:bg-dark-text-tertiary dark:shadow-dark-text-tertiary/20",
                   {
-                    "!bg-neutral-500 !shadow-neutral-500/10": post._id === activePostId,
+                    "!bg-accent-500 !shadow-accent-500/10": post._id === activePostId,
                     "delay-500": prevPostIdx === activeIdx - 1,
                   },
                 )}
               />
               <div
                 className={clsx(
-                  "absolute -left-0 top-0 z-10 h-full w-px origin-top scale-y-0 transform-gpu rounded-full !bg-neutral-500 !shadow-neutral-500/10 transition-transform duration-500 group-last:hidden",
+                  "!bg-accent-500 !shadow-accent-500/10 absolute -left-0 top-0 z-10 h-full w-px origin-top scale-y-0 transform-gpu rounded-full transition-transform duration-500 group-last:hidden",
                   activeIdx - 1 === idx && "scale-y-100",
                   activeIdx > idx && "scale-y-100 delay-150",
                 )}
@@ -102,7 +102,7 @@ export function ChangelogList({ changelogPosts }: { changelogPosts: ChangelogLis
               <Link href={`/changelog/${post._slug}`}>
                 <h2 className="text-xl font-medium">{post._title}</h2>
               </Link>
-              <p className="text-grayscale-600 dark:text-grayscale-400 text-sm md:text-base">
+              <p className="text-sm text-grayscale-600 dark:text-grayscale-400 md:text-base">
                 {post.excerpt}
               </p>
             </div>
@@ -127,7 +127,7 @@ export function ChangelogList({ changelogPosts }: { changelogPosts: ChangelogLis
                     src={post.authors[0].image.url}
                     width={24}
                   />
-                  <p className="text-grayscale-500 dark:text-grayscale-500 text-sm">
+                  <p className="text-sm text-grayscale-500 dark:text-grayscale-500">
                     {post.authors[0]._title}
                   </p>
                 </div>

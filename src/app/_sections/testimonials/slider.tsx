@@ -102,7 +102,7 @@ export function Slider({
               key={snap}
               className={clsx(
                 "group flex items-center justify-center rounded-full p-1",
-                index === selectedIndex ? "bg-neutral-500/50" : "",
+                index === selectedIndex ? "bg-accent-500/50" : "",
               )}
               onClick={() => onDotButtonClick(index)}
             >
@@ -110,7 +110,7 @@ export function Slider({
                 className={clsx(
                   "size-2 rounded-full",
                   index === selectedIndex
-                    ? "bg-neutral-500"
+                    ? "bg-accent-500"
                     : "bg-surface-tertiary dark:bg-dark-surface-secondary",
                 )}
               />
@@ -144,7 +144,7 @@ export function VainillaCard({
           />
           <div className="flex flex-1 flex-col">
             <h5 className="text-base font-medium md:text-lg">{author._title}</h5>
-            <p className="text-grayscale-500 dark:text-grayscale-500 text-pretty text-sm md:text-base">
+            <p className="text-pretty text-sm text-grayscale-500 dark:text-grayscale-500 md:text-base">
               {author._title}, {author.company._title}
             </p>
           </div>

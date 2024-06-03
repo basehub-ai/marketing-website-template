@@ -24,7 +24,7 @@ export function BaseHubThemeProvider() {
         const css = Object.entries(accent).map(([key, value]) => {
           const rgb = hexToRgb(value); // (is used in the tailwind.config.ts to add colors with alpha values)
 
-          return `--neutral-${key}: ${value}; --neutral-rgb-${key}: ${rgb};`;
+          return `--accent-${key}: ${value}; --accent-rgb-${key}: ${rgb};`;
         });
 
         Object.entries(grayScale).forEach(([key, value]) => {

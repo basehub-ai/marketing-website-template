@@ -42,7 +42,7 @@ export function BlogpostCard({ type = "list", className, ...post }: BlogPostCard
       return (
         <Link
           key={post._id}
-          className="outline-none ring-neutral-500 focus-visible:ring"
+          className="outline-none ring-accent-500 focus-visible:ring"
           href={`/blog/${post._slug}`}
         >
           <article
@@ -76,7 +76,7 @@ export function BlogpostCard({ type = "list", className, ...post }: BlogPostCard
             "border-border bg-surface-secondary text-grayscale-600 hover:brightness-90 dark:border-dark-border dark:bg-dark-surface-secondary dark:text-grayscale-400 dark:hover:brightness-90",
             "md:last:col-span-2 md:last:flex-row",
             "xl:flex-row xl:last:col-span-1 xl:first-of-type:col-span-1 xl:first-of-type:row-span-2 xl:first-of-type:flex-col",
-            "outline-none focus-visible:ring focus-visible:ring-neutral-500",
+            "outline-none focus-visible:ring focus-visible:ring-accent-500",
             className,
           )}
           href={`/blog/${post._slug}`}

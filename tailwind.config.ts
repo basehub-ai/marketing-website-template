@@ -16,18 +16,18 @@ const config: Config = {
       black: "#000",
       white: "#fff",
       transparent: "transparent",
-      neutral: {
-        50: "rgb(var(--neutral-rgb-50) / <alpha-value>)",
-        100: "rgb(var(--neutral-rgb-100) / <alpha-value>)",
-        200: "rgb(var(--neutral-rgb-200) / <alpha-value>)",
-        300: "rgb(var(--neutral-rgb-300) / <alpha-value>)",
-        400: "rgb(var(--neutral-rgb-400) / <alpha-value>)",
-        500: "rgb(var(--neutral-rgb-500) / <alpha-value>)",
-        600: "rgb(var(--neutral-rgb-600) / <alpha-value>)",
-        700: "rgb(var(--neutral-rgb-700) / <alpha-value>)",
-        800: "rgb(var(--neutral-rgb-800) / <alpha-value>)",
-        900: "rgb(var(--neutral-rgb-900) / <alpha-value>)",
-        950: "rgb(var(--neutral-rgb-950) / <alpha-value>)",
+      accent: {
+        50: "rgb(var(--accent-rgb-50) / <alpha-value>)",
+        100: "rgb(var(--accent-rgb-100) / <alpha-value>)",
+        200: "rgb(var(--accent-rgb-200) / <alpha-value>)",
+        300: "rgb(var(--accent-rgb-300) / <alpha-value>)",
+        400: "rgb(var(--accent-rgb-400) / <alpha-value>)",
+        500: "rgb(var(--accent-rgb-500) / <alpha-value>)",
+        600: "rgb(var(--accent-rgb-600) / <alpha-value>)",
+        700: "rgb(var(--accent-rgb-700) / <alpha-value>)",
+        800: "rgb(var(--accent-rgb-800) / <alpha-value>)",
+        900: "rgb(var(--accent-rgb-900) / <alpha-value>)",
+        950: "rgb(var(--accent-rgb-950) / <alpha-value>)",
       },
       grayscale: {
         50: "rgb(var(--grayscale-rgb-50) / <alpha-value>)",
@@ -57,7 +57,7 @@ const config: Config = {
           DEFAULT: "#252528",
         },
         control: {
-          DEFAULT: "var(--neutral-500)",
+          DEFAULT: "rgb(var(--accent-rgb-500) / <alpha-value>)",
         },
       },
       text: {
@@ -74,7 +74,7 @@ const config: Config = {
         DEFAULT: "#D4D4D8",
       },
       control: {
-        DEFAULT: "var(--neutral-400)",
+        DEFAULT: "rgb(var(--accent-rgb-500) / <alpha-value>)",
       },
       error: {
         DEFAULT: "#FF453A",

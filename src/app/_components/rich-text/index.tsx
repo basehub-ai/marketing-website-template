@@ -31,7 +31,7 @@ function Code({
 }) {
   if (isInline) {
     return (
-      <code className="rounded border border-border px-2 py-0.5 text-neutral-500 before:[content:none] after:[content:none] dark:border-dark-border dark:bg-dark-surface-secondary">
+      <code className="rounded border border-border px-2 py-0.5 text-accent-500 before:[content:none] after:[content:none] dark:border-dark-border dark:bg-dark-surface-secondary">
         {children}
       </code>
     );
@@ -79,7 +79,7 @@ export const richTextCalloutComponentFragment = fragmentOn("RichTextCalloutCompo
 type RichTextCalloutComponentFragment = fragmentOn.infer<typeof richTextCalloutComponentFragment>;
 
 const $richTextCallout = cva(
-  "gap-2 border border-neutral-500/40 bg-neutral-500/5 p-4 pl-3 rounded-xl",
+  "gap-2 border border-accent-500/40 bg-accent-500/5 p-4 pl-3 rounded-xl",
   {
     variants: {
       size: {
@@ -110,7 +110,7 @@ export function RichTextCalloutComponent({
     default:
       return (
         <article className={$richTextCallout()} id={_title}>
-          <div className="mt-0.5 pr-2 text-neutral-500">
+          <div className="mt-0.5 pr-2 text-accent-500">
             <svg
               fill="none"
               height="24"
