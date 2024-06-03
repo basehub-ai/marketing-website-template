@@ -6,18 +6,21 @@ import { fragmentOn } from "basehub";
 import s from "./rich-text.module.scss";
 
 export const richTextClasses = cx(
-  "prose prose-zinc max-w-prose text-start dark:prose-invert",
+  "prose prose-zinc max-w-prose text-start dark:prose-invert font-normal text-base",
   "prose-p:text-text-secondary dark:prose-p:text-dark-text-secondary",
   "prose-h1:text-4xl prose-h1:font-medium prose-h1:text-text-primary dark:prose-h1:text-dark-text-primary",
   "prose-h2:text-3xl prose-h2:font-medium prose-h2:text-text-primary dark:prose-h2:text-dark-text-primary",
   "prose-h3:text-2xl prose-h3:font-medium prose-h3:text-text-primary dark:prose-h3:text-dark-text-primary",
   "prose-blockquote:border-border prose-blockquote:pl-5 prose-blockquote:text-2xl prose-blockquote:text-text-primary dark:prose-blockquote:border-dark-border dark:prose-blockquote:text-dark-text-primary",
+  "prose-h4:text-2xl prose-h4:font-medium",
+  "prose-strong:font-medium ",
   s["rich-text"],
 );
 
 export const richTextBaseComponents: RichTextProps["components"] = {
   code: Code,
   pre: ({ children }) => <>{children}</>,
+  b: ({ children }) => <strong>{children}</strong>,
 };
 
 function Code({
@@ -59,7 +62,7 @@ export function FaqRichtextComponent({ answer, _title }: FaqItemComponentRichTex
         </span>
         {_title}
       </summary>
-      <p className="not-prose pb-3 pl-10 pr-3">{answer}</p>
+      <p className="not-prose pb-3 pl-14 pr-3">{answer}</p>
     </details>
   );
 }
