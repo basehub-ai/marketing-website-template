@@ -52,8 +52,8 @@ export function TestimonialsGridClient({ quotes }: { quotes: QuoteFragment[] }) 
                   {author.role}, {author.company._title}
                 </p>
               </div>
-              <div className="px-4">
-                <figure className="aspect-square rounded-full bg-accent-200 p-0.5">
+              <div className="pl-4">
+                <figure className="aspect-square size-8 rounded-full">
                   <img
                     alt={author.image.alt ?? author._title}
                     className="size-8 rounded-full"
