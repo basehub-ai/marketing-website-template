@@ -4,25 +4,22 @@ import React from "react";
 import clsx from "clsx";
 
 import { Button } from "@/common/button";
-
-import { type TestimonialsList } from ".";
+import { type QuoteFragment } from "@/lib/basehub/fragments";
 
 const MAX_TO_SHOW = 9;
 
 export function TestimonialsGridClient({
   testimonialsList,
 }: {
-  testimonialsList: TestimonialsList;
+  testimonialsList: QuoteFragment[];
 }) {
   const [showMore, setShowMore] = React.useState(false);
 
   const filteredItems = React.useMemo(() => {
-    const itemsToDisplay = showMore
-      ? testimonialsList.items
-      : testimonialsList.items.slice(0, MAX_TO_SHOW);
+    const itemsToDisplay = showMore ? testimonialsList : testimonialsList.slice(0, MAX_TO_SHOW);
 
     // chunk it into 3 columns
-    const chunks = Array.from({ length: 3 }, () => []) as TestimonialsList["items"][number][][];
+    const chunks = Array.from({ length: 3 }, () => []) as QuoteFragment[][];
 
     const chunkSize = Math.floor(itemsToDisplay.length / 3);
     const itemsResting = itemsToDisplay.length % 3;
@@ -94,7 +91,7 @@ export function TestimonialsGridClient({
         ))}
       </div>
 
-      {testimonialsList.items.length > MAX_TO_SHOW && (
+      {testimonialsList.length > MAX_TO_SHOW && (
         <div className="flex justify-center">
           <Button intent="secondary" onClick={() => setShowMore(!showMore)}>
             {showMore ? "Show less" : "Show more"}

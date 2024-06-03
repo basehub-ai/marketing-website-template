@@ -13,7 +13,7 @@ export function Slider({
   testimonialsSliderList,
   children,
 }: {
-  testimonialsSliderList: TestimonialsSlider["testimonialsSliderList"];
+  testimonialsSliderList: TestimonialsSlider["quotes"];
   children: React.ReactNode;
 }) {
   const [emblaRef, emblaApi] = useEmblaCarousel(
@@ -92,7 +92,7 @@ export function Slider({
       </div>
       <div ref={emblaRef} className="relative">
         <div className="relative flex h-full w-full">
-          {testimonialsSliderList.items.map((item) => (
+          {testimonialsSliderList.map((item) => (
             <TesimonialCard key={item._id} {...item} />
           ))}
         </div>
@@ -122,10 +122,7 @@ export function Slider({
   );
 }
 
-export function VainillaCard({
-  quote,
-  author,
-}: TestimonialsSlider["testimonialsSliderList"]["items"][0]) {
+export function VainillaCard({ quote, author }: TestimonialsSlider["quotes"][0]) {
   return (
     <article className="embla__slide ml-20 flex w-full min-w-0 max-w-full shrink-0 grow-0 basis-[600px] transform touch-pan-y touch-pinch-zoom select-none flex-col rounded-xl border border-border [backface-visibility:hidden] last:!visible dark:border-dark-border">
       <div className="flex flex-1 items-start border-b border-border px-8 py-7 dark:border-dark-border">

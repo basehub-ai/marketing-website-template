@@ -17,6 +17,7 @@ import { ButtonLink } from "@/common/button";
 import { isPageReferenceComponent } from ".basehub/schema";
 import { type HeaderLiksFragment } from ".";
 import { useToggleState } from "@/hooks/use-toggle-state";
+import { useHasRendered } from "@/hooks/use-has-rendered";
 
 export function NavigationMenuHeader({
   links,
@@ -205,26 +206,23 @@ function ItemWithSublinks({
   onClick: () => void;
 }) {
   const { isOn, handleOff, handleOn } = useToggleState(false);
+  const hasRendered = useHasRendered();
 
   const listRef = React.useRef<HTMLUListElement>(null);
-  const prevIsOn = React.useRef(isOn);
 
   React.useEffect(() => {
-    // made a js animation to show the sublinks
-    if (prevIsOn.current !== isOn) {
-      prevIsOn.current = isOn;
-    } else {
-      return;
-    }
+    if (!hasRendered) return;
+
     if (isOn) {
-    } else {
       listRef.current?.animate([{ transform: "scaleY(1)" }, { transform: "scaleY(0)" }], {
         duration: 200,
         easing: "ease-in-out",
         fill: "forwards",
       });
+    } else {
     }
-  }, [isOn]);
+  }, [isOn, hasRendered]);
+
   const handleToggle = () => {
     if (isOn) {
       handleOff();
@@ -244,7 +242,7 @@ function ItemWithSublinks({
         {_title}
         <ChevronDownIcon
           className={clsx(
-            "text-grayscale-500 dark:text-grayscale-500 h-min transition-transform",
+            "h-min text-grayscale-500 transition-transform dark:text-grayscale-500",
             isOn ? "rotate-180 transform" : "rotate-0 transform",
           )}
         />
@@ -252,7 +250,9 @@ function ItemWithSublinks({
 
       <ul
         ref={listRef}
-        className={clsx("flex origin-top transform-gpu flex-col gap-2 pl-4 transition-transform")}
+        className={clsx(
+          "flex origin-top scale-y-0 transform-gpu flex-col gap-2 pl-4 transition-transform",
+        )}
       >
         {sublinks.map((props) => {
           const { href, _title } = isPageReferenceComponent(props.link)
@@ -268,7 +268,7 @@ function ItemWithSublinks({
           return (
             <li key={_id}>
               <Link
-                className="text-grayscale-500 dark:text-grayscale-500 flex items-center gap-2 rounded-md px-3 py-1.5 hover:bg-surface-tertiary dark:hover:bg-dark-surface-tertiary"
+                className="flex items-center gap-2 rounded-md px-3 py-1.5 text-grayscale-500 hover:bg-surface-tertiary dark:text-grayscale-500 dark:hover:bg-dark-surface-tertiary"
                 href={href}
                 onClick={onClick}
               >
