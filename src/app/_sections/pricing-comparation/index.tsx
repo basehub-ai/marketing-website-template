@@ -25,7 +25,7 @@ export function PricingTable(props: PricingTableProps) {
       </Heading>
       {/* Desktop pricing */}
       <table className="hidden w-full table-fixed lg:table">
-        <thead className="sticky top-[--header-height] border bg-surface-primary dark:bg-dark-surface-primary">
+        <thead className="sticky top-[--header-height] bg-surface-primary dark:bg-dark-surface-primary">
           <tr>
             <PlanHeader plan={null} />
             {plans.map((plan) => (
