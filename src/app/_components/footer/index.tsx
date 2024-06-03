@@ -91,33 +91,28 @@ export async function Footer() {
                   @ 2024 Acme Corp. All rights reserved.
                 </p>
               </div>
-              <div className="col-span-2 col-start-1 row-start-3 w-full gap-3 sm:col-span-1 sm:col-start-3 sm:row-start-2 sm:justify-self-end">
-                <div className="flex items-center justify-between gap-2 sm:justify-normal">
-                  <ul className="flex items-center gap-3.5">
-                    {footer.socialLinks.map((link) => {
-                      return (
-                        <li key={link._title} className="shrink-0">
-                          <Link
-                            className="aspect-square hover:brightness-75"
-                            href={link.url}
-                            target="_blank"
-                          >
-                            <Image
-                              alt={link._title}
-                              height={24}
-                              src={link.icon?.url ?? ""}
-                              width={24}
-                            />
-                          </Link>
-                        </li>
-                      );
-                    })}
-                  </ul>
-                  {footer.poweredByBaseHub ? (
-                    <PoweredByBasehub className="shrink-0 sm:block" />
-                  ) : null}
-                </div>
-              </div>
+              <ul className="col-span-2 col-start-1 row-start-3 flex w-full items-center gap-x-3.5 gap-y-4 sm:col-span-1 sm:col-start-3 sm:row-start-2 sm:w-auto sm:flex-wrap sm:justify-self-end">
+                {footer.socialLinks.map((link) => {
+                  return (
+                    <li key={link._title} className="shrink-0 first:sm:ml-auto">
+                      <Link
+                        className="aspect-square hover:brightness-75"
+                        href={link.url}
+                        target="_blank"
+                      >
+                        <Image
+                          alt={link._title}
+                          height={24}
+                          src={link.icon?.url ?? ""}
+                          width={24}
+                        />
+                      </Link>
+                    </li>
+                  );
+                })}
+
+                {footer.poweredByBaseHub ? <PoweredByBasehub className="ml-auto shrink-0" /> : null}
+              </ul>
             </div>
           </footer>
         );
