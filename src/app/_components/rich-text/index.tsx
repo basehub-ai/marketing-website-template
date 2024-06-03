@@ -2,7 +2,7 @@ import { RichText, type RichTextProps } from "basehub/react-rich-text";
 import { ChevronDownIcon } from "@radix-ui/react-icons";
 import { cva, cx } from "class-variance-authority";
 
-import { fragmentOn } from ".basehub/schema";
+import { fragmentOn } from "basehub";
 
 export const richTextClasses = cx(
   "prose prose-zinc max-w-prose text-start dark:prose-invert",

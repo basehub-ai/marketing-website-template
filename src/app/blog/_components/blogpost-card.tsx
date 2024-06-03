@@ -2,7 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import clsx from "clsx";
 
-import { fragmentOn } from ".basehub/schema";
+import { fragmentOn } from "basehub";
 import { AvatarsGroup } from "@/common/avatars-group";
 import { Author } from "@/common/avatar";
 import { authorFragment } from "@/lib/basehub/fragments";

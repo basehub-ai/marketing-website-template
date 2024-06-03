@@ -1,4 +1,4 @@
-import { fragmentOn } from ".basehub/schema";
+import { fragmentOn } from "basehub";
 import { headingFragment } from "@/lib/basehub/fragments";
 
 export const planFragment = fragmentOn("PricingPlansItem", {

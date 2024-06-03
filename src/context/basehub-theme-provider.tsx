@@ -1,8 +1,8 @@
 import { draftMode } from "next/headers";
 
-import { Pump } from ".basehub/react-pump";
+import { Pump } from "basehub/react-pump";
 import { hexToRgb } from "@/utils/colors";
-import { fragmentOn } from ".basehub/schema";
+import { fragmentOn } from "basehub";
 
 export const themeFragment = fragmentOn("Theme", { palette: true });
 

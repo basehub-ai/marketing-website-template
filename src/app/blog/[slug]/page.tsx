@@ -4,7 +4,7 @@ import Image from "next/image";
 import { RichText } from "basehub/react-rich-text";
 import { type Metadata, type ResolvingMetadata } from "next";
 
-import { Pump } from ".basehub/react-pump";
+import { Pump } from "basehub/react-pump";
 import { Section } from "@/common/layout";
 import { authorFragment } from "@/lib/basehub/fragments";
 import { Heading } from "@/common/heading";
@@ -18,7 +18,7 @@ import {
   richTextClasses,
 } from "@/app/_components/rich-text";
 import { CodeSnippet, codeSnippetFragment } from "@/app/_components/code-snippet";
-import { basehub } from ".basehub/index";
+import { basehub } from "basehub/index";
 
 export const dynamic = "force-static";
 

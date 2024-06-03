@@ -3,7 +3,7 @@ import { CheckIcon } from "@radix-ui/react-icons";
 
 import { Section } from "@/common/layout";
 import { Heading } from "@/common/heading";
-import { fragmentOn } from ".basehub/schema";
+import { fragmentOn } from "basehub";
 
 export const featureCardFragment = fragmentOn("FeaturesCardsListItem", {
   _title: true,

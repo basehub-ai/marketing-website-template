@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 
-import { Pump } from ".basehub/react-pump";
+import { Pump } from "basehub/react-pump";
 
 interface ChangelogLayoutProps {
   className?: string;

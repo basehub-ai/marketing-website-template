@@ -38,20 +38,6 @@ module.exports = {
       },
     ],
     "import/no-default-export": "off",
-    "import/order": [
-      "warn",
-      {
-        groups: ["type", "builtin", "object", "external", "internal", "parent", "sibling", "index"],
-        pathGroups: [
-          {
-            pattern: "~/**",
-            group: "external",
-            position: "after",
-          },
-        ],
-        "newlines-between": "always",
-      },
-    ],
     "padding-line-between-statements": [
       "warn",
       { blankLine: "always", prev: "*", next: ["return", "export"] },
@@ -63,6 +49,7 @@ module.exports = {
     "react/jsx-uses-react": "off",
     "react/react-in-jsx-scope": "off",
     "react/self-closing-comp": "warn",
+    "@typescript-eslint/no-unsafe-assignment": "off",
     // Button
     "react/button-has-type": "off",
     "react/jsx-sort-props": [

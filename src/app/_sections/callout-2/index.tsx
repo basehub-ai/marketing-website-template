@@ -1,4 +1,4 @@
-import { fragmentOn } from ".basehub/schema";
+import { fragmentOn } from "basehub";
 import { ButtonLink } from "@/common/button";
 import { Section } from "@/common/layout";
 

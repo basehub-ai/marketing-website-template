@@ -2,7 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { draftMode } from "next/headers";
 
-import { Pump } from ".basehub/react-pump";
+import { Pump } from "basehub/react-pump";
 
 import { ThemeSwitcher } from "../theme-switcher";
 

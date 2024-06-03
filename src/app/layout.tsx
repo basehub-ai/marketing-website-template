@@ -4,13 +4,12 @@ import "./globals.scss";
 import { GeistSans } from "geist/font/sans";
 import { GeistMono } from "geist/font/mono";
 
-import { basehub } from ".basehub/index";
+import { basehub } from "basehub/index";
 
 import { Providers } from "./providers";
 import { Header } from "./_components/header";
 import { Footer } from "./_components/footer";
 import { Newsletter } from "./_sections/newsletter/newsletter";
-import { ThemeSwitcher } from "./_components/theme-switcher";
 
 export const generateMetadata = async (): Promise<Metadata> => {
   const data = await basehub({ cache: "no-store" }).query({
@@ -19,6 +18,8 @@ export const generateMetadata = async (): Promise<Metadata> => {
         metadata: {
           sitename: true,
           titleTemplate: true,
+          defaultTitle: true,
+          defaultDescription: true,
           favicon: {
             url: true,
             mimeType: true,
@@ -31,13 +32,15 @@ export const generateMetadata = async (): Promise<Metadata> => {
     },
   });
 
+  const images = [{ url: data.site.settings.metadata.ogImage.url }];
+
   return {
     title: {
-      default: "Home",
+      default: data.site.settings.metadata.defaultTitle,
       template: data.site.settings.metadata.titleTemplate,
     },
     applicationName: data.site.settings.metadata.sitename,
-    description: "Homepage",
+    description: data.site.settings.metadata.defaultDescription,
     icons: [
       {
         url: data.site.settings.metadata.favicon.url,
@@ -45,14 +48,8 @@ export const generateMetadata = async (): Promise<Metadata> => {
         type: data.site.settings.metadata.favicon.mimeType,
       },
     ],
-    openGraph: {
-      type: "website",
-      images: [
-        {
-          url: data.site.settings.metadata.ogImage.url,
-        },
-      ],
-    },
+    openGraph: { type: "website", images, siteName: data.site.settings.metadata.sitename },
+    twitter: { card: "summary_large_image", images, site: data.site.settings.metadata.sitename },
   };
 };
 

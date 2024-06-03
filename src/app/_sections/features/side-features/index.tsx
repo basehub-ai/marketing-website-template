@@ -3,7 +3,7 @@ import Image from "next/image";
 import { ButtonLink } from "@/common/button";
 import { Heading } from "@/common/heading";
 import { Section } from "@/common/layout";
-import { fragmentOn } from ".basehub/schema";
+import { fragmentOn } from "basehub";
 import { headingFragment } from "@/lib/basehub/fragments";
 
 export const featuresSideBySideFragment = fragmentOn("FeaturesSideBySideComponent", {

@@ -5,7 +5,7 @@ import clsx from "clsx";
 import { Heading } from "@/common/heading";
 import { Section } from "@/common/layout";
 import { ButtonLink } from "@/common/button";
-import { fragmentOn } from ".basehub/schema";
+import { fragmentOn } from "basehub";
 import { headingFragment } from "@/lib/basehub/fragments";
 
 import s from "./pricing.module.scss";

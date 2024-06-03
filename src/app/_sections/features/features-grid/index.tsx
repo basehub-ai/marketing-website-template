@@ -3,7 +3,7 @@ import Image from "next/image";
 import { ButtonLink } from "@/common/button";
 import { Heading } from "@/common/heading";
 import { Section } from "@/common/layout";
-import { fragmentOn } from ".basehub/schema";
+import { fragmentOn } from "basehub";
 import { headingFragment } from "@/lib/basehub/fragments";
 
 export const featuresGridFragment = fragmentOn("FeaturesGridComponent", {
@@ -63,10 +63,10 @@ export function FeaturesGrid({ heading, featuresGridList, primary, secondary }: 
         ))}
       </div>
       <div className="flex items-center justify-center gap-3 md:order-3">
-        <ButtonLink href={primary.href!} intent={primary.type} size="lg">
+        <ButtonLink href={primary.href} intent={primary.type} size="lg">
           {primary.label}
         </ButtonLink>
-        <ButtonLink href={secondary.href!} intent={secondary.type} size="lg">
+        <ButtonLink href={secondary.href} intent={secondary.type} size="lg">
           {secondary.label}
         </ButtonLink>
       </div>
