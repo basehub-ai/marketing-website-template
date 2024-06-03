@@ -37,6 +37,7 @@ export default async function BlogPage() {
             blog: {
               mainTitle: true,
               featuredPosts: blogpostCardFragment,
+              listTitle: true,
               posts: {
                 items: blogpostCardFragment,
               },
@@ -56,7 +57,7 @@ export default async function BlogPage() {
         const { posts } = blog;
 
         return (
-          <Section>
+          <Section className="gap-16">
             <div className="grid grid-cols-1 gap-5 md:grid-cols-2">
               <Heading align="left">
                 <h2>{blog.mainTitle}</h2>
@@ -77,13 +78,15 @@ export default async function BlogPage() {
                 <BlogpostCard key={post._id} type="card" {...post} />
               ))}
             </div>
-            <Heading align="left">
-              <h3 className="!text-xl lg:!text-2xl">More posts</h3>
-            </Heading>
-            <div className="flex flex-col self-stretch">
-              {posts.items.map((post) => (
-                <BlogpostCard key={post._id} {...post} />
-              ))}
+            <div className="w-full space-y-3">
+              <Heading align="left">
+                <h3 className="!text-xl lg:!text-2xl">{blog.listTitle}</h3>
+              </Heading>
+              <div className="flex flex-col divide-y divide-border self-stretch dark:divide-dark-border">
+                {posts.items.map((post) => (
+                  <BlogpostCard key={post._id} {...post} className="-mx-4" />
+                ))}
+              </div>
             </div>
           </Section>
         );

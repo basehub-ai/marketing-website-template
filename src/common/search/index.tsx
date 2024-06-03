@@ -51,12 +51,11 @@ export function SearchContent({ _searchKey }: { _searchKey: string }) {
           {/* eslint-disable-next-line jsx-a11y/label-has-associated-control */}
           <label
             className={clsx(
-              "ml-auto flex  w-full items-center gap-x-1 rounded-full border border-border px-3.5 py-2.5 focus-within:!border-accent-500 dark:border-dark-border md:max-w-[280px]",
-              search.query || "text-text-tertiary opacity-70 dark:text-dark-text-tertiary",
+              "focus-within:!border-accent-500 ml-auto flex w-full cursor-text items-center gap-x-1 rounded-full border border-border px-3.5 py-2.5 dark:border-dark-border md:max-w-[280px]",
             )}
           >
             <MagnifyingGlassIcon
-              className="pointer-events-none size-5 shrink-0 transition-colors duration-75"
+              className="pointer-events-none size-5 shrink-0 text-text-secondary transition-colors duration-75 dark:text-dark-text-secondary"
               color="currentColor"
             />
             <SearchBox.Input
@@ -67,7 +66,7 @@ export function SearchContent({ _searchKey }: { _searchKey: string }) {
             >
               <input
                 ref={searchInputRef}
-                className="grow bg-transparent outline-none placeholder:text-[inherit]"
+                className="grow bg-transparent outline-none placeholder:text-text-tertiary/70 placeholder:dark:text-dark-text-tertiary"
                 placeholder="Search"
                 type="text"
               />
@@ -80,16 +79,15 @@ export function SearchContent({ _searchKey }: { _searchKey: string }) {
             asChild
             align="end"
             className="z-modal"
-            sideOffset={16}
+            sideOffset={8}
             onOpenAutoFocus={(e) => {
-              // eslint-disable-next-line @typescript-eslint/no-unsafe-call, @typescript-eslint/no-unsafe-member-access
               e.preventDefault();
             }}
           >
             <div className="relative mx-5 min-h-20 w-[calc(100vw_-_2.5rem)] scroll-py-3 overflow-y-auto overscroll-y-contain rounded-xl border border-surface-tertiary bg-surface-primary p-2 shadow-md dark:border-dark-surface-tertiary dark:bg-dark-surface-primary md:mx-0 md:max-h-[320px] md:w-[550px]">
               <SearchBox.Empty asChild>
-                <div className="absolute left-1/2 top-1/2 w-fit -translate-x-1/2 -translate-y-1/2 items-center px-2 py-1 text-dark-text-tertiary">
-                  No results for <span className="font-bold">&ldquo;{search.query}&rdquo;</span>
+                <div className="absolute left-1/2 top-1/2 w-fit max-w-full -translate-x-1/2 -translate-y-1/2 items-center overflow-hidden text-ellipsis whitespace-nowrap px-2 py-1 text-dark-text-tertiary">
+                  No results for <span className="font-medium">&ldquo;{search.query}&rdquo;</span>
                 </div>
               </SearchBox.Empty>
 
@@ -145,7 +143,7 @@ function HitList({ hits }: { hits: Hit[] }) {
                   "flex grid-rows-[auto_1fr_auto] flex-col gap-y-0.5 rounded-md px-4 py-3 transition-colors",
                   "data-[selected='true']:bg-surface-tertiary",
                   "data-[selected='true']:dark:bg-dark-surface-tertiary",
-                  "[&_mark]:bg-transparent [&_mark]:text-accent-500",
+                  "[&_mark]:text-accent-500 [&_mark]:bg-transparent",
                 )}
                 href={pathname}
               >

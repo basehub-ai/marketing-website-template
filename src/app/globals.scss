@@ -10,11 +10,20 @@
   // colors
   color: theme("colors.text.primary");
   background-color: theme("colors.surface.primary");
+
+  ::selection {
+    background-color: theme("colors.accent.200");
+  }
+
 }
 
 :root {
   color: theme("colors.dark.text.primary");
   background-color: theme("colors.dark.surface.primary");
+
+  ::selection {
+    background-color: theme("colors.accent.950");
+  }
 }
 
 .no-scrollbar {

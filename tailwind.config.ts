@@ -44,7 +44,7 @@ const config: Config = {
       },
       dark: {
         text: {
-          primary: "#FAFAFA",
+          primary: "rgb(var(--grayscale-rgb-50) / <alpha-value>)",
           secondary: "rgb(var(--grayscale-rgb-400) / <alpha-value>)",
           tertiary: "rgb(var(--grayscale-rgb-500) / <alpha-value>)",
         },
@@ -54,14 +54,14 @@ const config: Config = {
           tertiary: "rgb(var(--grayscale-rgb-800) / <alpha-value>)",
         },
         border: {
-          DEFAULT: "rgb(var(--grayscale-rgb-700) / <alpha-value>)",
+          DEFAULT: "rgb(var(--grayscale-rgb-800) / <alpha-value>)",
         },
         control: {
           DEFAULT: "rgb(var(--accent-rgb-500) / <alpha-value>)",
         },
       },
       text: {
-        primary: "#09090B",
+        primary: "rgb(var(--grayscale-rgb-950) / <alpha-value>)",
         secondary: "rgb(var(--grayscale-rgb-600) / <alpha-value>)",
         tertiary: "rgb(var(--grayscale-rgb-500) / <alpha-value>)",
       },

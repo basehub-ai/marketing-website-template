@@ -115,7 +115,7 @@ export function DesktopMenu({ navbar, ctaS }: HeaderFragment) {
   return (
     <>
       <NavigationMenuHeader className="hidden lg:flex" links={navbar.items} />
-      <div className="hidden items-center gap-4 justify-self-end lg:flex">
+      <div className="hidden items-center gap-2 justify-self-end lg:flex">
         <ButtonLink href={ctaS.secondary.href} intent={ctaS.secondary.type}>
           {ctaS.secondary.label}
         </ButtonLink>

@@ -2,7 +2,7 @@ import { type VariantProps, cva } from "class-variance-authority";
 import Link, { type LinkProps } from "next/link";
 
 export const $button = cva(
-  "inline-flex gap-1 items-center justify-center shrink-0 rounded-full ring-control focus-visible:ring-2 outline-none",
+  "inline-flex gap-1 items-center font-normal justify-center shrink-0 rounded-full ring-control focus-visible:ring-2 outline-none",
   {
     variants: {
       intent: {

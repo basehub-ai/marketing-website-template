@@ -74,7 +74,7 @@ export async function FeaturesList({ featuresCardsList, heading }: FeatureCard) 
                   {item.description}
                 </p>
               </div>
-              <ul className="flex flex-col items-start gap-5 pl-2 md:text-lg">
+              <ul className="flex flex-col items-start gap-3 pl-2 md:text-lg">
                 {item.characteristics.items.map(({ _title }) => (
                   <li
                     key={_title}

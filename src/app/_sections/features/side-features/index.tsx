@@ -38,15 +38,15 @@ export function SideFeatures({ featuresSideBySideList, heading, cta }: FeaturesG
   return (
     <Section className="relative gap-8 lg:!flex-row lg:gap-24 lg:p-28 xl:gap-32" container="full">
       <div className="container relative top-0 mx-auto flex-1 shrink self-stretch px-6 lg:px-0">
-        <div className="sticky bottom-0 top-[calc(var(--header-height)+64px)] flex flex-col gap-10">
+        <div className="sticky bottom-0 top-[calc(var(--header-height)+40px)] flex flex-col gap-10">
           <Heading className="items-start" {...heading}>
             <h4>{heading.title}</h4>
           </Heading>
           <div className="flex items-center gap-3 md:order-3">
-            <ButtonLink href={cta.primary.href ?? ""} intent={cta.primary.type} size="lg">
+            <ButtonLink href={cta.primary.href} intent={cta.primary.type} size="lg">
               {cta.primary.label}
             </ButtonLink>
-            <ButtonLink href={cta.secondary.href ?? ""} intent={cta.secondary.type} size="lg">
+            <ButtonLink href={cta.secondary.href} intent={cta.secondary.type} size="lg">
               {cta.secondary.label}
             </ButtonLink>
           </div>
