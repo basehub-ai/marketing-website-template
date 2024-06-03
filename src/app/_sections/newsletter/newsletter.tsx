@@ -3,42 +3,8 @@ import React from "react";
 
 import { Input } from "@/common/input";
 import { Section } from "@/common/layout";
-interface NewsletterFormState {
-  isSubscribed: boolean;
-  isSubmitting: boolean;
-  error: null | string;
-}
 
 export function Newsletter() {
-  const [formState, setFormState] = React.useState<NewsletterFormState>({
-    isSubscribed: false,
-    isSubmitting: false,
-    error: null,
-  });
-  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
-    setFormState({ ...formState, isSubmitting: true, error: null });
-    event.preventDefault();
-
-    const formData = new FormData(event.currentTarget);
-    const email = formData.get("email") as string;
-
-    if (!email) {
-      return setFormState({ isSubscribed: false, isSubmitting: false, error: "Email is required" });
-    }
-    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
-      return setFormState({ isSubscribed: false, isSubmitting: false, error: "Invalid email" });
-    }
-    // Integrate with your email marketing platform here
-    // e.g resend
-
-    new Promise((resolve) =>
-      setTimeout(() => {
-        setFormState({ isSubscribed: true, isSubmitting: false, error: null });
-        resolve(true);
-      }, 200),
-    );
-  };
-
   return (
     <Section
       className="bg-surface-secondary p-6 pt-4 dark:bg-dark-surface-secondary"
@@ -52,12 +18,10 @@ export function Newsletter() {
           </p>
         </div>
 
-        <form className="w-full max-w-[400px] flex-1" onSubmit={handleSubmit}>
+        <form className="w-full max-w-[400px] flex-1">
           <Input
             required
-            buttonContent={formState.isSubscribed ? "Submitted" : "Subscribe"}
-            disabled={formState.isSubscribed}
-            error={formState.error}
+            buttonContent="Subscribe"
             name="email"
             placeholder="Enter your email"
             type="email"
