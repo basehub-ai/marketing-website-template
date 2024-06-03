@@ -53,7 +53,7 @@ export function Callout(callout: Callout) {
           <h4 className="text-center text-3xl font-medium tracking-tighter text-text-primary dark:text-dark-text-primary sm:max-w-full sm:px-0 md:text-4xl">
             {callout.title}
           </h4>
-          <p className="text-lg text-grayscale-600 dark:text-grayscale-400 md:text-xl">
+          <p className="text-lg text-text-secondary dark:text-dark-text-secondary md:text-xl">
             {callout.subtitle}
           </p>
         </div>

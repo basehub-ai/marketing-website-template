@@ -36,14 +36,13 @@ export const GET = async (request: Request) => {
 
   if (!ogData) return notFound();
 
-  const { title, logo, accentColor, theme, subtitle } = ogData;
+  const { title, logo, accentColor, subtitle } = ogData;
 
   return await ContentOGWrapperResponse({
     title,
     accentColor,
     logo,
     subtitle,
-    theme: forcedTheme ? (forcedTheme as "light" | "dark") : theme,
   });
 };
 

@@ -50,7 +50,7 @@ export function MobilePricingComparation({
         <Select autoComplete="false" value={activePlan} onValueChange={setActivePlan}>
           <SelectTrigger
             className={clsx(
-              "relative flex w-full items-center justify-between rounded px-4 py-2 pr-10 text-grayscale-600 dark:text-grayscale-400",
+              "relative flex w-full items-center justify-between rounded px-4 py-2 pr-10 text-text-secondary dark:text-dark-text-secondary",
               "border border-border bg-surface-secondary",
               "dark:border-dark-border dark:bg-dark-surface-secondary",
             )}
@@ -76,7 +76,7 @@ export function MobilePricingComparation({
                   <SelectItem
                     key={plan._id}
                     className={clsx(
-                      "group relative flex w-full flex-1 items-center justify-between rounded px-4 py-2 text-grayscale-600 dark:text-grayscale-400",
+                      "group relative flex w-full flex-1 items-center justify-between rounded px-4 py-2 text-text-secondary dark:text-dark-text-secondary",
                       "hover:bg-surface-tertiary dark:hover:bg-dark-surface-tertiary",
                       {
                         "bg-surface-tertiary text-text-primary dark:bg-dark-surface-tertiary dark:text-dark-text-primary":
@@ -167,7 +167,7 @@ function FeatureValue({
   if (!value) return null;
 
   return (
-    <td className="flex flex-1 items-center justify-end text-sm font-normal text-grayscale-600 dark:text-grayscale-400">
+    <td className="flex flex-1 items-center justify-end text-sm font-normal text-text-secondary dark:text-dark-text-secondary">
       {isBooleanComponent(value.value) ? (
         value.value.boolean ? (
           <span className="flex items-center justify-center rounded-full bg-success/10 p-1.5">
@@ -177,11 +177,11 @@ function FeatureValue({
           <span className="text-grayscale-500/50 dark:text-grayscale-500/50">&mdash;</span>
         )
       ) : isCustomTextComponent(value.value) ? (
-        <span className="text-right text-grayscale-600 dark:text-grayscale-400">
+        <span className="text-right text-text-secondary dark:text-dark-text-secondary">
           {value.value.text}
         </span>
       ) : (
-        <span className="text-grayscale-600 dark:text-grayscale-400">{value.value}</span>
+        <span className="text-text-secondary dark:text-dark-text-secondary">{value.value}</span>
       )}
     </td>
   );

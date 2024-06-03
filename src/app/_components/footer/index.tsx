@@ -67,7 +67,7 @@ export async function Footer() {
                 {footer.navbar.items.map(({ _title, url }) => (
                   <Link
                     key={_title}
-                    className="font-light tracking-tight text-grayscale-500 hover:text-text-primary dark:text-grayscale-400 dark:hover:text-dark-text-primary"
+                    className="font-light tracking-tight text-grayscale-500 hover:text-text-primary dark:text-dark-text-secondary dark:hover:text-dark-text-primary"
                     href={url ?? "#"}
                     target={isExternalLink(url) ? "_blank" : "_self"}
                   >

@@ -39,7 +39,7 @@ export function TestimonialsGridClient({ quotes }: { quotes: QuoteFragment[] }) 
             )}
           >
             <div className="flex items-start border-b border-border p-5 dark:border-dark-border">
-              <blockquote className="text-pretty text-base font-light text-grayscale-600 dark:text-grayscale-400 md:text-lg">
+              <blockquote className="text-pretty text-base font-light text-text-secondary dark:text-dark-text-secondary md:text-lg">
                 {quote}
               </blockquote>
             </div>

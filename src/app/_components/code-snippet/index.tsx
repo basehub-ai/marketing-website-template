@@ -21,7 +21,7 @@ export function CodeSnippet({ code, _title = "Untitled" }: CodeSnippetFragment) 
   return (
     <div className={s["code-snippet"]}>
       <header className={s.header}>
-        <span className="text-grayscale-600 dark:text-grayscale-400">{_title}</span>
+        <span className="text-text-secondary dark:text-dark-text-secondary">{_title}</span>
         <CopyButton text={code.code} />
       </header>
       <CodeSnippetContent {...code} />

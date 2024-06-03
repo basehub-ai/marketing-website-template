@@ -70,7 +70,7 @@ export async function FeaturesList({ featuresCardsList, heading }: FeatureCard) 
                 <h5 className="text-2xl font-medium text-text-primary dark:text-dark-text-primary md:text-3xl">
                   {item._title}
                 </h5>
-                <p className="text-grayscale-600 dark:text-grayscale-400 font-normal md:text-lg">
+                <p className="text-text-secondary dark:text-dark-text-secondary font-normal md:text-lg">
                   {item.description}
                 </p>
               </div>
@@ -78,7 +78,7 @@ export async function FeaturesList({ featuresCardsList, heading }: FeatureCard) 
                 {item.characteristics.items.map(({ _title }) => (
                   <li
                     key={_title}
-                    className="text-grayscale-600 dark:text-grayscale-400 flex items-center gap-4 font-normal"
+                    className="text-text-secondary dark:text-dark-text-secondary flex items-center gap-4 font-normal"
                   >
                     <span className="flex size-6 items-center justify-center rounded-full bg-surface-tertiary dark:bg-dark-surface-tertiary">
                       <CheckIcon className="text-grayscale-500 dark:text-grayscale-500" />

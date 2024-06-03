@@ -80,7 +80,7 @@ function PricingCard(item: PricingPlanItem["plan"]) {
           {item.list.items.map((feature) => (
             <li
               key={feature._title}
-              className="flex items-start gap-3 text-sm text-grayscale-600 dark:text-grayscale-400 lg:text-base"
+              className="flex items-start gap-3 text-sm text-text-secondary dark:text-dark-text-secondary lg:text-base"
             >
               <CheckIcon className="mt-0.5 size-4 shrink-0 lg:size-5" />
               <span>{feature._title}</span>

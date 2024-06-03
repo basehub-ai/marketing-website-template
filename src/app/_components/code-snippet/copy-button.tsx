@@ -14,7 +14,7 @@ export function CopyButton({ text }: { text: string }) {
   return (
     <button className="relative" onClick={handleClick}>
       {isShowingTooltip ? (
-        <span className="text-grayscale-600 dark:text-grayscale-400 absolute -left-2 -top-2 -translate-y-full transform rounded border border-border bg-surface-secondary p-1 text-xs dark:border-dark-border dark:bg-dark-surface-secondary">
+        <span className="text-text-secondary dark:text-dark-text-secondary absolute -left-2 -top-2 -translate-y-full transform rounded border border-border bg-surface-secondary p-1 text-xs dark:border-dark-border dark:bg-dark-surface-secondary">
           Copied!
         </span>
       ) : null}

@@ -3,7 +3,7 @@ import { draftMode } from "next/headers";
 
 import { ButtonLink } from "@/common/button";
 import { Pump } from "basehub/react-pump";
-import { optimizedImageFragment } from "@/lib/basehub/fragments";
+import { buttonFragment, optimizedImageFragment } from "@/lib/basehub/fragments";
 import { fragmentOn } from "basehub";
 
 import { DesktopMenu, MobileMenu } from "./navigation-menu";
@@ -46,6 +46,10 @@ export async function Header() {
               logo: optimizedImageFragment,
               navbar: {
                 items: headerLinksFragment,
+              },
+              ctaS: {
+                primary: buttonFragment,
+                secondary: buttonFragment,
               },
             },
           },

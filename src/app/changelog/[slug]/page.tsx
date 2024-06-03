@@ -200,7 +200,7 @@ export default async function ChangelogPage({ params }: ChangelogPageParams) {
                 style={{ aspectRatio: post.image.aspectRatio }}
                 width={post.image.width}
               />
-              <p className="text-sm text-grayscale-600 dark:text-grayscale-400 md:text-base">
+              <p className="text-sm text-text-secondary dark:text-dark-text-secondary md:text-base">
                 {post.excerpt}
               </p>
               <div className={richTextClasses}>
@@ -221,7 +221,7 @@ export default async function ChangelogPage({ params }: ChangelogPageParams) {
                 ) : (
                   <div className="flex items-center gap-2">
                     <Avatar {...post.authors[0].image} />
-                    <p className="text-sm text-grayscale-600 dark:text-grayscale-400 md:text-base">
+                    <p className="text-sm text-text-secondary dark:text-dark-text-secondary md:text-base">
                       {post.authors[0]._title}
                     </p>
                   </div>

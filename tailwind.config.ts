@@ -45,6 +45,8 @@ const config: Config = {
       dark: {
         text: {
           primary: "#FAFAFA",
+          secondary: "rgb(var(--grayscale-rgb-400) / <alpha-value>)",
+          tertiary: "rgb(var(--grayscale-rgb-500) / <alpha-value>)",
         },
         surface: {
           primary: "rgb(var(--grayscale-rgb-950) / <alpha-value>)",
@@ -60,6 +62,8 @@ const config: Config = {
       },
       text: {
         primary: "#09090B",
+        secondary: "rgb(var(--grayscale-rgb-600) / <alpha-value>)",
+        tertiary: "rgb(var(--grayscale-rgb-500) / <alpha-value>)",
       },
       surface: {
         primary: "rgb(var(--grayscale-rgb-50) / <alpha-value>)",

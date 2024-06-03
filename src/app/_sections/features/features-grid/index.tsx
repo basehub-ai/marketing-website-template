@@ -47,7 +47,7 @@ export function FeaturesGrid({ heading, featuresGridList, primary, secondary }: 
             </figure>
             <div className="flex flex-col items-start gap-1">
               <h5 className="text-lg font-medium">{_title}</h5>
-              <p className="text-pretty text-grayscale-600 dark:text-grayscale-400">
+              <p className="text-pretty text-text-secondary dark:text-dark-text-secondary">
                 {description}
               </p>
             </div>

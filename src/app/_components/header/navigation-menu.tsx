@@ -28,13 +28,13 @@ export function NavigationMenuHeader({
 }) {
   return (
     <NavigationMenu className={clsx("relative z-[1] flex-col justify-center lg:flex", className)}>
-      <NavigationMenuList className="flex flex-1 px-4 ">
-        {links.map((props) =>
-          props.sublinks.items.length > 0 ? (
-            <NavigationMenuLinkWithMenu key={props._id} {...props} />
+      <NavigationMenuList className="flex flex-1 px-4">
+        {links.map((link) =>
+          link.sublinks.items.length > 0 ? (
+            <NavigationMenuLinkWithMenu key={link._id} {...link} />
           ) : (
-            <li key={props._id}>
-              <NavigationMenuLink href={props.href ?? "#"}>{props._title}</NavigationMenuLink>
+            <li key={link._id}>
+              <NavigationMenuLink href={link.href ?? "#"}>{link._title}</NavigationMenuLink>
             </li>
           ),
         )}
@@ -77,20 +77,20 @@ function NavigationMenuLinkWithMenu({ _id, _title, href, sublinks }: HeaderLiksF
         )}
       </NavigationMenuTrigger>
       <NavigationMenuContent className="absolute left-0 top-[calc(100%+4px)] min-w-[164px] rounded-md border border-border bg-surface-primary p-0.5 dark:border-dark-border dark:bg-dark-surface-primary">
-        <ul className="flex flex-col ">
-          {sublinks.items.map((props) => {
-            const { href, _title } = isPageReferenceComponent(props.link)
+        <ul className="flex flex-col">
+          {sublinks.items.map((sublink) => {
+            const { href, _title } = isPageReferenceComponent(sublink.link)
               ? {
-                  href: props.link.page.pathname,
-                  _title: props.link.page._title,
+                  href: sublink.link.page.pathname,
+                  _title: sublink.link.page._title,
                 }
               : {
-                  href: props.link.text,
-                  _title: props._title,
+                  href: sublink.link.text,
+                  _title: sublink._title,
                 };
 
             return (
-              <li key={props._id}>
+              <li key={sublink._id}>
                 <NavigationMenuLinkPrimitive
                   asChild
                   className="flex items-center gap-2 rounded-md px-3 py-1.5 hover:bg-surface-tertiary dark:hover:bg-dark-surface-tertiary"
@@ -126,17 +126,15 @@ export function MobileMenu({ links }: { links: HeaderLiksFragment[] }) {
   const { handleToggle, isOn, handleOff } = useToggleState();
   const selectedLayoutSegment = useSelectedLayoutSegment();
 
-  // When click, we need to hide the menu
-
   const headerLinks = React.useMemo(() => {
     return links.map((link) => ({
       ...link,
       isActive: link.sublinks.items.length
-        ? (selectedLayoutSegment: string) =>
+        ? (segment: string) =>
             link.sublinks.items.some((sublink) =>
               sublink.link.__typename === "PageReferenceComponent"
-                ? sublink.link.page.pathname.split("/").pop() === selectedLayoutSegment
-                : sublink.link.text === selectedLayoutSegment,
+                ? sublink.link.page.pathname.split("/").pop() === segment
+                : sublink.link.text === segment,
             )
         : link.href
           ? link.href.split("/")[1] === selectedLayoutSegment
@@ -157,23 +155,23 @@ export function MobileMenu({ links }: { links: HeaderLiksFragment[] }) {
           <div className="fixed left-0 top-[calc(var(--header-height)+1)] z-10 h-auto w-full bg-surface-primary dark:bg-dark-surface-primary">
             <div className="flex flex-col gap-8 px-6 py-8">
               <nav className="flex flex-col gap-4">
-                {headerLinks.map((props) =>
-                  props.sublinks.items.length > 0 ? (
+                {headerLinks.map((link) =>
+                  link.sublinks.items.length > 0 ? (
                     <ItemWithSublinks
-                      key={props._id}
-                      _id={props._id}
-                      _title={props._title}
-                      sublinks={props.sublinks.items}
+                      key={link._id}
+                      _id={link._id}
+                      _title={link._title}
+                      sublinks={link.sublinks.items}
                       onClick={handleOff}
                     />
                   ) : (
                     <Link
-                      key={props._id}
+                      key={link._id}
                       className="flex items-center gap-2 rounded px-3 py-1.5 hover:bg-surface-tertiary dark:hover:bg-dark-surface-tertiary"
-                      href={props.href ?? "#"}
+                      href={link.href ?? "#"}
                       onClick={handleOff}
                     >
-                      {props._title}
+                      {link._title}
                     </Link>
                   ),
                 )}
@@ -207,7 +205,6 @@ function ItemWithSublinks({
 }) {
   const { isOn, handleOff, handleOn } = useToggleState(false);
   const hasRendered = useHasRendered();
-
   const listRef = React.useRef<HTMLUListElement>(null);
 
   React.useEffect(() => {
@@ -219,7 +216,6 @@ function ItemWithSublinks({
         easing: "ease-in-out",
         fill: "forwards",
       });
-    } else {
     }
   }, [isOn, hasRendered]);
 
@@ -247,26 +243,25 @@ function ItemWithSublinks({
           )}
         />
       </button>
-
       <ul
         ref={listRef}
         className={clsx(
           "flex origin-top scale-y-0 transform-gpu flex-col gap-2 pl-4 transition-transform",
         )}
       >
-        {sublinks.map((props) => {
-          const { href, _title } = isPageReferenceComponent(props.link)
+        {sublinks.map((sublink) => {
+          const { href, _title } = isPageReferenceComponent(sublink.link)
             ? {
-                href: props.link.page.pathname,
-                _title: props.link.page._title,
+                href: sublink.link.page.pathname,
+                _title: sublink.link.page._title,
               }
             : {
-                href: props.link.text,
-                _title: props._title,
+                href: sublink.link.text,
+                _title: sublink._title,
               };
 
           return (
-            <li key={_id}>
+            <li key={sublink._id}>
               <Link
                 className="flex items-center gap-2 rounded-md px-3 py-1.5 text-grayscale-500 hover:bg-surface-tertiary dark:text-grayscale-500 dark:hover:bg-dark-surface-tertiary"
                 href={href}

@@ -230,5 +230,5 @@ function CustomAvatarHit({
 }
 
 function HitContainer({ children }: React.PropsWithChildren) {
-  return <p className="text-grayscale-600 dark:text-grayscale-400 text-sm">{children}</p>;
+  return <p className="text-text-secondary dark:text-dark-text-secondary text-sm">{children}</p>;
 }

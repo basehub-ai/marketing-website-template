@@ -102,7 +102,7 @@ export function ChangelogList({ changelogPosts }: { changelogPosts: ChangelogLis
               <Link href={`/changelog/${post._slug}`}>
                 <h2 className="text-xl font-medium">{post._title}</h2>
               </Link>
-              <p className="text-sm text-grayscale-600 dark:text-grayscale-400 md:text-base">
+              <p className="text-sm text-text-secondary dark:text-dark-text-secondary md:text-base">
                 {post.excerpt}
               </p>
             </div>
