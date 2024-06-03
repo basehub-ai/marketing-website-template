@@ -16,7 +16,7 @@ import { AvatarsGroup } from "../avatars-group";
 export function SearchContent({ _searchKey }: { _searchKey: string }) {
   const search = useSearch({
     _searchKey,
-    queryBy: ["_title", "body", "introduction", "categories", "authors"],
+    queryBy: ["_title", "body", "description", "categories", "authors"],
     limit: 20,
   });
 
@@ -52,7 +52,7 @@ export function SearchContent({ _searchKey }: { _searchKey: string }) {
           <label
             className={clsx(
               "focus-within:!border-accent-500 ml-auto  flex w-full items-center gap-x-1 rounded-full border border-border px-3.5 py-2.5 dark:border-dark-border md:max-w-[280px]",
-              search.query || "text-grayscale-500 opacity-70 dark:text-grayscale-500",
+              search.query || "text-grayscale-500 dark:text-grayscale-500 opacity-70",
             )}
           >
             <MagnifyingGlassIcon
@@ -86,7 +86,7 @@ export function SearchContent({ _searchKey }: { _searchKey: string }) {
               e.preventDefault();
             }}
           >
-            <div className="relative mx-5 min-h-20 w-[calc(100vw_-_2.5rem)] overflow-y-auto overscroll-y-contain rounded-xl border border-surface-tertiary bg-surface-primary p-2 shadow-md dark:border-dark-surface-tertiary dark:bg-dark-surface-primary md:mx-0 md:max-h-[320px] md:w-[550px]">
+            <div className="relative mx-5 min-h-20 w-[calc(100vw_-_2.5rem)] scroll-py-3 overflow-y-auto overscroll-y-contain rounded-xl border border-surface-tertiary bg-surface-primary p-2 shadow-md dark:border-dark-surface-tertiary dark:bg-dark-surface-primary md:mx-0 md:max-h-[320px] md:w-[550px]">
               <SearchBox.Empty asChild>
                 <div className="absolute left-1/2 top-1/2 w-fit -translate-x-1/2 -translate-y-1/2 items-center px-2 py-1 text-dark-text-tertiary">
                   No results for <span className="font-bold">&ldquo;{search.query}&rdquo;</span>
@@ -159,7 +159,7 @@ function HitList({ hits }: { hits: Hit[] }) {
                   components={{
                     container: HitBodyContainer,
                   }}
-                  fallbackFieldPaths={["introduction"]}
+                  fallbackFieldPaths={["description"]}
                   fieldPath="body"
                 />
                 <div className="mt-3 flex justify-between gap-x-1">
@@ -192,7 +192,7 @@ function HitTitleContainer({ children }: React.PropsWithChildren) {
 }
 
 function HitBodyContainer({ children }: React.PropsWithChildren) {
-  return <p className="truncate text-sm text-grayscale-500 dark:text-grayscale-500">{children}</p>;
+  return <p className="text-grayscale-500 dark:text-grayscale-500 truncate text-sm">{children}</p>;
 }
 
 function CustomAvatarHit({
@@ -230,5 +230,5 @@ function CustomAvatarHit({
 }
 
 function HitContainer({ children }: React.PropsWithChildren) {
-  return <p className="text-sm text-grayscale-600 dark:text-grayscale-400">{children}</p>;
+  return <p className="text-grayscale-600 dark:text-grayscale-400 text-sm">{children}</p>;
 }
