@@ -66,16 +66,18 @@ export function TestimonialsGridClient({ quotes }: { quotes: QuoteFragment[] }) 
         ))}
       </div>
 
-      <div
-        className={cx(
-          "justify-center",
-          quotes.length > ITEMS_PER_COLUMN * 3 ? "flex" : quotes.length > 3 && "flex md:hidden",
-        )}
-      >
-        <Button intent="secondary" onClick={() => setShowMore(!showMore)}>
-          {showMore ? "Show less" : "Show more"}
-        </Button>
-      </div>
+      {!showMore && (
+        <div
+          className={cx(
+            "justify-center",
+            quotes.length > filteredItems.length ? "flex" : quotes.length > 3 && "flex md:hidden",
+          )}
+        >
+          <Button intent="secondary" onClick={() => setShowMore(!showMore)}>
+            Show more
+          </Button>
+        </div>
+      )}
     </>
   );
 }
