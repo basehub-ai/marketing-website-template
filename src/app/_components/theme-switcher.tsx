@@ -36,11 +36,11 @@ function SwitchButton({
   return (
     <button
       className={clsx(
-        "flex size-5 items-center justify-center rounded-full p-1 text-text-secondary dark:text-dark-text-secondary",
-        theme === selectedTheme &&
-          "bg-surface-tertiary text-text-primary dark:bg-dark-surface-secondary dark:text-dark-text-primary",
+        "flex size-6 items-center justify-center rounded-full p-[3px] text-text-secondary dark:text-dark-text-secondary",
+        "data-[selected='true']:bg-surface-tertiary data-[selected='true']:text-text-primary data-[selected='true']:dark:bg-dark-surface-secondary data-[selected='true']:dark:text-dark-text-primary",
         "hover:bg-surface-secondary hover:text-text-primary dark:hover:bg-dark-surface-secondary dark:hover:text-dark-text-primary",
       )}
+      data-selected={selectedTheme === theme}
       onClick={() => setTheme(theme)}
     >
       {children}
