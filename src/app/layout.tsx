@@ -10,7 +10,6 @@ import { Providers } from "./providers";
 import { Header } from "./_components/header";
 import { Footer } from "./_components/footer";
 import { Newsletter } from "./_sections/newsletter/newsletter";
-import { ThemeSwitcher } from "./_components/theme-switcher";
 
 export const generateMetadata = async (): Promise<Metadata> => {
   const data = await basehub({ cache: "no-store" }).query({
