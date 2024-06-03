@@ -19,6 +19,7 @@ import {
 } from "@/app/_components/rich-text";
 import { CodeSnippet, codeSnippetFragment } from "@/app/_components/code-snippet";
 import { basehub } from "basehub/index";
+import { cx } from "class-variance-authority";
 
 export const dynamic = "force-static";
 
@@ -131,7 +132,6 @@ export default async function BlogPage({ params: { slug } }: { params: { slug: s
                         },
                       },
                     },
-                    introduction: true,
                     body: {
                       json: {
                         __typename: true,
@@ -188,8 +188,12 @@ export default async function BlogPage({ params: { slug } }: { params: { slug: s
                 width={1440}
               />
               <Section>
-                <div className={richTextClasses}>
-                  <p className="text-2xl font-light">{blogpost.introduction}</p>
+                <div
+                  className={cx(
+                    richTextClasses,
+                    "[&>p:first-child]:text-2xl [&>p:first-child]:font-light",
+                  )}
+                >
                   <RichText
                     blocks={blogpost.body.json.blocks}
                     components={{
