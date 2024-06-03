@@ -10,10 +10,10 @@ import clsx from "clsx";
 import { type TestimonialsSlider } from ".";
 
 export function Slider({
-  testimonialsSliderList,
+  quotes,
   children,
 }: {
-  testimonialsSliderList: TestimonialsSlider["quotes"];
+  quotes: TestimonialsSlider["quotes"];
   children: React.ReactNode;
 }) {
   const [emblaRef, emblaApi] = useEmblaCarousel(
@@ -92,7 +92,7 @@ export function Slider({
       </div>
       <div ref={emblaRef} className="relative">
         <div className="relative flex h-full w-full">
-          {testimonialsSliderList.map((item) => (
+          {quotes.map((item) => (
             <TesimonialCard key={item._id} {...item} />
           ))}
         </div>
