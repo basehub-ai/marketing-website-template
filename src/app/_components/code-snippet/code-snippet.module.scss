@@ -16,6 +16,7 @@
         overflow-x: auto;
         background-color: theme('colors.surface.secondary');
         position: relative;
+        font-size: theme('fontSize.sm');
         & :global(pre) {
             margin: 0 !important;
             white-space: pre-wrap;
@@ -28,15 +29,15 @@
             user-select: none;
             margin-right: theme('margin.4') !important;
         }
-    
-        --shiki-color-text: #000;
+
+        --shiki-color-text: theme('colors.grayscale.950');
         --shiki-background: theme('colors.surface.secondary');
-        --shiki-token-constant: #ff6b7a;
+        --shiki-token-constant: theme('colors.accent.700');
         --shiki-token-function: theme('colors.grayscale.600');
-        --shiki-token-string-expression: #f4b541;
-        --shiki-token-string: #98c379;
-        --shiki-token-comment: #94a4ad;
-        --shiki-token-keyword: #c792ea;
+        --shiki-token-string-expression: theme('colors.grayscale.500');
+        --shiki-token-string: theme('colors.accent.400');
+        --shiki-token-comment: theme('colors.grayscale.400');
+        --shiki-token-keyword: theme('colors.accent.500');
         --shiki-token-parameter: #d6deeb;
         --shiki-token-punctuation: #c792e9;
         --shiki-token-link: #79b8ff;
@@ -57,15 +58,16 @@
             }
             
 
-            --shiki-color-text: #fff;
+            --shiki-color-text: theme('colors.grayscale.950');
             --shiki-background: theme('colors.dark.surface.secondary');
-            --shiki-token-constant: #ff6b7a;
+            --shiki-token-constant: theme('colors.accent.200');
             --shiki-token-function: theme('colors.grayscale.400');
-            --shiki-token-string-expression: #f4b541;
-            --shiki-token-string: #98c379;
-            --shiki-token-comment: #94a4ad;
-            --shiki-token-keyword: #c792ea;
+            --shiki-token-string-expression: theme('colors.grayscale.500');
+            --shiki-token-string: theme('colors.accent.400');
+            --shiki-token-comment: theme('colors.grayscale.600');
+            --shiki-token-keyword: theme('colors.accent.500');
             --shiki-token-parameter: #d6deeb;
+            --shiki-token-punctuation: #c792e9;
         }
     }
 }
