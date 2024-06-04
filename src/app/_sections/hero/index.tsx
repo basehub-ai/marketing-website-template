@@ -5,6 +5,7 @@ import { fragmentOn } from "basehub";
 import { AvatarsGroup } from "@/common/avatars-group";
 import { Avatar } from "@/common/avatar";
 import { avatarFragment } from "@/lib/basehub/fragments";
+import { $button } from "@/common/button";
 
 export const heroFragment = fragmentOn("HeroComponent", {
   customerSatisfactionBanner: {
@@ -69,11 +70,12 @@ export function Hero(hero: Hero) {
               type === "primary" ? (
                 <Link
                   key={_id}
-                  className={clsx(
-                    "flex h-14 w-full flex-col items-center justify-center bg-text-primary text-dark-text-primary dark:bg-dark-text-primary dark:text-text-primary",
-                    "transition-[opacity] hover:opacity-90",
-                  )}
-                  href={href ?? "#"}
+                  className={$button({
+                    intent: "primary",
+                    className:
+                      "flex !h-14 w-full flex-col items-center justify-center rounded-none !text-base",
+                  })}
+                  href={href}
                 >
                   {label}
                 </Link>
@@ -84,7 +86,7 @@ export function Hero(hero: Hero) {
                     "flex h-14 w-full flex-col items-center justify-center border-x border-border dark:border-dark-border",
                     "backdrop-blur-xl transition-colors duration-150 hover:bg-black/5 dark:hover:bg-white/5",
                   )}
-                  href={href ?? "#"}
+                  href={href}
                 >
                   {label}
                 </Link>
