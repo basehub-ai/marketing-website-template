@@ -8,7 +8,7 @@ import { fragmentOn } from "basehub";
 
 import { DesktopMenu, MobileMenu } from "./navigation-menu";
 
-const headerLinksFragment = fragmentOn("NavbarItem", {
+const headerLinksFragment = fragmentOn("HeaderNavbarLinkComponent", {
   _title: true,
   href: true,
   _id: true,
@@ -76,7 +76,6 @@ export async function Header() {
                     alt={header.logo.alt ?? "Logo"}
                     className="h-16 dark:invert"
                     height={header.logo.height}
-                    layout="fixed"
                     src={header.logo.url}
                     width={header.logo.width}
                   />

@@ -195,7 +195,7 @@ export default async function BlogPage({ params: { slug } }: { params: { slug: s
               </Section>
               <Image
                 alt={blogpost.image.alt ?? blogpost._title}
-                className="h-full max-h-[720px] w-full object-cover"
+                className="h-full max-h-[720px] w-full object-cover "
                 height={720}
                 src={blogpost.image.url}
                 style={{ aspectRatio: blogpost.image.aspectRatio }}
