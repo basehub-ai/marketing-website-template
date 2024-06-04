@@ -1,0 +1,4 @@
+.gradient {
+    background: radial-gradient(closest-side, rgba(var(--accent-rgb-400) / 0.4) 0%, transparent 100%);
+    z-index: 1;
+}
