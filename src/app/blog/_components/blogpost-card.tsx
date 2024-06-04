@@ -42,20 +42,22 @@ export function BlogpostCard({ type = "list", className, ...post }: BlogPostCard
       return (
         <Link
           key={post._id}
-          className="ring-accent-500 py-2 outline-none focus-visible:ring"
+          className="outline-none ring-accent-500 focus-visible:ring"
           href={`/blog/${post._slug}`}
         >
           <article
             className={clsx(
-              "lg:text-md grid grid-cols-[2fr,repeat(3,1fr)] place-items-center items-center rounded-lg px-4 py-4 text-text-secondary transition-colors *:first:place-items-start *:last:place-items-end hover:bg-surface-secondary dark:text-dark-text-secondary dark:hover:bg-dark-surface-secondary",
+              "lg:text-md grid grid-cols-[auto_auto] place-items-center items-center border-b border-border px-4 py-4 text-text-secondary transition-colors hover:bg-surface-secondary dark:border-dark-border dark:text-dark-text-secondary dark:hover:bg-dark-surface-secondary max-md:justify-items-start md:grid-cols-[2fr,repeat(3,1fr)] md:*:first:place-items-start md:*:last:place-items-end",
               className,
             )}
           >
-            <h3 className="justify-self-start font-medium text-text-primary dark:text-dark-text-primary">
+            <h3 className="col-span-2 justify-self-start font-medium text-text-primary dark:text-dark-text-primary md:col-span-1">
               {post._title}
             </h3>
-            <p>{post.categories.length > 0 ? post.categories.join(",") : "No categories"}</p>
-            <p>{formatDate(post.publishedAt)}</p>
+            <p className="col-span-2 md:col-span-1">
+              {post.categories.length > 0 ? post.categories.join(",") : "No categories"}
+            </p>
+            <p className="max-md:mt-3">{formatDate(post.publishedAt)}</p>
             <div className="flex items-center justify-self-end">
               <AvatarsGroup>
                 {post.authors.map((author) => (
@@ -73,10 +75,10 @@ export function BlogpostCard({ type = "list", className, ...post }: BlogPostCard
           key={post._id}
           className={clsx(
             "group flex flex-col self-stretch rounded-xl border transition-shadow [--heading-size:_1.1250rem]",
-            "dark:hover:shadow-grayscale-700 border-border bg-surface-secondary text-text-secondary hover:shadow-md dark:border-dark-border dark:bg-dark-surface-secondary dark:text-dark-text-secondary dark:hover:shadow",
+            "border-border bg-surface-secondary text-text-secondary hover:shadow-md dark:border-dark-border dark:bg-dark-surface-secondary dark:text-dark-text-secondary dark:hover:shadow dark:hover:shadow-grayscale-700",
             "md:last:col-span-2 md:last:flex-row md:last:[--heading-size:_1.25rem]",
             "xl:flex-row xl:last:col-span-1 xl:last:[--heading-size:_1.1250rem] xl:first-of-type:col-span-1 xl:first-of-type:row-span-2 xl:first-of-type:flex-col xl:first-of-type:[--heading-size:_1.25rem]",
-            "focus-visible:ring-accent-500 outline-none focus-visible:ring",
+            "outline-none focus-visible:ring focus-visible:ring-accent-500",
             className,
           )}
           href={`/blog/${post._slug}`}

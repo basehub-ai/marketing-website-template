@@ -82,7 +82,7 @@ export default async function BlogPage() {
               <Heading align="left">
                 <h3 className="!text-xl lg:!text-2xl">{blog.listTitle}</h3>
               </Heading>
-              <div className="flex flex-col divide-y divide-border self-stretch dark:divide-dark-border">
+              <div className="flex flex-col self-stretch">
                 {posts.items.map((post) => (
                   <BlogpostCard key={post._id} {...post} className="-mx-4" />
                 ))}
