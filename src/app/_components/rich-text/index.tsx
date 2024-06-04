@@ -12,6 +12,7 @@ export const richTextClasses = cx(
   "prose-h2:text-3xl prose-h2:font-medium prose-h2:text-text-primary dark:prose-h2:text-dark-text-primary",
   "prose-h3:text-2xl prose-h3:font-medium prose-h3:text-text-primary dark:prose-h3:text-dark-text-primary",
   "prose-blockquote:border-border prose-blockquote:pl-5 prose-blockquote:text-2xl prose-blockquote:text-text-primary dark:prose-blockquote:border-dark-border dark:prose-blockquote:text-dark-text-primary",
+  '[&_blockquote>p]:before:[content:""] prose-blockquote:[&_blockquote>p]:after:[content:""]',
   "prose-h4:text-2xl prose-h4:font-medium",
   "prose-strong:font-medium",
   "prose-a:outline-accent-500",
