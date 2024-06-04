@@ -164,13 +164,13 @@ export function MobileMenu({ ctaS, navbar }: HeaderFragment) {
     <>
       <button
         className="col-start-3 flex items-center justify-center gap-2 justify-self-end rounded border border-border bg-surface-secondary p-2 dark:border-dark-border dark:bg-dark-surface-secondary lg:hidden lg:h-7"
-        onClick={handleToggle}
+        onPointerDown={handleToggle}
       >
         <HamburgerMenuIcon className="size-4" />
       </button>
       <div className="block lg:hidden">
         {isOn ? (
-          <div className="fixed left-0 top-[calc(var(--header-height)+1)] z-10 h-auto w-full bg-surface-primary dark:bg-dark-surface-primary">
+          <div className="fixed left-0 top-[calc(var(--header-height)+1px)] z-10 h-auto w-full bg-surface-primary dark:bg-dark-surface-primary">
             <div className="flex flex-col gap-8 px-6 py-8">
               <nav className="flex flex-col gap-4">
                 {headerLinks.map((link) =>
