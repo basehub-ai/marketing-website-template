@@ -115,8 +115,8 @@ function FeatureTitle(
       <TableCell align="start" as="div" className="w-" type="primary">
         <p>{feature._title}</p>
         {feature.tooltip ? (
-          <SimpleTooltip content={feature.tooltip}>
-            <QuestionMarkCircledIcon className="dark:text-dark-text-tetext-text-tertiary size-4 text-text-tertiary" />
+          <SimpleTooltip className="!max-w-[320px]" content={feature.tooltip} side="right">
+            <QuestionMarkCircledIcon className="dark:text-dark-text-tetext-text-tertiary size-4 cursor-help text-text-tertiary" />
           </SimpleTooltip>
         ) : null}
       </TableCell>

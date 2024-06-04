@@ -7,6 +7,8 @@ export type SimpleTooltipProps = {
   delayDuration?: Tooltip.TooltipProps["delayDuration"];
   disabled?: boolean;
   className?: string;
+  side?: Tooltip.TooltipContentProps["side"];
+  sideOffset?: Tooltip.TooltipContentProps["sideOffset"];
 } & Omit<Tooltip.TooltipProps, "className">;
 
 export function SimpleTooltip({ delayDuration = 500, ...props }: SimpleTooltipProps) {

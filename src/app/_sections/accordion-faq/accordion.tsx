@@ -48,7 +48,7 @@ function AccordionItem({
         </AccordionPrimitive.Trigger>
       </AccordionPrimitive.Header>
       <AccordionPrimitive.Content className="transform overflow-hidden pl-7 text-text-tertiary data-[state=closed]:animate-slideUp data-[state=open]:animate-slideDown dark:text-dark-text-tertiary">
-        <p className="pt-4">{answer}</p>
+        <div>{answer}</div>
       </AccordionPrimitive.Content>
     </AccordionPrimitive.Item>
   );
