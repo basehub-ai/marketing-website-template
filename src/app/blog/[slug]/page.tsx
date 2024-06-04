@@ -172,7 +172,7 @@ export default async function BlogPage({ params: { slug } }: { params: { slug: s
                 <Heading subtitle={blogpost.description}>
                   <h1>{blogpost._title}</h1>
                 </Heading>
-                <div className="flex flex-col gap-3 items-center justify-center">
+                <div className="flex flex-col items-center justify-center gap-3">
                   <div className="flex max-w-screen-lg items-center justify-center gap-12">
                     {blogpost.authors.map((author) => (
                       <figure key={author._id} className="flex items-center gap-2">

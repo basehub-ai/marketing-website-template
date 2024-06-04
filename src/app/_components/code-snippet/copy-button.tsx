@@ -14,7 +14,7 @@ export function CopyButton({ text }: { text: string }) {
 
   return (
     <Button unstyled className="relative" onClick={handleClick}>
-      {isShowingTooltip? <CheckIcon /> :<ClipboardCopyIcon />}
+      {isShowingTooltip ? <CheckIcon /> : <ClipboardCopyIcon />}
     </Button>
   );
 }
