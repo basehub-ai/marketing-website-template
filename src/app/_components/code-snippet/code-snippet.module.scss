@@ -5,6 +5,9 @@
     border-radius: theme('borderRadius.xl');
     margin: theme('spacing.4') 0px;
     border: 1px solid theme('colors.border.DEFAULT');
+    width: 100%;
+    overflow: hidden;
+
     .header {
         padding: theme('spacing.4');
         display: flex;
@@ -19,16 +22,20 @@
         font-size: theme('fontSize.sm');
         & :global(pre) {
             margin: 0 !important;
-            white-space: pre-wrap;
+            // white-space: pre-wrap;
             word-wrap: break-word;
             background-color: theme('colors.surface.secondary') !important;
             outline-color: theme('colors.accent.500');
         }
-    
+
         & :global(span.line-indicator){
             pointer-events: none;
+            position: sticky;
+            left: 0;
+            background-color: theme('colors.surface.secondary');
             user-select: none;
-            margin-right: theme('margin.4') !important;
+            padding-left: theme('padding[3.5]') !important;
+            padding-right: theme('padding.4') !important;
         }
 
         --shiki-color-text: theme('colors.grayscale.950');
@@ -57,7 +64,11 @@
             & :global(pre) {
                 background-color: theme('colors.dark.surface.secondary') !important;
             }
-            
+
+
+            & :global(span.line-indicator){
+              background-color: theme('colors.dark.surface.secondary');
+          }
 
             --shiki-color-text: theme('colors.grayscale.950');
             --shiki-background: theme('colors.dark.surface.secondary');
