@@ -7,7 +7,7 @@ import s from "./rich-text.module.scss";
 import Image from "next/image";
 
 export const richTextClasses = cx(
-  "prose prose-zinc max-w-prose text-start dark:prose-invert font-normal text-base",
+  "prose prose-zinc max-w-prose text-start dark:prose-invert font-normal text-base w-full",
   "prose-p:text-text-secondary dark:prose-p:text-dark-text-secondary",
   "prose-h1:text-4xl prose-h1:font-medium prose-h1:text-text-primary dark:prose-h1:text-dark-text-primary",
   "prose-h2:text-3xl prose-h2:font-medium prose-h2:text-text-primary dark:prose-h2:text-dark-text-primary",
@@ -17,6 +17,7 @@ export const richTextClasses = cx(
   "prose-h4:text-2xl prose-h4:font-medium",
   "prose-strong:font-medium",
   "prose-a:outline-accent-500",
+  "prose-pre:pl-0",
   s["rich-text"],
 );
 
