@@ -4,6 +4,7 @@ import { cva, cx } from "class-variance-authority";
 
 import { fragmentOn } from "basehub";
 import s from "./rich-text.module.scss";
+import Image from "next/image";
 
 export const richTextClasses = cx(
   "prose prose-zinc max-w-prose text-start dark:prose-invert font-normal text-base",
@@ -23,6 +24,8 @@ export const richTextBaseComponents: RichTextProps["components"] = {
   code: Code,
   pre: ({ children }) => <>{children}</>,
   b: ({ children }) => <strong>{children}</strong>,
+  img: (props)=> <RichTextImage {...props} />,
+  video: (props)=> <RichTextVideo {...props} />,
 };
 
 function Code({
@@ -33,7 +36,6 @@ function Code({
 }: {
   children: React.ReactNode;
   isInline: boolean;
-
   code: string;
 }) {
   if (isInline) {
@@ -58,7 +60,7 @@ type FaqItemComponentRichText = fragmentOn.infer<typeof FaqItemComponentFragment
 export function FaqRichtextComponent({ answer, _title }: FaqItemComponentRichText) {
   return (
     <details className="group flex flex-col gap-4 overflow-hidden rounded-lg border border-border bg-surface-secondary dark:border-dark-border dark:bg-dark-surface-secondary">
-      <summary className="flex cursor-pointer items-center rounded-md p-3 pl-6 outline-none ring-inset ring-accent-500 focus:ring">
+      <summary className="flex cursor-pointer items-center rounded-md p-3 pl-6 outline-none ring-inset ring-accent-500 focus-visible:ring">
         <span className="flex w-8">
           <ChevronDownIcon className="transform group-open:rotate-180" />
         </span>
@@ -137,4 +139,38 @@ export function RichTextCalloutComponent({
         </article>
       );
   }
+}
+
+
+export function RichTextImage(props: {
+  src: string;
+  alt?: string;
+  width?: number;
+  height?: number;
+  caption?: string;
+}) {
+  return (
+    <figure className="relative flex flex-col gap-4">
+      <Image alt={props.caption ?? ''} {...props} />
+      {props.caption ? <figcaption className="text-sm m-0 text-text-tertiary dark:text-dark-text-tertiary">{props.caption}</figcaption> : null}
+    </figure>
+  )
+}
+
+export function RichTextVideo(props: {
+  src: string;
+  alt?: string;
+  width?: number;
+  height?: number;
+  caption?: string;
+}) {
+  return (
+    <figure className="relative flex flex-col gap-4">
+      <video controls>
+        <source src={props.src} type="video/mp4" />
+        Your browser does not support the video tag.
+      </video>
+      {props.caption ? <figcaption  className="text-sm m-0 text-text-tertiary dark:text-dark-text-tertiary">{props.caption}</figcaption> : null}
+    </figure>
+  )
 }
