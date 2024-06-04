@@ -4,7 +4,7 @@ import Image from "next/image";
 
 import { type AvatarFragment, type AuthorFragment } from "@/lib/basehub/fragments";
 
-import { CustomTooltip } from "./simple-tooltip";
+import { CustomTooltip } from "./tooltip";
 
 export function Author({ image, _title }: AuthorFragment) {
   return (

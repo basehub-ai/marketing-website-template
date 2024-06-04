@@ -1,6 +1,6 @@
 import clsx from "clsx";
 import React from "react";
-import { TooltipProvider } from "./simple-tooltip";
+import { TooltipProvider } from "./tooltip";
 
 export function AvatarsGroup({
   className,
