@@ -8,17 +8,19 @@ import { ButtonLink } from "@/common/button";
 import { Pump } from "basehub/react-pump";
 import clsx from "clsx";
 
-import s from './hero.module.scss';
+import s from "./hero.module.scss";
 
 export const featureHeroFragment = fragmentOn("FeatureHeroComponent", {
   heroLayout: true,
   heading: headingFragment,
   image: optimizedImageFragment,
   actions: {
-    _id: true,
-    href: true,
-    label: true,
-    type: true,
+    on_ButtonComponent: {
+      _id: true,
+      href: true,
+      label: true,
+      type: true,
+    },
   },
 });
 
@@ -35,12 +37,7 @@ export default function FeatureHero({ heading, heroLayout, image, actions }: Fea
             </Heading>
             <div className="flex justify-center gap-3">
               {actions?.map((action) => (
-                <ButtonLink
-                  key={action._id}
-                  href={action.href}
-                  intent={action.type}
-                  size="lg"
-                >
+                <ButtonLink key={action._id} href={action.href} intent={action.type} size="lg">
                   {action.label}
                 </ButtonLink>
               ))}
@@ -66,12 +63,7 @@ export default function FeatureHero({ heading, heroLayout, image, actions }: Fea
               </Heading>
               <div className="flex justify-start gap-3">
                 {actions?.map((action) => (
-                  <ButtonLink
-                    key={action._id}
-                    href={action.href }
-                    intent={action.type}
-                    size="lg"
-                  >
+                  <ButtonLink key={action._id} href={action.href} intent={action.type} size="lg">
                     {action.label}
                   </ButtonLink>
                 ))}
@@ -106,12 +98,7 @@ export default function FeatureHero({ heading, heroLayout, image, actions }: Fea
               {actions && actions.length > 0 ? (
                 <div className="flex gap-3">
                   {actions.map((action) => (
-                    <ButtonLink
-                      key={action._id}
-                      href={action.href}
-                      intent={action.type}
-                      size="lg"
-                    >
+                    <ButtonLink key={action._id} href={action.href} intent={action.type} size="lg">
                       {action.label}
                     </ButtonLink>
                   ))}
@@ -122,51 +109,53 @@ export default function FeatureHero({ heading, heroLayout, image, actions }: Fea
         </>
       );
     }
-    case 'gradient': {
+    case "gradient": {
       return (
-        <Pump 
-          queries={[{
-            site: {
-              settings: {
-                logoLite: {
-                  url: true,
-                  width: true,
-                  height: true,
-                  alt: true,
-                }
-              }
-            }
-          }]}
-         >
-          {async ([{site}]) => {
-            'use server'
+        <Pump
+          queries={[
+            {
+              site: {
+                settings: {
+                  logoLite: {
+                    url: true,
+                    width: true,
+                    height: true,
+                    alt: true,
+                  },
+                },
+              },
+            },
+          ]}
+        >
+          {async ([{ site }]) => {
+            "use server";
 
-            return (<Section>
-
-
-             <div className="z-10 flex flex-col items-center gap-8">
-             <Image 
-                alt={site.settings.logoLite.alt ?? 'Logo'}
-              className="size-20"
-                height={site.settings.logoLite.height}
-                src={site.settings.logoLite.url}
-                width={site.settings.logoLite.width}
-              />
-              <Heading {...heading}>
-                <h4>{heading.title}</h4>
-              </Heading>
-             </div>
-              {/* Gradient */}
-              <div 
-                className={clsx("absolute scale-150 z-[0] left-1/2 -translate-x-1/2 -top-1/2 rounded-[50%] w-[70vw] h-[400px]",
-                  s.gradient
-                )}
-
-              />
-            </Section>)
+            return (
+              <Section>
+                <div className="z-10 flex flex-col items-center gap-8">
+                  <Image
+                    alt={site.settings.logoLite.alt ?? "Logo"}
+                    className="size-20"
+                    height={site.settings.logoLite.height}
+                    src={site.settings.logoLite.url}
+                    width={site.settings.logoLite.width}
+                  />
+                  <Heading {...heading}>
+                    <h4>{heading.title}</h4>
+                  </Heading>
+                </div>
+                {/* Gradient */}
+                <div
+                  className={clsx(
+                    "absolute -top-1/2 left-1/2 z-[0] h-[400px] w-[70vw] -translate-x-1/2 scale-150 rounded-[50%]",
+                    s.gradient,
+                  )}
+                />
+              </Section>
+            );
           }}
-          </Pump>
-      )
+        </Pump>
+      );
     }
     default: {
       return null;

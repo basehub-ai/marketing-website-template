@@ -35,7 +35,7 @@ export type AvatarFragment = fragmentOn.infer<typeof avatarFragment>;
 /*                                   Author                                   */
 /* -------------------------------------------------------------------------- */
 
-export const authorFragment = fragmentOn("AuthorsItem", {
+export const authorFragment = fragmentOn("AuthorComponent", {
   _id: true,
   _title: true,
   image: { ...avatarFragment, height: true, width: true },

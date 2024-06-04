@@ -10,7 +10,7 @@ import { headingFragment } from "@/lib/basehub/fragments";
 
 import s from "./pricing.module.scss";
 
-export const pricingPlanItemFragment = fragmentOn("PlansItem", {
+export const pricingPlanItemFragment = fragmentOn("PlanComponent", {
   plan: {
     _id: true,
     _title: true,
