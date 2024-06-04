@@ -15,7 +15,7 @@ export function Input({
         className={clsx(
           "h-11 w-full rounded-full border border-border py-2 pl-4 pr-28 dark:border-dark-border",
           "disabled:opacity-50",
-          "placeholder:text-sm",
+          "placeholder:text-sm placeholder:text-text-tertiary dark:placeholder-dark-text-tertiary",
           "text-sm text-text-primary dark:text-dark-text-primary",
           "outline-none focus-visible:ring-2 focus-visible:ring-control",
           error ? "text-error placeholder:text-error/50" : "",
