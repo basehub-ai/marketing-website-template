@@ -59,7 +59,7 @@ export function BlogpostCard({ type = "list", className, ...post }: BlogPostCard
             </p>
             <p className="max-md:mt-3">{formatDate(post.publishedAt)}</p>
             <div className="flex items-center justify-self-end">
-              <AvatarsGroup>
+              <AvatarsGroup animate>
                 {post.authors.map((author) => (
                   <Author key={author._id} {...author} />
                 ))}
@@ -106,7 +106,7 @@ export function BlogpostCard({ type = "list", className, ...post }: BlogPostCard
               <p className="text-sm text-text-tertiary dark:text-dark-text-tertiary lg:text-base">
                 {formatDate(post.publishedAt)}
               </p>
-              <AvatarsGroup>
+              <AvatarsGroup animate>
                 {post.authors.map((author) => (
                   <Author key={author._id} {...author} />
                 ))}
