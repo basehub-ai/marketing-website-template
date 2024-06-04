@@ -16,9 +16,8 @@
   }
 
   *:focus-visible {
-      outline-color: theme("colors.accent.300");
+    outline-color: theme("colors.accent.300");
   }
-
 }
 
 :root {
@@ -31,7 +30,7 @@
 
   *:focus-visible {
     outline-color: theme("colors.accent.400");
-}
+  }
 }
 
 .no-scrollbar {

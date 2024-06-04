@@ -42,6 +42,9 @@ const config: Config = {
         900: "rgb(var(--grayscale-rgb-900) / <alpha-value>)",
         950: "rgb(var(--grayscale-rgb-950) / <alpha-value>)",
       },
+      textOnAccent: {
+        primary: "var(--textOnAccent, var(--grayscale-50))",
+      },
       dark: {
         text: {
           primary: "rgb(var(--grayscale-rgb-50) / <alpha-value>)",
@@ -83,7 +86,6 @@ const config: Config = {
         DEFAULT: "#14C9A2",
       },
     },
-
     fontSize: {
       "2xs": ["11px", { lineHeight: "1.3", letterSpacing: "-0.3px", fontWeight: "300" }],
       xs: ["0.75rem", { lineHeight: "1rem", letterSpacing: "-0.36px", fontWeight: "300" }],

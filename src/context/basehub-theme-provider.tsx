@@ -3,10 +3,19 @@ import { draftMode } from "next/headers";
 import { Pump } from "basehub/react-pump";
 import { hexToRgb } from "@/utils/colors";
 import { fragmentOn } from "basehub";
+import colors from "tailwindcss/colors";
 
 export const themeFragment = fragmentOn("Theme", { accent: true, grayScale: true });
 
 export type BaseHubTheme = fragmentOn.infer<typeof themeFragment>;
+
+const CONTRAST_WARNING_COLORS: (keyof typeof colors)[] = [
+  "amber",
+  "cyan",
+  "green",
+  "lime",
+  "yellow",
+];
 
 export function BaseHubThemeProvider() {
   return (
@@ -17,7 +26,6 @@ export function BaseHubThemeProvider() {
     >
       {async ([data]) => {
         "use server";
-        const colors = await import("tailwindcss/colors");
         const accent = colors[data.site.settings.theme.accent];
         const grayScale = colors[data.site.settings.theme.grayScale];
 
@@ -32,6 +40,9 @@ export function BaseHubThemeProvider() {
 
           css.push(`--grayscale-${key}: ${value}; --grayscale-rgb-${key}: ${rgb};`);
         });
+        if (CONTRAST_WARNING_COLORS.includes(data.site.settings.theme.accent)) {
+          css.push(`--textOnAccent: ${colors.gray[950]};`);
+        }
 
         return (
           <style>{`
