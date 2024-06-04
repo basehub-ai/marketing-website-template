@@ -8,6 +8,7 @@ import { WheelGesturesPlugin } from "embla-carousel-wheel-gestures";
 import clsx from "clsx";
 
 import { type TestimonialsSlider } from ".";
+import { Button } from "@/common/button";
 
 export function Slider({
   quotes,
@@ -75,19 +76,21 @@ export function Slider({
     <div className="flex w-full flex-col gap-14">
       <div className="flex justify-between">
         {children}
-        <div className="sm hidden gap-4 sm:flex">
-          <button
-            className="rounded-full border border-border px-4 py-2 hover:bg-surface-tertiary dark:border-dark-border dark:hover:bg-dark-surface-tertiary"
+        <div className="hidden gap-4 sm:flex">
+          <Button
+            className="!h-auto rounded-full px-4 py-2"
+            intent="secondary"
             onClick={onPrevButtonClick}
           >
             <ArrowLeftIcon className="size-6" />
-          </button>
-          <button
-            className="rounded-full border border-border px-4 py-2 hover:bg-surface-tertiary dark:border-dark-border dark:hover:bg-dark-surface-tertiary"
+          </Button>
+          <Button
+            className="!h-auto rounded-full !px-4 !py-2"
+            intent="secondary"
             onClick={onNextButtonClick}
           >
             <ArrowRightIcon className="size-6" />
-          </button>
+          </Button>
         </div>
       </div>
       <div ref={emblaRef} className="relative">

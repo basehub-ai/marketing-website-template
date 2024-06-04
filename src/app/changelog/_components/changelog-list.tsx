@@ -99,9 +99,9 @@ export function ChangelogList({ changelogPosts }: { changelogPosts: ChangelogLis
               width={647}
             />
             <div className="flex flex-col gap-1">
-              <Link href={`/changelog/${post._slug}`}>
+              <ButtonLink unstyled href={`/changelog/${post._slug}`}>
                 <h2 className="text-xl font-medium">{post._title}</h2>
-              </Link>
+              </ButtonLink>
               <p className="text-sm text-text-secondary dark:text-dark-text-secondary md:text-base">
                 {post.excerpt}
               </p>

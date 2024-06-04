@@ -2,7 +2,7 @@ import { type VariantProps, cva } from "class-variance-authority";
 import Link, { type LinkProps } from "next/link";
 
 export const $button = cva(
-  "inline-flex gap-1 items-center font-normal justify-center shrink-0 rounded-full ring-control focus-visible:ring-2 outline-none",
+  "gap-1 font-normal shrink-0 rounded-full ring-control focus-visible:ring-2 outline-none",
   {
     variants: {
       intent: {
@@ -27,12 +27,9 @@ export const $button = cva(
         true: "px-0 py-0 bg-transparent border-none hover:bg-transparent hover:border-none dark:hover:bg-transparent dark:hover:border-none dark:bg-transparent dark:border-none",
       },
       size: {
-        md: "h-7 px-3.5 text-xs md:text-sm md:h-8 md:px-5",
-        lg: "h-9 px-5 text-sm md:text-base md:h-10",
+        md: "inline-flex items-center justify-center h-7 px-3.5 text-xs md:text-sm md:h-8 md:px-5",
+        lg: "inline-flex items-center justify-center h-9 px-5 text-sm md:text-base md:h-10",
       },
-    },
-    defaultVariants: {
-      size: "md",
     },
   },
 );
@@ -52,15 +49,14 @@ export function Button({
   iconSide = "left",
   unstyled,
   className,
-  size,
+  size = "md",
   ...props
 }: ButtonProps<"button">) {
   return (
     <button
-      className={
-        unstyled
-          ? className
-          : $button({
+      className={$button(
+        !unstyled
+          ? {
               intent,
               disabled,
               onlyButton,
@@ -68,8 +64,9 @@ export function Button({
               unstyled,
               className,
               size,
-            })
-      }
+            }
+          : { className },
+      )}
       disabled={disabled}
       {...props}
     >
@@ -88,15 +85,14 @@ export function ButtonLink({
   iconSide = "left",
   unstyled,
   className,
-  size,
+  size = "md",
   ...props
 }: ButtonProps<"a"> & LinkProps) {
   return (
     <Link
-      className={
-        unstyled
-          ? className
-          : $button({
+      className={$button(
+        !unstyled
+          ? {
               intent,
               disabled,
               onlyButton,
@@ -104,8 +100,9 @@ export function ButtonLink({
               className,
               unstyled,
               size,
-            })
-      }
+            }
+          : { className },
+      )}
       {...props}
     >
       {children}

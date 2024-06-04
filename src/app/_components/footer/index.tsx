@@ -5,6 +5,7 @@ import { draftMode } from "next/headers";
 import { Pump } from "basehub/react-pump";
 
 import { ThemeSwitcher } from "../theme-switcher";
+import { ButtonLink } from "@/common/button";
 
 function isExternalLink(url: string | null | undefined) {
   return url && /^https?:\/\//.test(url);
@@ -65,14 +66,15 @@ export async function Footer() {
               />
               <nav className="col-start-1 row-start-2 flex flex-col gap-x-8 gap-y-3 self-center sm:col-span-1 sm:col-start-2 sm:row-start-1 sm:flex-row sm:items-center sm:place-self-center">
                 {footer.navbar.items.map(({ _title, url }) => (
-                  <Link
+                  <ButtonLink
                     key={_title}
-                    className="font-light tracking-tight text-text-tertiary hover:text-text-primary dark:text-dark-text-secondary dark:hover:text-dark-text-primary"
+                    unstyled
+                    className="px-2 font-light tracking-tight text-text-tertiary hover:text-text-primary dark:text-dark-text-secondary dark:hover:text-dark-text-primary"
                     href={url ?? "#"}
                     target={isExternalLink(url) ? "_blank" : "_self"}
                   >
                     {_title}
-                  </Link>
+                  </ButtonLink>
                 ))}
               </nav>
               <div className="col-start-2 row-start-1 flex items-center gap-3 self-center justify-self-end sm:col-span-1 sm:col-start-3 sm:row-start-1">
@@ -95,8 +97,9 @@ export async function Footer() {
                 {footer.socialLinks.map((link) => {
                   return (
                     <li key={link._title} className="shrink-0 first:sm:ml-auto">
-                      <Link
-                        className="aspect-square hover:brightness-75"
+                      <ButtonLink
+                        unstyled
+                        className="aspect-square p-0.5 hover:brightness-75"
                         href={link.url}
                         target="_blank"
                       >
@@ -106,7 +109,7 @@ export async function Footer() {
                           src={link.icon?.url ?? ""}
                           width={24}
                         />
-                      </Link>
+                      </ButtonLink>
                     </li>
                   );
                 })}
@@ -123,7 +126,8 @@ export async function Footer() {
 
 function PoweredByBasehub({ className }: { className?: string }) {
   return (
-    <Link
+    <ButtonLink
+      unstyled
       className={className}
       href="https://basehub.com/basehub/marketing-website"
       target="_blank"
@@ -134,6 +138,6 @@ function PoweredByBasehub({ className }: { className?: string }) {
         src="https://basehub.com/template-button.svg"
         width={150}
       />
-    </Link>
+    </ButtonLink>
   );
 }

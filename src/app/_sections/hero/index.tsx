@@ -5,7 +5,7 @@ import { fragmentOn } from "basehub";
 import { AvatarsGroup } from "@/common/avatars-group";
 import { Avatar } from "@/common/avatar";
 import { avatarFragment } from "@/lib/basehub/fragments";
-import { $button } from "@/common/button";
+import { $button, ButtonLink } from "@/common/button";
 
 export const heroFragment = fragmentOn("HeroComponent", {
   customerSatisfactionBanner: {
@@ -66,32 +66,21 @@ export function Hero(hero: Hero) {
         </div>
         <div className="flex items-start justify-center px-8 sm:px-24">
           <div className="flex w-full max-w-[80vw] flex-col items-center justify-start md:!max-w-[392px]">
-            {hero.actions?.map(({ href, label, type, _id }) =>
-              type === "primary" ? (
-                <Link
-                  key={_id}
-                  className={$button({
-                    intent: "primary",
-                    className:
-                      "flex !h-14 w-full flex-col items-center justify-center rounded-none !text-base",
-                  })}
-                  href={href}
-                >
-                  {label}
-                </Link>
-              ) : (
-                <Link
-                  key={_id}
-                  className={clsx(
-                    "flex h-14 w-full flex-col items-center justify-center border-x border-border dark:border-dark-border",
-                    "backdrop-blur-xl transition-colors duration-150 hover:bg-black/5 dark:hover:bg-white/5",
-                  )}
-                  href={href}
-                >
-                  {label}
-                </Link>
-              ),
-            )}
+            {hero.actions?.map(({ href, label, type, _id }) => (
+              <ButtonLink
+                key={_id}
+                className={clsx(
+                  "!h-14 flex-col items-center justify-center rounded-none !text-base",
+                  type === "primary"
+                    ? "flex  w-full"
+                    : "flex w-full border-x border-border !bg-transparent backdrop-blur-xl transition-colors duration-150 hover:!bg-black/5 dark:border-dark-border dark:hover:!bg-white/5",
+                )}
+                href={href}
+                intent={type}
+              >
+                {label}
+              </ButtonLink>
+            ))}
           </div>
         </div>
       </div>

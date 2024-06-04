@@ -22,6 +22,7 @@
             white-space: pre-wrap;
             word-wrap: break-word;
             background-color: theme('colors.surface.secondary') !important;
+            outline-color: theme('colors.accent.500');
         }
     
         & :global(span.line-indicator){

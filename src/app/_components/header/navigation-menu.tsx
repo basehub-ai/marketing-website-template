@@ -13,7 +13,7 @@ import {
   type NavigationMenuLinkProps,
 } from "@radix-ui/react-navigation-menu";
 import { useSelectedLayoutSegment } from "next/navigation";
-import { ButtonLink } from "@/common/button";
+import { Button, ButtonLink } from "@/common/button";
 import { isPageReferenceComponent } from ".basehub/schema";
 import type { HeaderFragment, HeaderLiksFragment } from ".";
 import { useToggleState } from "@/hooks/use-toggle-state";
@@ -63,7 +63,9 @@ function NavigationMenuLink({
       )}
       {...props}
     >
-      <Link href={href}>{children}</Link>
+      <ButtonLink unstyled href={href}>
+        {children}
+      </ButtonLink>
     </NavigationMenuLinkPrimitive>
   );
 }
@@ -75,10 +77,13 @@ function NavigationMenuLinkWithMenu({ _id, _title, href, sublinks }: HeaderLiksF
         {href ? (
           <NavigationMenuLink href={href}>{_title}</NavigationMenuLink>
         ) : (
-          <button className="inline-flex items-center gap-1 rounded-full px-3 pb-px hover:bg-surface-tertiary dark:hover:bg-dark-surface-tertiary lg:h-7">
+          <Button
+            unstyled
+            className="inline-flex items-center gap-1 rounded-full px-3 pb-px hover:bg-surface-tertiary dark:hover:bg-dark-surface-tertiary lg:h-7"
+            icon={<ChevronDownIcon className="text-text-tertiary dark:text-dark-text-tertiary" />}
+          >
             {_title}
-            <ChevronDownIcon className="text-text-tertiary dark:text-dark-text-tertiary" />
-          </button>
+          </Button>
         )}
       </NavigationMenuTrigger>
       <NavigationMenuContent className="absolute left-0 top-[calc(100%+4px)] min-w-[164px] rounded-md border border-border bg-surface-primary p-0.5 dark:border-dark-border dark:bg-dark-surface-primary">
@@ -96,11 +101,14 @@ function NavigationMenuLinkWithMenu({ _id, _title, href, sublinks }: HeaderLiksF
 
             return (
               <li key={sublink._id}>
-                <NavigationMenuLinkPrimitive
-                  asChild
-                  className="flex items-center gap-2 rounded-md px-3 py-1.5 hover:bg-surface-tertiary dark:hover:bg-dark-surface-tertiary"
-                >
-                  <Link href={href}>{_title}</Link>
+                <NavigationMenuLinkPrimitive asChild>
+                  <ButtonLink
+                    unstyled
+                    className="flex w-full items-center gap-2 rounded-md px-3 py-1.5 hover:bg-surface-tertiary dark:hover:bg-dark-surface-tertiary"
+                    href={href}
+                  >
+                    {_title}
+                  </ButtonLink>
                 </NavigationMenuLinkPrimitive>
               </li>
             );

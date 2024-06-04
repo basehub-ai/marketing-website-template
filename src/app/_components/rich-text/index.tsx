@@ -13,7 +13,8 @@ export const richTextClasses = cx(
   "prose-h3:text-2xl prose-h3:font-medium prose-h3:text-text-primary dark:prose-h3:text-dark-text-primary",
   "prose-blockquote:border-border prose-blockquote:pl-5 prose-blockquote:text-2xl prose-blockquote:text-text-primary dark:prose-blockquote:border-dark-border dark:prose-blockquote:text-dark-text-primary",
   "prose-h4:text-2xl prose-h4:font-medium",
-  "prose-strong:font-medium ",
+  "prose-strong:font-medium",
+  "prose-a:outline-accent-500",
   s["rich-text"],
 );
 
@@ -56,7 +57,7 @@ type FaqItemComponentRichText = fragmentOn.infer<typeof FaqItemComponentFragment
 export function FaqRichtextComponent({ answer, _title }: FaqItemComponentRichText) {
   return (
     <details className="group flex flex-col gap-4 overflow-hidden rounded-lg border border-border bg-surface-secondary dark:border-dark-border dark:bg-dark-surface-secondary">
-      <summary className="flex cursor-pointer items-center p-3 pl-6">
+      <summary className="flex cursor-pointer items-center rounded-md p-3 pl-6 outline-none ring-inset ring-accent-500 focus:ring">
         <span className="flex w-8">
           <ChevronDownIcon className="transform group-open:rotate-180" />
         </span>
