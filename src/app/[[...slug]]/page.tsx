@@ -112,8 +112,6 @@ export const generateMetadata = async (
   };
 };
 
-const dynamicFragement = fragmentOn("PagesItem", {});
-
 export default async function DynamicPage({ params }: { params: { slug?: string[] } }) {
   const slugs = params.slug;
 

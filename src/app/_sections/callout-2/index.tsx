@@ -34,13 +34,13 @@ export function Callout2(callout: Callout2) {
         </div>
         <div className="flex items-center gap-2 lg:flex-col-reverse">
           <ButtonLink
-            href={callout.calloutV2CtAs.secondaryCta.href ?? ""}
+            href={callout.calloutV2CtAs.secondaryCta.href}
             intent={callout.calloutV2CtAs.secondaryCta.type}
           >
             {callout.calloutV2CtAs.secondaryCta.label}
           </ButtonLink>
           <ButtonLink
-            href={callout.calloutV2CtAs.cta.href ?? ""}
+            href={callout.calloutV2CtAs.cta.href}
             intent={callout.calloutV2CtAs.cta.type}
           >
             {callout.calloutV2CtAs.cta.label}

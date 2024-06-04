@@ -33,7 +33,7 @@ export default function FeatureHero({ heading, heroLayout, image, actions }: Fea
               {actions?.map((action) => (
                 <ButtonLink
                   key={action._id}
-                  href={action.href ?? "#"}
+                  href={action.href}
                   intent={action.type}
                   size="lg"
                 >
@@ -64,7 +64,7 @@ export default function FeatureHero({ heading, heroLayout, image, actions }: Fea
                 {actions?.map((action) => (
                   <ButtonLink
                     key={action._id}
-                    href={action.href ?? "#"}
+                    href={action.href }
                     intent={action.type}
                     size="lg"
                   >
@@ -104,7 +104,7 @@ export default function FeatureHero({ heading, heroLayout, image, actions }: Fea
                   {actions.map((action) => (
                     <ButtonLink
                       key={action._id}
-                      href={action.href ?? "#"}
+                      href={action.href}
                       intent={action.type}
                       size="lg"
                     >
