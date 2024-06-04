@@ -7,7 +7,7 @@ import { Heading } from "@/common/heading";
 import { Section } from "@/common/layout";
 import { ButtonLink } from "@/common/button";
 import { type fragmentOn, isBooleanComponent, isCustomTextComponent } from ".basehub/schema";
-import { SimpleTooltip } from "@/common/simple-tooltip";
+import { SimpleTooltip } from "@/common/tooltip";
 
 import { MobilePricingComparation } from "./mobile-pricing-comparition";
 import { type planFragment, type pricingTableFragment, type valueFragment } from "./fragments";

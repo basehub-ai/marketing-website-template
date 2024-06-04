@@ -11,7 +11,7 @@ export type SimpleTooltipProps = {
   sideOffset?: Tooltip.TooltipContentProps["sideOffset"];
 } & Omit<Tooltip.TooltipProps, "className">;
 
-export function SimpleTooltip({ delayDuration = 500, ...props }: SimpleTooltipProps) {
+export function SimpleTooltip({ delayDuration = 200, ...props }: SimpleTooltipProps) {
   return (
     <TooltipProvider delayDuration={delayDuration}>
       <CustomTooltip {...props} />
@@ -26,8 +26,7 @@ export function CustomTooltip({ children, content, className, ...props }: Simple
       <Tooltip.Portal>
         <Tooltip.Content
           className={clsx(
-            "max-w-[160px] rounded-md bg-surface-primary p-2 text-sm text-text-secondary dark:bg-dark-surface-primary dark:text-dark-text-secondary",
-            // "border border-border dark:border-dark-border",
+            "max-w-[160px] rounded-md bg-surface-primary p-2 text-sm text-text-secondary shadow dark:bg-dark-surface-primary dark:text-dark-text-secondary dark:shadow-grayscale-400",
             className,
           )}
           {...props}
@@ -45,7 +44,7 @@ export function CustomTooltip({ children, content, className, ...props }: Simple
 function Arrow() {
   return (
     <svg
-      className="-mt-px"
+      className="-mt-px drop-shadow-[1px_2.2px_1px_rgba(0,0,0,0.15)] dark:drop-shadow-[1px_2.5px_1.2px_rgb(var(--grayscale-rgb-400)_/_0.6)]"
       fill="none"
       height="9"
       viewBox="0 0 12 9"
@@ -62,7 +61,7 @@ function Arrow() {
 
 export function TooltipProvider({
   children,
-  delayDuration = 500,
+  delayDuration = 200,
 }: {
   children?: React.ReactNode;
   delayDuration?: number;

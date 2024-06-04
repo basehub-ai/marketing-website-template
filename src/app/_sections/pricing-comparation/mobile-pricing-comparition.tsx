@@ -27,7 +27,7 @@ import {
 } from "@radix-ui/react-icons";
 
 import { isBooleanComponent, isCustomTextComponent } from ".basehub/schema";
-import { SimpleTooltip } from "@/common/simple-tooltip";
+import { SimpleTooltip } from "@/common/tooltip";
 
 import { type PlanFragment, type PricingTableProps } from ".";
 
