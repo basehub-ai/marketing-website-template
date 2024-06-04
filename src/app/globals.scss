@@ -15,6 +15,10 @@
     background-color: theme("colors.accent.200");
   }
 
+  *:focus-visible {
+      outline-color: theme("colors.accent.300");
+  }
+
 }
 
 :root {
@@ -24,6 +28,10 @@
   ::selection {
     background-color: theme("colors.accent.950");
   }
+
+  *:focus-visible {
+    outline-color: theme("colors.accent.400");
+}
 }
 
 .no-scrollbar {

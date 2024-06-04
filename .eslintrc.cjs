@@ -4,12 +4,11 @@ const project = resolve(__dirname, "tsconfig.json");
 
 module.exports = {
   root: true,
-  plugins: ["prettier", "import"],
+  plugins: ["import"],
   extends: [
     require.resolve("@vercel/style-guide/eslint/typescript"),
     require.resolve("@vercel/style-guide/eslint/react"),
     require.resolve("@vercel/style-guide/eslint/next"),
-    "plugin:prettier/recommended",
   ],
   parserOptions: {
     ecmaVersion: "latest",
@@ -23,20 +22,6 @@ module.exports = {
     },
   },
   rules: {
-    "prettier/prettier": [
-      "warn",
-      {
-        printWidth: 100,
-        trailingComma: "all",
-        tabWidth: 2,
-        semi: true,
-        singleQuote: false,
-        bracketSpacing: true,
-        arrowParens: "always",
-        endOfLine: "auto",
-        plugins: ["prettier-plugin-tailwindcss"],
-      },
-    ],
     "import/no-default-export": "off",
     "padding-line-between-statements": [
       "warn",

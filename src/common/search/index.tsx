@@ -66,7 +66,7 @@ export function SearchContent({ _searchKey }: { _searchKey: string }) {
             >
               <input
                 ref={searchInputRef}
-                className="grow bg-transparent outline-none placeholder:text-text-tertiary placeholder:dark:text-dark-text-tertiary"
+                className="grow bg-transparent focus-visible:outline-none outline-none placeholder:text-text-tertiary placeholder:dark:text-dark-text-tertiary"
                 placeholder="Search"
                 type="text"
               />
