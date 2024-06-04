@@ -20,6 +20,7 @@ import {
 import { CodeSnippet, codeSnippetFragment } from "@/app/_components/code-snippet";
 import { basehub } from "basehub/index";
 import { cx } from "class-variance-authority";
+import { formatDate } from "@/utils/dates";
 
 export const dynamic = "force-static";
 
@@ -132,6 +133,7 @@ export default async function BlogPage({ params: { slug } }: { params: { slug: s
                         },
                       },
                     },
+                    categories: true,
                     body: {
                       json: {
                         __typename: true,
@@ -170,13 +172,25 @@ export default async function BlogPage({ params: { slug } }: { params: { slug: s
                 <Heading subtitle={blogpost.description}>
                   <h1>{blogpost._title}</h1>
                 </Heading>
-                <div className="flex max-w-screen-lg items-center gap-16">
-                  {blogpost.authors.map((author) => (
-                    <figure key={author._id} className="flex items-center gap-2">
-                      <Avatar key={author._id} {...author.image} />
-                      {author._title}
-                    </figure>
-                  ))}
+                <div className="flex flex-col gap-3 items-center justify-center">
+                  <div className="flex max-w-screen-lg items-center justify-center gap-12">
+                    {blogpost.authors.map((author) => (
+                      <figure key={author._id} className="flex items-center gap-2">
+                        <Avatar key={author._id} {...author.image} />
+                        {author._title}
+                      </figure>
+                    ))}
+                  </div>
+                  <div className="flex divide-x divide-border text-xs text-text-tertiary dark:divide-dark-border dark:text-dark-text-tertiary">
+                    <p className="pr-2">{formatDate(blogpost.publishedAt)}</p>
+                    <span className="pl-2">
+                      {blogpost.categories.map((category) => (
+                        <span key={category} className="mr-1 capitalize">
+                          {category}
+                        </span>
+                      ))}
+                    </span>
+                  </div>
                 </div>
               </Section>
               <Image
