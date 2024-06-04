@@ -4,7 +4,7 @@ import { fragmentOn } from "basehub";
 import { AvatarsGroup } from "@/common/avatars-group";
 import { Avatar } from "@/common/avatar";
 import { avatarFragment } from "@/lib/basehub/fragments";
-import {  ButtonLink } from "@/common/button";
+import { ButtonLink } from "@/common/button";
 
 export const heroFragment = fragmentOn("HeroComponent", {
   customerSatisfactionBanner: {
@@ -19,10 +19,12 @@ export const heroFragment = fragmentOn("HeroComponent", {
   title: true,
   subtitle: true,
   actions: {
-    _id: true,
-    href: true,
-    label: true,
-    type: true,
+    on_ButtonComponent: {
+      _id: true,
+      href: true,
+      label: true,
+      type: true,
+    },
   },
 });
 type Hero = fragmentOn.infer<typeof heroFragment>;

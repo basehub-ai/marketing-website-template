@@ -1,5 +1,5 @@
 import { CheckCircledIcon, QuestionMarkCircledIcon } from "@radix-ui/react-icons";
-import React from "react";
+import * as React from "react";
 import { cva, type VariantProps } from "class-variance-authority";
 import clsx from "clsx";
 
@@ -156,7 +156,7 @@ function CategoryHeader({
 
 type ValueFragment = fragmentOn.infer<typeof valueFragment>;
 
-function PlanHeader({ plan }: { plan: ValueFragment["plan"] | null }) {
+function PlanHeader({ plan }: { plan: PlanFragment | null }) {
   return plan ? (
     <th className="w-[1fr] pb-2 pt-6">
       <span className="flex flex-col items-center gap-3 font-normal">

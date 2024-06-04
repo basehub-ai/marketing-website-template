@@ -64,10 +64,7 @@ export function Callout(callout: Callout) {
           >
             {callout.calloutCtAs.secondaryCta.label}
           </ButtonLink>
-          <ButtonLink
-            href={callout.calloutCtAs.cta.href}
-            intent={callout.calloutCtAs.cta.type}
-          >
+          <ButtonLink href={callout.calloutCtAs.cta.href} intent={callout.calloutCtAs.cta.type}>
             {callout.calloutCtAs.cta.label}
           </ButtonLink>
         </div>

@@ -1,14 +1,14 @@
 import { fragmentOn } from "basehub";
 import { headingFragment } from "@/lib/basehub/fragments";
 
-export const planFragment = fragmentOn("PricingPlansItem", {
+export const planFragment = fragmentOn("PricingPlanComponent", {
   _id: true,
   _title: true,
   price: true,
   isMostPopular: true,
 });
 
-export const valueFragment = fragmentOn("ValuesItem", {
+export const valueFragment = fragmentOn("ValueComponent", {
   _id: true,
   plan: planFragment,
   value: {
