@@ -37,7 +37,7 @@ function AccordionItem({
   return (
     <AccordionPrimitive.Item key={question} className="flex flex-col" value={question}>
       <AccordionPrimitive.Header>
-        <AccordionPrimitive.Trigger className="flex w-full items-start gap-3 rounded-md py-2 outline-none focus:ring focus:ring-accent-500">
+        <AccordionPrimitive.Trigger className="flex w-full items-start gap-3 rounded-md py-2 outline-none ring-accent-500 focus-visible:ring">
           {isActive ? (
             <MinusCircledIcon className="my-1 size-4 shrink-0" />
           ) : (

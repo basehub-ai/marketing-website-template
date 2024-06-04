@@ -51,7 +51,7 @@ export function SearchContent({ _searchKey }: { _searchKey: string }) {
           {/* eslint-disable-next-line jsx-a11y/label-has-associated-control */}
           <label
             className={clsx(
-              "focus-within:!border-accent-500 ml-auto flex w-full cursor-text items-center gap-x-1 rounded-full border border-border px-3.5 py-2.5 dark:border-dark-border md:max-w-[280px]",
+              "ml-auto flex w-full cursor-text items-center gap-x-1 rounded-full border border-border px-3.5 py-2.5 focus-within:!border-accent-500 dark:border-dark-border md:max-w-[280px]",
             )}
           >
             <MagnifyingGlassIcon
@@ -65,8 +65,7 @@ export function SearchContent({ _searchKey }: { _searchKey: string }) {
               }}
             >
               <input
-                ref={searchInputRef}
-                className="grow bg-transparent focus-visible:outline-none outline-none placeholder:text-text-tertiary placeholder:dark:text-dark-text-tertiary"
+                className="grow bg-transparent !outline-none placeholder:text-text-tertiary focus-visible:outline-none placeholder:dark:text-dark-text-tertiary"
                 placeholder="Search"
                 type="text"
               />
@@ -143,7 +142,7 @@ function HitList({ hits }: { hits: Hit[] }) {
                   "flex grid-rows-[auto_1fr_auto] flex-col gap-y-0.5 rounded-md px-4 py-3 transition-colors",
                   "data-[selected='true']:bg-surface-tertiary",
                   "data-[selected='true']:dark:bg-dark-surface-tertiary",
-                  "[&_mark]:text-accent-500 [&_mark]:bg-transparent",
+                  "[&_mark]:bg-transparent [&_mark]:text-accent-500",
                 )}
                 href={pathname}
               >

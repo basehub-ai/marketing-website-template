@@ -74,7 +74,7 @@ export function Hero(hero: Hero) {
                   "!h-14 flex-col items-center justify-center rounded-none !text-base",
                   type === "primary"
                     ? "flex  w-full"
-                    : "flex w-full border-x border-border !bg-transparent backdrop-blur-xl transition-colors duration-150 hover:!bg-black/5 dark:border-dark-border dark:hover:!bg-white/5",
+                    : "flex w-full border-x border-y-0 border-border !bg-transparent backdrop-blur-xl transition-colors duration-150 hover:!bg-black/5 dark:border-dark-border dark:hover:!bg-white/5",
                 )}
                 href={href}
                 intent={type}

@@ -33,7 +33,7 @@ export function NavigationMenuHeader({
 }) {
   return (
     <NavigationMenu className={clsx("relative z-[1] flex-col justify-center lg:flex", className)}>
-      <NavigationMenuList className="flex flex-1 px-4">
+      <NavigationMenuList className="flex flex-1 gap-0.5 px-4">
         {links.map((link) =>
           link.sublinks.items.length > 0 ? (
             <NavigationMenuLinkWithMenu key={link._id} {...link} />
@@ -72,14 +72,14 @@ function NavigationMenuLink({
 
 function NavigationMenuLinkWithMenu({ _id, _title, href, sublinks }: HeaderLiksFragment) {
   return (
-    <NavigationMenuItem key={`${href ?? ""}${_title}`} className="relative items-center gap-1">
+    <NavigationMenuItem key={`${href ?? ""}${_title}`} className="relative items-center gap-0.5">
       <NavigationMenuTrigger asChild>
         {href ? (
           <NavigationMenuLink href={href}>{_title}</NavigationMenuLink>
         ) : (
           <Button
             unstyled
-            className="inline-flex items-center gap-1 rounded-full px-3 pb-px hover:bg-surface-tertiary dark:hover:bg-dark-surface-tertiary lg:h-7"
+            className="inline-flex items-center gap-1 rounded-full pb-px pl-3 pr-2 hover:bg-surface-tertiary dark:hover:bg-dark-surface-tertiary lg:h-7"
             icon={<ChevronDownIcon className="text-text-tertiary dark:text-dark-text-tertiary" />}
           >
             {_title}

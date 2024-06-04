@@ -42,30 +42,25 @@ export function BlogpostCard({ type = "list", className, ...post }: BlogPostCard
       return (
         <Link
           key={post._id}
-          className="outline-none ring-accent-500 focus-visible:ring"
+          className="lg:text-md grid w-full grid-cols-[auto_auto] place-content-start items-center justify-items-start border-b border-border p-8 text-text-secondary transition-colors hover:bg-surface-secondary dark:border-dark-border dark:text-dark-text-secondary dark:hover:bg-dark-surface-secondary max-md:justify-items-start md:grid-cols-[50%,repeat(3,1fr)] md:*:first:place-items-start md:*:last:place-items-end"
           href={`/blog/${post._slug}`}
         >
-          <article
-            className={clsx(
-              "lg:text-md grid grid-cols-[auto_auto] place-items-center items-center border-b border-border px-4 py-4 text-text-secondary transition-colors hover:bg-surface-secondary dark:border-dark-border dark:text-dark-text-secondary dark:hover:bg-dark-surface-secondary max-md:justify-items-start md:grid-cols-[2fr,repeat(3,1fr)] md:*:first:place-items-start md:*:last:place-items-end",
-              className,
-            )}
-          >
-            <h3 className="col-span-2 justify-self-start font-medium text-text-primary dark:text-dark-text-primary md:col-span-1">
-              {post._title}
-            </h3>
-            <p className="col-span-2 md:col-span-1">
-              {post.categories.length > 0 ? post.categories.join(",") : "No categories"}
-            </p>
-            <p className="max-md:mt-3">{formatDate(post.publishedAt)}</p>
-            <div className="flex items-center justify-self-end">
-              <AvatarsGroup animate>
-                {post.authors.map((author) => (
-                  <Author key={author._id} {...author} />
-                ))}
-              </AvatarsGroup>
-            </div>
-          </article>
+          {/* <article className={clsx("", className)}> */}
+          <h3 className="relative col-span-2 max-w-full justify-self-start truncate pr-4 font-medium text-text-primary dark:text-dark-text-primary md:col-span-1">
+            {post._title}
+          </h3>
+          <p className="col-span-2 md:col-span-1">
+            {post.categories.length > 0 ? post.categories.join(",") : "No categories"}
+          </p>
+          <p className="max-md:mt-3">{formatDate(post.publishedAt)}</p>
+          <div className="flex items-center justify-self-end">
+            <AvatarsGroup animate>
+              {post.authors.map((author) => (
+                <Author key={author._id} {...author} />
+              ))}
+            </AvatarsGroup>
+          </div>
+          {/* </article> */}
         </Link>
       );
     }
@@ -96,7 +91,7 @@ export function BlogpostCard({ type = "list", className, ...post }: BlogPostCard
           </figure>
           <div
             className={clsx(
-              "flex flex-col justify-between gap-4 p-4",
+              "flex flex-col justify-between gap-2 p-4",
               "md:min-w-[min(400px,100%)]",
               "lg:group-first:!max-w-full lg:group-first:flex-1",
               "xl:min-w-[min(400px,100%)]",
@@ -113,10 +108,10 @@ export function BlogpostCard({ type = "list", className, ...post }: BlogPostCard
               </AvatarsGroup>
             </header>
             <main className="flex flex-col gap-2 lg:flex-1">
-              <h3 className="text-[length:var(--heading-size)] font-medium text-text-primary dark:text-dark-text-primary lg:flex-1">
+              <h3 className="text-[length:var(--heading-size)] font-medium text-text-primary dark:text-dark-text-primary">
                 {post._title}
               </h3>
-              <p className="line-clamp-4 text-sm text-text-secondary dark:text-dark-text-secondary lg:text-base">
+              <p className="line-clamp-4 text-sm text-text-secondary dark:text-dark-text-secondary lg:flex-1 lg:text-base">
                 {post.description}
               </p>
             </main>

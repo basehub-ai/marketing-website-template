@@ -50,7 +50,7 @@ export function Heading({ tag, subtitle, className, align = "center", ...props }
       {subtitle ? (
         <p
           className={clsx(
-            "max-w-2xl text-pretty text-lg font-light text-text-tertiary dark:text-dark-text-tertiary md:text-xl",
+            "max-w-screen-lg text-pretty text-lg font-light text-text-tertiary dark:text-dark-text-tertiary md:text-xl",
             {
               "text-center": align === "center",
               "text-left": align === "left",
@@ -76,7 +76,7 @@ export function Tag({
   return (
     <Comp
       className={clsx(
-        "flex min-h-7 items-center justify-center gap-2 rounded-full border border-border bg-surface-primary px-3.5 pb-px text-sm font-medium text-text-tertiary dark:border-dark-border dark:bg-dark-surface-primary dark:text-dark-text-tertiary md:text-base",
+        "flex min-h-7 items-center justify-center gap-2 rounded-full bg-surface-secondary px-3.5 pb-px text-sm font-medium text-text-tertiary dark:bg-dark-surface-secondary dark:text-dark-text-tertiary md:text-base",
         className,
       )}
       {...props}

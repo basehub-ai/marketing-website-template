@@ -70,7 +70,7 @@ export async function Header() {
         return (
           <header className="sticky left-0 top-0 z-[100] flex w-full flex-col border-b border-border bg-surface-primary dark:border-dark-border dark:bg-dark-surface-primary">
             <div className="flex h-[--header-height] bg-surface-primary dark:bg-dark-surface-primary">
-              <div className="container mx-auto grid w-full grid-cols-header place-items-center content-center items-center px-4 first:*:justify-self-start">
+              <div className="container mx-auto grid w-full grid-cols-header place-items-center content-center items-center px-8 first:*:justify-self-start">
                 <ButtonLink unstyled href="/">
                   <Image
                     alt={header.logo.alt ?? "Logo"}

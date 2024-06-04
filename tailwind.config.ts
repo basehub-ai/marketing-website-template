@@ -162,6 +162,9 @@ const config: Config = {
           },
         },
       },
+      letterSpacing: {
+        tighter: "-0.58px",
+      },
     },
     animation: {
       slideDown: "slideDown 300ms cubic-bezier(0.87, 0, 0.13, 1)",
