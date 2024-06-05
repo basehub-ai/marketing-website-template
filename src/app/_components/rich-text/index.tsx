@@ -1,12 +1,13 @@
 import { RichText, type RichTextProps } from "basehub/react-rich-text";
 import { ChevronDownIcon } from "@radix-ui/react-icons";
-import { cva, cx } from "class-variance-authority";
+import { cva } from "class-variance-authority";
 
 import { fragmentOn } from "basehub";
 import s from "./rich-text.module.scss";
 import Image from "next/image";
+import clsx from "clsx";
 
-export const richTextClasses = cx(
+export const richTextClasses = clsx(
   "prose prose-zinc max-w-prose text-start dark:prose-invert font-normal text-md w-full",
   "prose-p:text-text-secondary dark:prose-p:text-dark-text-secondary",
   "prose-h1:text-4xl prose-h1:font-medium prose-h1:text-text-primary dark:prose-h1:text-dark-text-primary",
@@ -134,7 +135,7 @@ export function RichTextCalloutComponent({
               />
             </svg>
           </div>
-          <div className={cx(richTextClasses)}>
+          <div className={clsx(richTextClasses)}>
             <RichText components={richTextBaseComponents}>{content?.json.content}</RichText>
           </div>
         </article>

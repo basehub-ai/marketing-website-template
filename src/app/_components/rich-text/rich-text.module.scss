@@ -2,6 +2,10 @@
   li {
     p:first-child {
       margin-top: 0;
+      margin-bottom: 8px !important;
+    }
+    p:first-child + p {
+      margin-top: 0;
     }
 
     p:last-child {
