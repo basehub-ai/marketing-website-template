@@ -41,8 +41,6 @@ import FeatureHero, { featureHeroFragment } from "../_sections/features/hero";
 
 export const dynamic = "force-static";
 
-export const dynamicParams = false;
-
 export const revalidate = 30;
 
 export const generateStaticParams = async () => {
