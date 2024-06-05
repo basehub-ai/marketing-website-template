@@ -12,7 +12,7 @@ import { CodeSnippet } from "@/app/_components/code-snippet";
 import { richTextBaseComponents, richTextClasses } from "@/app/_components/rich-text";
 import { ButtonLink } from "@/common/button";
 import { AvatarsGroup } from "@/common/avatars-group";
-import { Avatar } from "@/common/avatar";
+import { Author, Avatar } from "@/common/avatar";
 import { basehub } from "basehub/index";
 import { formatDate } from "@/utils/dates";
 
@@ -213,14 +213,14 @@ export default async function ChangelogPage({ params }: ChangelogPageParams) {
               </div>
               <div className="flex items-center justify-between">
                 {post.authors.length > 1 ? (
-                  <AvatarsGroup>
+                  <AvatarsGroup animate>
                     {post.authors.map((author) => (
-                      <Avatar {...author.image} key={author._id} />
+                      <Author {...author} key={author._id} />
                     ))}
                   </AvatarsGroup>
                 ) : (
                   <div className="flex items-center gap-2">
-                    <Avatar {...post.authors[0].image} />
+                    <Author {...post.authors[0]} />
                     <p className="text-sm text-text-secondary dark:text-dark-text-secondary md:text-base">
                       {post.authors[0]._title}
                     </p>

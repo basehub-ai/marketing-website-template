@@ -143,6 +143,18 @@ export default function FeatureHero({ heading, heroLayout, image, actions }: Fea
                   <Heading {...heading}>
                     <h4>{heading.title}</h4>
                   </Heading>
+                  <div className="flex gap-3">
+                    {actions?.map((action) => (
+                      <ButtonLink
+                        key={action._id}
+                        href={action.href}
+                        intent={action.type}
+                        size="lg"
+                      >
+                        {action.label}
+                      </ButtonLink>
+                    ))}
+                  </div>
                 </div>
                 {/* Gradient */}
                 <div

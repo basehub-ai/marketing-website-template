@@ -7,7 +7,7 @@ import s from "./rich-text.module.scss";
 import Image from "next/image";
 
 export const richTextClasses = cx(
-  "prose prose-zinc max-w-prose text-start dark:prose-invert font-normal text-base w-full",
+  "prose prose-zinc max-w-prose text-start dark:prose-invert font-normal text-md w-full",
   "prose-p:text-text-secondary dark:prose-p:text-dark-text-secondary",
   "prose-h1:text-4xl prose-h1:font-medium prose-h1:text-text-primary dark:prose-h1:text-dark-text-primary",
   "prose-h2:text-3xl prose-h2:font-medium prose-h2:text-text-primary dark:prose-h2:text-dark-text-primary",
@@ -16,7 +16,7 @@ export const richTextClasses = cx(
   '[&_blockquote>p]:before:[content:""] prose-blockquote:[&_blockquote>p]:after:[content:""]',
   "prose-h4:text-2xl prose-h4:font-medium",
   "prose-strong:font-medium",
-  "prose-a:outline-accent-500",
+  "prose-a:outline-accent-500 prose-a:text-accent-500 prose-a:underline",
   "prose-pre:pl-0",
   s["rich-text"],
 );
@@ -25,8 +25,8 @@ export const richTextBaseComponents: RichTextProps["components"] = {
   code: Code,
   pre: ({ children }) => <>{children}</>,
   b: ({ children }) => <strong>{children}</strong>,
-  img: (props)=> <RichTextImage {...props} />,
-  video: (props)=> <RichTextVideo {...props} />,
+  img: (props) => <RichTextImage {...props} />,
+  video: (props) => <RichTextVideo {...props} />,
 };
 
 function Code({
@@ -142,7 +142,6 @@ export function RichTextCalloutComponent({
   }
 }
 
-
 export function RichTextImage(props: {
   src: string;
   alt?: string;
@@ -151,11 +150,15 @@ export function RichTextImage(props: {
   caption?: string;
 }) {
   return (
-    <figure className="relative flex flex-col gap-4">
-      <Image alt={props.caption ?? ''} {...props} />
-      {props.caption ? <figcaption className="text-sm m-0 text-text-tertiary dark:text-dark-text-tertiary">{props.caption}</figcaption> : null}
+    <figure className="relative flex flex-col gap-2">
+      <Image alt={props.caption ?? ""} {...props} />
+      {props.caption ? (
+        <figcaption className="m-0 text-sm text-text-tertiary dark:text-dark-text-tertiary">
+          {props.caption}
+        </figcaption>
+      ) : null}
     </figure>
-  )
+  );
 }
 
 export function RichTextVideo(props: {
@@ -166,12 +169,16 @@ export function RichTextVideo(props: {
   caption?: string;
 }) {
   return (
-    <figure className="relative flex flex-col gap-4">
+    <figure className="relative flex flex-col gap-2">
       <video controls>
         <source src={props.src} type="video/mp4" />
         Your browser does not support the video tag.
       </video>
-      {props.caption ? <figcaption  className="text-sm m-0 text-text-tertiary dark:text-dark-text-tertiary">{props.caption}</figcaption> : null}
+      {props.caption ? (
+        <figcaption className="m-0 text-sm text-text-tertiary dark:text-dark-text-tertiary">
+          {props.caption}
+        </figcaption>
+      ) : null}
     </figure>
-  )
+  );
 }

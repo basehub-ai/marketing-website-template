@@ -26,7 +26,7 @@ export function CustomTooltip({ children, content, className, ...props }: Simple
       <Tooltip.Portal>
         <Tooltip.Content
           className={clsx(
-            "z-[999] max-w-[160px] rounded-md bg-surface-primary p-2 text-sm text-text-secondary shadow dark:bg-dark-surface-primary dark:text-dark-text-secondary dark:shadow-grayscale-400",
+            "z-[999] max-w-[160px] rounded-md bg-surface-primary p-2 text-sm text-text-secondary shadow dark:bg-dark-surface-primary dark:text-dark-text-secondary dark:shadow-grayscale-600",
             className,
           )}
           {...props}
@@ -44,7 +44,7 @@ export function CustomTooltip({ children, content, className, ...props }: Simple
 function Arrow() {
   return (
     <svg
-      className="-mt-px drop-shadow-[1px_2.2px_1px_rgba(0,0,0,0.15)] dark:drop-shadow-[1px_2.5px_1.2px_rgb(var(--grayscale-rgb-400)_/_0.6)]"
+      className="-mt-px drop-shadow-[1px_2.2px_1px_rgba(0,0,0,0.15)] dark:drop-shadow-[1px_2.5px_1.2px_rgb(var(--grayscale-rgb-600)_/_0.6)]"
       fill="none"
       height="9"
       viewBox="0 0 12 9"
