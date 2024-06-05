@@ -181,7 +181,7 @@ export default async function BlogPage({ params: { slug } }: { params: { slug: s
                       </figure>
                     ))}
                   </div>
-                  <div className="flex divide-x divide-border text-sm text-text-tertiary dark:divide-dark-border dark:text-dark-text-tertiary">
+                  <div className="flex divide-x divide-border text-sm font-normal text-text-tertiary dark:divide-dark-border dark:text-dark-text-tertiary">
                     <p className="pr-2">{formatDate(blogpost.publishedAt)}</p>
                     <span className="pl-2">
                       {blogpost.categories.map((category) => (

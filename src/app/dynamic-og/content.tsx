@@ -119,7 +119,7 @@ function LightThemeOG({ title, subtitle, logo }: Omit<OgData, "theme">) {
               color: "#000000",
               fontFamily: "Geist 500",
               fontSize: "64px",
-              maxWidth: "70%",
+              maxWidth: "80%",
               fontWeight: 400,
               lineHeight: "140%",
               letterSpacing: "-2.88px",
@@ -134,7 +134,7 @@ function LightThemeOG({ title, subtitle, logo }: Omit<OgData, "theme">) {
               color: "#787882",
               fontSize: "32px",
               lineHeight: "140%",
-              maxWidth: "80%",
+              maxWidth: "90%",
               letterSpacing: "-1.2px",
               fontWeight: 300,
             }}

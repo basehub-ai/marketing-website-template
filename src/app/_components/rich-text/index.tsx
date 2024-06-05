@@ -8,7 +8,7 @@ import Image from "next/image";
 import clsx from "clsx";
 
 export const richTextClasses = clsx(
-  "prose prose-zinc max-w-prose text-start dark:prose-invert font-normal text-md w-full",
+  "prose prose-zinc max-w-prose text-start dark:prose-invert font-normal text-md w-full leading-relaxed",
   "prose-p:text-text-secondary dark:prose-p:text-dark-text-secondary",
   "prose-h1:text-4xl prose-h1:font-medium prose-h1:text-text-primary dark:prose-h1:text-dark-text-primary",
   "prose-h2:text-3xl prose-h2:font-medium prose-h2:text-text-primary dark:prose-h2:text-dark-text-primary",
@@ -62,8 +62,8 @@ type FaqItemComponentRichText = fragmentOn.infer<typeof FaqItemComponentFragment
 export function FaqRichtextComponent({ answer, _title }: FaqItemComponentRichText) {
   return (
     <details className="group flex flex-col gap-4 overflow-hidden rounded-lg border border-border bg-surface-secondary dark:border-dark-border dark:bg-dark-surface-secondary">
-      <summary className="flex cursor-pointer items-center rounded-md p-3 pl-6 outline-none ring-inset ring-accent-500 focus-visible:ring">
-        <span className="flex w-8">
+      <summary className="flex cursor-pointer items-start rounded-md p-3 pl-6 outline-none ring-inset ring-accent-500 focus-visible:ring">
+        <span className="mt-2 flex w-8">
           <ChevronDownIcon className="transform group-open:rotate-180" />
         </span>
         {_title}

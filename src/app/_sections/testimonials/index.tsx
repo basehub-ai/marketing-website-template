@@ -17,9 +17,13 @@ export function Testimonials({ heading, quotes }: TestimonialsSlider) {
     <div className="relative">
       <Section>
         <Slider quotes={quotes}>
-          <Heading className="self-stretch" {...heading}>
-            <h4>{heading.title}</h4>
-          </Heading>
+          {heading.align === "none" ? (
+            <div />
+          ) : (
+            <Heading className="self-stretch" {...heading}>
+              <h4>{heading.title}</h4>
+            </Heading>
+          )}
         </Slider>
       </Section>
     </div>

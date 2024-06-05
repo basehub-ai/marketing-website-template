@@ -8,16 +8,10 @@ import { basehub } from "basehub";
 
 import { ContentOGWrapperResponse } from "./content";
 
-const isTheme = (theme: unknown): theme is "light" | "dark" =>
-  theme === "light" || theme === "dark";
-
 export const GET = async (request: Request) => {
   const searchParams = new URL(request.url).searchParams;
   const type = searchParams.get("type");
   const id = searchParams.get("id");
-  const forcedTheme = searchParams.get("theme");
-
-  if (forcedTheme && !isTheme(forcedTheme)) throw new Error("Invalid theme");
 
   if (!id) return notFound();
 
