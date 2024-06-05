@@ -8,6 +8,7 @@ const $headingContainer = cva("flex flex-col gap-3", {
       center: "items-center self-center",
       left: "items-start self-start",
       right: "items-end self-end",
+      none: "",
     },
   },
   defaultVariants: {
@@ -27,6 +28,8 @@ type HeadingProps = {
 export function Heading({ tag, subtitle, className, align = "center", ...props }: HeadingProps) {
   align = align ?? "center";
   const Comp = Slot;
+
+  if (align === "none") return null;
 
   return (
     <div className={$headingContainer({ align, className })}>

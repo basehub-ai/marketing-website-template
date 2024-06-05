@@ -9,12 +9,10 @@ import s from "./companies.module.scss";
 export const companiesFragment = fragmentOn("CompaniesComponent", {
   subtitle: true,
   companies: {
-    items: {
-      _title: true,
+    _title: true,
+    url: true,
+    image: {
       url: true,
-      image: {
-        url: true,
-      },
     },
   },
 });
@@ -31,7 +29,7 @@ export function Companies(props: Companies) {
         <div
           className={clsx("flex shrink-0 items-center gap-4 px-6 lg:gap-6 lg:px-12", s.scrollbar)}
         >
-          {props.companies.items.map((company) => (
+          {props.companies.map((company) => (
             <figure key={company.image?.url ?? company._title} className="px-2 py-3 lg:p-4">
               <Image
                 alt={company._title}
