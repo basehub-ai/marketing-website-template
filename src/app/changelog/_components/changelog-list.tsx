@@ -9,6 +9,7 @@ import { AvatarsGroup } from "@/common/avatars-group";
 import { formatDate } from "@/utils/dates";
 
 import { type ChangelogListFragment } from "./changelog.fragment";
+import { Author } from "@/common/avatar";
 
 export function ChangelogList({ changelogPosts }: { changelogPosts: ChangelogListFragment[] }) {
   const [activePostId, setActivePostId] = React.useState(changelogPosts[0]._id);
@@ -107,15 +108,9 @@ export function ChangelogList({ changelogPosts }: { changelogPosts: ChangelogLis
             </div>
             <footer className="flex items-center justify-between">
               {post.authors.length > 1 ? (
-                <AvatarsGroup>
+                <AvatarsGroup animate>
                   {post.authors.map((author) => (
-                    <Image
-                      key={author._id}
-                      alt={author._title}
-                      height={24}
-                      src={author.image.url}
-                      width={24}
-                    />
+                    <Author key={author._id} {...author} />
                   ))}
                 </AvatarsGroup>
               ) : (
