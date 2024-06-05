@@ -12,7 +12,7 @@ import { CodeSnippet } from "@/app/_components/code-snippet";
 import { richTextBaseComponents, richTextClasses } from "@/app/_components/rich-text";
 import { ButtonLink } from "@/common/button";
 import { AvatarsGroup } from "@/common/avatars-group";
-import { Author, Avatar } from "@/common/avatar";
+import { Author } from "@/common/avatar";
 import { basehub } from "basehub/index";
 import { formatDate } from "@/utils/dates";
 
@@ -78,18 +78,20 @@ export const generateMetadata = async (
     },
   });
 
-  if (!data.site.changelog.posts.items.length) return await parent;
+  const post = data.site.changelog.posts.items[0];
+
+  if (!post) return await parent;
   const images = [
     {
-      url: `/dynamic-og?type=changelog&id=${data.site.changelog.posts.items[0]._id}`,
-      alt: data.site.changelog.posts.items[0]._title,
+      url: `/dynamic-og?type=changelog&id=${post._id}`,
+      alt: post._title,
     },
     ...(prevData.openGraph?.images ?? []),
   ];
 
   return {
-    title: data.site.changelog.posts.items[0]._title,
-    description: data.site.changelog.posts.items[0].excerpt,
+    title: post._title,
+    description: post.excerpt,
     openGraph: {
       images,
     },
@@ -218,25 +220,27 @@ export default async function ChangelogPage({ params }: ChangelogPageParams) {
                       <Author {...author} key={author._id} />
                     ))}
                   </AvatarsGroup>
-                ) : (
+                ) : post.authors[0] ? (
                   <div className="flex items-center gap-2">
                     <Author {...post.authors[0]} />
                     <p className="text-sm text-text-secondary dark:text-dark-text-secondary md:text-base">
                       {post.authors[0]._title}
                     </p>
                   </div>
-                )}
+                ) : null}
 
-                <ButtonLink
-                  className="text-xs text-text-tertiary hover:underline dark:text-dark-text-tertiary"
-                  href={`/changelog/${nextPost._slug}`}
-                  icon={<ArrowRightIcon />}
-                  iconSide="right"
-                  intent="secondary"
-                >
-                  {nextPost._title.slice(0, 35)}
-                  {nextPost._title.length > 35 ? "..." : ""}
-                </ButtonLink>
+                {nextPost ? (
+                  <ButtonLink
+                    className="text-xs text-text-tertiary hover:underline dark:text-dark-text-tertiary"
+                    href={`/changelog/${nextPost._slug}`}
+                    icon={<ArrowRightIcon />}
+                    iconSide="right"
+                    intent="secondary"
+                  >
+                    {nextPost._title.slice(0, 35)}
+                    {nextPost._title.length > 35 ? "..." : ""}
+                  </ButtonLink>
+                ) : null}
               </div>
             </div>
           </>

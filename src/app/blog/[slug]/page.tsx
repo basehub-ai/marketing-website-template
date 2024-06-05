@@ -76,18 +76,20 @@ export const generateMetadata = async (
     },
   });
 
-  if (!data.site.blog.posts.items.length) return notFound();
+  const post = data.site.blog.posts.items[0];
+
+  if (!post) return notFound();
   const images = [
     {
-      url: `/dynamic-og?type=blogpost&id=${data.site.blog.posts.items[0]._id}`,
-      alt: data.site.blog.posts.items[0]._title,
+      url: `/dynamic-og?type=blogpost&id=${post._id}`,
+      alt: post._title,
     },
     ...(prevData.openGraph?.images ?? []),
   ];
 
   return {
-    title: data.site.blog.posts.items[0]._title,
-    description: data.site.blog.posts.items[0].description,
+    title: post._title,
+    description: post.description,
     openGraph: {
       images,
       type: "article",
