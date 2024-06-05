@@ -83,7 +83,7 @@ export function SearchContent({ _searchKey }: { _searchKey: string }) {
               e.preventDefault();
             }}
           >
-            <div className="relative mx-5 min-h-20 w-[calc(100vw_-_2.5rem)] scroll-py-3 overflow-y-auto overscroll-y-contain rounded-xl border border-surface-tertiary bg-surface-primary p-2 shadow-md dark:border-dark-surface-tertiary dark:bg-dark-surface-primary md:mx-0 md:max-h-[320px] md:w-[550px]">
+            <div className="relative mx-5 min-h-20 w-[calc(100vw_-_2.5rem)] scroll-py-2 overflow-y-auto overscroll-y-contain rounded-xl border border-surface-tertiary bg-surface-primary p-2 shadow-md dark:border-dark-surface-tertiary dark:bg-dark-surface-primary md:mx-0 md:max-h-[320px] md:w-[550px]">
               <SearchBox.Empty asChild>
                 <div className="absolute left-1/2 top-1/2 w-fit max-w-full -translate-x-1/2 -translate-y-1/2 items-center overflow-hidden text-ellipsis whitespace-nowrap px-2 py-1 text-dark-text-tertiary">
                   No results for <span className="font-medium">&ldquo;{search.query}&rdquo;</span>
@@ -135,11 +135,11 @@ function HitList({ hits }: { hits: Hit[] }) {
         }
 
         return (
-          <div key={hit._key} className="relative w-full last:mb-2">
+          <div key={hit._key} className="relative w-full">
             <SearchBox.HitItem asChild hit={hit} href={pathname}>
               <NextLink
                 className={clsx(
-                  "flex grid-rows-[auto_1fr_auto] flex-col gap-y-0.5 rounded-md px-4 py-3 transition-colors",
+                  "flex grid-rows-[auto_1fr_auto] flex-col gap-y-0.5 rounded-md px-4 py-3",
                   "data-[selected='true']:bg-surface-tertiary",
                   "data-[selected='true']:dark:bg-dark-surface-tertiary",
                   "[&_mark]:bg-transparent [&_mark]:text-accent-500",
