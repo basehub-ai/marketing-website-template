@@ -70,7 +70,7 @@ function NavigationMenuLink({
   );
 }
 
-function NavigationMenuLinkWithMenu({ _id, _title, href, sublinks }: HeaderLiksFragment) {
+function NavigationMenuLinkWithMenu({ _title, href, sublinks }: HeaderLiksFragment) {
   return (
     <NavigationMenuItem key={`${href ?? ""}${_title}`} className="relative items-center gap-0.5">
       <NavigationMenuTrigger asChild>
@@ -86,34 +86,36 @@ function NavigationMenuLinkWithMenu({ _id, _title, href, sublinks }: HeaderLiksF
           </Button>
         )}
       </NavigationMenuTrigger>
-      <NavigationMenuContent className="absolute left-0 top-[calc(100%+4px)] min-w-[164px] rounded-md border border-border bg-surface-primary p-0.5 dark:border-dark-border dark:bg-dark-surface-primary">
-        <ul className="flex flex-col">
-          {sublinks.items.map((sublink) => {
-            const { href, _title } = isPageReferenceComponent(sublink.link)
-              ? {
-                  href: sublink.link.page.pathname,
-                  _title: sublink.link.page._title,
-                }
-              : {
-                  href: sublink.link.text,
-                  _title: sublink._title,
-                };
+      <NavigationMenuContent className="absolute top-[calc(100%+4px)] w-[clamp(180px,30vw,300px)] rounded-md border border-border bg-surface-primary p-0.5 dark:border-dark-border dark:bg-dark-surface-primary">
+        <div className="flex flex-col gap-1">
+          <ul className="flex flex-col">
+            {sublinks.items.map((sublink) => {
+              const { href, _title } = isPageReferenceComponent(sublink.link)
+                ? {
+                    href: sublink.link.page.pathname,
+                    _title: sublink.link.page._title,
+                  }
+                : {
+                    href: sublink.link.text,
+                    _title: sublink._title,
+                  };
 
-            return (
-              <li key={sublink._id}>
-                <NavigationMenuLinkPrimitive asChild>
-                  <ButtonLink
-                    unstyled
-                    className="flex w-full items-center gap-2 rounded-md px-3 py-1.5 hover:bg-surface-tertiary dark:hover:bg-dark-surface-tertiary"
-                    href={href}
-                  >
-                    {_title}
-                  </ButtonLink>
-                </NavigationMenuLinkPrimitive>
-              </li>
-            );
-          })}
-        </ul>
+              return (
+                <li key={sublink._id}>
+                  <NavigationMenuLinkPrimitive asChild>
+                    <ButtonLink
+                      unstyled
+                      className="flex w-full items-center gap-2 rounded-md px-3 py-1.5 hover:bg-surface-tertiary dark:hover:bg-dark-surface-tertiary"
+                      href={href}
+                    >
+                      {_title}
+                    </ButtonLink>
+                  </NavigationMenuLinkPrimitive>
+                </li>
+              );
+            })}
+          </ul>
+        </div>
       </NavigationMenuContent>
     </NavigationMenuItem>
   );

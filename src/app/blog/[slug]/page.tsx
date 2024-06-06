@@ -56,6 +56,7 @@ export const generateMetadata = async (
       settings: {
         metadata: {
           titleTemplate: true,
+          sitename: true,
         },
       },
       blog: {
@@ -93,6 +94,10 @@ export const generateMetadata = async (
     openGraph: {
       images,
       type: "article",
+    },
+    twitter: {
+      images,
+      card: "app",
     },
   };
 };
