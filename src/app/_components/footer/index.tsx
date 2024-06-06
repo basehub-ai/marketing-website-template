@@ -98,7 +98,7 @@ export async function Footer() {
                     <li key={link._title} className="shrink-0 first:sm:ml-auto">
                       <ButtonLink
                         unstyled
-                        className="aspect-square p-0.5 hover:brightness-75 dark:brightness-50 hover:dark:brightness-75"
+                        className="block aspect-square p-0.5 hover:brightness-75 dark:brightness-50 hover:dark:brightness-75"
                         href={link.url}
                         target="_blank"
                       >

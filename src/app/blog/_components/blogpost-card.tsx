@@ -46,7 +46,7 @@ export function BlogpostCard({ type = "list", className, ...post }: BlogPostCard
           href={`/blog/${post._slug}`}
         >
           {/* <article className={clsx("", className)}> */}
-          <h3 className="relative col-span-2 max-w-full justify-self-start truncate pr-4 font-medium text-text-primary dark:text-dark-text-primary md:col-span-1">
+          <h3 className="relative col-span-2 max-w-full justify-self-start pr-4 font-medium text-text-primary dark:text-dark-text-primary max-lg:line-clamp-2 md:col-span-1 lg:truncate">
             {post._title}
           </h3>
           <p className="col-span-2 md:col-span-1">

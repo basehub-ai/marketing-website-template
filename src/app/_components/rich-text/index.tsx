@@ -17,7 +17,7 @@ export const richTextClasses = clsx(
   '[&_blockquote>p]:before:[content:""] prose-blockquote:[&_blockquote>p]:after:[content:""]',
   "prose-h4:text-2xl prose-h4:font-medium",
   "prose-strong:font-medium",
-  "prose-a:outline-accent-500 prose-a:text-accent-500 prose-a:underline",
+  "prose-a:outline-accent-500 dark:prose-a:text-accent-400 prose-a:text-accent-600 prose-a:no-underline hover:prose-a:underline prose-a:decoration-accent-500/50",
   "prose-pre:pl-0",
   s["rich-text"],
 );
@@ -63,7 +63,7 @@ export function FaqRichtextComponent({ answer, _title }: FaqItemComponentRichTex
   return (
     <details className="group flex flex-col gap-4 overflow-hidden rounded-lg border border-border bg-surface-secondary dark:border-dark-border dark:bg-dark-surface-secondary">
       <summary className="flex cursor-pointer items-start rounded-md p-3 pl-6 outline-none ring-inset ring-accent-500 focus-visible:ring">
-        <span className="mt-2 flex w-8">
+        <span className="mt-1 flex w-8 pr-2">
           <ChevronDownIcon className="transform group-open:rotate-180" />
         </span>
         {_title}

@@ -127,7 +127,7 @@ function LightThemeOG({ title, subtitle, logo }: Omit<OgData, "theme">) {
               textAlign: "left",
             }}
           >
-            {truncateString(title, 40)}
+            {truncateString(title, 70)}
           </h1>
           <p
             style={{

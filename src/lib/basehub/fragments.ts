@@ -99,3 +99,14 @@ export const buttonFragment = fragmentOn("ButtonComponent", {
   href: true,
   type: true,
 });
+
+/* -------------------------------------------------------------------------- */
+/*                              Dark Light Image                              */
+/* -------------------------------------------------------------------------- */
+
+export const darkLightImageFragment = fragmentOn("DarkLightImageComponent", {
+  dark: optimizedImageFragment,
+  light: optimizedImageFragment,
+});
+
+export type DarkLightImageFragment = fragmentOn.infer<typeof darkLightImageFragment>;

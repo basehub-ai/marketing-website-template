@@ -3,17 +3,18 @@ import Image from "next/image";
 import { fragmentOn } from "basehub";
 import { Heading } from "@/common/heading";
 import { Section } from "@/common/layout";
-import { headingFragment, optimizedImageFragment } from "@/lib/basehub/fragments";
+import { darkLightImageFragment, headingFragment } from "@/lib/basehub/fragments";
 import { ButtonLink } from "@/common/button";
 import { Pump } from "basehub/react-pump";
 import clsx from "clsx";
 
 import s from "./hero.module.scss";
+import { DarkLightImage } from "@/common/dark-light-image";
 
 export const featureHeroFragment = fragmentOn("FeatureHeroComponent", {
   heroLayout: true,
   heading: headingFragment,
-  image: optimizedImageFragment,
+  image: darkLightImageFragment,
   actions: {
     on_ButtonComponent: {
       _id: true,
@@ -28,7 +29,7 @@ type FeatureHero = fragmentOn.infer<typeof featureHeroFragment>;
 
 export default function FeatureHero({ heading, heroLayout, image, actions }: FeatureHero) {
   switch (heroLayout) {
-    case "v1": {
+    case "Image bottom": {
       return (
         <Section>
           <div className="flex flex-col gap-6">
@@ -43,17 +44,14 @@ export default function FeatureHero({ heading, heroLayout, image, actions }: Fea
               ))}
             </div>
           </div>
-          <Image
-            alt={image.alt ?? heading.title}
+          <DarkLightImage
             className="block rounded-lg border border-border dark:border-dark-border"
-            height={image.height}
-            src={image.url}
-            width={image.width}
+            {...image}
           />
         </Section>
       );
     }
-    case "v2": {
+    case "Image Right": {
       return (
         <Section>
           <div className="flex flex-col gap-6 lg:flex-row lg:items-center">
@@ -69,12 +67,9 @@ export default function FeatureHero({ heading, heroLayout, image, actions }: Fea
                 ))}
               </div>
             </div>
-            <Image
-              alt={image.alt ?? heading.title}
+            <DarkLightImage
               className="block flex-1 rounded-lg border border-border dark:border-dark-border lg:w-1/2"
-              height={image.height}
-              src={image.url}
-              width={image.width}
+              {...image}
             />
           </div>
         </Section>
@@ -83,12 +78,9 @@ export default function FeatureHero({ heading, heroLayout, image, actions }: Fea
     case "full image": {
       return (
         <>
-          <Image
-            alt={image.alt ?? heading.title}
+          <DarkLightImage
+            {...image}
             className="block max-h-[560px] border-y border-t-0 border-border object-cover dark:border-dark-border"
-            height={image.height}
-            src={image.url}
-            width={image.width}
           />
           <Section>
             <div className="flex items-center justify-between self-stretch ">

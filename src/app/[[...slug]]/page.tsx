@@ -5,6 +5,7 @@ import { notFound } from "next/navigation";
 
 import { Pump } from "basehub/react-pump";
 import {
+  fragmentOn,
   isCalloutComponent,
   isCalloutV2Component,
   isCompaniesComponent,
@@ -17,6 +18,7 @@ import {
   isHeroComponent,
   isPricingComponent,
   isPricingTableComponent,
+  isSectionReferenceComponent,
   isTestimonialSliderComponent,
   isTestimonialsGridComponent,
 } from ".basehub/schema";
@@ -109,6 +111,74 @@ export const generateMetadata = async (
   };
 };
 
+const sectionsFragment = fragmentOn("PagesItem", {
+  sections: {
+    __typename: true,
+    on_HeroComponent: heroFragment,
+    on_FeaturesCardsComponent: featureCardsComponent,
+    on_FeaturesSideBySideComponent: featuresSideBySideFragment,
+    on_FeaturesBigImageComponent: bigFeatureFragment,
+    on_FeaturesGridComponent: featuresGridFragment,
+    on_CompaniesComponent: companiesFragment,
+    on_CalloutComponent: calloutFragment,
+    on_CalloutV2Component: calloutv2Fragment,
+    on_TestimonialSliderComponent: testimonialsSliderFragment,
+    on_TestimonialsGridComponent: testimonialsGridFragment,
+    on_PricingComponent: pricingFragment,
+    on_PricingTableComponent: pricingTableFragment,
+    on_FeatureHeroComponent: featureHeroFragment,
+    on_FaqComponent: {
+      layout: true,
+      ...faqFragment,
+    },
+  },
+});
+
+function SectionsUnion(
+  sections: fragmentOn.infer<typeof sectionsFragment>["sections"],
+): React.ReactNode {
+  if (!sections) return null;
+
+  return sections.map((comp) => {
+    switch (true) {
+      case isHeroComponent(comp):
+        return <Hero {...comp} />;
+      case isFeaturesCardsComponent(comp):
+        return <FeaturesList {...comp} />;
+      case isFeaturesGridComponent(comp):
+        return <FeaturesGrid {...comp} />;
+      case isCompaniesComponent(comp):
+        return <Companies {...comp} />;
+      case isFeaturesBigImageComponent(comp):
+        return <BigFeature {...comp} />;
+      case isFeaturesSideBySideComponent(comp):
+        return <SideFeatures {...comp} />;
+      case isCalloutComponent(comp):
+        return <Callout {...comp} />;
+      case isCalloutV2Component(comp):
+        return <Callout2 {...comp} />;
+      case isTestimonialSliderComponent(comp):
+        return <Testimonials {...comp} />;
+      case isTestimonialsGridComponent(comp):
+        return <TestimonialsGrid {...comp} />;
+      case isPricingComponent(comp):
+        return <Pricing {...comp} />;
+      case isFaqComponent(comp) && comp.layout === "list":
+        return <Faq {...comp} />;
+      case isFaqComponent(comp) && comp.layout === "accordion":
+        return <AccordionFaq {...comp} />;
+      case isPricingTableComponent(comp):
+        return <PricingTable {...comp} />;
+      case isFeatureHeroComponent(comp):
+        return <FeatureHero {...comp} />;
+      case isSectionReferenceComponent(comp):
+        return SectionsUnion([comp.sectionReference]);
+      default:
+        return null;
+    }
+  });
+}
+
 export default async function DynamicPage({ params }: { params: { slug?: string[] } }) {
   const slugs = params.slug;
 
@@ -132,23 +202,11 @@ export default async function DynamicPage({ params }: { params: { slug?: string[
                 _id: true,
                 pathname: true,
                 sections: {
-                  __typename: true,
-                  on_HeroComponent: heroFragment,
-                  on_FeaturesCardsComponent: featureCardsComponent,
-                  on_FeaturesSideBySideComponent: featuresSideBySideFragment,
-                  on_FeaturesBigImageComponent: bigFeatureFragment,
-                  on_FeaturesGridComponent: featuresGridFragment,
-                  on_CompaniesComponent: companiesFragment,
-                  on_CalloutComponent: calloutFragment,
-                  on_CalloutV2Component: calloutv2Fragment,
-                  on_TestimonialSliderComponent: testimonialsSliderFragment,
-                  on_TestimonialsGridComponent: testimonialsGridFragment,
-                  on_PricingComponent: pricingFragment,
-                  on_PricingTableComponent: pricingTableFragment,
-                  on_FeatureHeroComponent: featureHeroFragment,
-                  on_FaqComponent: {
-                    layout: true,
-                    ...faqFragment,
+                  ...sectionsFragment.sections,
+                  on_SectionReferenceComponent: {
+                    sectionReference: {
+                      ...sectionsFragment.sections,
+                    },
                   },
                 },
               },
@@ -168,42 +226,7 @@ export default async function DynamicPage({ params }: { params: { slug?: string[
 
         const sections = page.sections;
 
-        return sections?.map((comp) => {
-          switch (true) {
-            case isHeroComponent(comp):
-              return <Hero {...comp} />;
-            case isFeaturesCardsComponent(comp):
-              return <FeaturesList {...comp} />;
-            case isFeaturesGridComponent(comp):
-              return <FeaturesGrid {...comp} />;
-            case isCompaniesComponent(comp):
-              return <Companies {...comp} />;
-            case isFeaturesBigImageComponent(comp):
-              return <BigFeature {...comp} />;
-            case isFeaturesSideBySideComponent(comp):
-              return <SideFeatures {...comp} />;
-            case isCalloutComponent(comp):
-              return <Callout {...comp} />;
-            case isCalloutV2Component(comp):
-              return <Callout2 {...comp} />;
-            case isTestimonialSliderComponent(comp):
-              return <Testimonials {...comp} />;
-            case isTestimonialsGridComponent(comp):
-              return <TestimonialsGrid {...comp} />;
-            case isPricingComponent(comp):
-              return <Pricing {...comp} />;
-            case isFaqComponent(comp) && comp.layout === "list":
-              return <Faq {...comp} />;
-            case isFaqComponent(comp) && comp.layout === "accordion":
-              return <AccordionFaq {...comp} />;
-            case isPricingTableComponent(comp):
-              return <PricingTable {...comp} />;
-            case isFeatureHeroComponent(comp):
-              return <FeatureHero {...comp} />;
-            default:
-              return null;
-          }
-        });
+        return <main>{SectionsUnion(sections)}</main>;
       }}
     </Pump>
   );
