@@ -5,7 +5,7 @@ export function hexToRgb(hex: string) {
 
   if (!result) throw new Error("Invalid hex color");
 
-  return [parseInt(result[1], 16), parseInt(result[2], 16), parseInt(result[3], 16)].join(" ");
+  return [parseInt(result[1]!, 16), parseInt(result[2]!, 16), parseInt(result[3]!, 16)].join(" ");
 }
 
 export const isTailwindColor = (color: string): color is keyof typeof colors => {

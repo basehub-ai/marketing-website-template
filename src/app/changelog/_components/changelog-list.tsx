@@ -12,8 +12,8 @@ import { type ChangelogListFragment } from "./changelog.fragment";
 import { Author } from "@/common/avatar";
 
 export function ChangelogList({ changelogPosts }: { changelogPosts: ChangelogListFragment[] }) {
-  const [activePostId, setActivePostId] = React.useState(changelogPosts[0]._id);
-  const [prevPostId, setPrevPostId] = React.useState(changelogPosts[0]._id);
+  const [activePostId, setActivePostId] = React.useState(changelogPosts[0]?._id ?? "");
+  const [prevPostId, setPrevPostId] = React.useState(changelogPosts[0]?._id ?? "");
   const prevPostIdRef = React.useRef(activePostId);
 
   React.useEffect(() => {
@@ -113,7 +113,7 @@ export function ChangelogList({ changelogPosts }: { changelogPosts: ChangelogLis
                     <Author key={author._id} {...author} />
                   ))}
                 </AvatarsGroup>
-              ) : (
+              ) : post.authors[0] ? (
                 <div className="flex items-center  gap-2">
                   <Image
                     alt={post.authors[0]._title}
@@ -125,7 +125,7 @@ export function ChangelogList({ changelogPosts }: { changelogPosts: ChangelogLis
                     {post.authors[0]._title}
                   </p>
                 </div>
-              )}
+              ) : null}
               <ButtonLink
                 href={`/changelog/${post._slug}`}
                 icon={<ArrowRightIcon />}

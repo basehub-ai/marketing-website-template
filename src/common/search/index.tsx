@@ -125,6 +125,8 @@ function HitList({ hits }: { hits: Hit[] }) {
         for (const h of hit.highlights) {
           if (h.fieldPath.startsWith("authors")) {
             const index = h.fieldPath.split(".")[1];
+
+            if (!index) continue;
             const id = hit._getField(`authors.${index}._id`);
 
             if (typeof id === "string") {
@@ -204,9 +206,13 @@ function CustomAvatarHit({
   const { authorsAvatars } = useSearchHits();
 
   if (match) {
+    const author = authorsAvatars[match];
+
+    if (!author) return null;
+
     return (
       <div className="flex items-center gap-x-1.5">
-        <Avatar {...authorsAvatars[match]} />
+        <Avatar {...author} />
         <SearchBox.HitSnippet
           components={{
             container: HitContainer,
@@ -221,6 +227,8 @@ function CustomAvatarHit({
     <AvatarsGroup>
       {authors.map((author) => {
         const avatar = authorsAvatars[author._id];
+
+        if (!avatar) return null;
 
         return <Avatar key={author._id} {...avatar} alt={author._title} />;
       })}

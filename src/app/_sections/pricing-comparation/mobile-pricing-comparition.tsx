@@ -37,7 +37,7 @@ export function MobilePricingComparation({
 }: Pick<PricingTableProps, "categories"> & {
   plans: PlanFragment[];
 }) {
-  const [activePlan, setActivePlan] = React.useState<string>(plans[0]._id);
+  const [activePlan, setActivePlan] = React.useState<string>(plans[0]?._id ?? "");
 
   const selectedPlan = React.useMemo(
     () => plans.find((plan) => plan._id === activePlan),
@@ -105,7 +105,7 @@ export function MobilePricingComparation({
       </div>
       <Accordion
         className="group flex w-full flex-col bg-surface-primary dark:bg-dark-surface-primary"
-        defaultValue={[categories.items[0]._id]}
+        defaultValue={[categories.items[0]?._id ?? ""]}
         type="multiple"
       >
         {categories.items.map((category) => (

@@ -224,6 +224,8 @@ export default async function DynamicPage({ params }: { params: { slug?: string[
 
         const page = pages.items[0];
 
+        if (!page) notFound();
+
         const sections = page.sections;
 
         return <main>{SectionsUnion(sections)}</main>;

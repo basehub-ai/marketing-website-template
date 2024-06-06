@@ -73,11 +73,13 @@ const getChangelogOgData = async (changelogPostId: string) => {
     },
   });
 
-  if (!data.site.changelog.posts.items.length) return null;
+  const post = data.site.changelog.posts.items[0];
+
+  if (!post) return null;
 
   return {
-    title: data.site.changelog.posts.items[0]._title,
-    subtitle: data.site.changelog.posts.items[0].excerpt,
+    title: post._title,
+    subtitle: post.excerpt,
     logo: {
       url: data.site.settings.logoLite.url,
       alt: data.site.settings.logoLite.alt,
@@ -122,11 +124,13 @@ const getBlogpostData = async (blogpostId: string) => {
     },
   });
 
-  if (!data.site.blog.posts.items.length) return null;
+  const post = data.site.blog.posts.items[0];
+
+  if (!post) return null;
 
   return {
-    title: data.site.blog.posts.items[0]._title,
-    subtitle: data.site.blog.posts.items[0].description,
+    title: post._title,
+    subtitle: post.description,
     logo: {
       url: data.site.settings.logoLite.url,
       alt: data.site.settings.logoLite.alt,
