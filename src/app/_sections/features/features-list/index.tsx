@@ -1,19 +1,15 @@
-import Image from "next/image";
 import { CheckIcon } from "@radix-ui/react-icons";
 
 import { Section } from "@/common/layout";
 import { Heading } from "@/common/heading";
 import { fragmentOn } from "basehub";
+import { darkLightImageFragment } from "@/lib/basehub/fragments";
+import { DarkLightImage } from "@/common/dark-light-image";
 
 export const featureCardFragment = fragmentOn("FeaturesCardsListItem", {
   _title: true,
   description: true,
-  image: {
-    alt: true,
-    width: true,
-    height: true,
-    url: true,
-  },
+  image: darkLightImageFragment,
   characteristics: {
     items: { _title: true },
   },
@@ -26,19 +22,7 @@ export const featureCardsComponent = fragmentOn("FeaturesCardsComponent", {
     title: true,
   },
   featuresCardsList: {
-    items: {
-      _title: true,
-      description: true,
-      image: {
-        alt: true,
-        width: true,
-        height: true,
-        url: true,
-      },
-      characteristics: {
-        items: { _title: true },
-      },
-    },
+    items: featureCardFragment,
   },
 });
 
@@ -57,12 +41,9 @@ export async function FeaturesList({ featuresCardsList, heading }: FeatureCard) 
             className="flex min-h-96 w-full max-w-[380px] flex-col rounded-lg border border-border bg-surface-secondary p-px dark:border-dark-border dark:bg-dark-surface-secondary sm:max-w-full md:w-full md:flex-row md:odd:flex-row-reverse xl:gap-16"
           >
             <figure className="p-2 md:h-auto md:w-[360px] lg:w-[480px] xl:w-[560px]">
-              <Image
-                alt={image.alt ?? ""}
+              <DarkLightImage
+                {...image}
                 className="block aspect-video h-[200px] w-full rounded-lg object-cover md:h-full"
-                height={image.height}
-                src={image.url}
-                width={image.width}
               />
             </figure>
             <div className="flex flex-col gap-8 p-5 pt-6 md:flex-1 md:p-10">
