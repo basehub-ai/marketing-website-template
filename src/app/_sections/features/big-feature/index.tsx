@@ -3,7 +3,8 @@ import Image from "next/image";
 import { Heading } from "@/common/heading";
 import { Section } from "@/common/layout";
 import { fragmentOn } from "basehub";
-import { headingFragment } from "@/lib/basehub/fragments";
+import { darkLightImageFragment, headingFragment } from "@/lib/basehub/fragments";
+import { DarkLightImage } from "@/common/dark-light-image";
 
 export const bigFeatureFragment = fragmentOn("FeaturesBigImageComponent", {
   featuresBigImageList: {
@@ -17,24 +18,17 @@ export const bigFeatureFragment = fragmentOn("FeaturesBigImageComponent", {
     },
   },
   heading: headingFragment,
-  image: {
-    alt: true,
-    width: true,
-    height: true,
-    url: true,
-  },
+  image: darkLightImageFragment,
 });
+
 type BigFeature = fragmentOn.infer<typeof bigFeatureFragment>;
 
 export function BigFeature({ featuresBigImageList, heading, image }: BigFeature) {
   return (
     <Section container="default">
-      <Image
-        alt={image.alt ?? heading.title}
+      <DarkLightImage
+        {...image}
         className="block rounded-xl border border-border dark:border-dark-border md:order-3 md:w-full"
-        height={image.height}
-        src={image.url}
-        width={image.width}
       />
       <Heading {...heading}>
         <h4>{heading.title}</h4>

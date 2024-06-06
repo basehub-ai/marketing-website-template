@@ -1,12 +1,11 @@
 import { draftMode } from "next/headers";
 import { notFound } from "next/navigation";
-import Image from "next/image";
 import { RichText } from "basehub/react-rich-text";
 import { type Metadata, type ResolvingMetadata } from "next";
 
 import { Pump } from "basehub/react-pump";
 import { Section } from "@/common/layout";
-import { authorFragment } from "@/lib/basehub/fragments";
+import { authorFragment, darkLightImageFragment } from "@/lib/basehub/fragments";
 import { Heading } from "@/common/heading";
 import { Avatar } from "@/common/avatar";
 import {
@@ -21,6 +20,7 @@ import { CodeSnippet, codeSnippetFragment } from "@/app/_components/code-snippet
 import { basehub } from "basehub/index";
 import { cx } from "class-variance-authority";
 import { formatDate } from "@/utils/dates";
+import { DarkLightImage } from "@/common/dark-light-image";
 
 export const dynamic = "force-static";
 
@@ -121,20 +121,7 @@ export default async function BlogPage({ params: { slug } }: { params: { slug: s
                     description: true,
                     authors: authorFragment,
                     publishedAt: true,
-                    image: {
-                      alt: true,
-                      width: true,
-                      height: true,
-                      aspectRatio: true,
-                      url: {
-                        __args: {
-                          width: 1440,
-                          height: 720,
-                          quality: 90,
-                          format: "webp",
-                        },
-                      },
-                    },
+                    image: darkLightImageFragment,
                     categories: true,
                     body: {
                       json: {
@@ -195,13 +182,10 @@ export default async function BlogPage({ params: { slug } }: { params: { slug: s
                   </div>
                 </div>
               </Section>
-              <Image
-                alt={blogpost.image.alt ?? blogpost._title}
+              <DarkLightImage
+                {...blogpost.image}
                 className="h-full max-h-[720px] w-full object-cover "
-                height={720}
-                src={blogpost.image.url}
-                style={{ aspectRatio: blogpost.image.aspectRatio }}
-                width={1440}
+                style={{ aspectRatio: blogpost.image.light.aspectRatio }}
               />
               <Section>
                 <div

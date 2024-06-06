@@ -61,7 +61,7 @@ type FaqItemComponentRichText = fragmentOn.infer<typeof FaqItemComponentFragment
 
 export function FaqRichtextComponent({ answer, _title }: FaqItemComponentRichText) {
   return (
-    <details className="group flex flex-col gap-4 overflow-hidden rounded-lg border border-border bg-surface-secondary dark:border-dark-border dark:bg-dark-surface-secondary">
+    <details className="group mb-2 flex flex-col gap-4 overflow-hidden rounded-lg border border-border bg-surface-secondary dark:border-dark-border dark:bg-dark-surface-secondary">
       <summary className="flex cursor-pointer items-start rounded-md p-3 pl-6 outline-none ring-inset ring-accent-500 focus-visible:ring">
         <span className="mt-1 flex w-8 pr-2">
           <ChevronDownIcon className="transform group-open:rotate-180" />

@@ -1,12 +1,12 @@
-import Image from "next/image";
 import Link from "next/link";
 import clsx from "clsx";
 
 import { fragmentOn } from "basehub";
 import { AvatarsGroup } from "@/common/avatars-group";
 import { Author } from "@/common/avatar";
-import { authorFragment } from "@/lib/basehub/fragments";
+import { authorFragment, darkLightImageFragment } from "@/lib/basehub/fragments";
 import { formatDate } from "@/utils/dates";
+import { DarkLightImage } from "@/common/dark-light-image";
 
 export const blogpostCardFragment = fragmentOn("BlogPostComponent", {
   _id: true,
@@ -15,18 +15,7 @@ export const blogpostCardFragment = fragmentOn("BlogPostComponent", {
   description: true,
   publishedAt: true,
   authors: authorFragment,
-  image: {
-    alt: true,
-    width: true,
-    height: true,
-    aspectRatio: true,
-    url: {
-      __args: {
-        quality: 60,
-        format: "webp",
-      },
-    },
-  },
+  image: darkLightImageFragment,
   categories: true,
 });
 
@@ -79,14 +68,12 @@ export function BlogpostCard({ type = "list", className, ...post }: BlogPostCard
           href={`/blog/${post._slug}`}
         >
           <figure className="p-2">
-            <Image
-              alt={post.image.url}
-              blurDataURL={post.image.url}
-              className="h-full max-h-[200px] flex-1 rounded object-cover md:!max-h-full"
-              height={post.image.height}
-              src={post.image.url}
-              style={{ aspectRatio: post.image.aspectRatio }}
-              width={post.image.width}
+            <DarkLightImage
+              {...post.image}
+              className="h-full max-h-[200px] flex-1 rounded bg-surface-tertiary/50 object-cover dark:bg-dark-surface-tertiary/50 md:!max-h-full"
+              style={{
+                aspectRatio: post.image.light.aspectRatio,
+              }}
             />
           </figure>
           <div
@@ -111,7 +98,7 @@ export function BlogpostCard({ type = "list", className, ...post }: BlogPostCard
               <h3 className="text-[length:var(--heading-size)] font-medium text-text-primary dark:text-dark-text-primary">
                 {post._title}
               </h3>
-              <p className="line-clamp-4 text-sm text-text-secondary dark:text-dark-text-secondary lg:flex-1 lg:text-base">
+              <p className="line-clamp-4 text-sm text-text-secondary dark:text-dark-text-secondary lg:text-base">
                 {post.description}
               </p>
             </main>
