@@ -1,7 +1,5 @@
-"use client";
-
-import { useHasRendered } from "@/hooks/use-has-rendered";
 import { type DarkLightImageFragment } from "@/lib/basehub/fragments";
+import clsx from "clsx";
 import { useTheme } from "next-themes";
 import Image, { type ImageProps } from "next/image";
 
@@ -10,31 +8,27 @@ type DarkLightImageProps = DarkLightImageFragment &
     alt?: string;
   };
 
-export function DarkLightImage({ alt, dark, light, ...props }: DarkLightImageProps) {
-  const { resolvedTheme } = useTheme();
-  const hasRendered = useHasRendered();
-
-  const image = resolvedTheme === "dark" && dark ? dark : light;
-
-  if (!hasRendered || !resolvedTheme) {
-    return (
+export function DarkLightImage({ alt, dark, light, className, ...props }: DarkLightImageProps) {
+  return (
+    <>
+      {dark ? (
+        <Image
+          alt={dark.alt ?? alt ?? ""}
+          className={clsx("hidden dark:block", className)}
+          height={dark.height}
+          src={dark.url}
+          width={dark.width}
+          {...props}
+        />
+      ) : null}
       <Image
         alt={light.alt ?? alt ?? ""}
+        className={clsx(dark && "dark:hidden", className)}
         height={light.height}
         src={light.url}
         width={light.width}
         {...props}
       />
-    );
-  }
-
-  return (
-    <Image
-      alt={image.alt ?? alt ?? ""}
-      height={image.height}
-      src={image.url}
-      width={image.width}
-      {...props}
-    />
+    </>
   );
 }
