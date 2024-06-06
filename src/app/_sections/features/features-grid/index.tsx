@@ -27,7 +27,7 @@ type FeaturesGrid = fragmentOn.infer<typeof featuresGridFragment>;
 export function FeaturesGrid({ heading, featuresGridList, primary, secondary }: FeaturesGrid) {
   return (
     <Section>
-      <Heading subtitle={heading.subtitle} tag={heading.tag}>
+      <Heading {...heading}>
         <h4>{heading.title}</h4>
       </Heading>
       <div className="grid grid-cols-1 gap-4 lg:grid-cols-3 lg:gap-5">
