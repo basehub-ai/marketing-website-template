@@ -67,13 +67,13 @@ export function BlogpostCard({ type = "list", className, ...post }: BlogPostCard
           )}
           href={`/blog/${post._slug}`}
         >
-          <figure className="p-2">
+          <figure
+            className="flex-1 xl:min-w-[300px]"
+            style={{ aspectRatio: post.image.light.aspectRatio }}
+          >
             <DarkLightImage
               {...post.image}
-              className="h-full max-h-[200px] flex-1 rounded bg-surface-tertiary/50 object-cover dark:bg-dark-surface-tertiary/50 md:!max-h-full"
-              style={{
-                aspectRatio: post.image.light.aspectRatio,
-              }}
+              className="h-full max-h-[200px] w-full rounded bg-surface-tertiary/50 object-cover p-2 dark:bg-dark-surface-tertiary/50 md:!max-h-full"
             />
           </figure>
           <div
@@ -81,7 +81,7 @@ export function BlogpostCard({ type = "list", className, ...post }: BlogPostCard
               "flex flex-col justify-between gap-2 p-4",
               "md:min-w-[min(400px,100%)]",
               "lg:group-first:!max-w-full lg:group-first:flex-1",
-              "xl:min-w-[min(400px,100%)]",
+              "xl:min-w-[min(300px,100%)]",
             )}
           >
             <header className="flex items-center justify-between gap-2">
