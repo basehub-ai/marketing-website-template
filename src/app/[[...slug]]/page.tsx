@@ -83,8 +83,6 @@ export const generateMetadata = async (
             description: true,
             ogImage: {
               url: true,
-              mimeType: true,
-              alt: true,
             },
           },
         },
@@ -103,10 +101,7 @@ export const generateMetadata = async (
     description: page.metadataOverrides.description,
     openGraph: {
       type: "website",
-      images: [
-        ...(page.metadataOverrides.ogImage ? [page.metadataOverrides.ogImage.url] : []),
-        ...(meta.openGraph?.images ?? []),
-      ],
+      images: [...page.metadataOverrides.ogImage.url, ...(meta.openGraph?.images ?? [])],
     },
   };
 };
