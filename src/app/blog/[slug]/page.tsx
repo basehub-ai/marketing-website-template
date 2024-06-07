@@ -17,7 +17,7 @@ import {
   richTextClasses,
 } from "@/app/_components/rich-text";
 import { CodeSnippet, codeSnippetFragment } from "@/app/_components/code-snippet";
-import { basehub } from "basehub/index";
+import { basehub } from "basehub";
 import { cx } from "class-variance-authority";
 import { formatDate } from "@/utils/dates";
 import { DarkLightImage } from "@/common/dark-light-image";
@@ -68,6 +68,7 @@ export const generateMetadata = async (
             first: 1,
           },
           items: {
+            ogImage: { url: true },
             _id: true,
             _title: true,
             description: true,
@@ -82,7 +83,7 @@ export const generateMetadata = async (
   if (!post) return notFound();
   const images = [
     {
-      url: `/dynamic-og?type=blogpost&id=${post._id}`,
+      url: post.ogImage.url,
       alt: post._title,
     },
     ...(prevData.openGraph?.images ?? []),

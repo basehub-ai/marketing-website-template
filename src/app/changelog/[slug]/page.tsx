@@ -71,6 +71,7 @@ export const generateMetadata = async (
           items: {
             _title: true,
             excerpt: true,
+            ogImage: { url: true },
             _id: true,
           },
         },
@@ -83,7 +84,7 @@ export const generateMetadata = async (
   if (!post) return await parent;
   const images = [
     {
-      url: `/dynamic-og?type=changelog&id=${post._id}`,
+      url: post.ogImage.url,
       alt: post._title,
     },
     ...(prevData.openGraph?.images ?? []),
