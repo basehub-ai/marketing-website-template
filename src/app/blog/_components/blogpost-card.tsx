@@ -7,6 +7,7 @@ import { Author } from "@/common/avatar";
 import { authorFragment, darkLightImageFragment } from "@/lib/basehub/fragments";
 import { formatDate } from "@/utils/dates";
 import { DarkLightImage } from "@/common/dark-light-image";
+import { ButtonLink } from "@/common/button";
 
 export const blogpostCardFragment = fragmentOn("BlogPostComponent", {
   _id: true,
@@ -29,28 +30,31 @@ export function BlogpostCard({ type = "list", className, ...post }: BlogPostCard
   switch (type) {
     case "list": {
       return (
-        <Link
-          key={post._id}
-          className="lg:text-md grid w-full grid-cols-[auto_auto] place-content-start items-center justify-items-start border-b border-border p-8 text-text-secondary transition-colors hover:bg-surface-secondary dark:border-dark-border dark:text-dark-text-secondary dark:hover:bg-dark-surface-secondary max-md:justify-items-start md:grid-cols-[50%,repeat(3,1fr)] md:*:first:place-items-start md:*:last:place-items-end"
-          href={`/blog/${post._slug}`}
-        >
-          {/* <article className={clsx("", className)}> */}
-          <h3 className="relative col-span-2 max-w-full justify-self-start pr-4 font-medium text-text-primary dark:text-dark-text-primary max-lg:line-clamp-2 md:col-span-1 lg:truncate">
-            {post._title}
-          </h3>
-          <p className="col-span-2 md:col-span-1">
-            {post.categories.length > 0 ? post.categories.join(",") : "No categories"}
-          </p>
-          <p className="max-md:mt-3">{formatDate(post.publishedAt)}</p>
-          <div className="flex items-center justify-self-end">
-            <AvatarsGroup animate>
-              {post.authors.map((author) => (
-                <Author key={author._id} {...author} />
-              ))}
-            </AvatarsGroup>
-          </div>
-          {/* </article> */}
-        </Link>
+        <article className="border-b border-border py-2 dark:border-dark-border">
+          <ButtonLink
+            key={post._id}
+            unstyled
+            className="lg:text-md grid w-full grid-cols-[auto_auto] place-content-start items-center justify-items-start rounded-lg px-4 py-2 text-text-secondary outline-none transition-colors hover:bg-surface-secondary dark:text-dark-text-secondary dark:hover:bg-dark-surface-secondary max-md:justify-items-start md:grid-cols-[50%,repeat(3,1fr)] md:*:first:place-items-start md:*:last:place-items-end"
+            href={`/blog/${post._slug}`}
+          >
+            {/* <article className={clsx("", className)}> */}
+            <h3 className="relative col-span-2 max-w-full justify-self-start pr-4 font-medium text-text-primary dark:text-dark-text-primary max-lg:line-clamp-2 md:col-span-1 lg:truncate">
+              {post._title}
+            </h3>
+            <p className="col-span-2 md:col-span-1">
+              {post.categories.length > 0 ? post.categories.join(",") : "No categories"}
+            </p>
+            <p className="max-md:mt-3">{formatDate(post.publishedAt)}</p>
+            <div className="flex items-center justify-self-end">
+              <AvatarsGroup animate>
+                {post.authors.map((author) => (
+                  <Author key={author._id} {...author} />
+                ))}
+              </AvatarsGroup>
+            </div>
+            {/* </article> */}
+          </ButtonLink>
+        </article>
       );
     }
     case "card": {
