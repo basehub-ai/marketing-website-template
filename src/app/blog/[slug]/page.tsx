@@ -98,7 +98,8 @@ export const generateMetadata = async (
     },
     twitter: {
       images,
-      card: "app",
+      card: "summary_large_image",
+      site: data.site.settings.metadata.sitename,
     },
   };
 };
