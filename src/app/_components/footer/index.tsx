@@ -56,14 +56,14 @@ export async function Footer() {
 
         return (
           <footer className="border-t border-border px-6 py-16 dark:border-dark-border">
-            <div className="container mx-auto grid grid-cols-2 grid-rows-[auto_auto_auto] place-items-start items-center gap-y-7 sm:grid-cols-3 sm:grid-rows-2 sm:gap-y-16">
+            <div className="container mx-auto grid grid-cols-2 grid-rows-[auto_auto_auto] place-items-start items-center gap-y-7 sm:grid-cols-[1fr_auto_1fr] sm:grid-rows-2 sm:gap-x-3 sm:gap-y-16">
               <Image
                 {...header.logo}
                 alt={header.logo.alt ?? ""}
                 className="max-h-[100px] max-w-[100px] dark:invert"
                 src={header.logo.url}
               />
-              <nav className="col-start-1 row-start-2 flex flex-col gap-x-8 gap-y-3 self-center sm:col-span-1 sm:col-start-2 sm:row-start-1 sm:flex-row sm:items-center sm:place-self-center">
+              <nav className="col-start-1 row-start-2 flex flex-col gap-x-2 gap-y-3 self-center sm:col-span-1 sm:col-start-2 sm:row-start-1 sm:flex-row sm:items-center sm:place-self-center md:gap-x-4 lg:gap-x-8">
                 {footer.navbar.items.map(({ _title, url }) => (
                   <ButtonLink
                     key={_title}
@@ -83,15 +83,10 @@ export async function Footer() {
                 <ThemeSwitcher />
               </div>
 
-              <div className="col-span-2 flex flex-col items-start gap-3 sm:col-span-1">
-                <span className="inline-flex items-center gap-1 text-success">
-                  <span className="size-1.5 rounded-full bg-success" />
-                  <span className="text-[13px]">All systems operational</span>
-                </span>
-                <p className="text-sm text-text-tertiary dark:text-dark-text-tertiary ">
-                  @ 2024 Acme Corp. All rights reserved.
-                </p>
-              </div>
+              <p className="col-span-2 text-pretty text-sm text-text-tertiary dark:text-dark-text-tertiary sm:col-span-1 ">
+                @ 2024 Acme Corp. All rights reserved.
+              </p>
+
               <ul className="col-span-2 col-start-1 row-start-3 flex w-full items-center gap-x-3.5 gap-y-4 sm:col-span-1 sm:col-start-3 sm:row-start-2 sm:w-auto sm:flex-wrap sm:justify-self-end">
                 {footer.socialLinks.map((link) => {
                   return (
@@ -132,7 +127,8 @@ function PoweredByBasehub({ className }: { className?: string }) {
       target="_blank"
     >
       <Image
-        alt="Edit in BaseHub"
+        alt="Use BaseHub Template"
+        className="h-7 w-auto"
         height={28}
         src="https://basehub.com/template-button.svg"
         width={150}
