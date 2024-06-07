@@ -68,12 +68,12 @@ export function BlogpostCard({ type = "list", className, ...post }: BlogPostCard
           href={`/blog/${post._slug}`}
         >
           <figure
-            className="flex-1 xl:min-w-[300px]"
+            className="flex-1 p-2 md:min-w-[300px] md:group-last:!w-1/2"
             style={{ aspectRatio: post.image.light.aspectRatio }}
           >
             <DarkLightImage
               {...post.image}
-              className="h-full max-h-[200px] w-full rounded bg-surface-tertiary/50 object-cover p-2 dark:bg-dark-surface-tertiary/50 md:!max-h-full"
+              className="h-full w-full rounded bg-surface-tertiary/20 object-cover dark:bg-dark-surface-tertiary/20 md:!max-h-full lg:max-h-[200px]"
             />
           </figure>
           <div
