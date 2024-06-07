@@ -34,7 +34,7 @@ export function BlogpostCard({ type = "list", className, ...post }: BlogPostCard
           <ButtonLink
             key={post._id}
             unstyled
-            className="lg:text-md grid w-full grid-cols-[auto_auto] place-content-start items-center justify-items-start rounded-lg px-4 py-2 text-text-secondary outline-none transition-colors hover:bg-surface-secondary dark:text-dark-text-secondary dark:hover:bg-dark-surface-secondary max-md:justify-items-start md:grid-cols-[50%,repeat(3,1fr)] md:*:first:place-items-start md:*:last:place-items-end"
+            className="lg:text-md grid w-full grid-cols-[auto_auto] place-content-start items-center justify-items-start rounded-lg p-4 text-text-secondary outline-none transition-colors hover:bg-surface-secondary dark:text-dark-text-secondary dark:hover:bg-dark-surface-secondary max-md:justify-items-start md:grid-cols-[50%,repeat(3,1fr)] md:*:first:place-items-start md:*:last:place-items-end"
             href={`/blog/${post._slug}`}
           >
             {/* <article className={clsx("", className)}> */}
