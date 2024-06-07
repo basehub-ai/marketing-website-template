@@ -48,9 +48,11 @@ export const generateStaticParams = async () => {
   });
 };
 
-export const generateMetadata = async ({
-  params,
-}: ChangelogPageParams): Promise<Metadata | ResolvingMetadata | undefined> => {
+export const generateMetadata = async (
+  { params }: ChangelogPageParams,
+  prevMetadata: ResolvingMetadata,
+): Promise<Metadata | ResolvingMetadata | undefined> => {
+  const resolvedPrevMetadata = await prevMetadata;
   const data = await basehub().query({
     site: {
       settings: {
@@ -86,6 +88,7 @@ export const generateMetadata = async ({
       url: post.ogImage.url,
       alt: post._title,
     },
+    ...(resolvedPrevMetadata.openGraph?.images ?? []),
   ];
 
   return {
