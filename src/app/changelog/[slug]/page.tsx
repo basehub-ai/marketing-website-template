@@ -83,13 +83,11 @@ export const generateMetadata = async (
   const post = data.site.changelog.posts.items[0];
 
   if (!post) return undefined;
-  const images = [
-    {
-      url: post.ogImage.url,
-      alt: post._title,
-    },
-    ...(resolvedPrevMetadata.openGraph?.images ?? []),
-  ];
+
+  // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
+  const images = post.ogImage.url
+    ? [{ url: post.ogImage.url }]
+    : resolvedPrevMetadata.openGraph?.images ?? [];
 
   return {
     title: post._title,

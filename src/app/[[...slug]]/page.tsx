@@ -63,9 +63,9 @@ export const generateStaticParams = async () => {
 
 export const generateMetadata = async (
   { params }: { params: { slug?: string[] } },
-  currentMetadata: ResolvingMetadata,
+  prevMetadata: ResolvingMetadata,
 ): Promise<Metadata | undefined> => {
-  const meta = await currentMetadata;
+  const resolvedPrevMetadata = await prevMetadata;
 
   const data = await basehub({ cache: "no-store", draft: draftMode().isEnabled }).query({
     site: {
@@ -96,12 +96,16 @@ export const generateMetadata = async (
     return notFound();
   }
 
+  const images = page.metadataOverrides.ogImage.url
+    ? [{ url: page.metadataOverrides.ogImage.url }]
+    : resolvedPrevMetadata.openGraph?.images ?? [];
+
   return {
     title: page.metadataOverrides.title,
     description: page.metadataOverrides.description,
     openGraph: {
       type: "website",
-      images: [...page.metadataOverrides.ogImage.url, ...(meta.openGraph?.images ?? [])],
+      images,
     },
   };
 };

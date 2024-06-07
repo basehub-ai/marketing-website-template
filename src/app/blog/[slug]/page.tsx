@@ -46,11 +46,15 @@ export const generateStaticParams = async () => {
   });
 };
 
-export const generateMetadata = async ({
-  params: { slug },
-}: {
-  params: { slug: string };
-}): Promise<Metadata | ResolvingMetadata | undefined> => {
+export const generateMetadata = async (
+  {
+    params: { slug },
+  }: {
+    params: { slug: string };
+  },
+  prevMetadata: ResolvingMetadata,
+): Promise<Metadata | ResolvingMetadata | undefined> => {
+  const resolvedPrevMetadata = await prevMetadata;
   const data = await basehub().query({
     site: {
       settings: {
@@ -81,12 +85,9 @@ export const generateMetadata = async ({
   const post = data.site.blog.posts.items[0];
 
   if (!post) return undefined;
-  const images = [
-    {
-      url: post.ogImage.url,
-      alt: post._title,
-    },
-  ];
+  const images = post.ogImage.url
+    ? [{ url: post.ogImage.url }]
+    : resolvedPrevMetadata.openGraph?.images ?? [];
 
   return {
     title: post._title,
