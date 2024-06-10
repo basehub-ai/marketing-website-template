@@ -130,12 +130,14 @@ export default async function ChangelogPage({ params }: ChangelogPageParams) {
                       blocks: {
                         _id: true,
                         __typename: true,
-                        code: {
-                          code: true,
-                          language: true,
-                          allowedLanguages: true,
+                        on_CodeSnippetComponent: {
+                          _title: true,
+                          code: {
+                            code: true,
+                            language: true,
+                            allowedLanguages: true,
+                          },
                         },
-                        _title: true,
                       },
                       __typename: true,
                     },
