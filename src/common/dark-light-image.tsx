@@ -1,6 +1,5 @@
 import { type DarkLightImageFragment } from "@/lib/basehub/fragments";
 import clsx from "clsx";
-import { useTheme } from "next-themes";
 import Image, { type ImageProps } from "next/image";
 
 type DarkLightImageProps = DarkLightImageFragment &

@@ -1,9 +1,7 @@
 import clsx from "clsx";
 
-import { ButtonLink } from "@/common/button";
 import { Section } from "@/common/layout";
 import { fragmentOn } from "basehub";
-import { sendEvent } from "basehub/analytics";
 
 import s from "./callout-1.module.scss";
 import { TrackedButtonLink } from "@/app/_components/tracked_button";
