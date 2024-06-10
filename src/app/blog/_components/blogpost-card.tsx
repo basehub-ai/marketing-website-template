@@ -64,30 +64,18 @@ export function BlogpostCard({ type = "list", className, ...post }: BlogPostCard
           className={clsx(
             "group flex flex-col self-stretch rounded-xl border transition-shadow [--heading-size:_1.1250rem]",
             "border-border bg-surface-secondary text-text-secondary hover:shadow-md dark:border-dark-border dark:bg-dark-surface-secondary dark:text-dark-text-secondary dark:hover:shadow dark:hover:shadow-grayscale-700",
-            "md:last:col-span-2 md:last:flex-row md:last:[--heading-size:_1.25rem]",
-            "xl:flex-row xl:last:col-span-1 xl:last:[--heading-size:_1.1250rem] xl:first-of-type:col-span-1 xl:first-of-type:row-span-2 xl:first-of-type:flex-col xl:first-of-type:[--heading-size:_1.25rem]",
-            "outline-none focus-visible:ring focus-visible:ring-accent-500",
+            "outline-0 focus-visible:ring focus-visible:ring-accent-500",
             className,
           )}
           href={`/blog/${post._slug}`}
         >
-          <figure
-            className="flex-1 p-2 md:min-w-[300px] md:group-last:!w-1/2"
-            style={{ aspectRatio: post.image.light.aspectRatio }}
-          >
+          <figure className="p-2" style={{ aspectRatio: post.image.light.aspectRatio }}>
             <DarkLightImage
               {...post.image}
-              className="h-full w-full rounded bg-surface-tertiary/20 object-cover dark:bg-dark-surface-tertiary/20 md:!max-h-full lg:max-h-[200px]"
+              className="h-[min(320px,100%)] w-full rounded bg-surface-tertiary/20 object-cover dark:bg-dark-surface-tertiary/20"
             />
           </figure>
-          <div
-            className={clsx(
-              "flex flex-col justify-between gap-2 p-4",
-              "md:min-w-[min(400px,100%)]",
-              "lg:group-first:!max-w-full lg:group-first:flex-1",
-              "xl:min-w-[min(300px,100%)]",
-            )}
-          >
+          <div className={clsx("flex flex-col justify-between gap-3 p-4")}>
             <header className="flex items-center justify-between gap-2">
               <p className="text-sm text-text-tertiary dark:text-dark-text-tertiary lg:text-base">
                 {formatDate(post.publishedAt)}
@@ -102,7 +90,7 @@ export function BlogpostCard({ type = "list", className, ...post }: BlogPostCard
               <h3 className="text-[length:var(--heading-size)] font-medium text-text-primary dark:text-dark-text-primary">
                 {post._title}
               </h3>
-              <p className="line-clamp-4 text-sm text-text-secondary dark:text-dark-text-secondary lg:text-base">
+              <p className="line-clamp-2 text-sm text-text-secondary dark:text-dark-text-secondary lg:text-base">
                 {post.description}
               </p>
             </main>

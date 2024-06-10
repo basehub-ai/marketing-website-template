@@ -231,19 +231,19 @@ function ItemWithSublinks({
     if (!hasRendered) return;
 
     if (isOn) {
-      listRef.current?.animate([{ transform: "scaleY(1)" }], {
+      listRef.current?.animate([{ height: `${(40 * sublinks.length).toString()}px` }], {
         duration: 200,
         easing: "ease-in-out",
         fill: "forwards",
       });
     } else {
-      listRef.current?.animate([{ transform: "scaleY(0)" }], {
+      listRef.current?.animate([{ height: "0px" }], {
         duration: 200,
         easing: "ease-in-out",
         fill: "forwards",
       });
     }
-  }, [isOn, hasRendered]);
+  }, [isOn, hasRendered, sublinks]);
 
   const handleToggle = () => {
     if (isOn) {
@@ -267,7 +267,7 @@ function ItemWithSublinks({
       <ul
         ref={listRef}
         className={clsx(
-          "flex origin-top scale-y-0 transform-gpu flex-col gap-2 pl-4 transition-transform",
+          "flex h-0 origin-top transform-gpu flex-col gap-2 overflow-hidden pl-4 transition-transform",
         )}
       >
         {sublinks.map((sublink) => {

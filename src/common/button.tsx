@@ -3,7 +3,7 @@ import Link, { type LinkProps } from "next/link";
 import { forwardRef } from "react";
 
 export const $button = cva(
-  "gap-1 font-normal shrink-0 rounded-full ring-control focus-visible:ring-2 outline-none",
+  "gap-1 font-normal shrink-0 rounded-full ring-control focus-visible:ring-2 outline-none outline-0",
   {
     variants: {
       intent: {

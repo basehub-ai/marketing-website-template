@@ -51,7 +51,7 @@ export function SearchContent({ _searchKey }: { _searchKey: string }) {
           {/* eslint-disable-next-line jsx-a11y/label-has-associated-control */}
           <label
             className={clsx(
-              "ml-auto flex w-full cursor-text items-center gap-x-1 rounded-full border border-border px-3.5 py-2.5 focus-within:!border-accent-500 dark:border-dark-border md:max-w-[280px]",
+              "ml-auto flex w-full cursor-text items-center gap-x-1 rounded-full border border-border px-3.5 py-2.5 !ring-accent-500 focus-within:ring dark:border-dark-border md:max-w-[280px]",
             )}
           >
             <MagnifyingGlassIcon
@@ -60,6 +60,7 @@ export function SearchContent({ _searchKey }: { _searchKey: string }) {
             />
             <SearchBox.Input
               asChild
+              className="outline-none outline-0"
               onFocus={() => {
                 search.query && setOpen(true);
               }}
