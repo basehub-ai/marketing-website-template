@@ -35,6 +35,7 @@ module.exports = {
     "react/react-in-jsx-scope": "off",
     "react/self-closing-comp": "warn",
     "@typescript-eslint/no-unsafe-assignment": "off",
+    "react/display-name": "off",
     // Button
     "react/button-has-type": "off",
     "react/jsx-sort-props": [
@@ -65,6 +66,6 @@ module.exports = {
     "@next/next/no-img-element": "off",
     "jsx-a11y/no-static-element-interactions": "off",
     "jsx-a11y/click-events-have-key-events": "off",
-    'jsx-a11y/media-has-caption': 'off',
+    "jsx-a11y/media-has-caption": "off",
   },
 };

@@ -12,9 +12,7 @@ export function AccordionFaq(faq: Faq) {
         <h4>{faq.heading.title}</h4>
       </Heading>
       <div className="mx-auto flex w-full gap-8 md:max-w-screen-sm lg:max-w-screen-md lg:gap-14 lg:px-24 xl:max-w-screen-xl">
-        <Accordion
-          items={faq.questions.items.map((i) => ({ answer: i.answer, question: i._title }))}
-        />
+        <Accordion items={faq.questions.items} />
       </div>
     </Section>
   );

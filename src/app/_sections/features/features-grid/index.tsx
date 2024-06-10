@@ -5,8 +5,10 @@ import { Heading } from "@/common/heading";
 import { Section } from "@/common/layout";
 import { fragmentOn } from "basehub";
 import { buttonFragment, headingFragment } from "@/lib/basehub/fragments";
+import { TrackedButtonLink } from "@/app/_components/tracked_button";
 
 export const featuresGridFragment = fragmentOn("FeaturesGridComponent", {
+  _analyticsKey: true,
   featuresGridList: {
     items: {
       _title: true,
@@ -18,13 +20,18 @@ export const featuresGridFragment = fragmentOn("FeaturesGridComponent", {
     },
   },
   heading: headingFragment,
-  primary: buttonFragment,
-  secondary: buttonFragment,
+  actions: {
+    __typename: true,
+    on_ButtonComponent: {
+      _analyticsKey: true,
+      ...buttonFragment,
+    },
+  },
 });
 
 type FeaturesGrid = fragmentOn.infer<typeof featuresGridFragment>;
 
-export function FeaturesGrid({ heading, featuresGridList, primary, secondary }: FeaturesGrid) {
+export function FeaturesGrid({ heading, featuresGridList, actions, _analyticsKey }: FeaturesGrid) {
   return (
     <Section>
       <Heading {...heading}>
@@ -55,12 +62,18 @@ export function FeaturesGrid({ heading, featuresGridList, primary, secondary }: 
         ))}
       </div>
       <div className="flex items-center justify-center gap-3 md:order-3">
-        <ButtonLink href={primary.href} intent={primary.type} size="lg">
-          {primary.label}
-        </ButtonLink>
-        <ButtonLink href={secondary.href} intent={secondary.type} size="lg">
-          {secondary.label}
-        </ButtonLink>
+        {actions?.map((action) => (
+          <TrackedButtonLink
+            key={action._id}
+            analyticsKey={_analyticsKey}
+            href={action.href}
+            intent={action.type}
+            name="cta_click"
+            size="lg"
+          >
+            {action.label}
+          </TrackedButtonLink>
+        ))}
       </div>
     </Section>
   );

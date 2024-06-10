@@ -5,6 +5,7 @@ import { Heading } from "@/common/heading";
 import { Section } from "@/common/layout";
 import { fragmentOn } from "basehub";
 import { headingFragment } from "@/lib/basehub/fragments";
+import { TrackedButtonLink } from "@/app/_components/tracked_button";
 
 export const featuresSideBySideFragment = fragmentOn("FeaturesSideBySideComponent", {
   featuresSideBySideList: {
@@ -18,15 +19,13 @@ export const featuresSideBySideFragment = fragmentOn("FeaturesSideBySideComponen
     },
   },
   heading: headingFragment,
-  cta: {
-    primary: {
-      label: true,
+  actions: {
+    __typename: true,
+    on_ButtonComponent: {
+      _analyticsKey: true,
+      _id: true,
       href: true,
-      type: true,
-    },
-    secondary: {
       label: true,
-      href: true,
       type: true,
     },
   },
@@ -34,7 +33,7 @@ export const featuresSideBySideFragment = fragmentOn("FeaturesSideBySideComponen
 
 type FeaturesGrid = fragmentOn.infer<typeof featuresSideBySideFragment>;
 
-export function SideFeatures({ featuresSideBySideList, heading, cta }: FeaturesGrid) {
+export function SideFeatures({ featuresSideBySideList, heading, actions }: FeaturesGrid) {
   return (
     <Section className="relative lg:!flex-row lg:gap-0 lg:p-28" container="full">
       <div className="container relative top-0 mx-auto shrink self-stretch px-6 lg:w-1/2 lg:pl-0 lg:pr-12 xl:pr-20">
@@ -43,12 +42,18 @@ export function SideFeatures({ featuresSideBySideList, heading, cta }: FeaturesG
             <h4>{heading.title}</h4>
           </Heading>
           <div className="flex items-center gap-3 md:order-3">
-            <ButtonLink href={cta.primary.href} intent={cta.primary.type} size="lg">
-              {cta.primary.label}
-            </ButtonLink>
-            <ButtonLink href={cta.secondary.href} intent={cta.secondary.type} size="lg">
-              {cta.secondary.label}
-            </ButtonLink>
+            {actions?.map((action) => (
+              <TrackedButtonLink
+                key={action._id}
+                analyticsKey={action._analyticsKey}
+                href={action.href}
+                intent={action.type}
+                name="main_cta_click"
+                size="lg"
+              >
+                {action.label}
+              </TrackedButtonLink>
+            ))}
           </div>
         </div>
       </div>

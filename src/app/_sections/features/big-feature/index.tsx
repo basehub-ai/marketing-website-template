@@ -7,6 +7,7 @@ import { darkLightImageFragment, headingFragment } from "@/lib/basehub/fragments
 import { DarkLightImage } from "@/common/dark-light-image";
 
 export const bigFeatureFragment = fragmentOn("FeaturesBigImageComponent", {
+  _analyticsKey: true,
   featuresBigImageList: {
     items: {
       _title: true,

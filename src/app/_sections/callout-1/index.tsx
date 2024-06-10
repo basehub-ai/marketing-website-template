@@ -3,22 +3,20 @@ import clsx from "clsx";
 import { ButtonLink } from "@/common/button";
 import { Section } from "@/common/layout";
 import { fragmentOn } from "basehub";
+import { sendEvent } from "basehub/analytics";
 
 import s from "./callout-1.module.scss";
+import { TrackedButtonLink } from "@/app/_components/tracked_button";
+import { buttonFragment } from "@/lib/basehub/fragments";
 
 export const calloutFragment = fragmentOn("CalloutComponent", {
+  _analyticsKey: true,
   title: true,
   subtitle: true,
-  calloutCtAs: {
-    cta: {
-      label: true,
-      href: true,
-      type: true,
-    },
-    secondaryCta: {
-      label: true,
-      href: true,
-      type: true,
+  actions: {
+    on_ButtonComponent: {
+      _analyticsKey: true,
+      ...buttonFragment,
     },
   },
 });
@@ -58,15 +56,17 @@ export function Callout(callout: Callout) {
           </p>
         </div>
         <div className="relative z-10 flex items-center gap-2">
-          <ButtonLink
-            href={callout.calloutCtAs.secondaryCta.href}
-            intent={callout.calloutCtAs.secondaryCta.type}
-          >
-            {callout.calloutCtAs.secondaryCta.label}
-          </ButtonLink>
-          <ButtonLink href={callout.calloutCtAs.cta.href} intent={callout.calloutCtAs.cta.type}>
-            {callout.calloutCtAs.cta.label}
-          </ButtonLink>
+          {callout.actions?.map((action) => (
+            <TrackedButtonLink
+              key={action._id}
+              analyticsKey={action._analyticsKey}
+              href={action.href}
+              intent={action.type}
+              name="secondary_cta_click"
+            >
+              {action.label}
+            </TrackedButtonLink>
+          ))}
         </div>
       </article>
     </Section>

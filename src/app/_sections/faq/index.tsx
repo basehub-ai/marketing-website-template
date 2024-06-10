@@ -7,6 +7,7 @@ export const faqFragment = fragmentOn("FaqComponent", {
   heading: headingFragment,
   questions: {
     items: {
+      _analyticsKey: true,
       _title: true,
       answer: true,
     },

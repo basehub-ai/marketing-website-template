@@ -4,9 +4,10 @@ import { fragmentOn } from "basehub";
 import { AvatarsGroup } from "@/common/avatars-group";
 import { Avatar } from "@/common/avatar";
 import { avatarFragment } from "@/lib/basehub/fragments";
-import { ButtonLink } from "@/common/button";
+import { TrackedButtonLink } from "@/app/_components/tracked_button";
 
 export const heroFragment = fragmentOn("HeroComponent", {
+  _analyticsKey: true,
   customerSatisfactionBanner: {
     text: true,
     avatars: {
@@ -20,6 +21,7 @@ export const heroFragment = fragmentOn("HeroComponent", {
   subtitle: true,
   actions: {
     on_ButtonComponent: {
+      _analyticsKey: true,
       _id: true,
       href: true,
       label: true,
@@ -67,9 +69,10 @@ export function Hero(hero: Hero) {
         </div>
         <div className="flex items-start justify-center px-8 sm:px-24">
           <div className="flex w-full max-w-[80vw] flex-col items-center justify-start md:!max-w-[392px]">
-            {hero.actions?.map(({ href, label, type, _id }) => (
-              <ButtonLink
+            {hero.actions?.map(({ href, label, type, _id, _analyticsKey }) => (
+              <TrackedButtonLink
                 key={_id}
+                analyticsKey={_analyticsKey}
                 className={clsx(
                   "!h-14 flex-col items-center justify-center rounded-none !text-base",
                   type === "primary"
@@ -78,9 +81,10 @@ export function Hero(hero: Hero) {
                 )}
                 href={href}
                 intent={type}
+                name="cta_click"
               >
                 {label}
-              </ButtonLink>
+              </TrackedButtonLink>
             ))}
           </div>
         </div>

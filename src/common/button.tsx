@@ -1,5 +1,6 @@
 import { type VariantProps, cva } from "class-variance-authority";
 import Link, { type LinkProps } from "next/link";
+import { forwardRef } from "react";
 
 export const $button = cva(
   "gap-1 font-normal shrink-0 rounded-full ring-control focus-visible:ring-2 outline-none",
@@ -39,73 +40,85 @@ type ButtonProps<C extends keyof JSX.IntrinsicElements> = VariantProps<typeof $b
     unstyled?: boolean;
   };
 
-export function Button({
-  children,
-  intent = "primary",
-  disabled = false,
-  onlyButton = false,
-  icon,
-  iconSide = "left",
-  unstyled,
-  className,
-  size = "md",
-  ...props
-}: ButtonProps<"button">) {
-  return (
-    <button
-      className={$button(
-        !unstyled
-          ? {
-              intent,
-              disabled,
-              onlyButton,
-              iconSide: icon ? iconSide : undefined,
-              unstyled,
-              className,
-              size,
-            }
-          : { className },
-      )}
-      disabled={disabled}
-      {...props}
-    >
-      {children}
-      {icon ? <span>{icon}</span> : null}
-    </button>
-  );
-}
+export const Button = forwardRef<HTMLButtonElement, ButtonProps<"button">>(
+  (
+    {
+      children,
+      intent = "primary",
+      disabled = false,
+      onlyButton = false,
+      icon,
+      iconSide = "left",
+      unstyled,
+      className,
+      size = "md",
+      ...props
+    },
+    ref,
+  ) => {
+    return (
+      <button
+        ref={ref}
+        className={$button(
+          !unstyled
+            ? {
+                intent,
+                disabled,
+                onlyButton,
+                iconSide: icon ? iconSide : undefined,
+                unstyled,
+                className,
+                size,
+              }
+            : { className },
+        )}
+        disabled={disabled}
+        {...props}
+      >
+        {children}
+        {icon ? <span>{icon}</span> : null}
+      </button>
+    );
+  },
+);
 
-export function ButtonLink({
-  children,
-  intent = "primary",
-  disabled = false,
-  onlyButton = false,
-  icon,
-  iconSide = "left",
-  unstyled,
-  className,
-  size = "md",
-  ...props
-}: ButtonProps<"a"> & LinkProps) {
-  return (
-    <Link
-      className={$button(
-        !unstyled
-          ? {
-              intent,
-              disabled,
-              onlyButton,
-              iconSide: icon ? iconSide : undefined,
-              className,
-              unstyled,
-              size,
-            }
-          : { className },
-      )}
-      {...props}
-    >
-      {children}
-      {icon ? <span>{icon}</span> : null}
-    </Link>
-  );
-}
+export const ButtonLink = forwardRef<HTMLAnchorElement, ButtonProps<"a"> & LinkProps>(
+  (
+    {
+      children,
+      intent = "primary",
+      disabled = false,
+      onlyButton = false,
+      icon,
+      iconSide = "left",
+      unstyled,
+      className,
+      size = "md",
+      ...props
+    },
+    ref,
+  ) => {
+    return (
+      <Link
+        ref={ref}
+        className={$button(
+          !unstyled
+            ? {
+                intent,
+                disabled,
+                onlyButton,
+                iconSide: icon ? iconSide : undefined,
+                className,
+                unstyled,
+                size,
+              }
+            : { className },
+        )}
+        {...props}
+      >
+        {children}
+        {icon ? <span>{icon}</span> : null}
+      </Link>
+    );
+  },
+);

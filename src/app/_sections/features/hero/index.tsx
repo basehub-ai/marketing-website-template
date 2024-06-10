@@ -4,19 +4,21 @@ import { fragmentOn } from "basehub";
 import { Heading } from "@/common/heading";
 import { Section } from "@/common/layout";
 import { darkLightImageFragment, headingFragment } from "@/lib/basehub/fragments";
-import { ButtonLink } from "@/common/button";
 import { Pump } from "basehub/react-pump";
 import clsx from "clsx";
 
 import s from "./hero.module.scss";
 import { DarkLightImage } from "@/common/dark-light-image";
+import { TrackedButtonLink } from "@/app/_components/tracked_button";
 
 export const featureHeroFragment = fragmentOn("FeatureHeroComponent", {
+  _analyticsKey: true,
   heroLayout: true,
   heading: headingFragment,
   image: darkLightImageFragment,
   actions: {
     on_ButtonComponent: {
+      _analyticsKey: true,
       _id: true,
       href: true,
       label: true,
@@ -27,7 +29,13 @@ export const featureHeroFragment = fragmentOn("FeatureHeroComponent", {
 
 type FeatureHero = fragmentOn.infer<typeof featureHeroFragment>;
 
-export default function FeatureHero({ heading, heroLayout, image, actions }: FeatureHero) {
+export default function FeatureHero({
+  heading,
+  heroLayout,
+  image,
+  actions,
+  _analyticsKey,
+}: FeatureHero) {
   switch (heroLayout) {
     case "Image bottom": {
       return (
@@ -38,9 +46,16 @@ export default function FeatureHero({ heading, heroLayout, image, actions }: Fea
             </Heading>
             <div className="flex justify-center gap-3">
               {actions?.map((action) => (
-                <ButtonLink key={action._id} href={action.href} intent={action.type} size="lg">
+                <TrackedButtonLink
+                  key={action._id}
+                  analyticsKey={action._analyticsKey}
+                  href={action.href}
+                  intent={action.type}
+                  name="cta_click"
+                  size="lg"
+                >
                   {action.label}
-                </ButtonLink>
+                </TrackedButtonLink>
               ))}
             </div>
           </div>
@@ -61,9 +76,16 @@ export default function FeatureHero({ heading, heroLayout, image, actions }: Fea
               </Heading>
               <div className="flex justify-start gap-3">
                 {actions?.map((action) => (
-                  <ButtonLink key={action._id} href={action.href} intent={action.type} size="lg">
+                  <TrackedButtonLink
+                    key={action._id}
+                    analyticsKey={action._analyticsKey}
+                    href={action.href}
+                    intent={action.type}
+                    name="cta_click"
+                    size="lg"
+                  >
                     {action.label}
-                  </ButtonLink>
+                  </TrackedButtonLink>
                 ))}
               </div>
             </div>
@@ -90,9 +112,16 @@ export default function FeatureHero({ heading, heroLayout, image, actions }: Fea
               {actions && actions.length > 0 ? (
                 <div className="flex gap-3">
                   {actions.map((action) => (
-                    <ButtonLink key={action._id} href={action.href} intent={action.type} size="lg">
+                    <TrackedButtonLink
+                      key={action._id}
+                      analyticsKey={action._analyticsKey}
+                      href={action.href}
+                      intent={action.type}
+                      name="cta_click"
+                      size="lg"
+                    >
                       {action.label}
-                    </ButtonLink>
+                    </TrackedButtonLink>
                   ))}
                 </div>
               ) : null}
@@ -141,9 +170,16 @@ export default function FeatureHero({ heading, heroLayout, image, actions }: Fea
             <div className="flex gap-3">
               {actions
                 ? actions.map((action) => (
-                    <ButtonLink key={action._id} href={action.href} intent={action.type} size="lg">
+                    <TrackedButtonLink
+                      key={action._id}
+                      analyticsKey={action._analyticsKey}
+                      href={action.href}
+                      intent={action.type}
+                      name="cta_click"
+                      size="lg"
+                    >
                       {action.label}
-                    </ButtonLink>
+                    </TrackedButtonLink>
                   ))
                 : null}
             </div>
