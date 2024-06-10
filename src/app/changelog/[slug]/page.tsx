@@ -128,9 +128,9 @@ export default async function ChangelogPage({ params }: ChangelogPageParams) {
                     json: {
                       content: true,
                       blocks: {
-                        _id: true,
                         __typename: true,
                         on_CodeSnippetComponent: {
+                          _id: true,
                           _title: true,
                           code: {
                             code: true,
