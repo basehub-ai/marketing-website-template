@@ -19,9 +19,9 @@
     overflow-x: auto;
     background-color: theme("colors.surface.secondary");
     position: relative;
-    font-size: theme("fontSize.sm");
     & :global(pre) {
       margin: 0 !important;
+      font-size: theme("fontSize.sm") !important;
       // white-space: pre-wrap;
       word-wrap: break-word;
       background-color: theme("colors.surface.secondary") !important;
@@ -33,7 +33,8 @@
       pointer-events: none;
       position: sticky;
       left: 0;
-      background-color: theme("colors.surface.secondary");
+      background-color: theme("colors.surface.secondary") !important;
+      color: theme("colors.text.tertiary") !important;
       user-select: none;
       width: 44px !important;
       text-align: end;
@@ -68,6 +69,7 @@
       }
 
       & :global(span.line-indicator) {
+        color: theme("colors.dark.text.tertiary");
         background-color: theme("colors.dark.surface.secondary");
       }
 

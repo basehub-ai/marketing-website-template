@@ -17,6 +17,7 @@ import { basehub } from "basehub/index";
 import { formatDate } from "@/utils/dates";
 
 import { ChangelogLayout } from "../_components/changelog-header";
+import { PageView } from "@/app/_components/page-view";
 
 export const dynamic = "force-static";
 
@@ -118,6 +119,7 @@ export default async function ChangelogPage({ params }: ChangelogPageParams) {
                   first: 1,
                 },
                 items: {
+                  _analyticsKey: true,
                   _title: true,
                   excerpt: true,
                   publishedAt: true,
@@ -184,6 +186,7 @@ export default async function ChangelogPage({ params }: ChangelogPageParams) {
 
         return (
           <>
+            <PageView _analyticsKey={post._analyticsKey} />
             <ChangelogLayout>
               <div className="flex flex-col gap-1">
                 <Link

@@ -96,11 +96,11 @@ const config: Config = {
       "2xl": ["1.5rem", { lineHeight: "2rem", letterSpacing: "-1.04px" }],
       "3xl": ["2rem", { lineHeight: "2.25rem", letterSpacing: "-1.2px" }],
       "4xl": ["2.25rem", { lineHeight: "2.5rem", letterSpacing: "-1.44px" }],
-      "5xl": ["3rem", { lineHeight: "1" }],
-      "6xl": ["3.75rem", { lineHeight: "1" }],
-      "7xl": ["4.5rem", { lineHeight: "1" }],
-      "8xl": ["6rem", { lineHeight: "1" }],
-      "9xl": ["8rem", { lineHeight: "1" }],
+      "5xl": ["3rem", { lineHeight: "1", letterSpacing: "-1.6px" }],
+      "6xl": ["3.75rem", { lineHeight: "1", letterSpacing: "-1.8px" }],
+      "7xl": ["4.5rem", { lineHeight: "1", letterSpacing: "-2px" }],
+      "8xl": ["6rem", { lineHeight: "1", letterSpacing: "-2.4px" }],
+      "9xl": ["8rem", { lineHeight: "1", letterSpacing: "-3.2px" }],
     },
     extend: {
       maxWidth: {

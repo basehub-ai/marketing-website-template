@@ -14,12 +14,12 @@ export function PageView({
 
   // On mount, send the event
   React.useEffect(() => {
-    sendEvent({ _analyticsKey, name: "page_view" });
+    sendEvent({ _analyticsKey, name: "view_count" });
   }, [_analyticsKey]);
 
   // We also get the event count so we can render it
   React.useEffect(() => {
-    getEventCount({ _analyticsKey, name: "page_view" }).then((count) => {
+    getEventCount({ _analyticsKey, name: "view_count" }).then((count) => {
       setCount(count);
     });
   }, [_analyticsKey]);

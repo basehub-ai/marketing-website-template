@@ -6,6 +6,7 @@ import { Heading } from "@/common/heading";
 import { ChangelogList } from "./_components/changelog-list";
 import { ChangelogLayout } from "./_components/changelog-header";
 import { changelogListFragment } from "./_components/changelog.fragment";
+import { PageView } from "../_components/page-view";
 
 export const dynamic = "force-static";
 
@@ -20,6 +21,7 @@ export default async function ChangelogPage() {
         {
           site: {
             changelog: {
+              _analyticsKey: true,
               title: true,
               subtitle: true,
               posts: {
@@ -39,6 +41,7 @@ export default async function ChangelogPage() {
 
         return (
           <>
+            <PageView _analyticsKey={changelog._analyticsKey} />
             <ChangelogLayout>
               <Heading
                 align="left"

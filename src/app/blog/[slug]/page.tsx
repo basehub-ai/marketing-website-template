@@ -21,6 +21,7 @@ import { basehub } from "basehub";
 import { cx } from "class-variance-authority";
 import { formatDate } from "@/utils/dates";
 import { DarkLightImage } from "@/common/dark-light-image";
+import { PageView } from "@/app/_components/page-view";
 
 export const dynamic = "force-static";
 
@@ -124,6 +125,7 @@ export default async function BlogPage({ params: { slug } }: { params: { slug: s
                     first: 1,
                   },
                   items: {
+                    _analyticsKey: true,
                     _title: true,
                     description: true,
                     authors: authorFragment,
@@ -164,6 +166,7 @@ export default async function BlogPage({ params: { slug } }: { params: { slug: s
 
           return (
             <>
+              <PageView _analyticsKey={blogpost._analyticsKey} />
               <Section>
                 <Heading subtitle={blogpost.description}>
                   <h1>{blogpost._title}</h1>

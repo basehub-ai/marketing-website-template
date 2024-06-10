@@ -8,6 +8,7 @@ import { SearchHitsProvider } from "@/context/search-hits-context";
 import { type AvatarFragment, avatarFragment } from "@/lib/basehub/fragments";
 
 import { BlogpostCard, blogpostCardFragment } from "./_components/blogpost-card";
+import { PageView } from "../_components/page-view";
 
 export const dynamic = "force-static";
 
@@ -35,6 +36,7 @@ export default async function BlogPage() {
           },
           site: {
             blog: {
+              _analyticsKey: true,
               mainTitle: true,
               featuredPosts: blogpostCardFragment,
               listTitle: true,
@@ -58,6 +60,7 @@ export default async function BlogPage() {
 
         return (
           <Section className="gap-16">
+            <PageView _analyticsKey={blog._analyticsKey} />
             <div className="grid grid-cols-1 gap-5 md:grid-cols-2">
               <Heading align="left">
                 <h2>{blog.mainTitle}</h2>

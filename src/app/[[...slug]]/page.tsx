@@ -40,6 +40,7 @@ import { TestimonialsGrid, testimonialsGridFragment } from "../_sections/testimo
 import { PricingTable } from "../_sections/pricing-comparation";
 import { pricingTableFragment } from "../_sections/pricing-comparation/fragments";
 import FeatureHero, { featureHeroFragment } from "../_sections/features/hero";
+import { PageView } from "../_components/page-view";
 
 export const dynamic = "force-static";
 
@@ -133,9 +134,11 @@ const sectionsFragment = fragmentOn("PagesItem", {
   },
 });
 
-function SectionsUnion(
-  sections: fragmentOn.infer<typeof sectionsFragment>["sections"],
-): React.ReactNode {
+function SectionsUnion({
+  sections,
+}: {
+  sections: fragmentOn.infer<typeof sectionsFragment>["sections"];
+}): React.ReactNode {
   if (!sections) return null;
 
   return sections.map((comp) => {
@@ -171,7 +174,11 @@ function SectionsUnion(
       case isFeatureHeroComponent(comp):
         return <FeatureHero {...comp} />;
       case isSectionReferenceComponent(comp):
-        return SectionsUnion([comp.sectionReference]);
+        return (
+          <SectionsUnion
+            sections={[{ ...comp.sectionReference, _analyticsKey: comp._analyticsKey }]}
+          />
+        );
       default:
         return null;
     }
@@ -198,6 +205,7 @@ export default async function DynamicPage({ params }: { params: { slug?: string[
                 first: 1,
               },
               items: {
+                _analyticsKey: true,
                 _id: true,
                 pathname: true,
                 sections: {
@@ -227,7 +235,12 @@ export default async function DynamicPage({ params }: { params: { slug?: string[
 
         const sections = page.sections;
 
-        return <main>{SectionsUnion(sections)}</main>;
+        return (
+          <>
+            <PageView _analyticsKey={page._analyticsKey} />
+            <SectionsUnion sections={sections} />
+          </>
+        );
       }}
     </Pump>
   );
