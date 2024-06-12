@@ -9,10 +9,30 @@ import { type AvatarFragment, avatarFragment } from "@/lib/basehub/fragments";
 
 import { BlogpostCard, blogpostCardFragment } from "./_components/blogpost-card";
 import { PageView } from "../_components/page-view";
+import type { Metadata } from "next";
+import { basehub } from "basehub";
 
 export const dynamic = "force-static";
 
 export const revalidate = 30;
+
+export const generateMetadata = async (): Promise<Metadata | undefined> => {
+  const data = await basehub({ cache: "no-store", draft: draftMode().isEnabled }).query({
+    site: {
+      blog: {
+        metadata: {
+          title: true,
+          description: true,
+        },
+      },
+    },
+  });
+
+  return {
+    title: data.site.blog.metadata.title ?? undefined,
+    description: data.site.blog.metadata.description ?? undefined,
+  };
+};
 
 export default async function BlogPage() {
   return (

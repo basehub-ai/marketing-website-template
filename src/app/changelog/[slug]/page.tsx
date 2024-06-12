@@ -3,7 +3,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { RichText } from "basehub/react-rich-text";
 import { ArrowRightIcon } from "@radix-ui/react-icons";
-import { type ResolvingMetadata, type Metadata } from "next";
+import type { Metadata } from "next";
 
 import { Pump } from "basehub/react-pump";
 import { Heading } from "@/common/heading";
@@ -18,6 +18,7 @@ import { formatDate } from "@/utils/dates";
 
 import { ChangelogLayout } from "../_components/changelog-header";
 import { PageView } from "@/app/_components/page-view";
+import { draftMode } from "next/headers";
 
 export const dynamic = "force-static";
 
@@ -49,12 +50,10 @@ export const generateStaticParams = async () => {
   });
 };
 
-export const generateMetadata = async (
-  { params }: ChangelogPageParams,
-  prevMetadata: ResolvingMetadata,
-): Promise<Metadata | ResolvingMetadata | undefined> => {
-  const resolvedPrevMetadata = await prevMetadata;
-  const data = await basehub().query({
+export const generateMetadata = async ({
+  params,
+}: ChangelogPageParams): Promise<Metadata | undefined> => {
+  const data = await basehub({ next: { revalidate: 30 } }).query({
     site: {
       settings: {
         metadata: {
@@ -85,10 +84,7 @@ export const generateMetadata = async (
 
   if (!post) return undefined;
 
-  // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
-  const images = post.ogImage.url
-    ? [{ url: post.ogImage.url }]
-    : resolvedPrevMetadata.openGraph?.images ?? [];
+  const images = [{ url: post.ogImage.url }];
 
   return {
     title: post._title,
@@ -107,6 +103,8 @@ export const generateMetadata = async (
 export default async function ChangelogPage({ params }: ChangelogPageParams) {
   return (
     <Pump
+      draft={draftMode().isEnabled}
+      next={{ revalidate: 30 }}
       queries={[
         {
           site: {

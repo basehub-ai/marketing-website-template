@@ -1,4 +1,4 @@
-import type { Metadata, ResolvingMetadata } from "next";
+import type { Metadata } from "next";
 
 import { draftMode } from "next/headers";
 import { notFound } from "next/navigation";
@@ -62,21 +62,13 @@ export const generateStaticParams = async () => {
   }));
 };
 
-export const generateMetadata = async (
-  { params }: { params: { slug?: string[] } },
-  prevMetadata: ResolvingMetadata,
-): Promise<Metadata | undefined> => {
-  const resolvedPrevMetadata = await prevMetadata;
-
+export const generateMetadata = async ({
+  params,
+}: {
+  params: { slug?: string[] };
+}): Promise<Metadata | undefined> => {
   const data = await basehub({ cache: "no-store", draft: draftMode().isEnabled }).query({
     site: {
-      settings: {
-        metadata: {
-          ogImage: {
-            url: true,
-          },
-        },
-      },
       pages: {
         __args: {
           filter: {
@@ -101,17 +93,9 @@ export const generateMetadata = async (
     return notFound();
   }
 
-  const images = data.site.settings.metadata.ogImage.url
-    ? [{ url: data.site.settings.metadata.ogImage.url }]
-    : resolvedPrevMetadata.openGraph?.images ?? [];
-
   return {
-    title: page.metadataOverrides.title,
-    description: page.metadataOverrides.description,
-    openGraph: {
-      type: "website",
-      images,
-    },
+    title: page.metadataOverrides.title ?? undefined,
+    description: page.metadataOverrides.description ?? undefined,
   };
 };
 
