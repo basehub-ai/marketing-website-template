@@ -5,7 +5,8 @@
 # Marketing Website Template
 
 [![Use template](https://basehub.com/template-button.svg)](https://basehub.com/basehub/marketing-website)
-Fully featured documentation website.
+
+Fully featured marketing website.
 
 - 🔸 Perfect for startups and indie hackers looking to showcase their SaaS
 - 🔸 Fully editable from BaseHub
