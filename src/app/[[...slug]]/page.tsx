@@ -70,6 +70,13 @@ export const generateMetadata = async (
 
   const data = await basehub({ cache: "no-store", draft: draftMode().isEnabled }).query({
     site: {
+      settings: {
+        metadata: {
+          ogImage: {
+            url: true,
+          },
+        },
+      },
       pages: {
         __args: {
           filter: {
@@ -82,9 +89,6 @@ export const generateMetadata = async (
           metadataOverrides: {
             title: true,
             description: true,
-            ogImage: {
-              url: true,
-            },
           },
         },
       },
@@ -97,8 +101,8 @@ export const generateMetadata = async (
     return notFound();
   }
 
-  const images = page.metadataOverrides.ogImage.url
-    ? [{ url: page.metadataOverrides.ogImage.url }]
+  const images = data.site.settings.metadata.ogImage.url
+    ? [{ url: data.site.settings.metadata.ogImage.url }]
     : resolvedPrevMetadata.openGraph?.images ?? [];
 
   return {

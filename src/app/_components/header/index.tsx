@@ -1,12 +1,16 @@
-import Image from "next/image";
 import { draftMode } from "next/headers";
 
 import { ButtonLink } from "@/common/button";
 import { Pump } from "basehub/react-pump";
-import { buttonFragment, optimizedImageFragment } from "@/lib/basehub/fragments";
+import {
+  buttonFragment,
+  darkLightImageFragment,
+  optimizedImageFragment,
+} from "@/lib/basehub/fragments";
 import { fragmentOn } from "basehub";
 
 import { DesktopMenu, MobileMenu } from "./navigation-menu";
+import { DarkLightImage } from "@/common/dark-light-image";
 
 const headerLinksFragment = fragmentOn("HeaderNavbarLinkComponent", {
   _title: true,
@@ -35,7 +39,6 @@ const headerLinksFragment = fragmentOn("HeaderNavbarLinkComponent", {
 export type HeaderLiksFragment = fragmentOn.infer<typeof headerLinksFragment>;
 
 export const headerFragment = fragmentOn("Header", {
-  logo: optimizedImageFragment,
   navbar: {
     items: headerLinksFragment,
   },
@@ -56,13 +59,31 @@ export async function Header() {
         {
           site: {
             header: headerFragment,
+            settings: {
+              logo: {
+                dark: {
+                  url: true,
+                  alt: true,
+                  width: true,
+                  height: true,
+                  aspectRatio: true,
+                },
+                light: {
+                  url: true,
+                  alt: true,
+                  width: true,
+                  height: true,
+                  aspectRatio: true,
+                },
+              },
+            },
           },
         },
       ]}
     >
       {async ([
         {
-          site: { header },
+          site: { header, settings },
         },
       ]) => {
         "use server";
@@ -72,13 +93,7 @@ export async function Header() {
             <div className="flex h-[--header-height] bg-surface-primary dark:bg-dark-surface-primary">
               <div className="container mx-auto grid w-full grid-cols-header place-items-center content-center items-center px-6 first:*:justify-self-start">
                 <ButtonLink unstyled className="ring-offset-2" href="/">
-                  <Image
-                    alt={header.logo.alt ?? "Logo"}
-                    className="h-10  dark:invert"
-                    height={header.logo.height}
-                    src={header.logo.url}
-                    width={header.logo.width}
-                  />
+                  <DarkLightImage alt="logo" className="h-10 " {...settings.logo} />
                 </ButtonLink>
                 <DesktopMenu {...header} />
                 <MobileMenu {...header} />

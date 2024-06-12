@@ -5,6 +5,7 @@ import { Pump } from "basehub/react-pump";
 
 import { ThemeSwitcher } from "../theme-switcher";
 import { ButtonLink } from "@/common/button";
+import { DarkLightImage } from "@/common/dark-light-image";
 
 function isExternalLink(url: string | null | undefined) {
   return url && /^https?:\/\//.test(url);
@@ -18,12 +19,22 @@ export async function Footer() {
       queries={[
         {
           site: {
-            header: {
+            settings: {
               logo: {
-                alt: true,
-                url: true,
-                width: true,
-                height: true,
+                dark: {
+                  url: true,
+                  height: true,
+                  width: true,
+                  alt: true,
+                  aspectRatio: true,
+                },
+                light: {
+                  url: true,
+                  height: true,
+                  width: true,
+                  alt: true,
+                  aspectRatio: true,
+                },
               },
             },
             footer: {
@@ -49,7 +60,7 @@ export async function Footer() {
     >
       {async ([
         {
-          site: { footer, header },
+          site: { footer, settings },
         },
       ]) => {
         "use server";
@@ -57,11 +68,9 @@ export async function Footer() {
         return (
           <footer className="border-t border-border py-16 dark:border-dark-border">
             <div className="container mx-auto grid grid-cols-2 grid-rows-[auto_auto_auto] place-items-start items-center gap-y-7 px-6 sm:grid-cols-[1fr_auto_1fr] sm:grid-rows-2 sm:gap-x-3 sm:gap-y-16">
-              <Image
-                {...header.logo}
-                alt={header.logo.alt ?? ""}
+              <DarkLightImage
                 className="max-h-[100px] max-w-[100px] dark:invert"
-                src={header.logo.url}
+                {...settings.logo}
               />
               <nav className="col-start-1 row-start-2 flex flex-col gap-x-2 gap-y-3 self-center sm:col-span-1 sm:col-start-2 sm:row-start-1 sm:flex-row sm:items-center sm:place-self-center md:gap-x-4 lg:gap-x-8">
                 {footer.navbar.items.map(({ _title, url }) => (
