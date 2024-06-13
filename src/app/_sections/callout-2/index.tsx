@@ -28,7 +28,7 @@ export function Callout2(callout: Callout2) {
             {callout.subtitle}
           </p>
         </div>
-        <div className="flex items-center gap-2 lg:flex-col">
+        <div className="grid grid-cols-2 items-center gap-2 md:flex lg:flex-col">
           {callout.actions?.map((action) => (
             <TrackedButtonLink
               key={action._id}

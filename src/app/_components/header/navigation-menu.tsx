@@ -197,10 +197,10 @@ export function MobileMenu({ ctaS, navbar }: HeaderFragment) {
                 )}
               </nav>
               <div className="flex items-center justify-start gap-2">
-                <ButtonLink href={ctaS.secondary.href} intent={ctaS.secondary.type}>
+                <ButtonLink href={ctaS.secondary.href} intent={ctaS.secondary.type} size="lg">
                   {ctaS.secondary.label}
                 </ButtonLink>
-                <ButtonLink href={ctaS.primary.href} intent={ctaS.primary.type}>
+                <ButtonLink href={ctaS.primary.href} intent={ctaS.primary.type} size="lg">
                   {ctaS.primary.label}
                 </ButtonLink>
               </div>
