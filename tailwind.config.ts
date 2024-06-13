@@ -179,6 +179,15 @@ const config: Config = {
       exitToRight: "exitToRight 250ms ease",
       pulse: "pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite",
     },
+    typography: {
+      DEFAULT: {
+        css: {
+          p: {
+            letterSpacing: "-0.48px",
+          }
+        },
+      },
+    },
   },
   plugins: [typography, radix],
 };
