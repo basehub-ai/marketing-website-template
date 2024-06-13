@@ -7,10 +7,30 @@ import { ChangelogList } from "./_components/changelog-list";
 import { ChangelogLayout } from "./_components/changelog-header";
 import { changelogListFragment } from "./_components/changelog.fragment";
 import { PageView } from "../_components/page-view";
+import type { Metadata } from "next";
+import { basehub } from "basehub";
 
 export const dynamic = "force-static";
 
 export const revalidate = 30;
+
+export const generateMetadata = async (): Promise<Metadata | undefined> => {
+  const data = await basehub({ cache: "no-store", draft: draftMode().isEnabled }).query({
+    site: {
+      changelog: {
+        metadata: {
+          title: true,
+          description: true,
+        },
+      },
+    },
+  });
+
+  return {
+    title: data.site.changelog.metadata.title ?? undefined,
+    description: data.site.changelog.metadata.description ?? undefined,
+  };
+};
 
 export default async function ChangelogPage() {
   return (

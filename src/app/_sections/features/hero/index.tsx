@@ -6,10 +6,11 @@ import { Section } from "@/common/layout";
 import { darkLightImageFragment, headingFragment } from "@/lib/basehub/fragments";
 import { Pump } from "basehub/react-pump";
 import clsx from "clsx";
-
-import s from "./hero.module.scss";
 import { DarkLightImage } from "@/common/dark-light-image";
 import { TrackedButtonLink } from "@/app/_components/tracked_button";
+import { draftMode } from "next/headers";
+
+import s from "./hero.module.scss";
 
 export const featureHeroFragment = fragmentOn("FeatureHeroComponent", {
   _analyticsKey: true,
@@ -135,6 +136,8 @@ export default function FeatureHero({
         <Section>
           <div className="z-10 flex flex-col items-center gap-8">
             <Pump
+              draft={draftMode().isEnabled}
+              next={{ revalidate: 30 }}
               queries={[
                 {
                   site: {

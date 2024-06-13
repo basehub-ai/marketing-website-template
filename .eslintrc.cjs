@@ -34,8 +34,10 @@ module.exports = {
     "react/jsx-uses-react": "off",
     "react/react-in-jsx-scope": "off",
     "react/self-closing-comp": "warn",
-    "@typescript-eslint/no-unsafe-assignment": "off",
     "react/display-name": "off",
+    "@typescript-eslint/no-unsafe-assignment": "off",
+    "@typescript-eslint/no-unsafe-call": "off",
+    "@typescript-eslint/no-unsafe-member-access": "off",
     // Button
     "react/button-has-type": "off",
     "react/jsx-sort-props": [

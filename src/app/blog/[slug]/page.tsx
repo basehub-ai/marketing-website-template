@@ -1,7 +1,7 @@
 import { draftMode } from "next/headers";
 import { notFound } from "next/navigation";
 import { RichText } from "basehub/react-rich-text";
-import { type Metadata, type ResolvingMetadata } from "next";
+import type { Metadata } from "next";
 
 import { Pump } from "basehub/react-pump";
 import { Section } from "@/common/layout";
@@ -47,16 +47,12 @@ export const generateStaticParams = async () => {
   });
 };
 
-export const generateMetadata = async (
-  {
-    params: { slug },
-  }: {
-    params: { slug: string };
-  },
-  prevMetadata: ResolvingMetadata,
-): Promise<Metadata | ResolvingMetadata | undefined> => {
-  const resolvedPrevMetadata = await prevMetadata;
-  const data = await basehub().query({
+export const generateMetadata = async ({
+  params: { slug },
+}: {
+  params: { slug: string };
+}): Promise<Metadata | undefined> => {
+  const data = await basehub({ next: { revalidate: 30 } }).query({
     site: {
       settings: {
         metadata: {
@@ -86,9 +82,7 @@ export const generateMetadata = async (
   const post = data.site.blog.posts.items[0];
 
   if (!post) return undefined;
-  const images = post.ogImage.url
-    ? [{ url: post.ogImage.url }]
-    : resolvedPrevMetadata.openGraph?.images ?? [];
+  const images = [{ url: post.ogImage.url }];
 
   return {
     title: post._title,

@@ -19,26 +19,27 @@
     overflow-x: auto;
     background-color: theme("colors.surface.secondary");
     position: relative;
-    & :global(pre) {
+
+    :global(pre) {
       margin: 0 !important;
       font-size: theme("fontSize.sm") !important;
       // white-space: pre-wrap;
       word-wrap: break-word;
       background-color: theme("colors.surface.secondary") !important;
       outline-color: theme("colors.accent.500");
-    }
 
-    & :global(span.line-indicator) {
-      display: inline-block;
-      pointer-events: none;
-      position: sticky;
-      left: 0;
-      background-color: theme("colors.surface.secondary") !important;
-      color: theme("colors.text.tertiary") !important;
-      user-select: none;
-      width: 44px !important;
-      text-align: end;
-      padding-right: 12px !important;
+      :global(span.line-indicator) {
+        display: inline-block;
+        pointer-events: none;
+        position: sticky;
+        left: 0;
+        background-color: theme("colors.surface.secondary");
+        color: theme("colors.text.tertiary");
+        user-select: none;
+        width: 44px !important;
+        text-align: end;
+        padding-right: 12px !important;
+      }
     }
 
     --shiki-color-text: theme("colors.grayscale.950");
@@ -64,13 +65,13 @@
     }
     .content {
       background-color: theme("colors.dark.surface.secondary");
-      & :global(pre) {
+      :global(pre) {
         background-color: theme("colors.dark.surface.secondary") !important;
-      }
 
-      & :global(span.line-indicator) {
-        color: theme("colors.dark.text.tertiary");
-        background-color: theme("colors.dark.surface.secondary");
+        :global(span.line-indicator) {
+          color: theme("colors.dark.text.tertiary");
+          background-color: theme("colors.dark.surface.secondary");
+        }
       }
 
       --shiki-color-text: theme("colors.grayscale.950");

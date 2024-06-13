@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 
 import { Pump } from "basehub/react-pump";
+import { draftMode } from "next/headers";
 
 interface ChangelogLayoutProps {
   className?: string;
@@ -26,6 +27,8 @@ export function ChangelogLayout({
         {children}
 
         <Pump
+          draft={draftMode().isEnabled}
+          next={{ revalidate: 30 }}
           queries={[
             {
               site: {

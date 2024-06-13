@@ -26,7 +26,7 @@ export function CustomTooltip({ children, content, className, ...props }: Simple
       <Tooltip.Portal>
         <Tooltip.Content
           className={clsx(
-            "z-[999] max-w-[160px] rounded-md bg-surface-primary p-2 text-sm text-text-secondary shadow dark:bg-dark-surface-primary dark:text-dark-text-secondary dark:shadow-grayscale-600",
+            "z-[999] max-w-[160px] rounded-md border border-border bg-surface-secondary px-2 py-1 text-sm text-text-secondary dark:border-dark-border dark:bg-dark-surface-secondary dark:text-dark-text-secondary",
             className,
           )}
           {...props}
@@ -44,16 +44,20 @@ export function CustomTooltip({ children, content, className, ...props }: Simple
 function Arrow() {
   return (
     <svg
-      className="-mt-px drop-shadow-[1px_2.2px_1px_rgba(0,0,0,0.15)] dark:drop-shadow-[1px_2.5px_1.2px_rgb(var(--grayscale-rgb-600)_/_0.6)]"
+      className="-mt-px"
       fill="none"
-      height="9"
-      viewBox="0 0 12 9"
+      height="10"
+      viewBox="0 0 12 10"
       width="12"
       xmlns="http://www.w3.org/2000/svg"
     >
       <path
-        className="fill-surface-primary dark:fill-dark-surface-primary"
-        d="M5.23351 7.80043L0.894781 0.75L11.1052 0.749999L6.76649 7.80043C6.41506 8.37151 5.58494 8.37151 5.23351 7.80043Z"
+        className="fill-surface-secondary stroke-border dark:fill-dark-surface-secondary dark:stroke-dark-border"
+        d="M6.76649 7.55043C6.41506 8.12151 5.58494 8.12151 5.23351 7.55043L0.894781 0.500001L11.1052 0.5L6.76649 7.55043Z"
+      />
+      <path
+        className="fill-surface-secondary dark:fill-dark-surface-secondary"
+        d="M1.3418 0H10.7666L10.1989 1H1.80013L1.3418 0Z"
       />
     </svg>
   );

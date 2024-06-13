@@ -27,12 +27,28 @@ export const generateMetadata = async (): Promise<Metadata> => {
           ogImage: {
             url: true,
           },
+          xAccount: {
+            url: true,
+          },
         },
       },
     },
   });
 
   const images = [{ url: data.site.settings.metadata.ogImage.url }];
+
+  let xAccount: string | undefined = undefined;
+
+  if (data.site.settings.metadata.xAccount) {
+    try {
+      const xUrl = new URL(data.site.settings.metadata.xAccount.url);
+      const split = xUrl.pathname.split("/");
+
+      xAccount = split[split.length - 1];
+    } catch (error) {
+      // invalid url noop
+    }
+  }
 
   return {
     title: {
@@ -49,7 +65,12 @@ export const generateMetadata = async (): Promise<Metadata> => {
       },
     ],
     openGraph: { type: "website", images, siteName: data.site.settings.metadata.sitename },
-    twitter: { card: "summary_large_image", images, site: data.site.settings.metadata.sitename },
+    twitter: {
+      card: "summary_large_image",
+      images,
+      site: data.site.settings.metadata.sitename,
+      creator: xAccount,
+    },
   };
 };
 
