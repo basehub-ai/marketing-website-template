@@ -25,8 +25,10 @@ export function Faq(faq: Faq) {
       <ul className="mx-auto flex grid-cols-3 flex-col place-content-start items-start gap-8 self-stretch lg:grid lg:gap-14 lg:px-24">
         {faq.questions.items.map((question) => (
           <li key={question._title} className="flex flex-col gap-1.5">
-            <p className="font-medium">{question._title}</p>
-            <p className="text-sm text-text-tertiary dark:text-dark-text-tertiary">
+            <p className="font-medium leading-relaxed tracking-tighter sm:text-lg">
+              {question._title}
+            </p>
+            <p className="text-sm leading-relaxed tracking-tight text-text-tertiary dark:text-dark-text-tertiary sm:text-base">
               {question.answer}
             </p>
           </li>

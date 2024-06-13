@@ -20,6 +20,11 @@ export function Slider({
   const [emblaRef, emblaApi] = useEmblaCarousel(
     {
       align: "start",
+      breakpoints: {
+        640: {
+          align: "center",
+        },
+      },
     },
     [WheelGesturesPlugin()],
   );
@@ -93,7 +98,7 @@ export function Slider({
         </div>
       </div>
       <div ref={emblaRef} className="relative">
-        <div className="relative flex h-full w-full">
+        <div className="relative flex h-full w-full gap-10 md:gap-0">
           {quotes.map((item) => (
             <TesimonialCard key={item._id} {...item} />
           ))}
@@ -126,7 +131,7 @@ export function Slider({
 
 export function VainillaCard({ quote, author }: TestimonialsSlider["quotes"][0]) {
   return (
-    <div className="min-w-0 max-w-full shrink-0 grow-0 basis-[600px] self-stretch pr-20">
+    <div className="min-w-0 max-w-full shrink-0 grow-0 basis-[min(740px,100%)] self-stretch md:pr-10">
       <article className="embla__slide flex h-full w-full min-w-0 transform touch-pan-y touch-pinch-zoom select-none flex-col rounded-xl border border-border [backface-visibility:hidden] last:!visible dark:border-dark-border">
         <div className="flex flex-1 items-start border-b border-border px-8 py-7 dark:border-dark-border">
           <blockquote className="text-pretty text-2xl font-extralight leading-snug text-text-primary dark:text-dark-text-primary md:text-4xl">

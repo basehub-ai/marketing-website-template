@@ -47,7 +47,7 @@ export const dynamic = "force-static";
 export const revalidate = 30;
 
 export const generateStaticParams = async () => {
-  const data = await basehub({ cache: "no-store" }).query({
+  const data = await basehub({ cache: "no-store", next: { revalidate: 30 } }).query({
     site: {
       pages: {
         items: {

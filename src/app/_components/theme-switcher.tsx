@@ -4,9 +4,16 @@ import { useTheme } from "next-themes";
 import { Half2Icon, MoonIcon, SunIcon } from "@radix-ui/react-icons";
 import clsx from "clsx";
 import { Button } from "@/common/button";
+import { useHasRendered } from "@/hooks/use-has-rendered";
 
 export function ThemeSwitcher() {
   const { theme, setTheme } = useTheme();
+
+  const hasRendered = useHasRendered();
+
+  if (!hasRendered) {
+    return null;
+  }
 
   return (
     <div className="flex gap-0.5 rounded-full border border-border bg-surface-primary p-1 text-center dark:border-dark-border dark:bg-dark-surface-primary">

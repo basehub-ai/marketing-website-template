@@ -58,7 +58,7 @@ function NavigationMenuLink({
     <NavigationMenuLinkPrimitive
       asChild
       className={clsx(
-        "inline-flex h-6 shrink-0 items-center justify-center gap-1 rounded-full px-3 pb-px hover:bg-surface-tertiary dark:hover:bg-dark-surface-tertiary lg:h-7",
+        "inline-flex h-6 shrink-0 items-center justify-center gap-1 rounded-full px-3 pb-px tracking-tight hover:bg-surface-tertiary dark:hover:bg-dark-surface-tertiary lg:h-7",
         className,
       )}
       {...props}
@@ -79,7 +79,7 @@ function NavigationMenuLinkWithMenu({ _title, href, sublinks }: HeaderLiksFragme
         ) : (
           <Button
             unstyled
-            className="inline-flex items-center gap-1 rounded-full pb-px pl-3 pr-2 hover:bg-surface-tertiary dark:hover:bg-dark-surface-tertiary lg:h-7"
+            className="inline-flex items-center gap-1 rounded-full pb-px pl-3 pr-2 tracking-tight hover:bg-surface-tertiary dark:hover:bg-dark-surface-tertiary lg:h-7"
             icon={<ChevronDownIcon className="text-text-tertiary dark:text-dark-text-tertiary" />}
           >
             {_title}
@@ -126,10 +126,10 @@ export function DesktopMenu({ navbar, ctaS }: HeaderFragment) {
     <>
       <NavigationMenuHeader className="hidden lg:flex" links={navbar.items} />
       <div className="hidden items-center gap-2 justify-self-end lg:flex">
-        <ButtonLink href={ctaS.secondary.href} intent={ctaS.secondary.type}>
+        <ButtonLink className="!px-3.5" href={ctaS.secondary.href} intent={ctaS.secondary.type}>
           {ctaS.secondary.label}
         </ButtonLink>
-        <ButtonLink href={ctaS.primary.href} intent={ctaS.primary.type}>
+        <ButtonLink className="!px-3.5" href={ctaS.primary.href} intent={ctaS.primary.type}>
           {ctaS.primary.label}
         </ButtonLink>
       </div>
