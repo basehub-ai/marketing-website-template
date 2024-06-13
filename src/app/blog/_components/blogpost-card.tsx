@@ -72,7 +72,7 @@ export function BlogpostCard({ type = "list", className, ...post }: BlogPostCard
           <figure className="p-2" style={{ aspectRatio: post.image.light.aspectRatio }}>
             <DarkLightImage
               {...post.image}
-              className="h-[min(320px,100%)] w-full rounded bg-surface-tertiary/20 object-cover dark:bg-dark-surface-tertiary/20"
+              className="h-full w-full rounded bg-surface-tertiary/20 object-cover dark:bg-dark-surface-tertiary/20"
             />
           </figure>
           <div className={clsx("flex flex-col justify-between gap-3 p-4")}>
