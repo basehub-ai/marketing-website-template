@@ -10,6 +10,7 @@ export const featuresGridFragment = fragmentOn("FeaturesGridComponent", {
   _analyticsKey: true,
   featuresGridList: {
     items: {
+      _id: true,
       _title: true,
       description: true,
       icon: {
@@ -36,10 +37,10 @@ export function FeaturesGrid({ heading, featuresGridList, actions, _analyticsKey
       <Heading {...heading}>
         <h4>{heading.title}</h4>
       </Heading>
-      <div className="grid grid-cols-1 gap-4 lg:grid-cols-3 lg:gap-5">
-        {featuresGridList.items.map(({ _title, description, icon }) => (
+      <div className="grid w-full grid-cols-1 gap-4 lg:grid-cols-3 lg:gap-5">
+        {featuresGridList.items.map(({ _id, _title, description, icon }) => (
           <article
-            key={_title}
+            key={_id}
             className="flex flex-col gap-4 rounded-lg border border-border p-4 [box-shadow:_70px_-20px_130px_0px_rgba(255,255,255,0.05)_inset] dark:border-dark-border dark:[box-shadow:_70px_-20px_130px_0px_rgba(255,255,255,0.05)_inset]"
           >
             <figure className="flex size-9 items-center justify-center rounded-full border border-border bg-surface-secondary p-2 dark:border-dark-border dark:bg-dark-surface-secondary">

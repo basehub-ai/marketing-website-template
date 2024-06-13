@@ -10,9 +10,10 @@ import { Providers } from "./providers";
 import { Header } from "./_components/header";
 import { Footer } from "./_components/footer";
 import { Newsletter } from "./_sections/newsletter/newsletter";
+import { draftMode } from "next/headers";
 
 export const generateMetadata = async (): Promise<Metadata> => {
-  const data = await basehub({ cache: "no-store" }).query({
+  const data = await basehub({ cache: "no-store", draft: draftMode().isEnabled }).query({
     site: {
       settings: {
         metadata: {

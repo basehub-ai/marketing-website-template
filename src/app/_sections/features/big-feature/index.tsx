@@ -34,7 +34,7 @@ export function BigFeature({ featuresBigImageList, heading, image }: BigFeature)
       <Heading {...heading}>
         <h4>{heading.title}</h4>
       </Heading>
-      <div className="flex flex-col items-start gap-4 md:order-2 md:grid md:grid-cols-3 md:gap-16">
+      <div className="flex w-full flex-col items-start gap-4 md:order-2 md:grid md:grid-cols-3 md:gap-16">
         {featuresBigImageList.items.map(({ _title, description, icon }) => (
           <article key={_title} className="flex flex-col gap-4">
             <figure className="flex size-9 items-center justify-center rounded-full border border-border bg-surface-secondary p-2 dark:border-dark-border dark:bg-dark-surface-secondary">
