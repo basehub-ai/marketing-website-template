@@ -30,7 +30,7 @@ export function BlogpostCard({ type = "list", className, ...post }: BlogPostCard
   switch (type) {
     case "list": {
       return (
-        <article className="border-b border-border py-2 dark:border-dark-border">
+        <article className="border-b border-border py-2 text-base dark:border-dark-border">
           <ButtonLink
             key={post._id}
             unstyled

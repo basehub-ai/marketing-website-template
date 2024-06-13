@@ -166,6 +166,15 @@ const config: Config = {
         tighter: "-0.58px",
         tight: "-0.48px",
       },
+       typography: {
+      DEFAULT: {
+        css: {
+          p: {
+            letterSpacing: "-0.48px",
+          }
+        },
+      },
+    },
     },
     animation: {
       slideDown: "slideDown 300ms cubic-bezier(0.87, 0, 0.13, 1)",
@@ -180,15 +189,7 @@ const config: Config = {
       exitToRight: "exitToRight 250ms ease",
       pulse: "pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite",
     },
-    typography: {
-      DEFAULT: {
-        css: {
-          p: {
-            letterSpacing: "-0.48px",
-          }
-        },
-      },
-    },
+
   },
   plugins: [typography, radix],
 };
