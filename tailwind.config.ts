@@ -171,6 +171,9 @@ const config: Config = {
         css: {
           p: {
             letterSpacing: "-0.48px",
+          },
+          code: {
+            letterSpacing: "normal",
           }
         },
       },
