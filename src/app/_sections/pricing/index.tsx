@@ -63,7 +63,7 @@ function PricingCard(item: PricingPlanItem["plan"]) {
     >
       <header className="flex flex-col gap-4 px-8 pb-0 pt-10">
         {item.isMostPopular ? (
-          <span className="tranform bg-primary absolute left-1/2 top-4 -translate-x-1/2 text-center text-2xs font-medium text-accent-500 lg:text-xs">
+          <span className="bg-primary absolute left-1/2 top-4 -translate-x-1/2 text-center text-xs font-medium text-accent-500 lg:text-sm">
             Most popular
           </span>
         ) : null}

@@ -35,14 +35,14 @@ export function Heading({ tag, subtitle, className, align = "center", ...props }
     <div className={$headingContainer({ align, className })}>
       {tag ? <Tag>{tag}</Tag> : null}
       <div
-        className={clsx("flex max-w-screen-lg flex-col justify-center gap-1", {
+        className={clsx("flex max-w-[800px] flex-col justify-center gap-1", {
           "items-start self-start": align === "left",
           "items-center self-center": align === "center" || !align,
           "items-end self-end": align === "right",
         })}
       >
         <Comp
-          className={clsx("text-3xl font-medium md:text-4xl", {
+          className={clsx("text-pretty text-3xl font-medium md:text-4xl", {
             "text-center": align === "center",
             "text-left": align === "left",
             "text-right": align === "right",

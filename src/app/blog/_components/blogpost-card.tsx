@@ -30,7 +30,7 @@ export function BlogpostCard({ type = "list", className, ...post }: BlogPostCard
   switch (type) {
     case "list": {
       return (
-        <article className="border-b border-border py-2 dark:border-dark-border">
+        <article className="border-b border-border py-2 text-base dark:border-dark-border">
           <ButtonLink
             key={post._id}
             unstyled
@@ -69,7 +69,10 @@ export function BlogpostCard({ type = "list", className, ...post }: BlogPostCard
           )}
           href={`/blog/${post._slug}`}
         >
-          <figure className="p-2" style={{ aspectRatio: post.image.light.aspectRatio }}>
+          <figure
+            className="overflow-hidden p-2"
+            style={{ aspectRatio: post.image.light.aspectRatio }}
+          >
             <DarkLightImage
               {...post.image}
               className="h-full w-full rounded bg-surface-tertiary/20 object-cover dark:bg-dark-surface-tertiary/20"

@@ -11,7 +11,7 @@ export function Author({ image, _title }: AuthorFragment) {
     <CustomTooltip content={_title}>
       <Image
         alt={image.alt ?? `Avatar for ${_title}`}
-        className="size-8 rounded-full border-2 border-surface-primary transition-all dark:border-dark-surface-primary"
+        className="size-8 rounded-full border-2 border-surface-primary object-cover transition-all dark:border-dark-surface-primary"
         height={image.height}
         src={image.url}
         width={image.width}
