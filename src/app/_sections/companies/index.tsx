@@ -22,7 +22,9 @@ type Companies = fragmentOn.infer<typeof companiesFragment>;
 export function Companies(props: Companies) {
   return (
     <Section container="full">
-      <h2 className="text-center text-dark-text-tertiary opacity-50">{props.subtitle}</h2>
+      <h2 className="text-center tracking-tight text-dark-text-tertiary opacity-50">
+        {props.subtitle}
+      </h2>
       <div className="no-scrollbar flex max-w-full justify-center overflow-auto">
         <div className="pointer-events-none absolute left-0 top-0 h-full w-[30vw] bg-transparent bg-gradient-to-r from-surface-primary dark:from-dark-surface-primary xl:hidden" />
         <div className="pointer-events-none absolute right-0 top-0 h-full w-[30vw] bg-transparent bg-gradient-to-l from-surface-primary dark:from-dark-surface-primary xl:hidden" />
