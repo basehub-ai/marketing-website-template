@@ -61,6 +61,7 @@ export default function FeatureHero({
             </div>
           </div>
           <DarkLightImage
+            priority
             className="block rounded-lg border border-border dark:border-dark-border"
             {...image}
           />
@@ -91,6 +92,7 @@ export default function FeatureHero({
               </div>
             </div>
             <DarkLightImage
+              priority
               className="block flex-1 rounded-lg border border-border dark:border-dark-border lg:w-1/2"
               {...image}
             />
@@ -103,6 +105,7 @@ export default function FeatureHero({
         <>
           <DarkLightImage
             {...image}
+            priority
             className="block max-h-[560px] border-y border-t-0 border-border object-cover dark:border-dark-border"
           />
           <Section>
@@ -158,6 +161,7 @@ export default function FeatureHero({
 
                 return (
                   <Image
+                    priority
                     alt={site.settings.logoLite.alt ?? "Logo"}
                     className="size-20"
                     height={site.settings.logoLite.height}
