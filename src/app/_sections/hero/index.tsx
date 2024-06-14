@@ -60,7 +60,7 @@ export function Hero(hero: Hero) {
         </div>
 
         <div className="flex h-[288px] shrink-0 flex-col items-center justify-center gap-2 px-8 py-4 sm:px-24">
-          <h1 className="max-w-screen-lg text-pretty text-center text-[clamp(32px,7vw,64px)] font-medium leading-none tracking-tighter text-text-primary dark:text-dark-text-primary">
+          <h1 className="max-w-screen-lg text-pretty text-center text-[clamp(32px,7vw,64px)] font-medium leading-none tracking-[-2.16px] text-text-primary dark:text-dark-text-primary">
             {hero.title}
           </h1>
           <h2 className="text-md max-w-2xl text-pretty text-center tracking-[-2.16px] text-text-tertiary dark:text-dark-text-tertiary md:text-lg">
