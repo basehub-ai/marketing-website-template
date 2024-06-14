@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 
 import "./globals.scss";
 import { GeistSans } from "geist/font/sans";
@@ -73,6 +73,10 @@ export const generateMetadata = async (): Promise<Metadata> => {
       creator: xAccount,
     },
   };
+};
+
+export const viewport: Viewport = {
+  maximumScale: 1, // Disable auto-zoom on mobile Safari
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
