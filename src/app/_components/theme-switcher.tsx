@@ -1,29 +1,28 @@
 "use client";
 
+import * as React from "react";
 import { useTheme } from "next-themes";
 import { Half2Icon, MoonIcon, SunIcon } from "@radix-ui/react-icons";
 import clsx from "clsx";
 import { Button } from "@/common/button";
-import { useHasRendered } from "@/hooks/use-has-rendered";
 
 export function ThemeSwitcher() {
   const { theme, setTheme } = useTheme();
+  const [selectedTheme, setSelectedTheme] = React.useState<string>();
 
-  const hasRendered = useHasRendered();
-
-  if (!hasRendered) {
-    return null;
-  }
+  React.useEffect(() => {
+    setSelectedTheme(theme);
+  }, [theme]);
 
   return (
     <div className="flex gap-0.5 rounded-full border border-border bg-surface-primary p-1 text-center dark:border-dark-border dark:bg-dark-surface-primary">
-      <SwitchButton selectedTheme={theme} setTheme={setTheme} theme="light">
+      <SwitchButton selectedTheme={selectedTheme} setTheme={setTheme} theme="light">
         <SunIcon color="currentColor" height={16} width={16} />
       </SwitchButton>
-      <SwitchButton selectedTheme={theme} setTheme={setTheme} theme="system">
+      <SwitchButton selectedTheme={selectedTheme} setTheme={setTheme} theme="system">
         <Half2Icon color="currentColor" height={16} width={16} />
       </SwitchButton>
-      <SwitchButton selectedTheme={theme} setTheme={setTheme} theme="dark">
+      <SwitchButton selectedTheme={selectedTheme} setTheme={setTheme} theme="dark">
         <MoonIcon color="currentColor" height={16} width={16} />
       </SwitchButton>
     </div>
