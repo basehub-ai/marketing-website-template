@@ -50,7 +50,7 @@ export function Hero(hero: Hero) {
           <div className="flex items-center gap-2 !border !border-b-0 border-border px-4 py-2 dark:border-dark-border">
             <AvatarsGroup>
               {hero.customerSatisfactionBanner.avatars.items.map(({ avatar, _id }) => (
-                <Avatar {...avatar} key={_id} />
+                <Avatar priority {...avatar} key={_id} />
               ))}
             </AvatarsGroup>
             <p className="text-sm tracking-tight text-text-tertiary dark:text-dark-text-tertiary">

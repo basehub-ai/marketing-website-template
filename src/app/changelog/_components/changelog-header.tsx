@@ -61,7 +61,13 @@ export function ChangelogLayout({
                       href={link.url}
                       target="_blank"
                     >
-                      <Image alt={link._title} height={18} src={link.icon?.url ?? ""} width={18} />
+                      <Image
+                        priority
+                        alt={link._title}
+                        height={18}
+                        src={link.icon?.url ?? ""}
+                        width={18}
+                      />
                     </Link>
                   ))}
                 </div>

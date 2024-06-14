@@ -95,6 +95,7 @@ export function ChangelogList({ changelogPosts }: { changelogPosts: ChangelogLis
               alt={post._title}
               className="rounded-lg border border-border dark:border-dark-border"
               height={480}
+              priority={idx === 0}
               src={post.image.url}
               width={647}
             />

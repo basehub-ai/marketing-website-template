@@ -203,6 +203,7 @@ export default async function ChangelogPage({ params }: ChangelogPageParams) {
             </ChangelogLayout>
             <div className="mx-auto flex max-w-screen-md flex-col gap-8 px-8 pb-20 pt-16">
               <Image
+                priority
                 alt={post.image.alt ?? post._title}
                 className="h-auto w-full rounded-xl"
                 height={post.image.height}

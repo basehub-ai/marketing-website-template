@@ -75,6 +75,7 @@ export function BlogpostCard({ type = "list", className, ...post }: BlogPostCard
           >
             <DarkLightImage
               {...post.image}
+              priority
               className="h-full w-full rounded bg-surface-tertiary/20 object-cover dark:bg-dark-surface-tertiary/20"
             />
           </figure>
@@ -85,7 +86,7 @@ export function BlogpostCard({ type = "list", className, ...post }: BlogPostCard
               </p>
               <AvatarsGroup animate>
                 {post.authors.map((author) => (
-                  <Author key={author._id} {...author} />
+                  <Author key={author._id} priority {...author} />
                 ))}
               </AvatarsGroup>
             </header>
