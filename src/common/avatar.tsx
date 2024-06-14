@@ -25,7 +25,7 @@ export function Avatar({ className, alt, url, ...props }: AvatarFragment & { cla
     <Image
       alt={alt ?? "Avatar"}
       className={clsx(
-        "size-7 shrink-0 rounded-full border-2 border-surface-primary dark:border-dark-surface-primary",
+        "size-7 shrink-0 rounded-full border-2 border-surface-primary object-cover dark:border-dark-surface-primary",
         className,
       )}
       src={url}
