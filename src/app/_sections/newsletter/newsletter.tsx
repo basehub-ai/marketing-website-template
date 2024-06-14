@@ -10,7 +10,7 @@ export function Newsletter() {
       className="bg-surface-secondary !py-10 dark:bg-dark-surface-secondary"
       container="full"
     >
-      <div className="container mx-auto flex flex-col gap-4 lg:flex-row lg:justify-between lg:px-6">
+      <div className="container mx-auto flex flex-col gap-4 px-6 lg:flex-row lg:justify-between">
         <div className="flex flex-col items-start gap-1">
           <h5 className="text-xl font-medium lg:text-2xl">Stay Ahead of the AI Curve</h5>
           <p className="text text-text-tertiary dark:text-dark-text-tertiary lg:text-lg">
