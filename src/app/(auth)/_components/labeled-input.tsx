@@ -16,6 +16,22 @@ export function LabeledInput({
   );
 }
 
+export const LabeledTextarea = forwardRef<
+  HTMLTextAreaElement,
+  { label: string } & React.TextareaHTMLAttributes<HTMLTextAreaElement>
+>(({ label, id, ...props }, ref) => {
+  return (
+    <LabeledWrapper id={id} label={label}>
+      <textarea
+        ref={ref}
+        className="rounded-md border border-border bg-surface-tertiary py-2 pl-3 pr-3.5 text-sm [form-sizing:content] placeholder:text-sm placeholder:text-text-tertiary dark:border-dark-border dark:bg-dark-surface-tertiary dark:placeholder:text-dark-text-tertiary"
+        id={id}
+        {...props}
+      />
+    </LabeledWrapper>
+  );
+});
+
 export const LabeledWrapper = forwardRef<
   HTMLDivElement,
   {

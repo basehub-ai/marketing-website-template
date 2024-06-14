@@ -3,6 +3,7 @@ import Link from "next/link";
 import { AuthLayout } from "../_components/auth-layout";
 import { LabeledInput, LabeledWrapper } from "../_components/labeled-input";
 import { Selector } from "../_components/select";
+import { BackToHomeButton } from "../_components/back-to-home-button";
 
 export default function SignUp() {
   return (
@@ -50,12 +51,7 @@ export default function SignUp() {
         </LabeledWrapper>
         <div className="mt-2 flex items-center justify-between">
           <Button type="submit">Sign Up</Button>
-          <Link
-            className="text-sm text-text-tertiary hover:text-text-secondary dark:text-dark-text-tertiary dark:hover:text-dark-text-secondary"
-            href="/"
-          >
-            Back to Home
-          </Link>
+          <BackToHomeButton />
         </div>
       </form>
     </AuthLayout>
