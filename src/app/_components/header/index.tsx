@@ -2,11 +2,7 @@ import { draftMode } from "next/headers";
 
 import { ButtonLink } from "@/common/button";
 import { Pump } from "basehub/react-pump";
-import {
-  buttonFragment,
-  darkLightImageFragment,
-  optimizedImageFragment,
-} from "@/lib/basehub/fragments";
+import { buttonFragment } from "@/lib/basehub/fragments";
 import { fragmentOn } from "basehub";
 
 import { DesktopMenu, MobileMenu } from "./navigation-menu";
