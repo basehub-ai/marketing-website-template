@@ -1,4 +1,4 @@
-import Image from "next/image";
+import { BaseHubImage } from "basehub/next-image";
 
 import { fragmentOn } from "basehub";
 import { Heading } from "@/common/heading";
@@ -157,7 +157,7 @@ export default function FeatureHero({
                 "use server";
 
                 return (
-                  <Image
+                  <BaseHubImage
                     alt={site.settings.logoLite.alt ?? "Logo"}
                     className="size-20"
                     height={site.settings.logoLite.height}

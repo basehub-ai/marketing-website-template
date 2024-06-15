@@ -1,6 +1,6 @@
 import { notFound } from "next/navigation";
 import Link from "next/link";
-import Image from "next/image";
+import { BaseHubImage } from "basehub/next-image";
 import { RichText } from "basehub/react-rich-text";
 import { ArrowRightIcon } from "@radix-ui/react-icons";
 import type { Metadata } from "next";
@@ -202,7 +202,7 @@ export default async function ChangelogPage({ params }: ChangelogPageParams) {
               </div>
             </ChangelogLayout>
             <div className="mx-auto flex max-w-screen-md flex-col gap-8 px-8 pb-20 pt-16">
-              <Image
+              <BaseHubImage
                 alt={post.image.alt ?? post._title}
                 className="h-auto w-full rounded-xl"
                 height={post.image.height}

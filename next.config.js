@@ -6,7 +6,7 @@ const nextConfig = {
     },
   },
   images: {
-    domains: ["basehub.earth"],
+    domains: ["basehub.earth", "assets.basehub.com"],
   },
 };
 

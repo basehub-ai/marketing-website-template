@@ -1,4 +1,4 @@
-import Image from "next/image";
+import { BaseHubImage } from "basehub/next-image";
 import clsx from "clsx";
 
 import { Section } from "@/common/layout";
@@ -33,7 +33,7 @@ export function Companies(props: Companies) {
         >
           {props.companies.map((company) => (
             <figure key={company.image?.url ?? company._title} className="px-2 py-3 lg:p-4">
-              <Image
+              <BaseHubImage
                 alt={company._title}
                 className="w-24 lg:w-32"
                 height={20}

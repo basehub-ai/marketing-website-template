@@ -1,4 +1,4 @@
-import Image from "next/image";
+import { BaseHubImage } from "basehub/next-image";
 import Link from "next/link";
 
 import { Pump } from "basehub/react-pump";
@@ -61,7 +61,12 @@ export function ChangelogLayout({
                       href={link.url}
                       target="_blank"
                     >
-                      <Image alt={link._title} height={18} src={link.icon?.url ?? ""} width={18} />
+                      <BaseHubImage
+                        alt={link._title}
+                        height={18}
+                        src={link.icon?.url ?? ""}
+                        width={18}
+                      />
                     </Link>
                   ))}
                 </div>

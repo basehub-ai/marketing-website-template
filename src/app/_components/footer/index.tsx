@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { BaseHubImage } from "basehub/next-image";
 import { draftMode } from "next/headers";
 
 import { Pump } from "basehub/react-pump";
@@ -106,7 +107,7 @@ export async function Footer() {
                         href={link.url}
                         target="_blank"
                       >
-                        <Image
+                        <BaseHubImage
                           alt={link._title}
                           height={24}
                           src={link.icon?.url ?? ""}

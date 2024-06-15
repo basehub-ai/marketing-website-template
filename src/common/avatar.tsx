@@ -1,6 +1,6 @@
 "use client";
 import clsx from "clsx";
-import Image from "next/image";
+import { BaseHubImage } from "basehub/next-image";
 
 import { type AvatarFragment, type AuthorFragment } from "@/lib/basehub/fragments";
 
@@ -9,7 +9,7 @@ import { CustomTooltip } from "./tooltip";
 export function Author({ image, _title }: AuthorFragment) {
   return (
     <CustomTooltip content={_title}>
-      <Image
+      <BaseHubImage
         alt={image.alt ?? `Avatar for ${_title}`}
         className="size-8 rounded-full border-2 border-surface-primary object-cover transition-all dark:border-dark-surface-primary"
         height={image.height}
@@ -22,7 +22,7 @@ export function Author({ image, _title }: AuthorFragment) {
 
 export function Avatar({ className, alt, url, ...props }: AvatarFragment & { className?: string }) {
   return (
-    <Image
+    <BaseHubImage
       alt={alt ?? "Avatar"}
       className={clsx(
         "size-7 shrink-0 rounded-full border-2 border-surface-primary object-cover dark:border-dark-surface-primary",
