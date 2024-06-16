@@ -4,6 +4,7 @@ import { Pump } from "basehub/react-pump";
 import { hexToRgb } from "@/utils/colors";
 import { fragmentOn } from "basehub";
 import colors from "tailwindcss/colors";
+import { BASEHUB_REVALIDATE_TIME } from "@/lib/basehub/constants";
 
 export const themeFragment = fragmentOn("Theme", { accent: true, grayScale: true });
 
@@ -21,7 +22,7 @@ export function BaseHubThemeProvider() {
   return (
     <Pump
       draft={draftMode().isEnabled}
-      next={{ revalidate: 30 }}
+      next={{ revalidate: BASEHUB_REVALIDATE_TIME }}
       queries={[{ site: { settings: { theme: themeFragment } } }]}
     >
       {async ([data]) => {

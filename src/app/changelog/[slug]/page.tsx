@@ -19,10 +19,11 @@ import { formatDate } from "@/utils/dates";
 import { ChangelogLayout } from "../_components/changelog-header";
 import { PageView } from "@/app/_components/page-view";
 import { draftMode } from "next/headers";
+import { BASEHUB_REVALIDATE_TIME } from "@/lib/basehub/constants";
 
 export const dynamic = "force-static";
 
-export const revalidate = 30;
+export const revalidate = BASEHUB_REVALIDATE_TIME;
 
 interface ChangelogPageParams {
   params: {
@@ -53,7 +54,7 @@ export const generateStaticParams = async () => {
 export const generateMetadata = async ({
   params,
 }: ChangelogPageParams): Promise<Metadata | undefined> => {
-  const data = await basehub({ next: { revalidate: 30 } }).query({
+  const data = await basehub({ next: { revalidate: BASEHUB_REVALIDATE_TIME } }).query({
     site: {
       settings: {
         metadata: {
@@ -104,7 +105,7 @@ export default async function ChangelogPage({ params }: ChangelogPageParams) {
   return (
     <Pump
       draft={draftMode().isEnabled}
-      next={{ revalidate: 30 }}
+      next={{ revalidate: BASEHUB_REVALIDATE_TIME }}
       queries={[
         {
           site: {
