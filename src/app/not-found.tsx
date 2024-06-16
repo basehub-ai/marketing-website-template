@@ -6,12 +6,10 @@ export default function NotFound() {
   return (
     <Section className="flex h-[calc(100vh-var(--header-height))] flex-col justify-center">
       <Heading
-        subtitle={
-          "We can't seem to find the page you are looking for. It may be temporarily unavailable or it may have been moved."
-        }
-        tag="Page not found"
+        subtitle="The page you're trying to access does not exist."
+        tag="404"
       >
-        <h2>Something is missing</h2>
+        <h2>Page not found</h2>
       </Heading>
       <ButtonLink href="/" intent="primary">
         Go back to Homepage
