@@ -1,5 +1,19 @@
+import { buttonFragment } from "@/lib/basehub/fragments";
+import { fragmentOn } from "basehub";
 import { Pump } from "basehub/react-pump";
+import { RichText, type RichTextProps } from "basehub/react-rich-text";
 import Image from "next/image";
+import Link, { type LinkProps } from "next/link";
+
+export const formWrapperFragment = fragmentOn("FormWrapperComponent", {
+  title: true,
+  subtitle: {
+    json: {
+      content: true,
+    },
+  },
+  cta: buttonFragment,
+});
 
 export async function AuthLayout({
   children,
@@ -52,11 +66,36 @@ export async function AuthLayout({
           </Pump>
           <div className="flex flex-col gap-1">
             <h1 className="text-2xl font-bold">{title}</h1>
-            <p className="text-sm text-text-secondary dark:text-dark-text-secondary">{subtitle}</p>
+            <div className="text-sm text-text-secondary dark:text-dark-text-secondary">
+              {subtitle}
+            </div>
           </div>
         </header>
         {children}
       </div>
     </div>
+  );
+}
+
+export function RichTextFormWrapper({ children }: RichTextProps) {
+  return (
+    <RichText
+      components={{
+        a: CustomAnchor,
+      }}
+    >
+      {children}
+    </RichText>
+  );
+}
+
+function CustomAnchor({
+  children,
+  ...props
+}: React.AllHTMLAttributes<HTMLAnchorElement> & LinkProps) {
+  return (
+    <Link className="text-accent-500 hover:underline" {...props}>
+      {children}
+    </Link>
   );
 }
