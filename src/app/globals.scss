@@ -4,6 +4,12 @@
 
 :root {
   --header-height: 64px;
+
+  text-rendering: geometricprecision;
+  -webkit-text-size-adjust: 100%;
+  -webkit-font-smoothing: antialiased;
+  -moz-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 :root:not(html.dark) {
