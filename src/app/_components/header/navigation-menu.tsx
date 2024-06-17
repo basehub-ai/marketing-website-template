@@ -147,6 +147,7 @@ export function MobileMenu({ ctaS, navbar }: HeaderFragment) {
   return (
     <>
       <button
+        aria-label="Toggle Menu"
         className="col-start-3 flex items-center justify-center gap-2 justify-self-end rounded border border-border bg-surface-secondary p-2 dark:border-dark-border dark:bg-dark-surface-secondary lg:hidden lg:h-7"
         onPointerDown={handleToggle}
       >

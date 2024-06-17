@@ -26,7 +26,7 @@ export default function SignIn() {
             subtitle={
               site.signIn.wrapper.subtitle ? (
                 <RichTextFormWrapper>
-                  {site.signIn.wrapper.subtitle?.json.content}
+                  {site.signIn.wrapper.subtitle.json.content}
                 </RichTextFormWrapper>
               ) : null
             }
@@ -47,7 +47,7 @@ export default function SignIn() {
                 placeholder="Type a secure password"
                 type="password"
               />
-              <div className="mt-2 flex items-center justify-between">
+              <div className="mt-3 flex items-center justify-between">
                 <Button
                   icon={<ArrowRightIcon className="size-5" />}
                   iconSide="right"

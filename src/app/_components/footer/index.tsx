@@ -119,7 +119,11 @@ export async function Footer() {
                   );
                 })}
 
-                {footer.poweredByBaseHub ? <PoweredByBasehub className="ml-auto shrink-0" /> : null}
+                {footer.poweredByBaseHub ? (
+                  <li>
+                    <PoweredByBasehub className="ml-auto shrink-0" />
+                  </li>
+                ) : null}
               </ul>
             </div>
           </footer>

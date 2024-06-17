@@ -73,6 +73,7 @@ export const generateMetadata = async ({
 }): Promise<Metadata | undefined> => {
   const data = await basehub({ cache: "no-store", draft: draftMode().isEnabled }).query({
     site: {
+      settings: { metadata: { defaultTitle: true, titleTemplate: true, defaultDescription: true } },
       pages: {
         __args: {
           filter: {
@@ -98,8 +99,9 @@ export const generateMetadata = async ({
   }
 
   return {
-    title: page.metadataOverrides.title ?? undefined,
-    description: page.metadataOverrides.description ?? undefined,
+    title: page.metadataOverrides.title ?? data.site.settings.metadata.defaultTitle,
+    description:
+      page.metadataOverrides.description ?? data.site.settings.metadata.defaultDescription,
   };
 };
 

@@ -26,7 +26,7 @@ export async function AuthLayout({
 }) {
   return (
     <div className="flex flex-col px-6 pb-20 pt-10">
-      <div className="mx-auto flex w-full max-w-xl flex-col gap-5 rounded-xl border border-border bg-surface-secondary p-5 dark:border-dark-border dark:bg-dark-surface-secondary">
+      <div className="mx-auto flex w-full max-w-xl flex-col gap-5 rounded-xl border border-surface-secondary bg-surface-primary p-5 shadow-md dark:border-dark-border dark:bg-dark-surface-secondary dark:shadow-none">
         <header className="flex flex-col gap-3">
           <Pump
             queries={[
@@ -65,7 +65,7 @@ export async function AuthLayout({
             }}
           </Pump>
           <div className="flex flex-col gap-1">
-            <h1 className="text-2xl font-bold">{title}</h1>
+            <h1 className="text-xl font-medium">{title}</h1>
             <div className="text-sm text-text-secondary dark:text-dark-text-secondary">
               {subtitle}
             </div>

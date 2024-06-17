@@ -43,6 +43,7 @@ function SwitchButton({
   return (
     <Button
       unstyled
+      aria-label={`${theme} theme`}
       className={clsx(
         "!flex !size-6 items-center justify-center rounded-full !p-[3px] text-text-secondary dark:text-dark-text-secondary",
         "data-[selected='true']:bg-surface-tertiary data-[selected='true']:text-text-primary data-[selected='true']:dark:bg-dark-surface-tertiary data-[selected='true']:dark:text-dark-text-primary",

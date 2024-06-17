@@ -1,7 +1,7 @@
 import { Button } from "@/common/button";
 import { AuthLayout, RichTextFormWrapper, formWrapperFragment } from "../_components/auth-layout";
 import { LabeledInput, LabeledWrapper } from "../_components/labeled-input";
-import { Selector } from "../_components/select";
+import { Select } from "../_components/select";
 import { BackToHomeButton } from "../_components/back-to-home-button";
 import { Pump } from "basehub/react-pump";
 import { ArrowRightIcon } from "@radix-ui/react-icons";
@@ -64,14 +64,15 @@ export default function SignUp() {
                 type="password"
               />
               <LabeledWrapper label="How did you hear about us?">
-                <Selector
-                  options={site.signUp.howDidYouHearAboutUs.map((option) => ({
-                    label: option,
-                    value: option,
-                  }))}
-                />
+                <Select name="how-did-you-hear-about-us">
+                  {site.signUp.howDidYouHearAboutUs.map((option) => (
+                    <option key={option} value={option}>
+                      {option}
+                    </option>
+                  ))}
+                </Select>
               </LabeledWrapper>
-              <div className="mt-2 flex items-center justify-between">
+              <div className="mt-3 flex items-center justify-between">
                 <Button
                   icon={<ArrowRightIcon className="size-5" />}
                   iconSide="right"

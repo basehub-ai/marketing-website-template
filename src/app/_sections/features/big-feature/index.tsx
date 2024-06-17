@@ -28,6 +28,8 @@ export function BigFeature({ featuresBigImageList, heading, image }: BigFeature)
   return (
     <Section container="default">
       <DarkLightImage
+        height={600}
+        width={1216}
         {...image}
         className="block rounded-xl border border-border dark:border-dark-border md:order-3 md:w-full"
       />

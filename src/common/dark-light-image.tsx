@@ -4,29 +4,37 @@ import type { ImageProps } from "next/image";
 import { BaseHubImage } from "basehub/next-image";
 
 type DarkLightImageProps = DarkLightImageFragment &
-  Omit<ImageProps, "src" | "alt" | "width" | "height"> & {
+  Omit<ImageProps, "src" | "alt"> & {
     alt?: string;
   };
 
-export function DarkLightImage({ alt, dark, light, className, ...props }: DarkLightImageProps) {
+export function DarkLightImage({
+  alt,
+  dark,
+  light,
+  className,
+  width,
+  height,
+  ...props
+}: DarkLightImageProps) {
   return (
     <>
       {dark ? (
         <BaseHubImage
           alt={dark.alt ?? alt ?? ""}
           className={clsx("hidden dark:block", className)}
-          height={dark.height}
+          height={height ?? dark.height}
           src={dark.url}
-          width={dark.width}
+          width={width ?? dark.width}
           {...props}
         />
       ) : null}
       <BaseHubImage
         alt={light.alt ?? alt ?? ""}
         className={clsx(dark && "dark:hidden", className)}
-        height={light.height}
+        height={height ?? light.height}
         src={light.url}
-        width={light.width}
+        width={width ?? light.width}
         {...props}
       />
     </>

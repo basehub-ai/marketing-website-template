@@ -13,7 +13,6 @@ export default function RequestDemo() {
           site: {
             requestDemo: {
               wrapper: formWrapperFragment,
-              howDidYouHearAboutUs: true,
             },
           },
         },
@@ -27,7 +26,7 @@ export default function RequestDemo() {
             subtitle={
               site.requestDemo.wrapper.subtitle ? (
                 <RichTextFormWrapper>
-                  {site.requestDemo.wrapper.subtitle?.json.content}
+                  {site.requestDemo.wrapper.subtitle.json.content}
                 </RichTextFormWrapper>
               ) : null
             }
@@ -60,10 +59,10 @@ export default function RequestDemo() {
                 label="Message"
                 minLength={200}
                 name="message"
-                placeholder="What are you looking to learn from the demo?"
+                placeholder="Hey! I’d love to get a demo of Acme"
                 rows={8}
               />
-              <div className="mt-2 flex items-center justify-between">
+              <div className="mt-3 flex items-center justify-between">
                 <Button
                   icon={<ArrowRightIcon className="size-5" />}
                   iconSide="right"

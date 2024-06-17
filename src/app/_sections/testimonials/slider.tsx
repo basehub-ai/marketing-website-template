@@ -82,6 +82,7 @@ export function Slider({
         {children}
         <div className="hidden gap-4 sm:flex">
           <Button
+            aria-label="Previous testimonial"
             className="!h-auto rounded-full px-4 py-2"
             intent="secondary"
             onClick={onPrevButtonClick}
@@ -89,6 +90,7 @@ export function Slider({
             <ArrowLeftIcon className="size-6" />
           </Button>
           <Button
+            aria-label="Next testimonial"
             className="!h-auto rounded-full !px-4 !py-2"
             intent="secondary"
             onClick={onNextButtonClick}
