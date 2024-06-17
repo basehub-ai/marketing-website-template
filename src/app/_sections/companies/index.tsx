@@ -37,7 +37,6 @@ export function Companies(props: Companies) {
               className="flex h-16 items-center px-2 py-3 lg:p-4"
             >
               <BaseHubImage
-                priority
                 alt={company._title}
                 className="w-24 lg:w-32"
                 height={20}
