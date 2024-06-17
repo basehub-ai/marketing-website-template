@@ -11,6 +11,7 @@ import { TrackedButtonLink } from "@/app/_components/tracked_button";
 import { draftMode } from "next/headers";
 
 import s from "./hero.module.scss";
+import { BASEHUB_REVALIDATE_TIME } from "@/lib/basehub/constants";
 
 export const featureHeroFragment = fragmentOn("FeatureHeroComponent", {
   _analyticsKey: true,
@@ -137,7 +138,7 @@ export default function FeatureHero({
           <div className="z-10 flex flex-col items-center gap-8">
             <Pump
               draft={draftMode().isEnabled}
-              next={{ revalidate: 30 }}
+              next={{ revalidate: BASEHUB_REVALIDATE_TIME }}
               queries={[
                 {
                   site: {
