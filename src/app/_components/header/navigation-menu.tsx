@@ -31,7 +31,10 @@ export function NavigationMenuHeader({
   className?: string;
 }) {
   return (
-    <NavigationMenu className={clsx("relative z-[1] flex-col justify-center lg:flex", className)}>
+    <NavigationMenu
+      className={clsx("relative z-[1] flex-col justify-center lg:flex", className)}
+      delayDuration={50}
+    >
       <NavigationMenuList className="flex flex-1 gap-0.5 px-4">
         {links.map((link) =>
           link.sublinks.items.length > 0 ? (
@@ -70,9 +73,32 @@ function NavigationMenuLink({
 }
 
 function NavigationMenuLinkWithMenu({ _title, href, sublinks }: HeaderLiksFragment) {
+  const [closeOnClick, setCloseOnClick] = React.useState(false);
+  const timeoutRef = React.useRef<number | null>(null);
+
+  const handleMouseEnter = () => {
+    timeoutRef.current = window.setTimeout(() => {
+      setCloseOnClick(true);
+    }, 2000);
+  };
+
+  const handleMouseLeave = () => {
+    clearTimeout(timeoutRef.current!);
+    setCloseOnClick(false);
+  };
+
   return (
     <NavigationMenuItem key={`${href ?? ""}${_title}`} className="relative items-center gap-0.5">
-      <NavigationMenuTrigger asChild>
+      <NavigationMenuTrigger
+        asChild
+        onClick={(e) => {
+          if (!closeOnClick) {
+            e.preventDefault();
+          }
+        }}
+        onPointerEnter={handleMouseEnter}
+        onPointerLeave={handleMouseLeave}
+      >
         {href ? (
           <NavigationMenuLink href={href}>{_title}</NavigationMenuLink>
         ) : (
