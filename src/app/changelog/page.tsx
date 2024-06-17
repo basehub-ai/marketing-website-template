@@ -9,10 +9,11 @@ import { changelogListFragment } from "./_components/changelog.fragment";
 import { PageView } from "../_components/page-view";
 import type { Metadata } from "next";
 import { basehub } from "basehub";
+import { BASEHUB_REVALIDATE_TIME } from "@/lib/basehub/constants";
 
 export const dynamic = "force-static";
 
-export const revalidate = 30;
+export const revalidate = BASEHUB_REVALIDATE_TIME;
 
 export const generateMetadata = async (): Promise<Metadata | undefined> => {
   const data = await basehub({ cache: "no-store", draft: draftMode().isEnabled }).query({
@@ -36,7 +37,7 @@ export default async function ChangelogPage() {
   return (
     <Pump
       draft={draftMode().isEnabled}
-      next={{ revalidate: 30 }}
+      next={{ revalidate: BASEHUB_REVALIDATE_TIME }}
       queries={[
         {
           site: {

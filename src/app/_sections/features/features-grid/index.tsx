@@ -1,4 +1,4 @@
-import Image from "next/image";
+import { BaseHubImage } from "basehub/next-image";
 
 import { Heading } from "@/common/heading";
 import { Section } from "@/common/layout";
@@ -44,7 +44,7 @@ export function FeaturesGrid({ heading, featuresGridList, actions, _analyticsKey
             className="flex flex-col gap-4 rounded-lg border border-border p-4 [box-shadow:_70px_-20px_130px_0px_rgba(255,255,255,0.05)_inset] dark:border-dark-border dark:[box-shadow:_70px_-20px_130px_0px_rgba(255,255,255,0.05)_inset]"
           >
             <figure className="flex size-9 items-center justify-center rounded-full border border-border bg-surface-secondary p-2 dark:border-dark-border dark:bg-dark-surface-secondary">
-              <Image
+              <BaseHubImage
                 alt={icon.alt ?? _title}
                 className="dark:invert"
                 height={18}

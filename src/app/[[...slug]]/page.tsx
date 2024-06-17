@@ -41,13 +41,17 @@ import { PricingTable } from "../_sections/pricing-comparation";
 import { pricingTableFragment } from "../_sections/pricing-comparation/fragments";
 import FeatureHero, { featureHeroFragment } from "../_sections/features/hero";
 import { PageView } from "../_components/page-view";
+import { BASEHUB_REVALIDATE_TIME } from "@/lib/basehub/constants";
 
 export const dynamic = "force-static";
 
-export const revalidate = 30;
+export const revalidate = BASEHUB_REVALIDATE_TIME;
 
 export const generateStaticParams = async () => {
-  const data = await basehub({ cache: "no-store", next: { revalidate: 30 } }).query({
+  const data = await basehub({
+    cache: "no-store",
+    next: { revalidate: BASEHUB_REVALIDATE_TIME },
+  }).query({
     site: {
       pages: {
         items: {
@@ -179,7 +183,7 @@ export default async function DynamicPage({ params }: { params: { slug?: string[
   return (
     <Pump
       draft={draftMode().isEnabled}
-      next={{ revalidate: 30 }}
+      next={{ revalidate: BASEHUB_REVALIDATE_TIME }}
       queries={[
         {
           site: {

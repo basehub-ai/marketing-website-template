@@ -2,7 +2,7 @@
 import { type EmblaCarouselType } from "embla-carousel";
 import useEmblaCarousel from "embla-carousel-react";
 import * as React from "react";
-import Image from "next/image";
+import { BaseHubImage } from "basehub/next-image";
 import { ArrowLeftIcon, ArrowRightIcon } from "@radix-ui/react-icons";
 import { WheelGesturesPlugin } from "embla-carousel-wheel-gestures";
 import clsx from "clsx";
@@ -140,7 +140,7 @@ export function VainillaCard({ quote, author }: TestimonialsSlider["quotes"][0])
         </div>
         <div className="flex items-center gap-4 pl-5">
           <div className="flex flex-1 items-center gap-5 border-r border-border py-4 dark:border-dark-border">
-            <Image
+            <BaseHubImage
               alt={author._title}
               className="hidden size-16 rounded-full md:block"
               height={64}
@@ -156,7 +156,7 @@ export function VainillaCard({ quote, author }: TestimonialsSlider["quotes"][0])
           </div>
           <div className="pr-5">
             {author.company.image ? (
-              <Image
+              <BaseHubImage
                 alt={author.company.image.alt ?? author.company._title}
                 className="w-12 md:w-16"
                 height={48}

@@ -1,4 +1,4 @@
-import Image from "next/image";
+import { BaseHubImage } from "basehub/next-image";
 
 import { Heading } from "@/common/heading";
 import { Section } from "@/common/layout";
@@ -38,7 +38,7 @@ export function BigFeature({ featuresBigImageList, heading, image }: BigFeature)
         {featuresBigImageList.items.map(({ _title, description, icon }) => (
           <article key={_title} className="flex flex-col gap-4">
             <figure className="flex size-9 items-center justify-center rounded-full border border-border bg-surface-secondary p-2 dark:border-dark-border dark:bg-dark-surface-secondary">
-              <Image
+              <BaseHubImage
                 alt={icon.alt ?? _title}
                 className="dark:invert"
                 height={18}

@@ -1,4 +1,4 @@
-import Image from "next/image";
+import { BaseHubImage } from "basehub/next-image";
 
 import { Heading } from "@/common/heading";
 import { Section } from "@/common/layout";
@@ -64,7 +64,7 @@ export function SideFeatures({ featuresSideBySideList, heading, actions }: Featu
               className="flex w-[280px] shrink-0 flex-col gap-4 rounded-lg border border-border bg-surface-secondary p-4 dark:border-dark-border dark:bg-dark-surface-secondary lg:w-full lg:flex-row lg:p-5"
             >
               <figure className="flex size-12 shrink-0 items-center justify-center rounded-full bg-surface-tertiary p-3 dark:bg-dark-surface-tertiary">
-                <Image
+                <BaseHubImage
                   alt={icon.alt ?? _title}
                   className="dark:invert"
                   height={24}
