@@ -49,6 +49,7 @@ export function MobilePricingComparation({
       <div className="relative">
         <Select autoComplete="false" value={activePlan} onValueChange={setActivePlan}>
           <SelectTrigger
+            aria-label="Plan Data selector"
             className={clsx(
               "relative flex w-full items-center justify-between rounded px-4 py-2 pr-10 text-text-secondary dark:text-dark-text-secondary",
               "border border-border bg-surface-secondary",

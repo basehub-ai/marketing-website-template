@@ -5,5 +5,9 @@ const defaultOptions: Intl.DateTimeFormatOptions = {
 };
 
 export const formatDate = (date: string | Date | number, options?: Intl.DateTimeFormatOptions) => {
-  return new Date(date).toLocaleDateString("en-US", { ...defaultOptions, ...options });
+  return new Date(date).toLocaleDateString("en-US", {
+    ...defaultOptions,
+    ...options,
+    timeZone: "UTC",
+  });
 };

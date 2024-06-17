@@ -110,15 +110,7 @@ function HitList({ hits }: { hits: Hit[] }) {
   return (
     <SearchBox.HitList className="space-y-2">
       {hits.map((hit) => {
-        let pathname = getArticleSlugFromSlugPath(hit.document._slugPath ?? "");
-        const bodyHighlight = hit._getFieldHighlight("body");
-
-        if (
-          bodyHighlight?.highlightedField?._type === "rich-text-section" &&
-          bodyHighlight.highlightedField._id
-        ) {
-          pathname += `#${bodyHighlight.highlightedField._id}`;
-        }
+        const pathname = getArticleSlugFromSlugPath(hit.document._slugPath ?? "");
 
         const field = hit._getField("authors");
         let firstHighlightedAuthorId: string | undefined = undefined;

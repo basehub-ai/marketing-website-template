@@ -12,7 +12,6 @@ import {
   NavigationMenuTrigger,
   type NavigationMenuLinkProps,
 } from "@radix-ui/react-navigation-menu";
-import { useSelectedLayoutSegment } from "next/navigation";
 import { Button, ButtonLink } from "@/common/button";
 import { isPageReferenceComponent } from ".basehub/schema";
 import type { HeaderFragment, HeaderLiksFragment } from ".";
@@ -170,27 +169,11 @@ export function DesktopMenu({ navbar, ctaS }: HeaderFragment) {
 
 export function MobileMenu({ ctaS, navbar }: HeaderFragment) {
   const { handleToggle, isOn, handleOff } = useToggleState();
-  const selectedLayoutSegment = useSelectedLayoutSegment();
-
-  const headerLinks = React.useMemo(() => {
-    return navbar.items.map((link) => ({
-      ...link,
-      isActive: link.sublinks.items.length
-        ? (segment: string) =>
-            link.sublinks.items.some((sublink) =>
-              sublink.link.__typename === "PageReferenceComponent"
-                ? sublink.link.page.pathname.split("/").pop() === segment
-                : sublink.link.text === segment,
-            )
-        : link.href
-          ? link.href.split("/")[1] === selectedLayoutSegment
-          : undefined,
-    }));
-  }, [navbar, selectedLayoutSegment]);
 
   return (
     <>
       <button
+        aria-label="Toggle Menu"
         className="col-start-3 flex items-center justify-center gap-2 justify-self-end rounded border border-border bg-surface-secondary p-2 dark:border-dark-border dark:bg-dark-surface-secondary lg:hidden lg:h-7"
         onPointerDown={handleToggle}
       >
@@ -201,7 +184,7 @@ export function MobileMenu({ ctaS, navbar }: HeaderFragment) {
           <div className="fixed left-0 top-[calc(var(--header-height)+1px)] z-10 h-auto w-full bg-surface-primary dark:bg-dark-surface-primary">
             <div className="flex flex-col gap-8 px-6 py-8">
               <nav className="flex flex-col gap-4">
-                {headerLinks.map((link) =>
+                {navbar.items.map((link) =>
                   link.sublinks.items.length > 0 ? (
                     <ItemWithSublinks
                       key={link._id}

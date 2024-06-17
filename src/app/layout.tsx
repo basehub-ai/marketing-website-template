@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 
 import "./globals.scss";
 import { GeistSans } from "geist/font/sans";
@@ -75,11 +75,15 @@ export const generateMetadata = async (): Promise<Metadata> => {
   };
 };
 
+export const viewport: Viewport = {
+  maximumScale: 1, // Disable auto-zoom on mobile Safari
+};
+
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en">
+    <html suppressHydrationWarning lang="en">
       <body
-        className={`min-h-svh max-w-[100vw] bg-surface-primary text-text-primary dark:bg-dark-surface-primary dark:text-dark-text-primary ${GeistMono.variable} ${GeistSans.variable} overflow-x-clip font-sans`}
+        className={`min-h-svh max-w-[100vw] bg-surface-primary text-text-primary dark:bg-dark-surface-primary dark:text-dark-text-primary ${GeistMono.variable} ${GeistSans.variable} font-sans`}
       >
         <Providers>
           <Header />

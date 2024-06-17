@@ -2,7 +2,7 @@
 import { type EmblaCarouselType } from "embla-carousel";
 import useEmblaCarousel from "embla-carousel-react";
 import * as React from "react";
-import Image from "next/image";
+import { BaseHubImage } from "basehub/next-image";
 import { ArrowLeftIcon, ArrowRightIcon } from "@radix-ui/react-icons";
 import { WheelGesturesPlugin } from "embla-carousel-wheel-gestures";
 import clsx from "clsx";
@@ -82,6 +82,7 @@ export function Slider({
         {children}
         <div className="hidden gap-4 sm:flex">
           <Button
+            aria-label="Previous testimonial"
             className="!h-auto rounded-full px-4 py-2"
             intent="secondary"
             onClick={onPrevButtonClick}
@@ -89,6 +90,7 @@ export function Slider({
             <ArrowLeftIcon className="size-6" />
           </Button>
           <Button
+            aria-label="Next testimonial"
             className="!h-auto rounded-full !px-4 !py-2"
             intent="secondary"
             onClick={onNextButtonClick}
@@ -107,6 +109,7 @@ export function Slider({
           {scrollSnaps.map((snap, index) => (
             <button
               key={snap}
+              aria-label={`Testimonial ${String(index + 1)}`}
               className={clsx(
                 "group flex items-center justify-center rounded-full p-1",
                 index === selectedIndex ? "bg-accent-500/50" : "",
@@ -134,13 +137,13 @@ export function VainillaCard({ quote, author }: TestimonialsSlider["quotes"][0])
     <div className="min-w-0 max-w-full shrink-0 grow-0 basis-[min(740px,100%)] self-stretch md:pr-10">
       <article className="embla__slide flex h-full w-full min-w-0 transform touch-pan-y touch-pinch-zoom select-none flex-col rounded-xl border border-border [backface-visibility:hidden] last:!visible dark:border-dark-border">
         <div className="flex flex-1 items-start border-b border-border px-5 py-[18px] dark:border-dark-border md:px-8 md:py-7">
-          <blockquote className="text-pretty text-xl font-extralight leading-snug text-text-primary dark:text-dark-text-primary sm:text-2xl md:text-4xl">
+          <blockquote className="text-pretty text-xl font-extralight leading-[135%] text-text-primary dark:text-dark-text-primary sm:text-2xl md:text-4xl">
             “{quote}”
           </blockquote>
         </div>
         <div className="flex items-center gap-4 pl-5">
           <div className="flex flex-1 items-center gap-5 border-r border-border py-4 dark:border-dark-border">
-            <Image
+            <BaseHubImage
               alt={author._title}
               className="hidden size-16 rounded-full md:block"
               height={64}
@@ -156,7 +159,7 @@ export function VainillaCard({ quote, author }: TestimonialsSlider["quotes"][0])
           </div>
           <div className="pr-5">
             {author.company.image ? (
-              <Image
+              <BaseHubImage
                 alt={author.company.image.alt ?? author.company._title}
                 className="w-12 md:w-16"
                 height={48}

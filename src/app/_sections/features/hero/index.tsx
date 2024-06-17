@@ -1,4 +1,4 @@
-import Image from "next/image";
+import { BaseHubImage } from "basehub/next-image";
 
 import { fragmentOn } from "basehub";
 import { Heading } from "@/common/heading";
@@ -11,6 +11,7 @@ import { TrackedButtonLink } from "@/app/_components/tracked_button";
 import { draftMode } from "next/headers";
 
 import s from "./hero.module.scss";
+import { BASEHUB_REVALIDATE_TIME } from "@/lib/basehub/constants";
 
 export const featureHeroFragment = fragmentOn("FeatureHeroComponent", {
   _analyticsKey: true,
@@ -61,6 +62,7 @@ export default function FeatureHero({
             </div>
           </div>
           <DarkLightImage
+            priority
             className="block rounded-lg border border-border dark:border-dark-border"
             {...image}
           />
@@ -91,6 +93,7 @@ export default function FeatureHero({
               </div>
             </div>
             <DarkLightImage
+              priority
               className="block flex-1 rounded-lg border border-border dark:border-dark-border lg:w-1/2"
               {...image}
             />
@@ -103,6 +106,7 @@ export default function FeatureHero({
         <>
           <DarkLightImage
             {...image}
+            priority
             className="block max-h-[560px] border-y border-t-0 border-border object-cover dark:border-dark-border"
           />
           <Section>
@@ -137,7 +141,7 @@ export default function FeatureHero({
           <div className="z-10 flex flex-col items-center gap-8">
             <Pump
               draft={draftMode().isEnabled}
-              next={{ revalidate: 30 }}
+              next={{ revalidate: BASEHUB_REVALIDATE_TIME }}
               queries={[
                 {
                   site: {
@@ -157,7 +161,8 @@ export default function FeatureHero({
                 "use server";
 
                 return (
-                  <Image
+                  <BaseHubImage
+                    priority
                     alt={site.settings.logoLite.alt ?? "Logo"}
                     className="size-20"
                     height={site.settings.logoLite.height}

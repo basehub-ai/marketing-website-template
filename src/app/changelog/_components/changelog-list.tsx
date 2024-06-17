@@ -1,7 +1,7 @@
 "use client";
 import React from "react";
 import { ArrowRightIcon } from "@radix-ui/react-icons";
-import Image from "next/image";
+import { BaseHubImage } from "basehub/next-image";
 import clsx from "clsx";
 
 import { ButtonLink } from "@/common/button";
@@ -91,10 +91,11 @@ export function ChangelogList({ changelogPosts }: { changelogPosts: ChangelogLis
             </div>
           </div>
           <article className="mb-16 flex flex-col gap-6">
-            <Image
+            <BaseHubImage
               alt={post._title}
               className="rounded-lg border border-border dark:border-dark-border"
               height={480}
+              priority={idx === 0}
               src={post.image.url}
               width={647}
             />
@@ -115,7 +116,7 @@ export function ChangelogList({ changelogPosts }: { changelogPosts: ChangelogLis
                 </AvatarsGroup>
               ) : post.authors[0] ? (
                 <div className="flex items-center  gap-2">
-                  <Image
+                  <BaseHubImage
                     alt={post.authors[0]._title}
                     height={24}
                     src={post.authors[0].image.url}

@@ -2,15 +2,12 @@ import { draftMode } from "next/headers";
 
 import { ButtonLink } from "@/common/button";
 import { Pump } from "basehub/react-pump";
-import {
-  buttonFragment,
-  darkLightImageFragment,
-  optimizedImageFragment,
-} from "@/lib/basehub/fragments";
+import { buttonFragment } from "@/lib/basehub/fragments";
 import { fragmentOn } from "basehub";
 
 import { DesktopMenu, MobileMenu } from "./navigation-menu";
 import { DarkLightImage } from "@/common/dark-light-image";
+import { BASEHUB_REVALIDATE_TIME } from "@/lib/basehub/constants";
 
 const headerLinksFragment = fragmentOn("HeaderNavbarLinkComponent", {
   _title: true,
@@ -54,7 +51,7 @@ export async function Header() {
   return (
     <Pump
       draft={draftMode().isEnabled}
-      next={{ revalidate: 30 }}
+      next={{ revalidate: BASEHUB_REVALIDATE_TIME }}
       queries={[
         {
           site: {
@@ -93,7 +90,7 @@ export async function Header() {
             <div className="flex h-[--header-height] bg-surface-primary dark:bg-dark-surface-primary">
               <div className="container mx-auto grid w-full grid-cols-header place-items-center content-center items-center px-6 first:*:justify-self-start">
                 <ButtonLink unstyled className="ring-offset-2" href="/">
-                  <DarkLightImage alt="logo" className="h-10 " {...settings.logo} />
+                  <DarkLightImage priority alt="logo" className="h-10 " {...settings.logo} />
                 </ButtonLink>
                 <DesktopMenu {...header} />
                 <MobileMenu {...header} />

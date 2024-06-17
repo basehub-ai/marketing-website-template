@@ -1,6 +1,6 @@
 import { notFound } from "next/navigation";
 import Link from "next/link";
-import Image from "next/image";
+import { BaseHubImage } from "basehub/next-image";
 import { RichText } from "basehub/react-rich-text";
 import { ArrowRightIcon } from "@radix-ui/react-icons";
 import type { Metadata } from "next";
@@ -19,10 +19,11 @@ import { formatDate } from "@/utils/dates";
 import { ChangelogLayout } from "../_components/changelog-header";
 import { PageView } from "@/app/_components/page-view";
 import { draftMode } from "next/headers";
+import { BASEHUB_REVALIDATE_TIME } from "@/lib/basehub/constants";
 
 export const dynamic = "force-static";
 
-export const revalidate = 30;
+export const revalidate = BASEHUB_REVALIDATE_TIME;
 
 interface ChangelogPageParams {
   params: {
@@ -53,7 +54,7 @@ export const generateStaticParams = async () => {
 export const generateMetadata = async ({
   params,
 }: ChangelogPageParams): Promise<Metadata | undefined> => {
-  const data = await basehub({ next: { revalidate: 30 } }).query({
+  const data = await basehub({ next: { revalidate: BASEHUB_REVALIDATE_TIME } }).query({
     site: {
       settings: {
         metadata: {
@@ -104,7 +105,7 @@ export default async function ChangelogPage({ params }: ChangelogPageParams) {
   return (
     <Pump
       draft={draftMode().isEnabled}
-      next={{ revalidate: 30 }}
+      next={{ revalidate: BASEHUB_REVALIDATE_TIME }}
       queries={[
         {
           site: {
@@ -202,7 +203,8 @@ export default async function ChangelogPage({ params }: ChangelogPageParams) {
               </div>
             </ChangelogLayout>
             <div className="mx-auto flex max-w-screen-md flex-col gap-8 px-8 pb-20 pt-16">
-              <Image
+              <BaseHubImage
+                priority
                 alt={post.image.alt ?? post._title}
                 className="h-auto w-full rounded-xl"
                 height={post.image.height}
