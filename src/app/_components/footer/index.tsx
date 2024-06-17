@@ -39,6 +39,7 @@ export async function Footer() {
                   aspectRatio: true,
                 },
               },
+              showUseTemplate: true,
             },
             footer: {
               copyright: true,
@@ -55,7 +56,6 @@ export async function Footer() {
                 },
                 url: true,
               },
-              poweredByBaseHub: true,
             },
           },
         },
@@ -119,7 +119,7 @@ export async function Footer() {
                   );
                 })}
 
-                {footer.poweredByBaseHub ? (
+                {settings.showUseTemplate ? (
                   <li>
                     <PoweredByBasehub className="ml-auto shrink-0" />
                   </li>
