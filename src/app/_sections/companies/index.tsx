@@ -1,4 +1,4 @@
-import Image from "next/image";
+import { BaseHubImage } from "basehub/next-image";
 import clsx from "clsx";
 
 import { Section } from "@/common/layout";
@@ -22,7 +22,9 @@ type Companies = fragmentOn.infer<typeof companiesFragment>;
 export function Companies(props: Companies) {
   return (
     <Section container="full">
-      <h2 className="text-center text-dark-text-tertiary opacity-50">{props.subtitle}</h2>
+      <h2 className="text-center tracking-tight text-dark-text-tertiary opacity-50">
+        {props.subtitle}
+      </h2>
       <div className="no-scrollbar flex max-w-full justify-center overflow-auto">
         <div className="pointer-events-none absolute left-0 top-0 h-full w-[30vw] bg-transparent bg-gradient-to-r from-surface-primary dark:from-dark-surface-primary xl:hidden" />
         <div className="pointer-events-none absolute right-0 top-0 h-full w-[30vw] bg-transparent bg-gradient-to-l from-surface-primary dark:from-dark-surface-primary xl:hidden" />
@@ -34,7 +36,7 @@ export function Companies(props: Companies) {
               key={company.image?.url ?? company._title}
               className="flex h-16 items-center px-2 py-3 lg:p-4"
             >
-              <Image
+              <BaseHubImage
                 priority
                 alt={company._title}
                 className="w-24 lg:w-32"

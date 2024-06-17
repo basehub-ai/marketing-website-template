@@ -1,8 +1,9 @@
-import Image from "next/image";
+import { BaseHubImage } from "basehub/next-image";
 import Link from "next/link";
 
 import { Pump } from "basehub/react-pump";
 import { draftMode } from "next/headers";
+import { BASEHUB_REVALIDATE_TIME } from "@/lib/basehub/constants";
 
 interface ChangelogLayoutProps {
   className?: string;
@@ -28,7 +29,7 @@ export function ChangelogLayout({
 
         <Pump
           draft={draftMode().isEnabled}
-          next={{ revalidate: 30 }}
+          next={{ revalidate: BASEHUB_REVALIDATE_TIME }}
           queries={[
             {
               site: {
@@ -61,7 +62,7 @@ export function ChangelogLayout({
                       href={link.url}
                       target="_blank"
                     >
-                      <Image
+                      <BaseHubImage
                         priority
                         alt={link._title}
                         height={18}

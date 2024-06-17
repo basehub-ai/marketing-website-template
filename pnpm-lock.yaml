@@ -33,8 +33,8 @@ dependencies:
     specifier: ^10.4.19
     version: 10.4.19(postcss@8.4.38)
   basehub:
-    specifier: ^6.0.5
-    version: 6.0.5(@babel/runtime@7.24.6)(@types/react@18.3.3)(react-dom@18.3.1)(react@18.3.1)(typescript@5.4.5)
+    specifier: ^7.0.0
+    version: 7.0.0(@babel/runtime@7.24.6)(@types/react@18.3.3)(react-dom@18.3.1)(react@18.3.1)(typescript@5.4.5)
   class-variance-authority:
     specifier: ^0.7.0
     version: 0.7.0
@@ -323,8 +323,8 @@ packages:
       '@babel/helper-validator-identifier': 7.24.6
       to-fast-properties: 2.0.0
 
-  /@basehub/genql@8.0.0:
-    resolution: {integrity: sha512-hR7dKm/TCDf2PzRcOUhCKYlYJP2QAmULPWWyHt6EOzf+d5mNiXbsKxq0EFTS0AbakwVc69QWPZZfIS9KyKlqfQ==}
+  /@basehub/genql@8.0.1:
+    resolution: {integrity: sha512-wdiuLSM9AtPJRgu4BNRfqH4ljZZrWY5ZvrhqURiE2qcs0vKlI4KpEdv/qhkpv5n1PApSc4EFSD62A9TT7DOyeQ==}
     dependencies:
       '@graphql-tools/graphql-file-loader': 7.5.17(graphql@16.8.1)
       '@graphql-tools/load': 7.8.14(graphql@16.8.1)
@@ -2174,14 +2174,14 @@ packages:
   /balanced-match@1.0.2:
     resolution: {integrity: sha512-3oSeUO0TMV67hN1AmbXsK4yaqU7tjiHlbxRDZOpH0KW9+CeX4bRAaX0Anxt0tx2MrpRpWwQaPwIlISEJhYU5Pw==}
 
-  /basehub@6.0.5(@babel/runtime@7.24.6)(@types/react@18.3.3)(react-dom@18.3.1)(react@18.3.1)(typescript@5.4.5):
-    resolution: {integrity: sha512-ZZhIdRneW7sMiAYNjTh/1iU0i30F+vzneJMfYE5Basb3RSJtOxsVMcTea7bRgkgAEp0ueU4qGcHqfwek6SH2zg==}
+  /basehub@7.0.0(@babel/runtime@7.24.6)(@types/react@18.3.3)(react-dom@18.3.1)(react@18.3.1)(typescript@5.4.5):
+    resolution: {integrity: sha512-fp1j9pX42c8uzNnUvVskuEhLouajt5Y3nGG5fRh1rdsLFNGK5or5riNrk1F1NMeaO+bijlMYS76//AA5oZIr2w==}
     hasBin: true
     peerDependencies:
       react: ^18.2.0
       react-dom: ^18.2.0
     dependencies:
-      '@basehub/genql': 8.0.0
+      '@basehub/genql': 8.0.1
       '@basehub/mutation-api-helpers': 1.0.5
       '@radix-ui/react-slot': 1.0.2(@types/react@18.3.3)(react@18.3.1)
       arg: 5.0.1

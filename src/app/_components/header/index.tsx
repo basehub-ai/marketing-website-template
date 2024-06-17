@@ -7,6 +7,7 @@ import { fragmentOn } from "basehub";
 
 import { DesktopMenu, MobileMenu } from "./navigation-menu";
 import { DarkLightImage } from "@/common/dark-light-image";
+import { BASEHUB_REVALIDATE_TIME } from "@/lib/basehub/constants";
 
 const headerLinksFragment = fragmentOn("HeaderNavbarLinkComponent", {
   _title: true,
@@ -50,7 +51,7 @@ export async function Header() {
   return (
     <Pump
       draft={draftMode().isEnabled}
-      next={{ revalidate: 30 }}
+      next={{ revalidate: BASEHUB_REVALIDATE_TIME }}
       queries={[
         {
           site: {

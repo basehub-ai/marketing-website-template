@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { BaseHubImage } from "basehub/next-image";
 import { draftMode } from "next/headers";
 
 import { Pump } from "basehub/react-pump";
@@ -6,6 +7,8 @@ import { Pump } from "basehub/react-pump";
 import { ThemeSwitcher } from "../theme-switcher";
 import { ButtonLink } from "@/common/button";
 import { DarkLightImage } from "@/common/dark-light-image";
+import Link from "next/link";
+import { BASEHUB_REVALIDATE_TIME } from "@/lib/basehub/constants";
 
 function isExternalLink(url: string | null | undefined) {
   return url && /^https?:\/\//.test(url);
@@ -15,7 +18,7 @@ export async function Footer() {
   return (
     <Pump
       draft={draftMode().isEnabled}
-      next={{ revalidate: 30 }}
+      next={{ revalidate: BASEHUB_REVALIDATE_TIME }}
       queries={[
         {
           site: {
@@ -68,10 +71,9 @@ export async function Footer() {
         return (
           <footer className="border-t border-border py-16 dark:border-dark-border">
             <div className="container mx-auto grid grid-cols-2 grid-rows-[auto_auto_auto] place-items-start items-center gap-y-7 px-6 sm:grid-cols-[1fr_auto_1fr] sm:grid-rows-2 sm:gap-x-3 sm:gap-y-16">
-              <DarkLightImage
-                className="max-h-[100px] max-w-[100px] dark:invert"
-                {...settings.logo}
-              />
+              <Link aria-label="Homepage" href="/">
+                <DarkLightImage className="max-h-[100px] max-w-[100px]" {...settings.logo} />
+              </Link>
               <nav className="col-start-1 row-start-2 flex flex-col gap-x-2 gap-y-3 self-center sm:col-span-1 sm:col-start-2 sm:row-start-1 sm:flex-row sm:items-center sm:place-self-center md:gap-x-4 lg:gap-x-8">
                 {footer.navbar.items.map(({ _title, url }) => (
                   <ButtonLink
@@ -93,7 +95,7 @@ export async function Footer() {
               </div>
 
               <p className="col-span-2 text-pretty text-sm text-text-tertiary dark:text-dark-text-tertiary sm:col-span-1 ">
-                @ 2024 Acme Corp. All rights reserved.
+                {footer.copyright}
               </p>
 
               <ul className="col-span-2 col-start-1 row-start-3 flex w-full items-center gap-x-3.5 gap-y-4 sm:col-span-1 sm:col-start-3 sm:row-start-2 sm:w-auto sm:flex-wrap sm:justify-self-end">
@@ -106,7 +108,7 @@ export async function Footer() {
                         href={link.url}
                         target="_blank"
                       >
-                        <Image
+                        <BaseHubImage
                           alt={link._title}
                           height={24}
                           src={link.icon?.url ?? ""}
@@ -117,7 +119,11 @@ export async function Footer() {
                   );
                 })}
 
-                {footer.poweredByBaseHub ? <PoweredByBasehub className="ml-auto shrink-0" /> : null}
+                {footer.poweredByBaseHub ? (
+                  <li>
+                    <PoweredByBasehub className="ml-auto shrink-0" />
+                  </li>
+                ) : null}
               </ul>
             </div>
           </footer>

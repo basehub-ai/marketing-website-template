@@ -14,7 +14,7 @@ export type TestimonialsSlider = fragmentOn.infer<typeof testimonialsSliderFragm
 
 export function Testimonials({ heading, quotes }: TestimonialsSlider) {
   return (
-    <div className="relative">
+    <div className="relative overflow-clip">
       <Section>
         <Slider quotes={quotes}>
           {heading.align === "none" ? (

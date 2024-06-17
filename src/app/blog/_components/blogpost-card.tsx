@@ -77,6 +77,8 @@ export function BlogpostCard({ type = "list", className, ...post }: BlogPostCard
               {...post.image}
               priority
               className="h-full w-full rounded bg-surface-tertiary/20 object-cover dark:bg-dark-surface-tertiary/20"
+              height={324}
+              width={576}
             />
           </figure>
           <div className={clsx("flex flex-col justify-between gap-3 p-4")}>
