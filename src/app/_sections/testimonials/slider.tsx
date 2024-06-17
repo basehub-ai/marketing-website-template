@@ -109,6 +109,7 @@ export function Slider({
           {scrollSnaps.map((snap, index) => (
             <button
               key={snap}
+              aria-label={`Testimonial ${String(index + 1)}`}
               className={clsx(
                 "group flex items-center justify-center rounded-full p-1",
                 index === selectedIndex ? "bg-accent-500/50" : "",
