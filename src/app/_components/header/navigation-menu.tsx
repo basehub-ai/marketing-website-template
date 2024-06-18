@@ -79,7 +79,7 @@ function NavigationMenuLinkWithMenu({ _title, href, sublinks }: HeaderLiksFragme
   const handleMouseEnter = () => {
     timeoutRef.current = window.setTimeout(() => {
       setCloseOnClick(true);
-    }, 2000);
+    }, 500);
   };
 
   const handleMouseLeave = () => {
