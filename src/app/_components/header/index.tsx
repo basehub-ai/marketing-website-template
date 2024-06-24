@@ -99,10 +99,10 @@ export async function Header() {
             logoStyle = "4/3";
             break;
           case aspectRatio < 4:
-            logoStyle = "landscape";
+            logoStyle = "portrait";
             break;
           default:
-            logoStyle = "portrait";
+            logoStyle = "landscape";
             break;
         }
 
@@ -117,8 +117,8 @@ export async function Header() {
                     className={clsx("w-auto", {
                       "h-10": logoStyle === "square",
                       "h-9": logoStyle === "4/3",
-                      "h-8": logoStyle === "landscape",
-                      "h-5": logoStyle === "portrait",
+                      "h-8": logoStyle === "portrait",
+                      "h-6": logoStyle === "landscape",
                     })}
                     {...settings.logo}
                   />
