@@ -12,6 +12,7 @@ import { PageView } from "../_components/page-view";
 import type { Metadata } from "next";
 import { basehub } from "basehub";
 import { BASEHUB_REVALIDATE_TIME } from "@/lib/basehub/constants";
+import { notFound } from "next/navigation";
 
 export const dynamic = "force-static";
 
@@ -79,10 +80,14 @@ export default async function BlogPage() {
         "use server";
         const { posts } = blog;
 
+        if (posts.items.length === 0) {
+          notFound();
+        }
+
         return (
           <Section className="gap-16">
             <PageView _analyticsKey={blog._analyticsKey} />
-            <div className="grid grid-cols-1 gap-5 md:grid-cols-2">
+            <div className="grid grid-cols-1 gap-5 self-stretch md:grid-cols-2">
               <Heading align="left">
                 <h2>{blog.mainTitle}</h2>
               </Heading>
@@ -98,9 +103,9 @@ export default async function BlogPage() {
               >
                 <Search _searchKey={blogPost._searchKey} />
               </SearchHitsProvider>
-              {blog.featuredPosts.slice(0, 3).map((post) => (
-                <BlogpostCard key={post._id} type="card" {...post} />
-              ))}
+              {blog.featuredPosts
+                ?.slice(0, 3)
+                .map((post) => <BlogpostCard key={post._id} type="card" {...post} />)}
             </div>
             <div className="w-full space-y-3">
               <Heading align="left">

@@ -10,6 +10,7 @@ import { PageView } from "../_components/page-view";
 import type { Metadata } from "next";
 import { basehub } from "basehub";
 import { BASEHUB_REVALIDATE_TIME } from "@/lib/basehub/constants";
+import { notFound } from "next/navigation";
 
 export const dynamic = "force-static";
 
@@ -59,6 +60,10 @@ export default async function ChangelogPage() {
         },
       ]) => {
         "use server";
+
+        if (changelog.posts.items.length === 0) {
+          return notFound();
+        }
 
         return (
           <>
