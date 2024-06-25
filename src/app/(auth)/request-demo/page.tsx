@@ -59,7 +59,7 @@ export default function RequestDemo() {
                 label="Message"
                 minLength={200}
                 name="message"
-                placeholder="Hey! I’d love to get a demo of Acme"
+                placeholder="Hey! I’d love to get a demo"
                 rows={8}
               />
               <div className="mt-3 flex items-center justify-between">
