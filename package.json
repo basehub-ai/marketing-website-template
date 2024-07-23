@@ -2,7 +2,7 @@
   "name": "basehub-marketing-website-template",
   "version": "0.1.0",
   "scripts": {
-    "dev": "basehub dev --watch & next dev",
+    "dev": "basehub dev & next dev",
     "build": "basehub && next build",
     "start": "next start",
     "lint": "next lint"
@@ -17,7 +17,7 @@
     "@radix-ui/react-tooltip": "^1.0.7",
     "@shikijs/transformers": "^1.5.2",
     "autoprefixer": "^10.4.19",
-    "basehub": "7.0.7",
+    "basehub": "7.0.9",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.1",
     "embla-carousel": "^8.0.4",
