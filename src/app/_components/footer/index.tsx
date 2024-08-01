@@ -6,7 +6,7 @@ import { Pump } from "basehub/react-pump";
 
 import { ThemeSwitcher } from "../theme-switcher";
 import { ButtonLink } from "@/common/button";
-import { DarkLightImage } from "@/common/dark-light-image";
+import { DarkLightImage, DarkLightImageAutoscale } from "@/common/dark-light-image";
 import Link from "next/link";
 import { BASEHUB_REVALIDATE_TIME } from "@/lib/basehub/constants";
 
@@ -72,7 +72,7 @@ export async function Footer() {
           <footer className="border-t border-border py-16 dark:border-dark-border">
             <div className="container mx-auto grid grid-cols-2 grid-rows-[auto_auto_auto] place-items-start items-center gap-y-7 px-6 sm:grid-cols-[1fr_auto_1fr] sm:grid-rows-2 sm:gap-x-3 sm:gap-y-16">
               <Link aria-label="Homepage" href="/">
-                <DarkLightImage className="max-h-[100px] max-w-[100px]" {...settings.logo} />
+                <DarkLightImageAutoscale priority {...settings.logo} />
               </Link>
               <nav className="col-start-1 row-start-2 flex flex-col gap-x-2 gap-y-3 self-center sm:col-span-1 sm:col-start-2 sm:row-start-1 sm:flex-row sm:items-center sm:place-self-center md:gap-x-4 lg:gap-x-8">
                 {footer.navbar.items.map(({ _title, url }) => (
