@@ -6,7 +6,7 @@ import { buttonFragment } from "@/lib/basehub/fragments";
 import { fragmentOn } from "basehub";
 
 import { DesktopMenu, MobileMenu } from "./navigation-menu";
-import { DarkLightImage } from "@/common/dark-light-image";
+import { DarkLightImage, DarkLightImageAutoscale } from "@/common/dark-light-image";
 import { BASEHUB_REVALIDATE_TIME } from "@/lib/basehub/constants";
 import clsx from "clsx";
 
@@ -85,43 +85,13 @@ export async function Header() {
         },
       ]) => {
         "use server";
-        const [aspectRatioWidth, aspectRatioHeight] = settings.logo.light.aspectRatio
-          .split("/")
-          .map(Number);
-        const aspectRatio = (aspectRatioWidth ?? 0) / (aspectRatioHeight ?? 0);
-        let logoStyle;
-
-        switch (true) {
-          case aspectRatio <= 1.2:
-            logoStyle = "square";
-            break;
-          case aspectRatio < 1.4:
-            logoStyle = "4/3";
-            break;
-          case aspectRatio < 4:
-            logoStyle = "portrait";
-            break;
-          default:
-            logoStyle = "landscape";
-            break;
-        }
 
         return (
           <header className="sticky left-0 top-0 z-[100] flex w-full flex-col border-b border-border bg-surface-primary dark:border-dark-border dark:bg-dark-surface-primary">
             <div className="flex h-[--header-height] bg-surface-primary dark:bg-dark-surface-primary">
               <div className="container mx-auto grid w-full grid-cols-header place-items-center content-center items-center px-6 first:*:justify-self-start">
                 <ButtonLink unstyled className="flex items-center ring-offset-2" href="/">
-                  <DarkLightImage
-                    priority
-                    alt="logo"
-                    className={clsx("w-auto", {
-                      "h-10": logoStyle === "square",
-                      "h-9": logoStyle === "4/3",
-                      "h-8": logoStyle === "portrait",
-                      "h-6": logoStyle === "landscape",
-                    })}
-                    {...settings.logo}
-                  />
+                  <DarkLightImageAutoscale priority {...settings.logo} />
                 </ButtonLink>
                 <DesktopMenu {...header} />
                 <MobileMenu {...header} />
