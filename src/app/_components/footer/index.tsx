@@ -30,6 +30,7 @@ export async function Footer() {
                   width: true,
                   alt: true,
                   aspectRatio: true,
+                  blurDataURL: true,
                 },
                 light: {
                   url: true,
@@ -37,6 +38,7 @@ export async function Footer() {
                   width: true,
                   alt: true,
                   aspectRatio: true,
+                  blurDataURL: true,
                 },
               },
               showUseTemplate: true,
