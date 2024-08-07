@@ -1,11 +1,11 @@
 import { type DarkLightImageFragment } from "@/lib/basehub/fragments";
 import clsx from "clsx";
-import type { ImageProps } from "next/image";
-import { BaseHubImage } from "basehub/next-image";
+import { BaseHubImage, type BaseHubImageProps } from "basehub/next-image";
 
 type DarkLightImageProps = DarkLightImageFragment &
-  Omit<ImageProps, "src" | "alt"> & {
+  Omit<BaseHubImageProps, "src" | "alt"> & {
     alt?: string;
+    withPlaceholder?: boolean;
   };
 
 export function DarkLightImage({
@@ -15,6 +15,7 @@ export function DarkLightImage({
   className,
   width,
   height,
+  withPlaceholder,
   ...props
 }: DarkLightImageProps) {
   return (
@@ -27,6 +28,12 @@ export function DarkLightImage({
           src={dark.url}
           width={width ?? dark.width}
           {...props}
+          {...(withPlaceholder && dark.blurDataURL
+            ? {
+                placeholder: "blur",
+                blurDataURL: dark.blurDataURL,
+              }
+            : {})}
         />
       ) : null}
       <BaseHubImage
@@ -36,6 +43,12 @@ export function DarkLightImage({
         src={light.url}
         width={width ?? light.width}
         {...props}
+        {...(withPlaceholder && light.blurDataURL
+          ? {
+              placeholder: "blur",
+              blurDataURL: light.blurDataURL,
+            }
+          : {})}
       />
     </>
   );

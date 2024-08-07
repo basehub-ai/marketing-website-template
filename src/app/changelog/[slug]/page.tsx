@@ -2,7 +2,7 @@ import { notFound } from "next/navigation";
 import Link from "next/link";
 import { BaseHubImage } from "basehub/next-image";
 import { RichText } from "basehub/react-rich-text";
-import { ArrowRightIcon } from "@radix-ui/react-icons";
+import { ArrowLeftIcon, ArrowRightIcon } from "@radix-ui/react-icons";
 import type { Metadata } from "next";
 
 import { Pump } from "basehub/react-pump";
@@ -189,10 +189,10 @@ export default async function ChangelogPage({ params }: ChangelogPageParams) {
             <ChangelogLayout>
               <div className="flex flex-col gap-1">
                 <Link
-                  className="text-xs text-text-tertiary hover:underline dark:text-dark-text-tertiary md:text-sm"
+                  className="flex w-max items-center gap-1 text-sm text-text-tertiary hover:underline dark:text-dark-text-tertiary md:text-sm"
                   href={`/changelog#${post._slug}`}
                 >
-                  Back to changelog
+                  <ArrowLeftIcon /> Back to changelog
                 </Link>
                 <Heading align="left">
                   <h1>{post._title}</h1>
@@ -206,8 +206,10 @@ export default async function ChangelogPage({ params }: ChangelogPageParams) {
               <BaseHubImage
                 priority
                 alt={post.image.alt ?? post._title}
+                blurDataURL={post.image.blurDataURL}
                 className="h-auto w-full rounded-xl"
                 height={post.image.height}
+                placeholder="blur"
                 src={post.image.url}
                 style={{ aspectRatio: post.image.aspectRatio }}
                 width={post.image.width}
@@ -241,7 +243,7 @@ export default async function ChangelogPage({ params }: ChangelogPageParams) {
 
                 {nextPost ? (
                   <ButtonLink
-                    className="text-xs text-text-tertiary hover:underline dark:text-dark-text-tertiary"
+                    className="text-sm text-text-tertiary hover:underline dark:text-dark-text-tertiary"
                     href={`/changelog/${nextPost._slug}`}
                     icon={<ArrowRightIcon />}
                     iconSide="right"

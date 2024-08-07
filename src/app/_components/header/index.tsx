@@ -65,6 +65,7 @@ export async function Header() {
                   width: true,
                   height: true,
                   aspectRatio: true,
+                  blurDataURL: true,
                 },
                 light: {
                   url: true,
@@ -72,6 +73,7 @@ export async function Header() {
                   width: true,
                   height: true,
                   aspectRatio: true,
+                  blurDataURL: true,
                 },
               },
             },
