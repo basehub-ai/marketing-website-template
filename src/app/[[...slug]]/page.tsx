@@ -48,10 +48,7 @@ export const dynamic = "force-static";
 export const revalidate = BASEHUB_REVALIDATE_TIME;
 
 export const generateStaticParams = async () => {
-  const data = await basehub({
-    cache: "no-store",
-    next: { revalidate: BASEHUB_REVALIDATE_TIME },
-  }).query({
+  const data = await basehub({ cache: "no-store" }).query({
     site: {
       pages: {
         items: {
@@ -138,38 +135,39 @@ function SectionsUnion({
   return sections.map((comp) => {
     switch (true) {
       case isHeroComponent(comp):
-        return <Hero {...comp} />;
+        return <Hero {...comp} key={comp._id} />;
       case isFeaturesCardsComponent(comp):
-        return <FeaturesList {...comp} />;
+        return <FeaturesList {...comp} key={comp._id} />;
       case isFeaturesGridComponent(comp):
-        return <FeaturesGrid {...comp} />;
+        return <FeaturesGrid {...comp} key={comp._id} />;
       case isCompaniesComponent(comp):
-        return <Companies {...comp} />;
+        return <Companies {...comp} key={comp._id} />;
       case isFeaturesBigImageComponent(comp):
-        return <BigFeature {...comp} />;
+        return <BigFeature {...comp} key={comp._id} />;
       case isFeaturesSideBySideComponent(comp):
-        return <SideFeatures {...comp} />;
+        return <SideFeatures {...comp} key={comp._id} />;
       case isCalloutComponent(comp):
-        return <Callout {...comp} />;
+        return <Callout {...comp} key={comp._id} />;
       case isCalloutV2Component(comp):
-        return <Callout2 {...comp} />;
+        return <Callout2 {...comp} key={comp._id} />;
       case isTestimonialSliderComponent(comp):
-        return <Testimonials {...comp} />;
+        return <Testimonials {...comp} key={comp._id} />;
       case isTestimonialsGridComponent(comp):
-        return <TestimonialsGrid {...comp} />;
+        return <TestimonialsGrid {...comp} key={comp._id} />;
       case isPricingComponent(comp):
-        return <Pricing {...comp} />;
+        return <Pricing {...comp} key={comp._id} />;
       case isFaqComponent(comp) && comp.layout === "list":
-        return <Faq {...comp} />;
+        return <Faq {...comp} key={comp._id} />;
       case isFaqComponent(comp) && comp.layout === "accordion":
-        return <AccordionFaq {...comp} />;
+        return <AccordionFaq {...comp} key={comp._id} />;
       case isPricingTableComponent(comp):
-        return <PricingTable {...comp} />;
+        return <PricingTable {...comp} key={comp._id} />;
       case isFeatureHeroComponent(comp):
-        return <FeatureHero {...comp} />;
+        return <FeatureHero {...comp} key={comp._id} />;
       case isSectionReferenceComponent(comp):
         return (
           <SectionsUnion
+            key={comp._id}
             sections={[{ ...comp.sectionReference, _analyticsKey: comp._analyticsKey }]}
           />
         );

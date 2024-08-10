@@ -5,8 +5,9 @@ const nextConfig = {
       fullUrl: true,
     },
   },
+  transpilePackages: ["shiki"],
   images: {
-    domains: ["basehub.earth", "assets.basehub.com"],
+    remotePatterns: [{ hostname: "assets.basehub.com" }, { hostname: "basehub.earth" }],
   },
 };
 

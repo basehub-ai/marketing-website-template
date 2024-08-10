@@ -4,7 +4,7 @@ import "./globals.scss";
 import { GeistSans } from "geist/font/sans";
 import { GeistMono } from "geist/font/mono";
 
-import { basehub } from "basehub/index";
+import { basehub } from "basehub";
 
 import { Providers } from "./providers";
 import { Header } from "./_components/header";
