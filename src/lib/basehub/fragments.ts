@@ -53,6 +53,7 @@ export const optimizedImageFragment = fragmentOn("BlockImage", {
       format: "auto",
     },
   },
+  blurDataURL: true,
   aspectRatio: true,
   width: true,
   height: true,

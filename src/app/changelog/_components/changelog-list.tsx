@@ -93,8 +93,10 @@ export function ChangelogList({ changelogPosts }: { changelogPosts: ChangelogLis
           <article className="mb-16 flex flex-col gap-6">
             <BaseHubImage
               alt={post._title}
+              blurDataURL={post.image.blurDataURL}
               className="rounded-lg border border-border dark:border-dark-border"
               height={480}
+              placeholder="blur"
               priority={idx === 0}
               src={post.image.url}
               width={647}

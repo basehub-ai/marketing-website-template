@@ -190,6 +190,7 @@ export default async function BlogPage({ params: { slug } }: { params: { slug: s
               <DarkLightImage
                 {...blogpost.image}
                 priority
+                withPlaceholder
                 className="h-full max-h-[720px] w-full object-cover "
                 style={{ aspectRatio: blogpost.image.light.aspectRatio }}
               />
