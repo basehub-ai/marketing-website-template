@@ -1,9 +1,10 @@
 import { type DarkLightImageFragment } from "@/lib/basehub/fragments";
 import clsx from "clsx";
-import { BaseHubImage, type BaseHubImageProps } from "basehub/next-image";
+import { BaseHubImage } from "basehub/next-image";
+import type { ImageProps } from "next/image";
 
 type DarkLightImageProps = DarkLightImageFragment &
-  Omit<BaseHubImageProps, "src" | "alt"> & {
+  Omit<ImageProps, "src" | "alt"> & {
     alt?: string;
     withPlaceholder?: boolean;
   };

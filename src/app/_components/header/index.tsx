@@ -6,9 +6,8 @@ import { buttonFragment } from "@/lib/basehub/fragments";
 import { fragmentOn } from "basehub";
 
 import { DesktopMenu, MobileMenu } from "./navigation-menu";
-import { DarkLightImage, DarkLightImageAutoscale } from "@/common/dark-light-image";
+import { DarkLightImageAutoscale } from "@/common/dark-light-image";
 import { BASEHUB_REVALIDATE_TIME } from "@/lib/basehub/constants";
-import clsx from "clsx";
 
 const headerLinksFragment = fragmentOn("HeaderNavbarLinkComponent", {
   _title: true,

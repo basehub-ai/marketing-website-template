@@ -6,7 +6,7 @@ import { Pump } from "basehub/react-pump";
 
 import { ThemeSwitcher } from "../theme-switcher";
 import { ButtonLink } from "@/common/button";
-import { DarkLightImage, DarkLightImageAutoscale } from "@/common/dark-light-image";
+import { DarkLightImageAutoscale } from "@/common/dark-light-image";
 import Link from "next/link";
 import { BASEHUB_REVALIDATE_TIME } from "@/lib/basehub/constants";
 
