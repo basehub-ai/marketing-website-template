@@ -19,7 +19,7 @@ export const revalidate = BASEHUB_REVALIDATE_TIME;
 export const generateMetadata = async (): Promise<Metadata | undefined> => {
   const data = await basehub({ cache: "no-store", draft: draftMode().isEnabled }).query({
     site: {
-      changelog: {
+      roadmap: {
         metadata: {
           title: true,
           description: true,
@@ -29,8 +29,8 @@ export const generateMetadata = async (): Promise<Metadata | undefined> => {
   });
 
   return {
-    title: data.site.changelog.metadata.title ?? undefined,
-    description: data.site.changelog.metadata.description ?? undefined,
+    title: data.site.roadmap.metadata.title ?? undefined,
+    description: data.site.roadmap.metadata.description ?? undefined,
   };
 };
 
@@ -42,7 +42,7 @@ export default async function ChangelogPage() {
       queries={[
         {
           site: {
-            changelog: {
+            roadmap: {
               _analyticsKey: true,
               title: true,
               subtitle: true,
@@ -56,29 +56,29 @@ export default async function ChangelogPage() {
     >
       {async ([
         {
-          site: { changelog },
+          site: { roadmap },
         },
       ]) => {
         "use server";
 
-        if (changelog.posts.items.length === 0) {
+        if (roadmap.posts.items.length === 0) {
           return notFound();
         }
 
         return (
           <>
-            <PageView _analyticsKey={changelog._analyticsKey} />
+            <PageView _analyticsKey={roadmap._analyticsKey} />
             <ChangelogLayout>
               <Heading
                 align="left"
                 className="flex-1 !flex-col-reverse"
-                subtitle={changelog.subtitle}
+                subtitle={roadmap.subtitle}
               >
-                <h1>{changelog.title}</h1>
+                <h1>{roadmap.title}</h1>
               </Heading>
             </ChangelogLayout>
             <div className="mx-auto max-w-screen-md px-8 pt-16">
-              <ChangelogList changelogPosts={changelog.posts.items} />
+              <ChangelogList changelogPosts={roadmap.posts.items} />
             </div>
           </>
         );

@@ -34,7 +34,7 @@ interface ChangelogPageParams {
 export const generateStaticParams = async () => {
   const data = await basehub({ cache: "no-store" }).query({
     site: {
-      changelog: {
+      roadmap: {
         posts: {
           items: {
             _slug: true,
@@ -44,7 +44,7 @@ export const generateStaticParams = async () => {
     },
   });
 
-  return data.site.changelog.posts.items.map((post) => {
+  return data.site.roadmap.posts.items.map((post) => {
     return {
       slug: post._slug,
     };
@@ -62,7 +62,7 @@ export const generateMetadata = async ({
           sitename: true,
         },
       },
-      changelog: {
+      roadmap: {
         posts: {
           __args: {
             filter: {
@@ -81,7 +81,7 @@ export const generateMetadata = async ({
     },
   });
 
-  const post = data.site.changelog.posts.items[0];
+  const post = data.site.roadmap.posts.items[0];
 
   if (!post) return undefined;
 
@@ -109,7 +109,7 @@ export default async function ChangelogPage({ params }: ChangelogPageParams) {
       queries={[
         {
           site: {
-            changelog: {
+            roadmap: {
               posts: {
                 __args: {
                   filter: {
@@ -150,7 +150,7 @@ export default async function ChangelogPage({ params }: ChangelogPageParams) {
         },
         {
           site: {
-            changelog: {
+            roadmap: {
               posts: {
                 items: {
                   _slug: true,
@@ -167,21 +167,20 @@ export default async function ChangelogPage({ params }: ChangelogPageParams) {
     >
       {async ([
         {
-          site: { changelog },
+          site: { roadmap },
         },
         allPosts,
       ]) => {
         "use server";
-        const post = changelog.posts.items.at(0);
+        const post = roadmap.posts.items.at(0);
 
         if (!post) return notFound();
 
-        const postIndex = allPosts.site.changelog.posts.items.findIndex(
+        const postIndex = allPosts.site.roadmap.posts.items.findIndex(
           (p) => p._slug === post._slug,
         );
         const nextPost =
-          allPosts.site.changelog.posts.items[postIndex + 1] ??
-          allPosts.site.changelog.posts.items[0];
+          allPosts.site.roadmap.posts.items[postIndex + 1] ?? allPosts.site.roadmap.posts.items[0];
 
         return (
           <>
@@ -190,9 +189,9 @@ export default async function ChangelogPage({ params }: ChangelogPageParams) {
               <div className="flex flex-col gap-1">
                 <Link
                   className="flex w-max items-center gap-1 text-sm text-text-tertiary hover:underline dark:text-dark-text-tertiary md:text-sm"
-                  href={`/changelog#${post._slug}`}
+                  href={`/roadmap#${post._slug}`}
                 >
-                  <ArrowLeftIcon /> Back to changelog
+                  <ArrowLeftIcon /> Back to roadmap
                 </Link>
                 <Heading align="left">
                   <h1>{post._title}</h1>
@@ -244,7 +243,7 @@ export default async function ChangelogPage({ params }: ChangelogPageParams) {
                 {nextPost ? (
                   <ButtonLink
                     className="text-sm text-text-tertiary hover:underline dark:text-dark-text-tertiary"
-                    href={`/changelog/${nextPost._slug}`}
+                    href={`/roadmap/${nextPost._slug}`}
                     icon={<ArrowRightIcon />}
                     iconSide="right"
                     intent="secondary"

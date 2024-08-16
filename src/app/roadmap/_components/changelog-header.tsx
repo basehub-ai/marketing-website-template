@@ -33,7 +33,7 @@ export function ChangelogLayout({
           queries={[
             {
               site: {
-                changelog: {
+                roadmap: {
                   socialLinksTitle: true,
                   socialLinks: { icon: { url: true }, url: true, _title: true, _id: true },
                 },
@@ -43,16 +43,16 @@ export function ChangelogLayout({
         >
           {async ([
             {
-              site: { changelog },
+              site: { roadmap },
             },
           ]) => {
             "use server";
-            const socialLinks = changelog.socialLinks;
+            const socialLinks = roadmap.socialLinks;
 
             return (
               <div className={`flex items-center gap-2 md:flex-col ${socialLinksClassName}`}>
                 <p className="text-sm text-text-tertiary dark:text-dark-text-tertiary">
-                  {changelog.socialLinksTitle}
+                  {roadmap.socialLinksTitle}
                 </p>
                 <div className="flex gap-2">
                   {socialLinks.map((link) => (
