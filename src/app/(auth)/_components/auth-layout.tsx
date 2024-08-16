@@ -1,7 +1,9 @@
+import { BASEHUB_REVALIDATE_TIME } from "@/lib/basehub/constants";
 import { buttonFragment } from "@/lib/basehub/fragments";
 import { fragmentOn } from "basehub";
 import { Pump } from "basehub/react-pump";
 import { RichText, type RichTextProps } from "basehub/react-rich-text";
+import { draftMode } from "next/headers";
 import Image from "next/image";
 import Link, { type LinkProps } from "next/link";
 
@@ -29,6 +31,8 @@ export async function AuthLayout({
       <div className="mx-auto flex w-full max-w-xl flex-col gap-5 rounded-xl border border-surface-secondary bg-surface-primary p-5 shadow-md dark:border-dark-border dark:bg-dark-surface-secondary dark:shadow-none">
         <header className="flex flex-col gap-3">
           <Pump
+            draft={draftMode().isEnabled}
+            next={{ revalidate: BASEHUB_REVALIDATE_TIME }}
             queries={[
               {
                 site: {
