@@ -146,17 +146,18 @@ function NavigationMenuLinkWithMenu({ _title, href, sublinks }: HeaderLiksFragme
   );
 }
 
-export function DesktopMenu({ navbar, ctaS }: HeaderFragment) {
+export function DesktopMenu({ navbar, rightCtas }: HeaderFragment) {
   return (
     <>
       <NavigationMenuHeader className="hidden lg:flex" links={navbar.items} />
       <div className="hidden items-center gap-2 justify-self-end lg:flex">
-        <ButtonLink className="!px-3.5" href={ctaS.secondary.href} intent={ctaS.secondary.type}>
-          {ctaS.secondary.label}
-        </ButtonLink>
-        <ButtonLink className="!px-3.5" href={ctaS.primary.href} intent={ctaS.primary.type}>
-          {ctaS.primary.label}
-        </ButtonLink>
+        {rightCtas.items.map((cta) => {
+          return (
+            <ButtonLink key={cta._id} className="!px-3.5" href={cta.href} intent={cta.type}>
+              {cta.label}
+            </ButtonLink>
+          );
+        })}
       </div>
     </>
   );
@@ -167,7 +168,7 @@ export function DesktopMenu({ navbar, ctaS }: HeaderFragment) {
 /*                                   Mobile                                   */
 /* -------------------------------------------------------------------------- */
 
-export function MobileMenu({ ctaS, navbar }: HeaderFragment) {
+export function MobileMenu({ navbar, rightCtas }: HeaderFragment) {
   const { handleToggle, isOn, handleOff } = useToggleState();
 
   return (
@@ -206,12 +207,13 @@ export function MobileMenu({ ctaS, navbar }: HeaderFragment) {
                 )}
               </nav>
               <div className="flex items-center justify-start gap-2">
-                <ButtonLink href={ctaS.secondary.href} intent={ctaS.secondary.type} size="lg">
-                  {ctaS.secondary.label}
-                </ButtonLink>
-                <ButtonLink href={ctaS.primary.href} intent={ctaS.primary.type} size="lg">
-                  {ctaS.primary.label}
-                </ButtonLink>
+                {rightCtas.items.map((cta) => {
+                  return (
+                    <ButtonLink key={cta._id} href={cta.href} intent={cta.type} size="lg">
+                      {cta.label}
+                    </ButtonLink>
+                  );
+                })}
               </div>
             </div>
           </div>

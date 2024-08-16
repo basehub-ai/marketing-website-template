@@ -39,9 +39,8 @@ export const headerFragment = fragmentOn("Header", {
   navbar: {
     items: headerLinksFragment,
   },
-  ctaS: {
-    primary: buttonFragment,
-    secondary: buttonFragment,
+  rightCtas: {
+    items: buttonFragment,
   },
 });
 
