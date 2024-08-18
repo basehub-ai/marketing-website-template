@@ -1,20 +1,16 @@
 "use client";
 
+import { useCopyToClipboard } from "basehub/react-code-block/client";
 import { Button } from "@/common/button";
 import { ClipboardCopyIcon, CheckIcon } from "@radix-ui/react-icons";
-import React from "react";
 
-export function CopyButton({ text }: { text: string }) {
-  const [isShowingTooltip, setIsShowingTooltip] = React.useState(false);
-  const handleClick = async () => {
-    await navigator.clipboard.writeText(text);
-    setIsShowingTooltip(true);
-    setTimeout(() => setIsShowingTooltip(false), 2000);
-  };
+export function CopyButton() {
+  const { copied, onCopy } = useCopyToClipboard();
 
   return (
-    <Button unstyled className="relative" onClick={handleClick}>
-      {isShowingTooltip ? <CheckIcon /> : <ClipboardCopyIcon />}
+    <Button unstyled className="relative -mx-2 p-2" onClick={onCopy}>
+      <span className="sr-only">Copy</span>
+      {copied ? <CheckIcon /> : <ClipboardCopyIcon />}
     </Button>
   );
 }
