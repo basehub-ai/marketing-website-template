@@ -31,6 +31,7 @@ module.exports = {
     ],
     "no-console": "warn",
     "react/prop-types": "off",
+    "react/no-unstable-nested-components": "off",
     "react/jsx-uses-react": "off",
     "react/react-in-jsx-scope": "off",
     "react/self-closing-comp": "warn",

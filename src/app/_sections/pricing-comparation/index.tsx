@@ -9,7 +9,7 @@ import { ButtonLink } from "@/common/button";
 import { type fragmentOn, isBooleanComponent, isCustomTextComponent } from ".basehub/schema";
 import { SimpleTooltip } from "@/common/tooltip";
 
-import { MobilePricingComparation } from "./mobile-pricing-comparition";
+import { MobilePricingComparison } from "./mobile-pricing-comparison";
 import { type planFragment, type pricingTableFragment, type valueFragment } from "./fragments";
 
 export type PricingTableProps = fragmentOn.infer<typeof pricingTableFragment>;
@@ -52,7 +52,7 @@ export function PricingTable(props: PricingTableProps) {
           ))}
         </tbody>
       </table>
-      <MobilePricingComparation {...{ ...props, plans }} />
+      <MobilePricingComparison {...{ ...props, plans }} />
     </Section>
   );
 }
