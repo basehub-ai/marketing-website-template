@@ -117,7 +117,7 @@ export function ChangelogList({ changelogPosts }: { changelogPosts: ChangelogLis
                   ))}
                 </AvatarsGroup>
               ) : post.authors[0] ? (
-                <div className="flex items-center  gap-2">
+                <div className="flex items-center gap-2 rounded-full">
                   <BaseHubImage
                     alt={post.authors[0]._title}
                     height={24}
