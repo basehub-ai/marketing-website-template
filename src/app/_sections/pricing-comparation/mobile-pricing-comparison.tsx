@@ -31,7 +31,7 @@ import { SimpleTooltip } from "@/common/tooltip";
 
 import { type PlanFragment, type PricingTableProps } from ".";
 
-export function MobilePricingComparation({
+export function MobilePricingComparison({
   categories,
   plans,
 }: Pick<PricingTableProps, "categories"> & {

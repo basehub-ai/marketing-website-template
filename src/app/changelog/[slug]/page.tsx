@@ -110,6 +110,7 @@ export default async function ChangelogPage({ params }: ChangelogPageParams) {
         {
           site: {
             changelog: {
+              goBackText: true,
               posts: {
                 __args: {
                   filter: {
@@ -192,7 +193,7 @@ export default async function ChangelogPage({ params }: ChangelogPageParams) {
                   className="flex w-max items-center gap-1 text-sm text-text-tertiary hover:underline dark:text-dark-text-tertiary md:text-sm"
                   href={`/changelog#${post._slug}`}
                 >
-                  <ArrowLeftIcon /> Back to changelog
+                  <ArrowLeftIcon /> {changelog.goBackText}
                 </Link>
                 <Heading align="left">
                   <h1>{post._title}</h1>

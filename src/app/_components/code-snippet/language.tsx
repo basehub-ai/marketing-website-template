@@ -1,6 +1,7 @@
-import { type BundledLanguage } from "shiki";
+import { type Language } from "basehub/react-code-block";
+
 // Define PartialBundledLanguage as Partial of BundledLanguage
-type PartialBundledLanguage = Partial<Record<BundledLanguage, React.ReactNode>>;
+type PartialBundledLanguage = Partial<Record<Language, React.ReactNode>>;
 
 export const languagesIcons: PartialBundledLanguage = {
   javascript: (
