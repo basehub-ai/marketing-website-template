@@ -47,6 +47,9 @@ export default async function ChangelogPage() {
               title: true,
               subtitle: true,
               posts: {
+                __args: {
+                  orderBy: "publishedAt__DESC",
+                },
                 items: changelogListFragment,
               },
             },
