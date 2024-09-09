@@ -33,7 +33,7 @@ type Hero = fragmentOn.infer<typeof heroFragment>;
 
 export function Hero(hero: Hero) {
   return (
-    <section className="relative h-[calc(630px-var(--header-height))] overflow-hidden">
+    <section className="relative min-h-[calc(630px-var(--header-height))] overflow-hidden pb-10">
       <div className="absolute left-0 top-0 z-0 grid h-full w-full grid-cols-[clamp(28px,10vw,120px)_auto_clamp(28px,10vw,120px)] border-b border-border dark:border-dark-border">
         {/* Decorations */}
         <div className="col-span-1 flex h-full items-center justify-center" />
@@ -59,7 +59,7 @@ export function Hero(hero: Hero) {
           </div>
         </div>
         <div>
-          <div className="mx-auto flex h-[288px] max-w-[80vw] shrink-0 flex-col items-center justify-center gap-2 px-2 py-4 sm:px-16 lg:px-24">
+          <div className="mx-auto flex min-h-[288px] max-w-[80vw] shrink-0 flex-col items-center justify-center gap-2 px-2 py-4 sm:px-16 lg:px-24">
             <h1 className="max-w-screen-lg text-pretty text-center text-[clamp(32px,7vw,64px)] font-medium leading-none tracking-[-1.44px] text-text-primary dark:text-dark-text-primary md:tracking-[-2.16px]">
               {hero.title}
             </h1>
