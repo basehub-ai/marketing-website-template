@@ -63,6 +63,7 @@ export default async function BlogPage() {
               featuredPosts: blogpostCardFragment,
               listTitle: true,
               posts: {
+                __args: { orderBy: "publishedAt__DESC" },
                 items: blogpostCardFragment,
               },
             },
