@@ -8,6 +8,7 @@ import { authorFragment, darkLightImageFragment } from "@/lib/basehub/fragments"
 import { formatDate } from "@/utils/dates";
 import { DarkLightImage } from "@/common/dark-light-image";
 import { ButtonLink } from "@/common/button";
+import { SimpleTooltip } from "@/common/tooltip";
 
 export const blogpostCardFragment = fragmentOn("BlogPostComponent", {
   _id: true,
@@ -41,9 +42,13 @@ export function BlogpostCard({ type = "list", className, ...post }: BlogPostCard
             <h3 className="relative col-span-2 max-w-full justify-self-start pr-4 font-medium text-text-primary dark:text-dark-text-primary max-lg:line-clamp-2 md:col-span-1 lg:truncate">
               {post._title}
             </h3>
-            <p className="col-span-2 md:col-span-1">
-              {post.categories.length > 0 ? post.categories.join(",") : "No categories"}
-            </p>
+            <SimpleTooltip
+              content={post.categories.length > 0 ? post.categories.join(", ") : "No categories"}
+            >
+              <p className="col-span-2 w-full overflow-hidden text-ellipsis whitespace-nowrap md:col-span-1">
+                {post.categories.length > 0 ? post.categories.join(", ") : "No categories"}
+              </p>
+            </SimpleTooltip>
             <p className="max-md:mt-3">{formatDate(post.publishedAt)}</p>
             <div className="flex items-center justify-self-end">
               <AvatarsGroup animate>
