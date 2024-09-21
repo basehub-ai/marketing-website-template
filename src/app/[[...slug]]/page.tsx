@@ -102,29 +102,6 @@ export const generateMetadata = async ({
   };
 };
 
-const sectionsFragment = fragmentOn("PagesItem", {
-  sections: {
-    __typename: true,
-    on_HeroComponent: heroFragment,
-    on_FeaturesCardsComponent: featureCardsComponent,
-    on_FeaturesSideBySideComponent: featuresSideBySideFragment,
-    on_FeaturesBigImageComponent: bigFeatureFragment,
-    on_FeaturesGridComponent: featuresGridFragment,
-    on_CompaniesComponent: companiesFragment,
-    on_CalloutComponent: calloutFragment,
-    on_CalloutV2Component: calloutv2Fragment,
-    on_TestimonialSliderComponent: testimonialsSliderFragment,
-    on_TestimonialsGridComponent: testimonialsGridFragment,
-    on_PricingComponent: pricingFragment,
-    on_PricingTableComponent: pricingTableFragment,
-    on_FeatureHeroComponent: featureHeroFragment,
-    on_FaqComponent: {
-      layout: true,
-      ...faqFragment,
-    },
-  },
-});
-
 function SectionsUnion({
   sections,
 }: {
@@ -176,6 +153,29 @@ function SectionsUnion({
     }
   });
 }
+
+const sectionsFragment = fragmentOn("PagesItem", {
+  sections: {
+    __typename: true,
+    on_HeroComponent: heroFragment,
+    on_FeaturesCardsComponent: featureCardsComponent,
+    on_FeaturesSideBySideComponent: featuresSideBySideFragment,
+    on_FeaturesBigImageComponent: bigFeatureFragment,
+    on_FeaturesGridComponent: featuresGridFragment,
+    on_CompaniesComponent: companiesFragment,
+    on_CalloutComponent: calloutFragment,
+    on_CalloutV2Component: calloutv2Fragment,
+    on_TestimonialSliderComponent: testimonialsSliderFragment,
+    on_TestimonialsGridComponent: testimonialsGridFragment,
+    on_PricingComponent: pricingFragment,
+    on_PricingTableComponent: pricingTableFragment,
+    on_FeatureHeroComponent: featureHeroFragment,
+    on_FaqComponent: {
+      layout: true,
+      ...faqFragment,
+    },
+  },
+});
 
 export default async function DynamicPage({ params }: { params: { slug?: string[] } }) {
   const slugs = params.slug;
