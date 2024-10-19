@@ -1,5 +1,3 @@
-import { draftMode } from "next/headers";
-
 import { ButtonLink } from "@/common/button";
 import { Pump } from "basehub/react-pump";
 import { buttonFragment } from "@/lib/basehub/fragments";
@@ -7,7 +5,6 @@ import { fragmentOn } from "basehub";
 
 import { DesktopMenu, MobileMenu } from "./navigation-menu";
 import { DarkLightImageAutoscale } from "@/common/dark-light-image";
-import { BASEHUB_REVALIDATE_TIME } from "@/lib/basehub/constants";
 
 const headerLinksFragment = fragmentOn("HeaderNavbarLinkComponent", {
   _title: true,
@@ -49,8 +46,6 @@ export type HeaderFragment = fragmentOn.infer<typeof headerFragment>;
 export async function Header() {
   return (
     <Pump
-      draft={draftMode().isEnabled}
-      next={{ revalidate: BASEHUB_REVALIDATE_TIME }}
       queries={[
         {
           site: {

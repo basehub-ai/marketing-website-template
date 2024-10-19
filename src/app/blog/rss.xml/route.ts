@@ -1,9 +1,8 @@
 import { basehub } from "basehub";
 import { siteUrl } from "@/../next-sitemap.config";
-import { BASEHUB_REVALIDATE_TIME } from "@/lib/basehub/constants";
 
 export async function GET() {
-  const data = await basehub({ next: { revalidate: BASEHUB_REVALIDATE_TIME } }).query({
+  const data = await basehub().query({
     site: {
       blog: {
         mainTitle: true,

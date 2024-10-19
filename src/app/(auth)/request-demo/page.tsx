@@ -4,14 +4,10 @@ import { LabeledInput, LabeledTextarea } from "../_components/labeled-input";
 import { ArrowRightIcon } from "@radix-ui/react-icons";
 import { BackToHomeButton } from "../_components/back-to-home-button";
 import { Pump } from "basehub/react-pump";
-import { draftMode } from "next/headers";
-import { BASEHUB_REVALIDATE_TIME } from "@/lib/basehub/constants";
 
 export default function RequestDemo() {
   return (
     <Pump
-      draft={draftMode().isEnabled}
-      next={{ revalidate: BASEHUB_REVALIDATE_TIME }}
       queries={[
         {
           site: {

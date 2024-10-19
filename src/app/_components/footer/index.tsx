@@ -1,6 +1,5 @@
 import Image from "next/image";
 import { BaseHubImage } from "basehub/next-image";
-import { draftMode } from "next/headers";
 
 import { Pump } from "basehub/react-pump";
 
@@ -8,7 +7,6 @@ import { ThemeSwitcher } from "../theme-switcher";
 import { ButtonLink } from "@/common/button";
 import { DarkLightImageAutoscale } from "@/common/dark-light-image";
 import Link from "next/link";
-import { BASEHUB_REVALIDATE_TIME } from "@/lib/basehub/constants";
 
 function isExternalLink(url: string | null | undefined) {
   return url && /^https?:\/\//.test(url);
@@ -17,8 +15,6 @@ function isExternalLink(url: string | null | undefined) {
 export async function Footer() {
   return (
     <Pump
-      draft={draftMode().isEnabled}
-      next={{ revalidate: BASEHUB_REVALIDATE_TIME }}
       queries={[
         {
           site: {

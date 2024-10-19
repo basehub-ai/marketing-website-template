@@ -1,1 +1,0 @@
-export const BASEHUB_REVALIDATE_TIME = 10;
