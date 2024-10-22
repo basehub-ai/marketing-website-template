@@ -13,7 +13,8 @@ import { Newsletter } from "./_sections/newsletter/newsletter";
 import { draftMode } from "next/headers";
 
 export const generateMetadata = async (): Promise<Metadata> => {
-  const data = await basehub({ cache: "no-store", draft: draftMode().isEnabled }).query({
+  const draft = (await draftMode()).isEnabled;
+  const data = await basehub({ cache: "no-store", draft }).query({
     site: {
       settings: {
         metadata: {

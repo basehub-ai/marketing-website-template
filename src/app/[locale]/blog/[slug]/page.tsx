@@ -23,12 +23,15 @@ import { formatDate } from "@/utils/dates";
 import { DarkLightImage } from "@/common/dark-light-image";
 import { PageView } from "@/app/_components/page-view";
 import { BASEHUB_REVALIDATE_TIME } from "@/lib/basehub/constants";
+import { type LanguagesEnum } from ".basehub/schema";
+import { getAvailableLocales } from "@/lib/basehub/localization";
 
 export const dynamic = "force-static";
 
 export const revalidate = BASEHUB_REVALIDATE_TIME;
 
-export const generateStaticParams = async () => {
+export const generateStaticParams = async (): Promise<{ locale: string; slug: string }[]> => {
+  const locales = await getAvailableLocales();
   const data = await basehub({ cache: "no-store" }).query({
     site: {
       blog: {
@@ -41,17 +44,18 @@ export const generateStaticParams = async () => {
     },
   });
 
-  return data.site.blog.posts.items.map((post) => {
-    return {
+  return data.site.blog.posts.items.flatMap((post) => {
+    return locales.map(({ locale }) => ({
+      locale,
       slug: post._slug,
-    };
+    }));
   });
 };
 
 export const generateMetadata = async ({
-  params: { slug },
+  params: { slug, locale },
 }: {
-  params: { slug: string };
+  params: { slug: string; locale: LanguagesEnum };
 }): Promise<Metadata | undefined> => {
   const data = await basehub({ next: { revalidate: BASEHUB_REVALIDATE_TIME } }).query({
     site: {
@@ -62,6 +66,9 @@ export const generateMetadata = async ({
         },
       },
       blog: {
+        __args: {
+          variants: { languages: locale },
+        },
         posts: {
           __args: {
             filter: {
@@ -100,16 +107,23 @@ export const generateMetadata = async ({
   };
 };
 
-export default async function BlogPage({ params: { slug } }: { params: { slug: string } }) {
+export default async function BlogPage({
+  params: { slug, locale },
+}: {
+  params: { slug: string; locale: LanguagesEnum };
+}) {
   return (
     <main>
       <Pump
-        draft={draftMode().isEnabled}
+        draft={(await draftMode()).isEnabled}
         next={{ revalidate: BASEHUB_REVALIDATE_TIME }}
         queries={[
           {
             site: {
               blog: {
+                __args: {
+                  variants: { languages: locale },
+                },
                 posts: {
                   __args: {
                     filter: {
@@ -176,7 +190,7 @@ export default async function BlogPage({ params: { slug } }: { params: { slug: s
                     ))}
                   </div>
                   <div className="flex divide-x divide-border text-sm font-normal text-text-tertiary dark:divide-dark-border dark:text-dark-text-tertiary">
-                    <p className="pr-2">{formatDate(blogpost.publishedAt)}</p>
+                    <p className="pr-2">{formatDate(blogpost.publishedAt, { locale })}</p>
                     <span className="pl-2">
                       {blogpost.categories.map((category) => (
                         <span key={category} className="mr-1 capitalize">

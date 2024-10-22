@@ -49,7 +49,7 @@ export type HeaderFragment = fragmentOn.infer<typeof headerFragment>;
 export async function Header() {
   return (
     <Pump
-      draft={draftMode().isEnabled}
+      draft={(await draftMode()).isEnabled}
       next={{ revalidate: BASEHUB_REVALIDATE_TIME }}
       queries={[
         {

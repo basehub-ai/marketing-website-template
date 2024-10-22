@@ -8,18 +8,24 @@ import { SearchHitsProvider } from "@/context/search-hits-context";
 import { type AvatarFragment, avatarFragment } from "@/lib/basehub/fragments";
 
 import { BlogpostCard, blogpostCardFragment } from "./_components/blogpost-card";
-import { PageView } from "../_components/page-view";
+import { PageView } from "../../_components/page-view";
 import type { Metadata } from "next";
 import { basehub } from "basehub";
 import { BASEHUB_REVALIDATE_TIME } from "@/lib/basehub/constants";
 import { notFound } from "next/navigation";
+import { type LanguagesEnum } from ".basehub/schema";
+import { getAvailableLocales } from "@/lib/basehub/localization";
 
 export const dynamic = "force-static";
 
 export const revalidate = BASEHUB_REVALIDATE_TIME;
 
+export const generateStaticParams = async (): Promise<{ locale: string }[]> => {
+  return await getAvailableLocales();
+};
+
 export const generateMetadata = async (): Promise<Metadata | undefined> => {
-  const data = await basehub({ cache: "no-store", draft: draftMode().isEnabled }).query({
+  const data = await basehub({ cache: "no-store", draft: (await draftMode()).isEnabled }).query({
     site: {
       blog: {
         metadata: {
@@ -36,10 +42,14 @@ export const generateMetadata = async (): Promise<Metadata | undefined> => {
   };
 };
 
-export default async function BlogPage() {
+export default async function BlogPage({
+  params: { locale },
+}: {
+  params: { locale: LanguagesEnum };
+}) {
   return (
     <Pump
-      draft={draftMode().isEnabled}
+      draft={(await draftMode()).isEnabled}
       next={{ revalidate: BASEHUB_REVALIDATE_TIME }}
       queries={[
         {
@@ -58,6 +68,9 @@ export default async function BlogPage() {
           },
           site: {
             blog: {
+              __args: {
+                variants: { languages: locale },
+              },
               _analyticsKey: true,
               mainTitle: true,
               featuredPosts: blogpostCardFragment,
@@ -106,7 +119,9 @@ export default async function BlogPage() {
               </SearchHitsProvider>
               {blog.featuredPosts
                 ?.slice(0, 3)
-                .map((post) => <BlogpostCard key={post._id} type="card" {...post} />)}
+                .map((post) => (
+                  <BlogpostCard key={post._id} locale={locale} type="card" {...post} />
+                ))}
             </div>
             <div className="w-full space-y-3">
               <Heading align="left">
@@ -114,7 +129,7 @@ export default async function BlogPage() {
               </Heading>
               <div className="-mx-4 flex flex-col self-stretch">
                 {posts.items.map((post) => (
-                  <BlogpostCard key={post._id} {...post} className="-mx-4" />
+                  <BlogpostCard key={post._id} locale={locale} {...post} className="-mx-4" />
                 ))}
               </div>
             </div>

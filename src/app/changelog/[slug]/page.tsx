@@ -104,7 +104,7 @@ export const generateMetadata = async ({
 export default async function ChangelogPage({ params }: ChangelogPageParams) {
   return (
     <Pump
-      draft={draftMode().isEnabled}
+      draft={(await draftMode()).isEnabled}
       next={{ revalidate: BASEHUB_REVALIDATE_TIME }}
       queries={[
         {

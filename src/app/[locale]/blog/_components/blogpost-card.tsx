@@ -9,6 +9,7 @@ import { formatDate } from "@/utils/dates";
 import { DarkLightImage } from "@/common/dark-light-image";
 import { ButtonLink } from "@/common/button";
 import { SimpleTooltip } from "@/common/tooltip";
+import { type LanguagesEnum } from ".basehub/schema";
 
 export const blogpostCardFragment = fragmentOn("BlogPostComponent", {
   _id: true,
@@ -25,9 +26,10 @@ type BlogpostCardFragment = fragmentOn.infer<typeof blogpostCardFragment>;
 type BlogPostCard = {
   type?: "card" | "list";
   className?: string;
+  locale: LanguagesEnum;
 } & BlogpostCardFragment;
 
-export function BlogpostCard({ type = "list", className, ...post }: BlogPostCard) {
+export function BlogpostCard({ type = "list", className, locale, ...post }: BlogPostCard) {
   switch (type) {
     case "list": {
       return (
@@ -49,7 +51,7 @@ export function BlogpostCard({ type = "list", className, ...post }: BlogPostCard
                 {post.categories.length > 0 ? post.categories.join(", ") : "No categories"}
               </p>
             </SimpleTooltip>
-            <p className="max-md:mt-3">{formatDate(post.publishedAt)}</p>
+            <p className="max-md:mt-3">{formatDate(post.publishedAt, { locale })}</p>
             <div className="flex items-center justify-self-end">
               <AvatarsGroup animate>
                 {post.authors.map((author) => (
@@ -90,7 +92,7 @@ export function BlogpostCard({ type = "list", className, ...post }: BlogPostCard
           <div className={clsx("flex flex-col justify-between gap-3 p-4")}>
             <header className="flex items-center justify-between gap-2">
               <p className="text-sm text-text-tertiary dark:text-dark-text-tertiary lg:text-base">
-                {formatDate(post.publishedAt)}
+                {formatDate(post.publishedAt, { locale })}
               </p>
               <AvatarsGroup animate>
                 {post.authors.map((author) => (
