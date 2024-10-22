@@ -140,7 +140,7 @@ export default function FeatureHero({
         <Section>
           <div className="z-10 flex flex-col items-center gap-8">
             <Pump
-              draft={draftMode().isEnabled}
+              draft={(await draftMode()).isEnabled}
               next={{ revalidate: BASEHUB_REVALIDATE_TIME }}
               queries={[
                 {

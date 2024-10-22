@@ -68,7 +68,7 @@ export const generateMetadata = async ({
 }: {
   params: { slug?: string[] };
 }): Promise<Metadata | undefined> => {
-  const data = await basehub({ cache: "no-store", draft: draftMode().isEnabled }).query({
+  const data = await basehub({ cache: "no-store", draft: (await draftMode()).isEnabled }).query({
     site: {
       settings: { metadata: { defaultTitle: true, titleTemplate: true, defaultDescription: true } },
       pages: {
@@ -182,7 +182,7 @@ export default async function DynamicPage({ params }: { params: { slug?: string[
 
   return (
     <Pump
-      draft={draftMode().isEnabled}
+      draft={(await draftMode()).isEnabled}
       next={{ revalidate: BASEHUB_REVALIDATE_TIME }}
       queries={[
         {

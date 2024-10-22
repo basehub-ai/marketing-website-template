@@ -31,7 +31,7 @@ export async function AuthLayout({
       <div className="mx-auto flex w-full max-w-xl flex-col gap-5 rounded-xl border border-surface-secondary bg-surface-primary p-5 shadow-md dark:border-dark-border dark:bg-dark-surface-secondary dark:shadow-none">
         <header className="flex flex-col gap-3">
           <Pump
-            draft={draftMode().isEnabled}
+            draft={(await draftMode()).isEnabled}
             next={{ revalidate: BASEHUB_REVALIDATE_TIME }}
             queries={[
               {

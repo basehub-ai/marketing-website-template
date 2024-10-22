@@ -17,7 +17,7 @@ export const dynamic = "force-static";
 export const revalidate = BASEHUB_REVALIDATE_TIME;
 
 export const generateMetadata = async (): Promise<Metadata | undefined> => {
-  const data = await basehub({ cache: "no-store", draft: draftMode().isEnabled }).query({
+  const data = await basehub({ cache: "no-store", draft: (await draftMode()).isEnabled }).query({
     site: {
       changelog: {
         metadata: {
@@ -37,7 +37,7 @@ export const generateMetadata = async (): Promise<Metadata | undefined> => {
 export default async function ChangelogPage() {
   return (
     <Pump
-      draft={draftMode().isEnabled}
+      draft={(await draftMode()).isEnabled}
       next={{ revalidate: BASEHUB_REVALIDATE_TIME }}
       queries={[
         {

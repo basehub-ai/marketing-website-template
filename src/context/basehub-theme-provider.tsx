@@ -21,7 +21,7 @@ const CONTRAST_WARNING_COLORS: (keyof typeof colors)[] = [
 export function BaseHubThemeProvider() {
   return (
     <Pump
-      draft={draftMode().isEnabled}
+      draft={(await draftMode()).isEnabled}
       next={{ revalidate: BASEHUB_REVALIDATE_TIME }}
       queries={[{ site: { settings: { theme: themeFragment } } }]}
     >

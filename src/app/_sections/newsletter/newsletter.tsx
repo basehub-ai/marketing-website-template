@@ -9,7 +9,7 @@ import { BASEHUB_REVALIDATE_TIME } from "@/lib/basehub/constants";
 export function Newsletter() {
   return (
     <Pump
-      draft={draftMode().isEnabled}
+      draft={(await draftMode()).isEnabled}
       next={{ revalidate: BASEHUB_REVALIDATE_TIME }}
       queries={[
         {
