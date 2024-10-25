@@ -3,14 +3,10 @@ import * as React from "react";
 import { Input } from "@/common/input";
 import { Section } from "@/common/layout";
 import { Pump } from ".basehub/react-pump";
-import { draftMode } from "next/headers";
-import { BASEHUB_REVALIDATE_TIME } from "@/lib/basehub/constants";
 
 export function Newsletter() {
   return (
     <Pump
-      draft={draftMode().isEnabled}
-      next={{ revalidate: BASEHUB_REVALIDATE_TIME }}
       queries={[
         {
           site: {

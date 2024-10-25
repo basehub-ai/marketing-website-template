@@ -2,7 +2,7 @@
 import { ChevronDownIcon } from "@radix-ui/react-icons";
 import clsx from "clsx";
 
-import React from "react";
+import * as React from "react";
 
 export function Select({
   children,

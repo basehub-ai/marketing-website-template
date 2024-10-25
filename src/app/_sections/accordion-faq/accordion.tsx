@@ -1,7 +1,7 @@
 "use client";
 import * as AccordionPrimitive from "@radix-ui/react-accordion";
 import { MinusCircledIcon, PlusCircledIcon } from "@radix-ui/react-icons";
-import React from "react";
+import * as React from "react";
 import { type Faq } from "../faq";
 import { sendEvent } from "basehub/analytics";
 

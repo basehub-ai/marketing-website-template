@@ -22,11 +22,8 @@ import { cx } from "class-variance-authority";
 import { formatDate } from "@/utils/dates";
 import { DarkLightImage } from "@/common/dark-light-image";
 import { PageView } from "@/app/_components/page-view";
-import { BASEHUB_REVALIDATE_TIME } from "@/lib/basehub/constants";
 
 export const dynamic = "force-static";
-
-export const revalidate = BASEHUB_REVALIDATE_TIME;
 
 export const generateStaticParams = async () => {
   const data = await basehub({ cache: "no-store" }).query({
@@ -49,11 +46,12 @@ export const generateStaticParams = async () => {
 };
 
 export const generateMetadata = async ({
-  params: { slug },
+  params: _params,
 }: {
-  params: { slug: string };
+  params: Promise<{ slug: string }>;
 }): Promise<Metadata | undefined> => {
-  const data = await basehub({ next: { revalidate: BASEHUB_REVALIDATE_TIME } }).query({
+  const { slug } = await _params;
+  const data = await basehub({ draft: (await draftMode()).isEnabled }).query({
     site: {
       settings: {
         metadata: {
@@ -100,12 +98,11 @@ export const generateMetadata = async ({
   };
 };
 
-export default async function BlogPage({ params: { slug } }: { params: { slug: string } }) {
+export default async function BlogPage({ params: _params }: { params: Promise<{ slug: string }> }) {
+  const { slug } = await _params;
   return (
     <main>
       <Pump
-        draft={draftMode().isEnabled}
-        next={{ revalidate: BASEHUB_REVALIDATE_TIME }}
         queries={[
           {
             site: {

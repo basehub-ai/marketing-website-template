@@ -1,10 +1,11 @@
 "use client";
 
-import React from "react";
+import * as React from "react";
 
 import { Button } from "@/common/button";
 import type { QuoteFragment } from "@/lib/basehub/fragments";
 import { cx } from "class-variance-authority";
+import { BaseHubImage } from "basehub/next-image";
 
 const ITEMS_PER_COLUMN = 3;
 
@@ -54,7 +55,7 @@ export function TestimonialsGridClient({ quotes }: { quotes: QuoteFragment[] }) 
               </div>
               <div className="pl-4">
                 <figure className="aspect-square size-8 rounded-full">
-                  <img
+                  <BaseHubImage
                     alt={author.image.alt ?? author._title}
                     className="size-8 rounded-full"
                     src={author.image.url}

@@ -1,5 +1,5 @@
 "use client";
-import React from "react";
+import * as React from "react";
 import { ArrowRightIcon } from "@radix-ui/react-icons";
 import { BaseHubImage } from "basehub/next-image";
 import clsx from "clsx";

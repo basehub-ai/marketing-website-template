@@ -8,10 +8,8 @@ import { Pump } from "basehub/react-pump";
 import clsx from "clsx";
 import { DarkLightImage } from "@/common/dark-light-image";
 import { TrackedButtonLink } from "@/app/_components/tracked_button";
-import { draftMode } from "next/headers";
 
 import s from "./hero.module.scss";
-import { BASEHUB_REVALIDATE_TIME } from "@/lib/basehub/constants";
 
 export const featureHeroFragment = fragmentOn("FeatureHeroComponent", {
   _analyticsKey: true,
@@ -31,13 +29,7 @@ export const featureHeroFragment = fragmentOn("FeatureHeroComponent", {
 
 type FeatureHero = fragmentOn.infer<typeof featureHeroFragment>;
 
-export default function FeatureHero({
-  heading,
-  heroLayout,
-  image,
-  actions,
-  _analyticsKey,
-}: FeatureHero) {
+export default function FeatureHero({ heading, heroLayout, image, actions }: FeatureHero) {
   switch (heroLayout) {
     case "Image bottom": {
       return (
@@ -140,8 +132,6 @@ export default function FeatureHero({
         <Section>
           <div className="z-10 flex flex-col items-center gap-8">
             <Pump
-              draft={draftMode().isEnabled}
-              next={{ revalidate: BASEHUB_REVALIDATE_TIME }}
               queries={[
                 {
                   site: {
