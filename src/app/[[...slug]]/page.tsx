@@ -45,7 +45,7 @@ import { PageView } from "../_components/page-view";
 export const dynamic = "force-static";
 
 export const generateStaticParams = async () => {
-  const data = await basehub({ cache: "no-store" }).query({
+  const data = await basehub().query({
     site: {
       pages: {
         items: {
@@ -61,11 +61,12 @@ export const generateStaticParams = async () => {
 };
 
 export const generateMetadata = async ({
-  params,
+  params: _params,
 }: {
-  params: { slug?: string[] };
+  params: Promise<{ slug?: string[] }>;
 }): Promise<Metadata | undefined> => {
-  const data = await basehub({ draft: draftMode().isEnabled }).query({
+  const params = await _params;
+  const data = await basehub({ draft: (await draftMode()).isEnabled }).query({
     site: {
       settings: { metadata: { defaultTitle: true, titleTemplate: true, defaultDescription: true } },
       pages: {
@@ -174,7 +175,12 @@ const sectionsFragment = fragmentOn("PagesItem", {
   },
 });
 
-export default async function DynamicPage({ params }: { params: { slug?: string[] } }) {
+export default async function DynamicPage({
+  params: _params,
+}: {
+  params: Promise<{ slug?: string[] }>;
+}) {
+  const params = await _params;
   const slugs = params.slug;
 
   return (

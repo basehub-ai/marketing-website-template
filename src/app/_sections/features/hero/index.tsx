@@ -29,13 +29,7 @@ export const featureHeroFragment = fragmentOn("FeatureHeroComponent", {
 
 type FeatureHero = fragmentOn.infer<typeof featureHeroFragment>;
 
-export default function FeatureHero({
-  heading,
-  heroLayout,
-  image,
-  actions,
-  _analyticsKey,
-}: FeatureHero) {
+export default function FeatureHero({ heading, heroLayout, image, actions }: FeatureHero) {
   switch (heroLayout) {
     case "Image bottom": {
       return (

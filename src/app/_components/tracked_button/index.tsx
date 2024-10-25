@@ -1,6 +1,5 @@
 "use client";
 
-import { forwardRef } from "react";
 import { sendEvent } from "basehub/analytics";
 import { Button, ButtonLink } from "@/common/button";
 
@@ -11,48 +10,58 @@ interface TrackProps {
 
 type TrackedButtonProps = React.ComponentProps<typeof Button> & TrackProps;
 
-export const TrackedButton = forwardRef<HTMLButtonElement, TrackedButtonProps>(
-  ({ analyticsKey, children, onClick, name, ...props }, ref) => {
-    return (
-      <Button
-        {...props}
-        ref={ref}
-        onClick={(e) => {
-          sendEvent({
-            name,
-            _analyticsKey: analyticsKey,
-          });
-          if (onClick) {
-            onClick(e);
-          }
-        }}
-      >
-        {children}
-      </Button>
-    );
-  },
-);
+export const TrackedButton = ({
+  analyticsKey,
+  children,
+  onClick,
+  name,
+  ref,
+  ...props
+}: TrackedButtonProps) => {
+  return (
+    <Button
+      {...props}
+      ref={ref}
+      onClick={(e) => {
+        sendEvent({
+          name,
+          _analyticsKey: analyticsKey,
+        });
+        if (onClick) {
+          onClick(e);
+        }
+      }}
+    >
+      {children}
+    </Button>
+  );
+};
 
 type TrackedButtonLinkProps = React.ComponentProps<typeof ButtonLink> & TrackProps;
 
-export const TrackedButtonLink = forwardRef<HTMLAnchorElement, TrackedButtonLinkProps>(
-  ({ analyticsKey, children, onClick, name, ...props }, ref) => {
-    return (
-      <ButtonLink
-        {...props}
-        ref={ref}
-        onClick={(e) => {
-          sendEvent({
-            name,
-            _analyticsKey: analyticsKey,
-          });
-          if (onClick) {
-            onClick(e);
-          }
-        }}
-      >
-        {children}
-      </ButtonLink>
-    );
-  },
-);
+export const TrackedButtonLink = ({
+  analyticsKey,
+  children,
+  onClick,
+  name,
+  ref,
+  ...props
+}: TrackedButtonLinkProps) => {
+  return (
+    <ButtonLink
+      {...props}
+      ref={ref}
+      onClick={(e) => {
+        sendEvent({
+          name,
+          _analyticsKey: analyticsKey,
+        });
+        if (onClick) {
+          onClick(e);
+        }
+      }}
+    >
+      {children}
+    </ButtonLink>
+  );
+};

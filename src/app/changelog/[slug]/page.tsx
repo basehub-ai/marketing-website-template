@@ -23,9 +23,9 @@ import { draftMode } from "next/headers";
 export const dynamic = "force-static";
 
 interface ChangelogPageParams {
-  params: {
+  params: Promise<{
     slug: string;
-  };
+  }>;
 }
 
 export const generateStaticParams = async () => {
@@ -49,9 +49,10 @@ export const generateStaticParams = async () => {
 };
 
 export const generateMetadata = async ({
-  params,
+  params: _params,
 }: ChangelogPageParams): Promise<Metadata | undefined> => {
-  const data = await basehub({ draft: draftMode().isEnabled }).query({
+  const params = await _params;
+  const data = await basehub({ draft: (await draftMode()).isEnabled }).query({
     site: {
       settings: {
         metadata: {
@@ -98,7 +99,8 @@ export const generateMetadata = async ({
   };
 };
 
-export default async function ChangelogPage({ params }: ChangelogPageParams) {
+export default async function ChangelogPage({ params: _params }: ChangelogPageParams) {
+  const params = await _params;
   return (
     <Pump
       queries={[

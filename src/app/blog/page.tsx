@@ -16,7 +16,7 @@ import { notFound } from "next/navigation";
 export const dynamic = "force-static";
 
 export const generateMetadata = async (): Promise<Metadata | undefined> => {
-  const data = await basehub({ draft: draftMode().isEnabled }).query({
+  const data = await basehub({ draft: (await draftMode()).isEnabled }).query({
     site: {
       blog: {
         metadata: {

@@ -46,11 +46,12 @@ export const generateStaticParams = async () => {
 };
 
 export const generateMetadata = async ({
-  params: { slug },
+  params: _params,
 }: {
-  params: { slug: string };
+  params: Promise<{ slug: string }>;
 }): Promise<Metadata | undefined> => {
-  const data = await basehub({ draft: draftMode().isEnabled }).query({
+  const { slug } = await _params;
+  const data = await basehub({ draft: (await draftMode()).isEnabled }).query({
     site: {
       settings: {
         metadata: {
@@ -97,7 +98,8 @@ export const generateMetadata = async ({
   };
 };
 
-export default async function BlogPage({ params: { slug } }: { params: { slug: string } }) {
+export default async function BlogPage({ params: _params }: { params: Promise<{ slug: string }> }) {
+  const { slug } = await _params;
   return (
     <main>
       <Pump

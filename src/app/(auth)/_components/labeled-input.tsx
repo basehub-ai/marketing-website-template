@@ -1,5 +1,3 @@
-import { forwardRef } from "react";
-
 export function LabeledInput({
   label,
   id,
@@ -16,10 +14,12 @@ export function LabeledInput({
   );
 }
 
-export const LabeledTextarea = forwardRef<
-  HTMLTextAreaElement,
-  { label: string } & React.TextareaHTMLAttributes<HTMLTextAreaElement>
->(({ label, id, ...props }, ref) => {
+export const LabeledTextarea = ({
+  label,
+  id,
+  ref,
+  ...props
+}: { label: string } & JSX.IntrinsicElements["textarea"]) => {
   return (
     <LabeledWrapper id={id} label={label}>
       <textarea
@@ -30,16 +30,18 @@ export const LabeledTextarea = forwardRef<
       />
     </LabeledWrapper>
   );
-});
+};
 
-export const LabeledWrapper = forwardRef<
-  HTMLDivElement,
-  {
-    id?: string;
-    label: string;
-    children: React.ReactNode;
-  }
->(({ label, children, id }, ref) => {
+export const LabeledWrapper = ({
+  label,
+  children,
+  id,
+  ref,
+}: {
+  id?: string;
+  label: string;
+  children: React.ReactNode;
+} & JSX.IntrinsicElements["div"]) => {
   return (
     <div ref={ref} className="relative flex flex-col gap-1.5">
       <label
@@ -51,4 +53,4 @@ export const LabeledWrapper = forwardRef<
       {children}
     </div>
   );
-});
+};
