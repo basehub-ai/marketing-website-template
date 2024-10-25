@@ -1,14 +1,14 @@
-/** @type {import('next').NextConfig} */
+import { NextConfig } from "next";
+
 const nextConfig = {
   logging: {
     fetches: {
       fullUrl: true,
     },
   },
-  transpilePackages: ["shiki"],
   images: {
     remotePatterns: [{ hostname: "assets.basehub.com" }, { hostname: "basehub.earth" }],
   },
-};
+} satisfies NextConfig;
 
-module.exports = nextConfig;
+export default nextConfig;

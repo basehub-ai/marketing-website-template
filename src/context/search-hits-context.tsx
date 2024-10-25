@@ -1,5 +1,5 @@
 "use client";
-import React from "react";
+import * as React from "react";
 
 import { type AvatarFragment } from "@/lib/basehub/fragments";
 
