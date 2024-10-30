@@ -30,8 +30,8 @@ dependencies:
     specifier: ^10.4.19
     version: 10.4.19(postcss@8.4.38)
   basehub:
-    specifier: ^7.5.19
-    version: 7.5.19(@babel/runtime@7.24.6)(@types/react@18.3.3)(react-dom@19.0.0-rc-1631855f-20241023)(react@19.0.0-rc-1631855f-20241023)(typescript@5.4.5)
+    specifier: ^7.5.20
+    version: 7.5.20(@babel/runtime@7.24.6)(@types/react@18.3.3)(react-dom@19.0.0-rc-1631855f-20241023)(react@19.0.0-rc-1631855f-20241023)(typescript@5.4.5)
   class-variance-authority:
     specifier: ^0.7.0
     version: 0.7.0
@@ -123,8 +123,8 @@ packages:
       regenerator-runtime: 0.14.1
     dev: false
 
-  /@basehub/genql@9.0.0-canary.5:
-    resolution: {integrity: sha512-ld35anR8MRACQxQLt5/bJhus9ZaEvViSK3Y40pTUwKY7ZTry4c0y02BGRqlJqnQoOJb4v4gbrWAn/O3OKHHHdg==}
+  /@basehub/genql@9.0.0-canary.6:
+    resolution: {integrity: sha512-o2RpYZ3U4z1FU8Dl3DWBxSs2bc2Z96w/pq7qnKEbHckZUm0wnygLeDRnvt7h0aJLvRZucoCzRXE/zblIoOqiGQ==}
     dependencies:
       '@graphql-tools/graphql-file-loader': 7.5.17(graphql@16.8.1)
       '@graphql-tools/load': 7.8.14(graphql@16.8.1)
@@ -1917,11 +1917,11 @@ packages:
   /balanced-match@1.0.2:
     resolution: {integrity: sha512-3oSeUO0TMV67hN1AmbXsK4yaqU7tjiHlbxRDZOpH0KW9+CeX4bRAaX0Anxt0tx2MrpRpWwQaPwIlISEJhYU5Pw==}
 
-  /basehub@7.5.19(@babel/runtime@7.24.6)(@types/react@18.3.3)(react-dom@19.0.0-rc-1631855f-20241023)(react@19.0.0-rc-1631855f-20241023)(typescript@5.4.5):
-    resolution: {integrity: sha512-joYjobkzMUatcRQAwujMGgs0D4zwe5HZKZ8AEVb7PU0fYjXn1hQYEXIkIFIe/fH37N7adbmMUPEVfYYLdnNVJw==}
+  /basehub@7.5.20(@babel/runtime@7.24.6)(@types/react@18.3.3)(react-dom@19.0.0-rc-1631855f-20241023)(react@19.0.0-rc-1631855f-20241023)(typescript@5.4.5):
+    resolution: {integrity: sha512-P+NlqFWtEahyAZLS0dkz+fHHUKArbH/XfaHYw79X5eLZ2fTl9o+NsSpUk2mZ8hitZpPS5hR+VigFUw9ZW4XcBA==}
     hasBin: true
     dependencies:
-      '@basehub/genql': 9.0.0-canary.5
+      '@basehub/genql': 9.0.0-canary.6
       '@basehub/mutation-api-helpers': 2.0.2
       '@radix-ui/react-slot': 1.1.0(@types/react@18.3.3)(react@19.0.0-rc-1631855f-20241023)
       '@shikijs/transformers': 1.22.0
