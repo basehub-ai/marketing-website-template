@@ -30,8 +30,8 @@ dependencies:
     specifier: ^10.4.19
     version: 10.4.19(postcss@8.4.38)
   basehub:
-    specifier: ^7.5.21
-    version: 7.5.21(@babel/runtime@7.24.6)(@types/react@18.3.3)(react-dom@19.0.0-rc-1631855f-20241023)(react@19.0.0-rc-1631855f-20241023)(typescript@5.4.5)
+    specifier: ^7.5.22
+    version: 7.5.22(@babel/runtime@7.24.6)(@types/react@18.3.3)(react-dom@19.0.0-rc-1631855f-20241023)(react@19.0.0-rc-1631855f-20241023)(typescript@5.4.5)
   class-variance-authority:
     specifier: ^0.7.0
     version: 0.7.0
@@ -1917,8 +1917,8 @@ packages:
   /balanced-match@1.0.2:
     resolution: {integrity: sha512-3oSeUO0TMV67hN1AmbXsK4yaqU7tjiHlbxRDZOpH0KW9+CeX4bRAaX0Anxt0tx2MrpRpWwQaPwIlISEJhYU5Pw==}
 
-  /basehub@7.5.21(@babel/runtime@7.24.6)(@types/react@18.3.3)(react-dom@19.0.0-rc-1631855f-20241023)(react@19.0.0-rc-1631855f-20241023)(typescript@5.4.5):
-    resolution: {integrity: sha512-wGdqTmlg3oCpP+rzJKGvgNLB95t6TCYS2z83pSmMsi3ZZzrk1Di3NrsJTCirx5JivoJ1jdNJ9dpE8YMbZw/mQQ==}
+  /basehub@7.5.22(@babel/runtime@7.24.6)(@types/react@18.3.3)(react-dom@19.0.0-rc-1631855f-20241023)(react@19.0.0-rc-1631855f-20241023)(typescript@5.4.5):
+    resolution: {integrity: sha512-ow4l7MXkzJdev40yttCfZHQTqAgZJ7KbuHfKjSOXSyOjyaXsLnJwq+5it3qXGmwcZ7jLnqTH3f9cyzm7gQ4gpQ==}
     hasBin: true
     dependencies:
       '@basehub/genql': 9.0.0-canary.6
