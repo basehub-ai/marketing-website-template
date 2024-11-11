@@ -15,6 +15,7 @@ import {
   isFeaturesCardsComponent,
   isFeaturesGridComponent,
   isFeaturesSideBySideComponent,
+  isFreeformTextComponent,
   isHeroComponent,
   isPricingComponent,
   isPricingTableComponent,
@@ -41,6 +42,7 @@ import { PricingTable } from "../_sections/pricing-comparation";
 import { pricingTableFragment } from "../_sections/pricing-comparation/fragments";
 import FeatureHero, { featureHeroFragment } from "../_sections/features/hero";
 import { PageView } from "../_components/page-view";
+import { FreeformText, freeformTextFragment } from "../_sections/freeform-text";
 
 export const dynamic = "force-static";
 
@@ -146,6 +148,8 @@ function SectionsUnion({
             sections={[{ ...comp.sectionReference, _analyticsKey: comp._analyticsKey }]}
           />
         );
+      case isFreeformTextComponent(comp):
+        return <FreeformText {...comp} key={comp._id} />;
       default:
         return null;
     }
@@ -172,6 +176,7 @@ const sectionsFragment = fragmentOn("PagesItem", {
       layout: true,
       ...faqFragment,
     },
+    on_FreeformTextComponent: freeformTextFragment,
   },
 });
 
