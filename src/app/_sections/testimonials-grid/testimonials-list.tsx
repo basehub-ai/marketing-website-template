@@ -59,6 +59,8 @@ export function TestimonialsGridClient({ quotes }: { quotes: QuoteFragment[] }) 
                     alt={author.image.alt ?? author._title}
                     className="size-8 rounded-full"
                     src={author.image.url}
+                    width={32}
+                    height={32}
                   />
                 </figure>
               </div>
