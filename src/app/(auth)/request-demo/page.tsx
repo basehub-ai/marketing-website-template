@@ -37,7 +37,7 @@ export default function RequestDemo() {
                 required
                 label="First Name"
                 name="name"
-                placeholder="Jhon"
+                placeholder="John"
                 type="text"
               />
               <LabeledInput
@@ -57,7 +57,7 @@ export default function RequestDemo() {
               <LabeledTextarea
                 required
                 label="Message"
-                minLength={200}
+                minLength={16}
                 name="message"
                 placeholder="Hey! I’d love to get a demo"
                 rows={8}

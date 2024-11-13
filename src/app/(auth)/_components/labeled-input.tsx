@@ -1,8 +1,13 @@
+import * as React from "react";
+
 export function LabeledInput({
   label,
-  id,
+  id: _id,
   ...props
-}: { label: string } & React.InputHTMLAttributes<HTMLInputElement>) {
+}: { label: string; id?: string } & React.InputHTMLAttributes<HTMLInputElement>) {
+  const reactId = React.useId();
+  const id = _id ?? reactId;
+
   return (
     <LabeledWrapper id={id} label={label}>
       <input
@@ -16,10 +21,13 @@ export function LabeledInput({
 
 export const LabeledTextarea = ({
   label,
-  id,
+  id: _id,
   ref,
   ...props
 }: { label: string } & JSX.IntrinsicElements["textarea"]) => {
+  const reactId = React.useId();
+  const id = _id ?? reactId;
+
   return (
     <LabeledWrapper id={id} label={label}>
       <textarea
@@ -43,9 +51,9 @@ export const LabeledWrapper = ({
   children: React.ReactNode;
 } & JSX.IntrinsicElements["div"]) => {
   return (
-    <div ref={ref} className="relative flex flex-col gap-1.5">
+    <div ref={ref} className="relative flex flex-col">
       <label
-        className="text-xs font-medium text-text-primary dark:text-dark-text-primary"
+        className="pb-1.5 text-xs font-medium text-text-primary dark:text-dark-text-primary"
         htmlFor={id}
       >
         {label}

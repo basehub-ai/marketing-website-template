@@ -63,8 +63,8 @@ export default function SignUp() {
                 placeholder="Type a secure password"
                 type="password"
               />
-              <LabeledWrapper label="How did you hear about us?">
-                <Select name="how-did-you-hear-about-us">
+              <LabeledWrapper label="How did you hear about us?" id="how-did-you-hear-about-us">
+                <Select id="how-did-you-hear-about-us" name="how-did-you-hear-about-us">
                   {site.signUp.howDidYouHearAboutUs.map((option) => (
                     <option key={option} value={option}>
                       {option}
