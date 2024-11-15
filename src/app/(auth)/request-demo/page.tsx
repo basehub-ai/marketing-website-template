@@ -59,8 +59,9 @@ export default function RequestDemo() {
                 label="Message"
                 minLength={16}
                 name="message"
-                placeholder="Hey! I’d love to get a demo"
+                placeholder="Hey! I’d love to get a demo..."
                 rows={8}
+                className="max-h-64 min-h-16"
               />
               <div className="mt-3 flex items-center justify-between">
                 <Button

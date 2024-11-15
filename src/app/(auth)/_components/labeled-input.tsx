@@ -1,8 +1,10 @@
 import * as React from "react";
+import { clsx } from "clsx";
 
 export function LabeledInput({
   label,
   id: _id,
+  className,
   ...props
 }: { label: string; id?: string } & React.InputHTMLAttributes<HTMLInputElement>) {
   const reactId = React.useId();
@@ -11,7 +13,10 @@ export function LabeledInput({
   return (
     <LabeledWrapper id={id} label={label}>
       <input
-        className="rounded-md border border-border bg-surface-secondary py-2 pl-3 pr-3.5 text-sm placeholder:text-sm placeholder:text-text-tertiary/50 dark:border-dark-border dark:bg-dark-surface-tertiary dark:placeholder:text-dark-text-tertiary/50"
+        className={clsx(
+          className,
+          "rounded-md border border-border bg-surface-secondary py-2 pl-3 pr-3.5 text-sm placeholder:text-sm placeholder:text-text-tertiary/50 dark:border-dark-border dark:bg-dark-surface-tertiary dark:placeholder:text-dark-text-tertiary/50",
+        )}
         id={id}
         {...props}
       />
@@ -23,6 +28,7 @@ export const LabeledTextarea = ({
   label,
   id: _id,
   ref,
+  className,
   ...props
 }: { label: string } & JSX.IntrinsicElements["textarea"]) => {
   const reactId = React.useId();
@@ -32,7 +38,10 @@ export const LabeledTextarea = ({
     <LabeledWrapper id={id} label={label}>
       <textarea
         ref={ref}
-        className="rounded-md border border-border bg-surface-secondary py-2 pl-3 pr-3.5 text-sm [form-sizing:content] placeholder:text-sm placeholder:text-text-tertiary dark:border-dark-border dark:bg-dark-surface-tertiary dark:placeholder:text-dark-text-tertiary"
+        className={clsx(
+          className,
+          "rounded-md border border-border bg-surface-secondary py-2 pl-3 pr-3.5 text-sm [form-sizing:content] placeholder:text-sm placeholder:text-text-tertiary dark:border-dark-border dark:bg-dark-surface-tertiary dark:placeholder:text-dark-text-tertiary",
+        )}
         id={id}
         {...props}
       />
