@@ -99,7 +99,7 @@ export default function FeatureHero({ heading, heroLayout, image, actions }: Fea
           <DarkLightImage
             {...image}
             priority
-            className="block max-h-[560px] border-y border-t-0 border-border object-cover dark:border-dark-border"
+            className="block max-h-[560px] w-full border-y border-t-0 border-border object-cover dark:border-dark-border"
           />
           <Section>
             <div className="flex items-center justify-between self-stretch ">
