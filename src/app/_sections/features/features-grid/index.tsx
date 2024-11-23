@@ -8,6 +8,7 @@ import { TrackedButtonLink } from "@/app/_components/tracked_button";
 
 export const featuresGridFragment = fragmentOn("FeaturesGridComponent", {
   _analyticsKey: true,
+  _slug: true,
   featuresGridList: {
     items: {
       _id: true,
@@ -31,9 +32,15 @@ export const featuresGridFragment = fragmentOn("FeaturesGridComponent", {
 
 type FeaturesGrid = fragmentOn.infer<typeof featuresGridFragment>;
 
-export function FeaturesGrid({ heading, featuresGridList, actions, _analyticsKey }: FeaturesGrid) {
+export function FeaturesGrid({
+  heading,
+  featuresGridList,
+  actions,
+  _analyticsKey,
+  _slug,
+}: FeaturesGrid) {
   return (
-    <Section>
+    <Section id={_slug}>
       <Heading {...heading}>
         <h4>{heading.title}</h4>
       </Heading>
