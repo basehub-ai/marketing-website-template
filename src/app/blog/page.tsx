@@ -73,7 +73,6 @@ export default async function BlogPage() {
           collections: { authors },
         },
       ]) => {
-        "use server";
         const { posts } = blog;
 
         if (posts.items.length === 0) {

@@ -19,7 +19,6 @@ export function BaseHubThemeProvider() {
   return (
     <Pump queries={[{ site: { settings: { theme: themeFragment } } }]}>
       {async ([data]) => {
-        "use server";
         const accent = colors[data.site.settings.theme.accent];
         const grayScale = colors[data.site.settings.theme.grayScale];
 

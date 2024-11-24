@@ -64,8 +64,6 @@ export async function Footer() {
           site: { footer, settings },
         },
       ]) => {
-        "use server";
-
         return (
           <footer className="border-t border-border py-16 dark:border-dark-border">
             <div className="container mx-auto grid grid-cols-2 grid-rows-[auto_auto_auto] place-items-start items-center gap-y-7 px-6 sm:grid-cols-[1fr_auto_1fr] sm:grid-rows-2 sm:gap-x-3 sm:gap-y-16">

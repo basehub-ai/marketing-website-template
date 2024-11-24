@@ -21,8 +21,6 @@ export default function SignUp() {
       ]}
     >
       {async ([{ site }]) => {
-        "use server";
-
         return (
           <AuthLayout
             subtitle={

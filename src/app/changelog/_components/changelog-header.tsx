@@ -42,7 +42,6 @@ export function ChangelogLayout({
               site: { changelog },
             },
           ]) => {
-            "use server";
             const socialLinks = changelog.socialLinks;
 
             return (

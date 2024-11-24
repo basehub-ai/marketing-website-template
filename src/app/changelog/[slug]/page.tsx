@@ -169,7 +169,6 @@ export default async function ChangelogPage({ params: _params }: ChangelogPagePa
         },
         allPosts,
       ]) => {
-        "use server";
         const post = changelog.posts.items.at(0);
 
         if (!post) return notFound();
