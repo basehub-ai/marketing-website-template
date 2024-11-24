@@ -19,8 +19,6 @@ export default function RequestDemo() {
       ]}
     >
       {async ([{ site }]) => {
-        "use server";
-
         return (
           <AuthLayout
             subtitle={

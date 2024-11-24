@@ -151,7 +151,6 @@ export default async function BlogPage({ params: _params }: { params: Promise<{ 
             },
           },
         ]) => {
-          "use server";
           const blogpost = posts.items.at(0);
 
           if (!blogpost) return notFound();

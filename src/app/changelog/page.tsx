@@ -57,8 +57,6 @@ export default async function ChangelogPage() {
           site: { changelog },
         },
       ]) => {
-        "use server";
-
         if (changelog.posts.items.length === 0) {
           return notFound();
         }

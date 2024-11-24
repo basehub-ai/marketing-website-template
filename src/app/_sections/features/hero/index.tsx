@@ -148,8 +148,6 @@ export default function FeatureHero({ heading, heroLayout, image, actions }: Fea
               ]}
             >
               {async ([{ site }]) => {
-                "use server";
-
                 return (
                   <BaseHubImage
                     priority

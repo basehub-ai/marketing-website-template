@@ -6,6 +6,7 @@ const nextConfig = {
       fullUrl: true,
     },
   },
+  output: "export",
   images: {
     remotePatterns: [{ hostname: "assets.basehub.com" }, { hostname: "basehub.earth" }],
   },

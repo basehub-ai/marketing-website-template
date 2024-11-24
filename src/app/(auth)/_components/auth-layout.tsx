@@ -50,8 +50,6 @@ export async function AuthLayout({
                 },
               },
             ]) => {
-              "use server";
-
               return (
                 <Image
                   priority

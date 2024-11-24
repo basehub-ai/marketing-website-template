@@ -225,8 +225,6 @@ export default async function DynamicPage({
           site: { pages },
         },
       ]) => {
-        "use server";
-
         const page = pages.items[0];
 
         if (!page) notFound();

@@ -1,6 +1,8 @@
 import { basehub } from "basehub";
 import { siteUrl } from "@/../next-sitemap.config";
 
+export const dynamic = "force-static";
+
 export async function GET() {
   const data = await basehub().query({
     site: {

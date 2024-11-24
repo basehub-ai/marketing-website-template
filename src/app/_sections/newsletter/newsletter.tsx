@@ -21,8 +21,6 @@ export function Newsletter() {
       ]}
     >
       {async ([{ site }]) => {
-        "use server";
-
         return (
           <Section
             className="bg-surface-secondary !py-10 dark:bg-dark-surface-secondary"
