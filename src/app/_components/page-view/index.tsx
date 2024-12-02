@@ -1,15 +1,15 @@
 "use client";
 
-import { sendEvent } from "basehub/analytics";
+import { GeneralEvents } from ".basehub/schema";
+import { sendEvent } from "basehub/events";
 import * as React from "react";
 
-export function PageView({ _analyticsKey }: { _analyticsKey: string }) {
+export function PageView({ ingestKey }: { ingestKey: GeneralEvents["ingestKey"] }) {
   React.useEffect(() => {
-    sendEvent({
-      name: "view",
-      _analyticsKey,
+    sendEvent(ingestKey, {
+      eventType: "view",
     });
-  }, [_analyticsKey]);
+  }, [ingestKey]);
 
   return null;
 }

@@ -10,6 +10,7 @@ import { DarkLightImage } from "@/common/dark-light-image";
 import { TrackedButtonLink } from "@/app/_components/tracked_button";
 
 import s from "./hero.module.scss";
+import { GeneralEvents } from ".basehub/schema";
 
 export const featureHeroFragment = fragmentOn("FeatureHeroComponent", {
   _analyticsKey: true,
@@ -18,7 +19,6 @@ export const featureHeroFragment = fragmentOn("FeatureHeroComponent", {
   image: darkLightImageFragment,
   actions: {
     on_ButtonComponent: {
-      _analyticsKey: true,
       _id: true,
       href: true,
       label: true,
@@ -29,7 +29,13 @@ export const featureHeroFragment = fragmentOn("FeatureHeroComponent", {
 
 type FeatureHero = fragmentOn.infer<typeof featureHeroFragment>;
 
-export default function FeatureHero({ heading, heroLayout, image, actions }: FeatureHero) {
+export default function FeatureHero({
+  heading,
+  heroLayout,
+  image,
+  actions,
+  eventsKey,
+}: FeatureHero & { eventsKey: GeneralEvents["ingestKey"] }) {
   switch (heroLayout) {
     case "Image bottom": {
       return (
@@ -42,7 +48,7 @@ export default function FeatureHero({ heading, heroLayout, image, actions }: Fea
               {actions?.map((action) => (
                 <TrackedButtonLink
                   key={action._id}
-                  analyticsKey={action._analyticsKey}
+                  analyticsKey={eventsKey}
                   href={action.href}
                   intent={action.type}
                   name="cta_click"
@@ -73,7 +79,7 @@ export default function FeatureHero({ heading, heroLayout, image, actions }: Fea
                 {actions?.map((action) => (
                   <TrackedButtonLink
                     key={action._id}
-                    analyticsKey={action._analyticsKey}
+                    analyticsKey={eventsKey}
                     href={action.href}
                     intent={action.type}
                     name="cta_click"
@@ -111,7 +117,7 @@ export default function FeatureHero({ heading, heroLayout, image, actions }: Fea
                   {actions.map((action) => (
                     <TrackedButtonLink
                       key={action._id}
-                      analyticsKey={action._analyticsKey}
+                      analyticsKey={eventsKey}
                       href={action.href}
                       intent={action.type}
                       name="cta_click"
@@ -170,7 +176,7 @@ export default function FeatureHero({ heading, heroLayout, image, actions }: Fea
                 ? actions.map((action) => (
                     <TrackedButtonLink
                       key={action._id}
-                      analyticsKey={action._analyticsKey}
+                      analyticsKey={eventsKey}
                       href={action.href}
                       intent={action.type}
                       name="cta_click"

@@ -22,6 +22,7 @@ export const richTextClasses = clsx(
   s["rich-text"],
 );
 
+// @ts-expect-error Code won't match props
 export const richTextBaseComponents: RichTextProps["components"] = {
   code: Code,
   pre: ({ children }) => <>{children}</>,
@@ -33,7 +34,6 @@ export const richTextBaseComponents: RichTextProps["components"] = {
 function Code({
   children,
   isInline,
-
   code,
 }: {
   children: React.ReactNode;

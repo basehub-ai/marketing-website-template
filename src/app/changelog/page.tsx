@@ -48,13 +48,16 @@ export default async function ChangelogPage() {
                 items: changelogListFragment,
               },
             },
+            generalEvents: {
+              ingestKey: true,
+            },
           },
         },
       ]}
     >
       {async ([
         {
-          site: { changelog },
+          site: { changelog, generalEvents },
         },
       ]) => {
         "use server";
@@ -65,7 +68,7 @@ export default async function ChangelogPage() {
 
         return (
           <>
-            <PageView _analyticsKey={changelog._analyticsKey} />
+            <PageView ingestKey={generalEvents.ingestKey} />
             <ChangelogLayout>
               <Heading
                 align="left"

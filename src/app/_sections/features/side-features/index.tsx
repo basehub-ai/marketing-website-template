@@ -5,6 +5,7 @@ import { Section } from "@/common/layout";
 import { fragmentOn } from "basehub";
 import { headingFragment } from "@/lib/basehub/fragments";
 import { TrackedButtonLink } from "@/app/_components/tracked_button";
+import { GeneralEvents } from ".basehub/schema";
 
 export const featuresSideBySideFragment = fragmentOn("FeaturesSideBySideComponent", {
   featuresSideBySideList: {
@@ -32,7 +33,12 @@ export const featuresSideBySideFragment = fragmentOn("FeaturesSideBySideComponen
 
 type FeaturesGrid = fragmentOn.infer<typeof featuresSideBySideFragment>;
 
-export function SideFeatures({ featuresSideBySideList, heading, actions }: FeaturesGrid) {
+export function SideFeatures({
+  featuresSideBySideList,
+  heading,
+  actions,
+  eventsKey,
+}: FeaturesGrid & { eventsKey: GeneralEvents["ingestKey"] }) {
   return (
     <Section
       className="relative lg:container lg:mx-auto lg:!flex-row lg:gap-0 lg:p-28"
@@ -47,7 +53,7 @@ export function SideFeatures({ featuresSideBySideList, heading, actions }: Featu
             {actions?.map((action) => (
               <TrackedButtonLink
                 key={action._id}
-                analyticsKey={action._analyticsKey}
+                analyticsKey={eventsKey}
                 href={action.href}
                 intent={action.type}
                 name="main_cta_click"
