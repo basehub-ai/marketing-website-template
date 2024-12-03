@@ -1,8 +1,8 @@
 import * as React from "react";
 
-import { Input } from "@/common/input";
 import { Section } from "@/common/layout";
 import { Pump } from ".basehub/react-pump";
+import { ClientForm } from "./client-form";
 
 export function Newsletter() {
   return (
@@ -14,6 +14,10 @@ export function Newsletter() {
               newsletter: {
                 title: true,
                 description: true,
+                submissions: {
+                  ingestKey: true,
+                  schema: true,
+                },
               },
             },
           },
@@ -36,15 +40,10 @@ export function Newsletter() {
                 </p>
               </div>
 
-              <form className="w-full max-w-[400px] flex-shrink-0">
-                <Input
-                  required
-                  buttonContent="Subscribe"
-                  name="email"
-                  placeholder="Enter your email"
-                  type="email"
-                />
-              </form>
+              <ClientForm
+                ingestKey={site.footer.newsletter.submissions.ingestKey}
+                schema={site.footer.newsletter.submissions.schema}
+              />
             </div>
           </Section>
         );

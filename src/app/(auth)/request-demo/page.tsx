@@ -1,9 +1,9 @@
 import { Button } from "@/common/button";
 import { AuthLayout, RichTextFormWrapper, formWrapperFragment } from "../_components/auth-layout";
-import { LabeledInput, LabeledTextarea } from "../_components/labeled-input";
+import { Pump } from "basehub/react-pump";
 import { ArrowRightIcon } from "@radix-ui/react-icons";
 import { BackToHomeButton } from "../_components/back-to-home-button";
-import { Pump } from "basehub/react-pump";
+import { DemoForm } from "./client-wrapper";
 
 export default function RequestDemo() {
   return (
@@ -13,6 +13,10 @@ export default function RequestDemo() {
           site: {
             requestDemo: {
               wrapper: formWrapperFragment,
+              submissions: {
+                ingestKey: true,
+                schema: true,
+              },
             },
           },
         },
@@ -32,37 +36,10 @@ export default function RequestDemo() {
             }
             title={site.requestDemo.wrapper.title}
           >
-            <form className="flex flex-col gap-3">
-              <LabeledInput
-                required
-                label="First Name"
-                name="name"
-                placeholder="John"
-                type="text"
-              />
-              <LabeledInput
-                required
-                label="Last Name"
-                name="last-name"
-                placeholder="Doe"
-                type="text"
-              />
-              <LabeledInput
-                required
-                label="Email Address"
-                name="email"
-                placeholder="jdoe@gmail.com"
-                type="email"
-              />
-              <LabeledTextarea
-                required
-                label="Message"
-                minLength={16}
-                name="message"
-                placeholder="Hey! I’d love to get a demo..."
-                rows={8}
-                className="max-h-64 min-h-16"
-              />
+            <DemoForm
+              ingestKey={site.requestDemo.submissions.ingestKey}
+              schema={site.requestDemo.submissions.schema}
+            >
               <div className="mt-3 flex items-center justify-between">
                 <Button
                   icon={<ArrowRightIcon className="size-5" />}
@@ -74,7 +51,7 @@ export default function RequestDemo() {
                 </Button>
                 <BackToHomeButton />
               </div>
-            </form>
+            </DemoForm>
           </AuthLayout>
         );
       }}
