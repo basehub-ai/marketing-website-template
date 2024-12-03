@@ -2,6 +2,7 @@ import { fragmentOn } from "basehub";
 import { Section } from "@/common/layout";
 import { TrackedButtonLink } from "@/app/_components/tracked_button";
 import { buttonFragment } from "@/lib/basehub/fragments";
+import { GeneralEvents } from ".basehub/schema";
 
 export const calloutv2Fragment = fragmentOn("CalloutV2Component", {
   title: true,
@@ -16,7 +17,7 @@ export const calloutv2Fragment = fragmentOn("CalloutV2Component", {
 });
 type Callout2 = fragmentOn.infer<typeof calloutv2Fragment>;
 
-export function Callout2(callout: Callout2) {
+export function Callout2(callout: Callout2 & { eventsKey: GeneralEvents["ingestKey"] }) {
   return (
     <Section>
       <article className="flex flex-col justify-center gap-9 self-stretch rounded-xl bg-accent-500/10 p-6 dark:bg-accent-600/10 lg:flex-row lg:justify-between lg:p-10">
@@ -32,7 +33,7 @@ export function Callout2(callout: Callout2) {
           {callout.actions?.map((action) => (
             <TrackedButtonLink
               key={action._id}
-              analyticsKey={action._analyticsKey}
+              analyticsKey={callout.eventsKey}
               href={action.href}
               intent={action.type}
               name="secondary_cta_click"

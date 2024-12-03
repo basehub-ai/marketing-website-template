@@ -71,7 +71,7 @@ export const generateMetadata = async (): Promise<Metadata> => {
       const split = xUrl.pathname.split("/");
 
       xAccount = split[split.length - 1];
-    } catch (error) {
+    } catch {
       // invalid url noop
     }
   }

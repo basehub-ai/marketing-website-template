@@ -5,6 +5,7 @@ import { Section } from "@/common/layout";
 import { fragmentOn } from "basehub";
 import { buttonFragment, headingFragment } from "@/lib/basehub/fragments";
 import { TrackedButtonLink } from "@/app/_components/tracked_button";
+import { GeneralEvents } from ".basehub/schema";
 
 export const featuresGridFragment = fragmentOn("FeaturesGridComponent", {
   _analyticsKey: true,
@@ -22,16 +23,18 @@ export const featuresGridFragment = fragmentOn("FeaturesGridComponent", {
   heading: headingFragment,
   actions: {
     __typename: true,
-    on_ButtonComponent: {
-      _analyticsKey: true,
-      ...buttonFragment,
-    },
+    on_ButtonComponent: buttonFragment,
   },
 });
 
 type FeaturesGrid = fragmentOn.infer<typeof featuresGridFragment>;
 
-export function FeaturesGrid({ heading, featuresGridList, actions, _analyticsKey }: FeaturesGrid) {
+export function FeaturesGrid({
+  heading,
+  featuresGridList,
+  actions,
+  eventsKey,
+}: FeaturesGrid & { eventsKey: GeneralEvents["ingestKey"] }) {
   return (
     <Section>
       <Heading {...heading}>
@@ -65,7 +68,7 @@ export function FeaturesGrid({ heading, featuresGridList, actions, _analyticsKey
         {actions?.map((action) => (
           <TrackedButtonLink
             key={action._id}
-            analyticsKey={_analyticsKey}
+            analyticsKey={eventsKey}
             href={action.href}
             intent={action.type}
             name="cta_click"
