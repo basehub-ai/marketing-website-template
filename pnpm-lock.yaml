@@ -30,8 +30,8 @@ dependencies:
     specifier: ^10.4.19
     version: 10.4.19(postcss@8.4.38)
   basehub:
-    specifier: ^7.5.28
-    version: 7.5.28(@babel/runtime@7.24.6)(@types/react@18.3.3)(react-dom@19.0.0-rc-5c56b873-20241107)(react@19.0.0-rc-5c56b873-20241107)(typescript@5.4.5)
+    specifier: https://pkg.pr.new/basehub-ai/basehub@120
+    version: '@pkg.pr.new/basehub-ai/basehub@120(@babel/runtime@7.24.6)(@types/react@18.3.3)(react-dom@19.0.0-rc-5c56b873-20241107)(react@19.0.0-rc-5c56b873-20241107)(typescript@5.4.5)'
   class-variance-authority:
     specifier: ^0.7.0
     version: 0.7.0
@@ -120,8 +120,8 @@ packages:
       regenerator-runtime: 0.14.1
     dev: false
 
-  /@basehub/genql@9.0.0-canary.6:
-    resolution: {integrity: sha512-o2RpYZ3U4z1FU8Dl3DWBxSs2bc2Z96w/pq7qnKEbHckZUm0wnygLeDRnvt7h0aJLvRZucoCzRXE/zblIoOqiGQ==}
+  /@basehub/genql@9.0.0-canary.8:
+    resolution: {integrity: sha512-3p1u6LxX+cWSaDqc6rnpaWTbZ628GwxyYmkYjjNjI4Vw3zoD8diMwIDoGQwOIU0tjwksy9+EblSAlGrZL/mQgg==}
     dependencies:
       '@graphql-tools/graphql-file-loader': 7.5.17(graphql@16.8.1)
       '@graphql-tools/load': 7.8.14(graphql@16.8.1)
@@ -1913,40 +1913,6 @@ packages:
 
   /balanced-match@1.0.2:
     resolution: {integrity: sha512-3oSeUO0TMV67hN1AmbXsK4yaqU7tjiHlbxRDZOpH0KW9+CeX4bRAaX0Anxt0tx2MrpRpWwQaPwIlISEJhYU5Pw==}
-
-  /basehub@7.5.28(@babel/runtime@7.24.6)(@types/react@18.3.3)(react-dom@19.0.0-rc-5c56b873-20241107)(react@19.0.0-rc-5c56b873-20241107)(typescript@5.4.5):
-    resolution: {integrity: sha512-Y1B60t9mpVNUFebv3CkQPcLBHd+qjF67OJOjdojelQuEz5zELFK3/xzkGSzfmBqMPadKCrtZ3gFRMGfsZ8QgFw==}
-    hasBin: true
-    dependencies:
-      '@basehub/genql': 9.0.0-canary.6
-      '@basehub/mutation-api-helpers': 2.0.2
-      '@radix-ui/react-slot': 1.1.0(@types/react@18.3.3)(react@19.0.0-rc-5c56b873-20241107)
-      '@shikijs/transformers': 1.22.0
-      arg: 5.0.1
-      dotenv-mono: 1.3.10
-      esbuild: 0.19.2
-      esbuild-plugin-d.ts: 1.2.3(typescript@5.4.5)
-      github-slugger: 2.0.0
-      hast-util-to-jsx-runtime: 2.3.0
-      lodash.debounce: 4.0.8
-      lodash.get: 4.4.2
-      pusher-js: 8.3.0
-      resolve-pkg: 2.0.0
-      server-only: 0.0.1
-      shiki: 1.22.0
-      sonner: 1.5.0(react-dom@19.0.0-rc-5c56b873-20241107)(react@19.0.0-rc-5c56b873-20241107)
-      typesense: 1.8.2(@babel/runtime@7.24.6)
-      zod: 3.22.1
-    transitivePeerDependencies:
-      - '@babel/runtime'
-      - '@types/react'
-      - debug
-      - enquirer
-      - react
-      - react-dom
-      - supports-color
-      - typescript
-    dev: false
 
   /binary-extensions@2.3.0:
     resolution: {integrity: sha512-Ceh+7ox5qe7LJuLHoY0feh3pHuUDHAcRUeyL2VYghZwfpkNIy/+8Ocg0a3UuSoYzavmylwuLWQOf3hl0jjMMIw==}
@@ -5475,4 +5441,41 @@ packages:
 
   /zwitch@2.0.4:
     resolution: {integrity: sha512-bXE4cR/kVZhKZX/RjPEflHaKVhUVl85noU3v6b8apfQEc1x4A+zBxjZ4lN8LqGd6WZ3dl98pY4o717VFmoPp+A==}
+    dev: false
+
+  '@pkg.pr.new/basehub-ai/basehub@120(@babel/runtime@7.24.6)(@types/react@18.3.3)(react-dom@19.0.0-rc-5c56b873-20241107)(react@19.0.0-rc-5c56b873-20241107)(typescript@5.4.5)':
+    resolution: {tarball: https://pkg.pr.new/basehub-ai/basehub@120}
+    id: '@pkg.pr.new/basehub-ai/basehub@120'
+    name: basehub
+    version: 8.0.0-canary.17
+    hasBin: true
+    dependencies:
+      '@basehub/genql': 9.0.0-canary.8
+      '@basehub/mutation-api-helpers': 2.0.2
+      '@radix-ui/react-slot': 1.1.0(@types/react@18.3.3)(react@19.0.0-rc-5c56b873-20241107)
+      '@shikijs/transformers': 1.22.0
+      arg: 5.0.1
+      dotenv-mono: 1.3.10
+      esbuild: 0.19.2
+      esbuild-plugin-d.ts: 1.2.3(typescript@5.4.5)
+      github-slugger: 2.0.0
+      hast-util-to-jsx-runtime: 2.3.0
+      lodash.debounce: 4.0.8
+      lodash.get: 4.4.2
+      pusher-js: 8.3.0
+      resolve-pkg: 2.0.0
+      server-only: 0.0.1
+      shiki: 1.22.0
+      sonner: 1.5.0(react-dom@19.0.0-rc-5c56b873-20241107)(react@19.0.0-rc-5c56b873-20241107)
+      typesense: 1.8.2(@babel/runtime@7.24.6)
+      zod: 3.22.1
+    transitivePeerDependencies:
+      - '@babel/runtime'
+      - '@types/react'
+      - debug
+      - enquirer
+      - react
+      - react-dom
+      - supports-color
+      - typescript
     dev: false

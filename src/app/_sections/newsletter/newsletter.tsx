@@ -36,7 +36,19 @@ export function Newsletter() {
                 </p>
               </div>
 
-              <form className="w-full max-w-[400px] flex-shrink-0">
+              <form
+                className="w-full max-w-[400px] flex-shrink-0"
+                action={async (formData) => {
+                  "use server";
+
+                  const email = formData.get("email");
+
+                  // TODO: send email somewhere
+                  console.log({ email });
+
+                  return "ok";
+                }}
+              >
                 <Input
                   required
                   buttonContent="Subscribe"
