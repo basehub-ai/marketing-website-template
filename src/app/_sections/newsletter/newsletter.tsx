@@ -42,6 +42,9 @@ export function Newsletter() {
                   "use server";
 
                   const email = formData.get("email");
+                  if (typeof email !== "string") {
+                    throw new Error("Invalid email");
+                  }
 
                   // TODO: send email somewhere
                   console.log({ email });
