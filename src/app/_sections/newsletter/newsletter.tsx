@@ -3,6 +3,7 @@ import * as React from "react";
 import { Input } from "@/common/input";
 import { Section } from "@/common/layout";
 import { Pump } from ".basehub/react-pump";
+import { sendEvent } from ".basehub/events";
 
 export function Newsletter() {
   return (
@@ -14,6 +15,9 @@ export function Newsletter() {
               newsletter: {
                 title: true,
                 description: true,
+                form: {
+                  ingestKey: true,
+                },
               },
             },
           },
@@ -36,7 +40,25 @@ export function Newsletter() {
                 </p>
               </div>
 
-              <form className="w-full max-w-[400px] flex-shrink-0">
+              <form
+                className="w-full max-w-[400px] flex-shrink-0"
+                action={async (formData) => {
+                  "use server";
+
+                  const email = formData.get("email");
+                  if (typeof email !== "string") {
+                    throw new Error("Invalid email");
+                  }
+
+                  const res = await sendEvent(site.footer.newsletter.form.ingestKey, {
+                    email,
+                  });
+
+                  console.log(res);
+
+                  return res;
+                }}
+              >
                 <Input
                   required
                   buttonContent="Subscribe"
