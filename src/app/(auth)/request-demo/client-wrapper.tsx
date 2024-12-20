@@ -21,12 +21,16 @@ export function DemoForm({
       const form = e.target as HTMLFormElement;
       const formData = new FormData(form);
 
-      await sendEvent(ingestKey, {
-        eMail: String(formData.get("email")),
+      const response = await sendEvent(ingestKey, {
+        eMail: String(formData.get("eMail")),
         firstName: String(formData.get("firstName")),
         lastName: String(formData.get("lastName")),
         message: String(formData.get("message")),
       });
+
+      if (response.success) {
+        form.reset();
+      }
     },
     [ingestKey],
   );
