@@ -21,10 +21,7 @@ export const featuresGridFragment = fragmentOn("FeaturesGridComponent", {
     },
   },
   heading: headingFragment,
-  actions: {
-    __typename: true,
-    on_ButtonComponent: buttonFragment,
-  },
+  actions: buttonFragment,
 });
 
 type FeaturesGrid = fragmentOn.infer<typeof featuresGridFragment>;

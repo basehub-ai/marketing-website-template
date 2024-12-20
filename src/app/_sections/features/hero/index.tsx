@@ -18,12 +18,10 @@ export const featureHeroFragment = fragmentOn("FeatureHeroComponent", {
   heading: headingFragment,
   image: darkLightImageFragment,
   actions: {
-    on_ButtonComponent: {
-      _id: true,
-      href: true,
-      label: true,
-      type: true,
-    },
+    _id: true,
+    href: true,
+    label: true,
+    type: true,
   },
 });
 

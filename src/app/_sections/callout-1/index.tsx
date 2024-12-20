@@ -12,12 +12,7 @@ export const calloutFragment = fragmentOn("CalloutComponent", {
   _analyticsKey: true,
   title: true,
   subtitle: true,
-  actions: {
-    on_ButtonComponent: {
-      _analyticsKey: true,
-      ...buttonFragment,
-    },
-  },
+  actions: buttonFragment,
 });
 type Callout = fragmentOn.infer<typeof calloutFragment>;
 

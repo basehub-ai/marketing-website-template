@@ -30,8 +30,8 @@ dependencies:
     specifier: ^10.4.19
     version: 10.4.20(postcss@8.4.49)
   basehub:
-    specifier: https://pkg.pr.new/basehub-ai/basehub@1ca9e59
-    version: '@pkg.pr.new/basehub-ai/basehub@1ca9e59(@babel/runtime@7.26.0)(@types/react@18.3.12)(react-dom@19.0.0-rc-5c56b873-20241107)(react@19.0.0-rc-5c56b873-20241107)(typescript@5.7.2)'
+    specifier: 8.0.0-canary.37
+    version: 8.0.0-canary.37(@babel/runtime@7.26.0)(@types/react@18.3.12)(react-dom@19.0.0-rc-5c56b873-20241107)(react@19.0.0-rc-5c56b873-20241107)(typescript@5.7.2)
   class-variance-authority:
     specifier: ^0.7.0
     version: 0.7.1
@@ -1824,6 +1824,11 @@ packages:
   /@ungap/structured-clone@1.2.0:
     resolution: {integrity: sha512-zuVdFrMJiuCDQUMCzQaD6KL28MjnqqN8XnAqiEq9PNm/hCPTSGfrXCOfwj1ow4LFb/tNymJPwsNbVePc1xFqrQ==}
 
+  /@xmldom/xmldom@0.9.6:
+    resolution: {integrity: sha512-Su4xcxR0CPGwlDHNmVP09fqET9YxbyDXHaSob6JlBH7L6reTYaeim6zbk9o08UarO0L5GTRo3uzl0D+9lSxmvw==}
+    engines: {node: '>=14.6'}
+    dev: false
+
   /acorn-jsx@5.3.2(acorn@8.14.0):
     resolution: {integrity: sha512-rq9s+JNhf0IChjtDXxllJ7g41oZk5SlXtp0LHwyA5cejwn7vKmKp4pPri6YEePv2PU65sAsegbXtIinmDFDXgQ==}
     peerDependencies:
@@ -2052,6 +2057,41 @@ packages:
 
   /balanced-match@1.0.2:
     resolution: {integrity: sha512-3oSeUO0TMV67hN1AmbXsK4yaqU7tjiHlbxRDZOpH0KW9+CeX4bRAaX0Anxt0tx2MrpRpWwQaPwIlISEJhYU5Pw==}
+
+  /basehub@8.0.0-canary.37(@babel/runtime@7.26.0)(@types/react@18.3.12)(react-dom@19.0.0-rc-5c56b873-20241107)(react@19.0.0-rc-5c56b873-20241107)(typescript@5.7.2):
+    resolution: {integrity: sha512-IBp+lkvP6Z6uoFpJjZfF3S8FlO2YtYKcsLwvvDmy9ETawT3MQi0LAc+1fRRufWqVCJfjJfUE9JcJ+ed1bvNiPw==}
+    hasBin: true
+    dependencies:
+      '@basehub/genql': 9.0.0-canary.9
+      '@basehub/mutation-api-helpers': 2.0.7
+      '@radix-ui/react-slot': 1.1.0(@types/react@18.3.12)(react@19.0.0-rc-5c56b873-20241107)
+      '@shikijs/transformers': 1.17.7
+      '@xmldom/xmldom': 0.9.6
+      arg: 5.0.1
+      dotenv-mono: 1.3.10
+      esbuild: 0.19.2
+      esbuild-plugin-d.ts: 1.2.3(typescript@5.7.2)
+      github-slugger: 2.0.0
+      hast-util-to-jsx-runtime: 2.3.2
+      lodash.debounce: 4.0.8
+      lodash.get: 4.4.2
+      pusher-js: 8.3.0
+      resolve-pkg: 2.0.0
+      server-only: 0.0.1
+      shiki: 1.17.7
+      sonner: 1.7.1(react-dom@19.0.0-rc-5c56b873-20241107)(react@19.0.0-rc-5c56b873-20241107)
+      typesense: 1.8.2(@babel/runtime@7.26.0)
+      zod: 3.22.1
+    transitivePeerDependencies:
+      - '@babel/runtime'
+      - '@types/react'
+      - debug
+      - enquirer
+      - react
+      - react-dom
+      - supports-color
+      - typescript
+    dev: false
 
   /binary-extensions@2.3.0:
     resolution: {integrity: sha512-Ceh+7ox5qe7LJuLHoY0feh3pHuUDHAcRUeyL2VYghZwfpkNIy/+8Ocg0a3UuSoYzavmylwuLWQOf3hl0jjMMIw==}
@@ -5552,11 +5592,6 @@ packages:
   /wrappy@1.0.2:
     resolution: {integrity: sha512-l4Sp/DRseor9wL6EvV2+TuQn63dMkPjZ/sp9XkghTEbV9KlPS1xUsZ3u7/IQO4wxtcFB4bgpQPRcR3QCvezPcQ==}
 
-  /xmldom@0.6.0:
-    resolution: {integrity: sha512-iAcin401y58LckRZ0TkI4k0VSM1Qg0KGSc3i8rU+xrxe19A/BN1zHyVSJY7uoutVlaTSzYyk/v5AmkewAP7jtg==}
-    engines: {node: '>=10.0.0'}
-    dev: false
-
   /y18n@4.0.3:
     resolution: {integrity: sha512-JKhqTOwSrqNA1NY5lSztJ1GrBiUodLMmIZuLiDaMRJ+itFd+ABVE8XBjOvIWL+rSqNDC74LCSFmlb/U4UZ4hJQ==}
     dev: false
@@ -5601,42 +5636,4 @@ packages:
 
   /zwitch@2.0.4:
     resolution: {integrity: sha512-bXE4cR/kVZhKZX/RjPEflHaKVhUVl85noU3v6b8apfQEc1x4A+zBxjZ4lN8LqGd6WZ3dl98pY4o717VFmoPp+A==}
-    dev: false
-
-  '@pkg.pr.new/basehub-ai/basehub@1ca9e59(@babel/runtime@7.26.0)(@types/react@18.3.12)(react-dom@19.0.0-rc-5c56b873-20241107)(react@19.0.0-rc-5c56b873-20241107)(typescript@5.7.2)':
-    resolution: {tarball: https://pkg.pr.new/basehub-ai/basehub@1ca9e59}
-    id: '@pkg.pr.new/basehub-ai/basehub@1ca9e59'
-    name: basehub
-    version: 8.0.0-canary.35
-    hasBin: true
-    dependencies:
-      '@basehub/genql': 9.0.0-canary.9
-      '@basehub/mutation-api-helpers': 2.0.7
-      '@radix-ui/react-slot': 1.1.0(@types/react@18.3.12)(react@19.0.0-rc-5c56b873-20241107)
-      '@shikijs/transformers': 1.17.7
-      arg: 5.0.1
-      dotenv-mono: 1.3.10
-      esbuild: 0.19.2
-      esbuild-plugin-d.ts: 1.2.3(typescript@5.7.2)
-      github-slugger: 2.0.0
-      hast-util-to-jsx-runtime: 2.3.2
-      lodash.debounce: 4.0.8
-      lodash.get: 4.4.2
-      pusher-js: 8.3.0
-      resolve-pkg: 2.0.0
-      server-only: 0.0.1
-      shiki: 1.17.7
-      sonner: 1.7.1(react-dom@19.0.0-rc-5c56b873-20241107)(react@19.0.0-rc-5c56b873-20241107)
-      typesense: 1.8.2(@babel/runtime@7.26.0)
-      xmldom: 0.6.0
-      zod: 3.22.1
-    transitivePeerDependencies:
-      - '@babel/runtime'
-      - '@types/react'
-      - debug
-      - enquirer
-      - react
-      - react-dom
-      - supports-color
-      - typescript
     dev: false

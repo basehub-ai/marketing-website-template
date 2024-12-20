@@ -21,12 +21,10 @@ export const heroFragment = fragmentOn("HeroComponent", {
   title: true,
   subtitle: true,
   actions: {
-    on_ButtonComponent: {
-      _id: true,
-      href: true,
-      label: true,
-      type: true,
-    },
+    _id: true,
+    href: true,
+    label: true,
+    type: true,
   },
 });
 type Hero = fragmentOn.infer<typeof heroFragment>;

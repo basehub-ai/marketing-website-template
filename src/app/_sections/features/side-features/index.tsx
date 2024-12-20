@@ -20,14 +20,11 @@ export const featuresSideBySideFragment = fragmentOn("FeaturesSideBySideComponen
   },
   heading: headingFragment,
   actions: {
-    __typename: true,
-    on_ButtonComponent: {
-      _analyticsKey: true,
-      _id: true,
-      href: true,
-      label: true,
-      type: true,
-    },
+    _analyticsKey: true,
+    _id: true,
+    href: true,
+    label: true,
+    type: true,
   },
 });
 
