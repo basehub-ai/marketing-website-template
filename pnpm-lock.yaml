@@ -30,8 +30,8 @@ dependencies:
     specifier: ^10.4.19
     version: 10.4.20(postcss@8.4.49)
   basehub:
-    specifier: https://pkg.pr.new/basehub-ai/basehub@44946c9
-    version: '@pkg.pr.new/basehub-ai/basehub@44946c9(@babel/runtime@7.26.0)(@types/react@18.3.12)(react-dom@19.0.0-rc-5c56b873-20241107)(react@19.0.0-rc-5c56b873-20241107)(typescript@5.7.2)'
+    specifier: https://pkg.pr.new/basehub-ai/basehub@1ca9e59
+    version: '@pkg.pr.new/basehub-ai/basehub@1ca9e59(@babel/runtime@7.26.0)(@types/react@18.3.12)(react-dom@19.0.0-rc-5c56b873-20241107)(react@19.0.0-rc-5c56b873-20241107)(typescript@5.7.2)'
   class-variance-authority:
     specifier: ^0.7.0
     version: 0.7.1
@@ -120,8 +120,8 @@ packages:
       regenerator-runtime: 0.14.1
     dev: false
 
-  /@basehub/genql@9.0.0-canary.8:
-    resolution: {integrity: sha512-3p1u6LxX+cWSaDqc6rnpaWTbZ628GwxyYmkYjjNjI4Vw3zoD8diMwIDoGQwOIU0tjwksy9+EblSAlGrZL/mQgg==}
+  /@basehub/genql@9.0.0-canary.9:
+    resolution: {integrity: sha512-kn/NDPXOxO/GAbORDvpLNozLE9tmPtHwW/5YzCMH8RltAbJz9DOH2TmTEvFb+zrkchZPGLkxjM+j892f0pUyaQ==}
     dependencies:
       '@graphql-tools/graphql-file-loader': 7.5.17(graphql@16.9.0)
       '@graphql-tools/load': 7.8.14(graphql@16.9.0)
@@ -141,8 +141,8 @@ packages:
       - enquirer
     dev: false
 
-  /@basehub/mutation-api-helpers@2.0.2:
-    resolution: {integrity: sha512-R2Er+hEmC7w+jrSsTnTHPK91vHNPv6+6mglqVJkph1weBjEetILUbOZwIE1pJ1/BbwmHtWbyzHEiO3zsfSXbWg==}
+  /@basehub/mutation-api-helpers@2.0.7:
+    resolution: {integrity: sha512-i2WRtQnAkQ1Lowkwl6tkMIQ42AfZ2qs71zR/JYV6wxvl52011sXTMdf8V8jn/X/SZf7M4rR4KU9Bj8FA0DJPBA==}
     dev: false
 
   /@corex/deepmerge@4.0.43:
@@ -1563,40 +1563,40 @@ packages:
     resolution: {integrity: sha512-WJgX9nzTqknM393q1QJDJmoW28kUfEnybeTfVNcNAPnIx210RXm2DiXiHzfNPJNIUUb1tJnz/l4QGtJ30PgWmA==}
     dev: true
 
-  /@shikijs/core@1.24.0:
-    resolution: {integrity: sha512-6pvdH0KoahMzr6689yh0QJ3rCgF4j1XsXRHNEeEN6M4xJTfQ6QPWrmHzIddotg+xPJUPEPzYzYCKzpYyhTI6Gw==}
+  /@shikijs/core@1.17.7:
+    resolution: {integrity: sha512-ZnIDxFu/yvje3Q8owSHaEHd+bu/jdWhHAaJ17ggjXofHx5rc4bhpCSW+OjC6smUBi5s5dd023jWtZ1gzMu/yrw==}
     dependencies:
-      '@shikijs/engine-javascript': 1.24.0
-      '@shikijs/engine-oniguruma': 1.24.0
-      '@shikijs/types': 1.24.0
+      '@shikijs/engine-javascript': 1.17.7
+      '@shikijs/engine-oniguruma': 1.17.7
+      '@shikijs/types': 1.17.7
       '@shikijs/vscode-textmate': 9.3.0
       '@types/hast': 3.0.4
       hast-util-to-html: 9.0.3
     dev: false
 
-  /@shikijs/engine-javascript@1.24.0:
-    resolution: {integrity: sha512-ZA6sCeSsF3Mnlxxr+4wGEJ9Tto4RHmfIS7ox8KIAbH0MTVUkw3roHPHZN+LlJMOHJJOVupe6tvuAzRpN8qK1vA==}
+  /@shikijs/engine-javascript@1.17.7:
+    resolution: {integrity: sha512-wwSf7lKPsm+hiYQdX+1WfOXujtnUG6fnN4rCmExxa4vo+OTmvZ9B1eKauilvol/LHUPrQgW12G3gzem7pY5ckw==}
     dependencies:
-      '@shikijs/types': 1.24.0
+      '@shikijs/types': 1.17.7
       '@shikijs/vscode-textmate': 9.3.0
-      oniguruma-to-es: 0.7.0
+      oniguruma-to-js: 0.4.3
     dev: false
 
-  /@shikijs/engine-oniguruma@1.24.0:
-    resolution: {integrity: sha512-Eua0qNOL73Y82lGA4GF5P+G2+VXX9XnuUxkiUuwcxQPH4wom+tE39kZpBFXfUuwNYxHSkrSxpB1p4kyRW0moSg==}
+  /@shikijs/engine-oniguruma@1.17.7:
+    resolution: {integrity: sha512-pvSYGnVeEIconU28NEzBXqSQC/GILbuNbAHwMoSfdTBrobKAsV1vq2K4cAgiaW1TJceLV9QMGGh18hi7cCzbVQ==}
     dependencies:
-      '@shikijs/types': 1.24.0
+      '@shikijs/types': 1.17.7
       '@shikijs/vscode-textmate': 9.3.0
     dev: false
 
-  /@shikijs/transformers@1.24.0:
-    resolution: {integrity: sha512-Qf/hby+PRPkoHncjYnJf5svK1aCsOUtQhuLzKPnmeXJtuUZCmbH0pTpdNtXe9tgln/RHlyRJnv7q46HHS1sO0Q==}
+  /@shikijs/transformers@1.17.7:
+    resolution: {integrity: sha512-Nu7DaUT/qHDqbEsWBBqX6MyPMFbR4hUZcK11TA+zU/nPu9eDFE8v0p+n+eT4A3+3mxX6czMSF81W4QNsQ/NSpQ==}
     dependencies:
-      shiki: 1.24.0
+      shiki: 1.17.7
     dev: false
 
-  /@shikijs/types@1.24.0:
-    resolution: {integrity: sha512-aptbEuq1Pk88DMlCe+FzXNnBZ17LCiLIGWAeCWhoFDzia5Q5Krx3DgnULLiouSdd6+LUM39XwXGppqYE0Ghtug==}
+  /@shikijs/types@1.17.7:
+    resolution: {integrity: sha512-+qA4UyhWLH2q4EFd+0z4K7GpERDU+c+CN2XYD3sC+zjvAr5iuwD1nToXZMt1YODshjkEGEDV86G7j66bKjqDdg==}
     dependencies:
       '@shikijs/vscode-textmate': 9.3.0
       '@types/hast': 3.0.4
@@ -2465,10 +2465,6 @@ packages:
 
   /embla-carousel@8.5.1:
     resolution: {integrity: sha512-JUb5+FOHobSiWQ2EJNaueCNT/cQU9L6XWBbWmorWPQT9bkbk+fhsuLr8wWrzXKagO3oWszBO7MSx+GfaRk4E6A==}
-    dev: false
-
-  /emoji-regex-xs@1.0.0:
-    resolution: {integrity: sha512-LRlerrMYoIDrT6jgpeZ2YYl/L8EulRTt5hQcYjy5AInh7HWXKimpqx68aknBFpGL2+/IcogTcaydJEgaTmOpDg==}
     dev: false
 
   /emoji-regex@8.0.0:
@@ -4297,12 +4293,10 @@ packages:
       mimic-fn: 2.1.0
     dev: false
 
-  /oniguruma-to-es@0.7.0:
-    resolution: {integrity: sha512-HRaRh09cE0gRS3+wi2zxekB+I5L8C/gN60S+vb11eADHUaB/q4u8wGGOX3GvwvitG8ixaeycZfeoyruKQzUgNg==}
+  /oniguruma-to-js@0.4.3:
+    resolution: {integrity: sha512-X0jWUcAlxORhOqqBREgPMgnshB7ZGYszBNspP+tS9hPD3l13CdaXcHbgImoHUHlrvGx/7AvFEkTRhAGYh+jzjQ==}
     dependencies:
-      emoji-regex-xs: 1.0.0
-      regex: 5.0.2
-      regex-recursion: 4.3.0
+      regex: 4.4.0
     dev: false
 
   /optionator@0.9.4:
@@ -4707,20 +4701,8 @@ packages:
     resolution: {integrity: sha512-dYnhHh0nJoMfnkZs6GmmhFknAGRrLznOu5nc9ML+EJxGvrx6H7teuevqVqCuPcPK//3eDrrjQhehXVx9cnkGdw==}
     dev: false
 
-  /regex-recursion@4.3.0:
-    resolution: {integrity: sha512-5LcLnizwjcQ2ALfOj95MjcatxyqF5RPySx9yT+PaXu3Gox2vyAtLDjHB8NTJLtMGkvyau6nI3CfpwFCjPUIs/A==}
-    dependencies:
-      regex-utilities: 2.3.0
-    dev: false
-
-  /regex-utilities@2.3.0:
-    resolution: {integrity: sha512-8VhliFJAWRaUiVvREIiW2NXXTmHs4vMNnSzuJVhscgmGav3g9VDxLrQndI3dZZVVdp0ZO/5v0xmX516/7M9cng==}
-    dev: false
-
-  /regex@5.0.2:
-    resolution: {integrity: sha512-/pczGbKIQgfTMRV0XjABvc5RzLqQmwqxLHdQao2RTXPk+pmTXB2P0IaUHYdYyk412YLwUIkaeMd5T+RzVgTqnQ==}
-    dependencies:
-      regex-utilities: 2.3.0
+  /regex@4.4.0:
+    resolution: {integrity: sha512-uCUSuobNVeqUupowbdZub6ggI5/JZkYyJdDogddJr60L764oxC2pMZov1fQ3wM9bdyzUILDG+Sqx6NAKAz9rKQ==}
     dev: false
 
   /regexp.prototype.flags@1.5.3:
@@ -4933,13 +4915,13 @@ packages:
     resolution: {integrity: sha512-7++dFhtcx3353uBaq8DDR4NuxBetBzC7ZQOhmTQInHEd6bSrXdiEyzCvG07Z44UYdLShWUyXt5M/yhz8ekcb1A==}
     engines: {node: '>=8'}
 
-  /shiki@1.24.0:
-    resolution: {integrity: sha512-qIneep7QRwxRd5oiHb8jaRzH15V/S8F3saCXOdjwRLgozZJr5x2yeBhQtqkO3FSzQDwYEFAYuifg4oHjpDghrg==}
+  /shiki@1.17.7:
+    resolution: {integrity: sha512-Zf6hNtWhFyF4XP5OOsXkBTEx9JFPiN0TQx4wSe+Vqeuczewgk2vT4IZhF4gka55uelm052BD5BaHavNqUNZd+A==}
     dependencies:
-      '@shikijs/core': 1.24.0
-      '@shikijs/engine-javascript': 1.24.0
-      '@shikijs/engine-oniguruma': 1.24.0
-      '@shikijs/types': 1.24.0
+      '@shikijs/core': 1.17.7
+      '@shikijs/engine-javascript': 1.17.7
+      '@shikijs/engine-oniguruma': 1.17.7
+      '@shikijs/types': 1.17.7
       '@shikijs/vscode-textmate': 9.3.0
       '@types/hast': 3.0.4
     dev: false
@@ -4981,11 +4963,11 @@ packages:
       is-fullwidth-code-point: 4.0.0
     dev: false
 
-  /sonner@1.5.0(react-dom@19.0.0-rc-5c56b873-20241107)(react@19.0.0-rc-5c56b873-20241107):
-    resolution: {integrity: sha512-FBjhG/gnnbN6FY0jaNnqZOMmB73R+5IiyYAw8yBj7L54ER7HB3fOSE5OFiQiE2iXWxeXKvg6fIP4LtVppHEdJA==}
+  /sonner@1.7.1(react-dom@19.0.0-rc-5c56b873-20241107)(react@19.0.0-rc-5c56b873-20241107):
+    resolution: {integrity: sha512-b6LHBfH32SoVasRFECrdY8p8s7hXPDn3OHUFbZZbiB1ctLS9Gdh6rpX2dVrpQA0kiL5jcRzDDldwwLkSKk3+QQ==}
     peerDependencies:
-      react: ^18.0.0
-      react-dom: ^18.0.0
+      react: ^18.0.0 || ^19.0.0 || ^19.0.0-rc
+      react-dom: ^18.0.0 || ^19.0.0 || ^19.0.0-rc
     dependencies:
       react: 19.0.0-rc-5c56b873-20241107
       react-dom: 19.0.0-rc-5c56b873-20241107(react@19.0.0-rc-5c56b873-20241107)
@@ -5570,6 +5552,11 @@ packages:
   /wrappy@1.0.2:
     resolution: {integrity: sha512-l4Sp/DRseor9wL6EvV2+TuQn63dMkPjZ/sp9XkghTEbV9KlPS1xUsZ3u7/IQO4wxtcFB4bgpQPRcR3QCvezPcQ==}
 
+  /xmldom@0.6.0:
+    resolution: {integrity: sha512-iAcin401y58LckRZ0TkI4k0VSM1Qg0KGSc3i8rU+xrxe19A/BN1zHyVSJY7uoutVlaTSzYyk/v5AmkewAP7jtg==}
+    engines: {node: '>=10.0.0'}
+    dev: false
+
   /y18n@4.0.3:
     resolution: {integrity: sha512-JKhqTOwSrqNA1NY5lSztJ1GrBiUodLMmIZuLiDaMRJ+itFd+ABVE8XBjOvIWL+rSqNDC74LCSFmlb/U4UZ4hJQ==}
     dev: false
@@ -5616,17 +5603,17 @@ packages:
     resolution: {integrity: sha512-bXE4cR/kVZhKZX/RjPEflHaKVhUVl85noU3v6b8apfQEc1x4A+zBxjZ4lN8LqGd6WZ3dl98pY4o717VFmoPp+A==}
     dev: false
 
-  '@pkg.pr.new/basehub-ai/basehub@44946c9(@babel/runtime@7.26.0)(@types/react@18.3.12)(react-dom@19.0.0-rc-5c56b873-20241107)(react@19.0.0-rc-5c56b873-20241107)(typescript@5.7.2)':
-    resolution: {tarball: https://pkg.pr.new/basehub-ai/basehub@44946c9}
-    id: '@pkg.pr.new/basehub-ai/basehub@44946c9'
+  '@pkg.pr.new/basehub-ai/basehub@1ca9e59(@babel/runtime@7.26.0)(@types/react@18.3.12)(react-dom@19.0.0-rc-5c56b873-20241107)(react@19.0.0-rc-5c56b873-20241107)(typescript@5.7.2)':
+    resolution: {tarball: https://pkg.pr.new/basehub-ai/basehub@1ca9e59}
+    id: '@pkg.pr.new/basehub-ai/basehub@1ca9e59'
     name: basehub
-    version: 8.0.0-canary.17
+    version: 8.0.0-canary.35
     hasBin: true
     dependencies:
-      '@basehub/genql': 9.0.0-canary.8
-      '@basehub/mutation-api-helpers': 2.0.2
+      '@basehub/genql': 9.0.0-canary.9
+      '@basehub/mutation-api-helpers': 2.0.7
       '@radix-ui/react-slot': 1.1.0(@types/react@18.3.12)(react@19.0.0-rc-5c56b873-20241107)
-      '@shikijs/transformers': 1.24.0
+      '@shikijs/transformers': 1.17.7
       arg: 5.0.1
       dotenv-mono: 1.3.10
       esbuild: 0.19.2
@@ -5638,9 +5625,10 @@ packages:
       pusher-js: 8.3.0
       resolve-pkg: 2.0.0
       server-only: 0.0.1
-      shiki: 1.24.0
-      sonner: 1.5.0(react-dom@19.0.0-rc-5c56b873-20241107)(react@19.0.0-rc-5c56b873-20241107)
+      shiki: 1.17.7
+      sonner: 1.7.1(react-dom@19.0.0-rc-5c56b873-20241107)(react@19.0.0-rc-5c56b873-20241107)
       typesense: 1.8.2(@babel/runtime@7.26.0)
+      xmldom: 0.6.0
       zod: 3.22.1
     transitivePeerDependencies:
       - '@babel/runtime'
