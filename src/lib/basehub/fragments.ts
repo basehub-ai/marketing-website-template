@@ -98,6 +98,7 @@ export const buttonFragment = fragmentOn("ButtonComponent", {
   label: true,
   href: true,
   type: true,
+  icon: true,
 });
 
 /* -------------------------------------------------------------------------- */

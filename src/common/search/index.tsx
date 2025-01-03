@@ -62,7 +62,7 @@ export function SearchContent({ _searchKey }: { _searchKey: string }) {
               asChild
               className="outline-none outline-0"
               onFocus={() => {
-                search.query && setOpen(true);
+                if (search.query) setOpen(true);
               }}
             >
               <input

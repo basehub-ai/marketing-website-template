@@ -3,9 +3,16 @@ import * as AccordionPrimitive from "@radix-ui/react-accordion";
 import { MinusCircledIcon, PlusCircledIcon } from "@radix-ui/react-icons";
 import * as React from "react";
 import { type Faq } from "../faq";
-import { sendEvent } from "basehub/analytics";
+import { sendEvent } from "basehub/events";
+import { GeneralEvents } from ".basehub/schema";
 
-export function Accordion({ items }: { items: Faq["questions"]["items"] }) {
+export function Accordion({
+  items,
+  eventsKey,
+}: {
+  items: Faq["questions"]["items"];
+  eventsKey: GeneralEvents["ingestKey"];
+}) {
   const [activeItems, setActiveItems] = React.useState<string[]>([]);
 
   return (
@@ -16,7 +23,12 @@ export function Accordion({ items }: { items: Faq["questions"]["items"] }) {
       onValueChange={(activeItems) => setActiveItems(activeItems)}
     >
       {items.map((item) => (
-        <AccordionItem key={item._title} {...item} isActive={activeItems.includes(item._title)} />
+        <AccordionItem
+          key={item._title}
+          {...item}
+          eventsKey={eventsKey}
+          isActive={activeItems.includes(item._title)}
+        />
       ))}
     </AccordionPrimitive.Root>
   );
@@ -26,17 +38,16 @@ function AccordionItem({
   _title,
   answer,
   isActive,
-  _analyticsKey,
-}: Faq["questions"]["items"][0] & { isActive: boolean }) {
+  eventsKey,
+}: Faq["questions"]["items"][0] & { isActive: boolean; eventsKey: GeneralEvents["ingestKey"] }) {
   return (
     <AccordionPrimitive.Item key={_title} className="flex flex-col" value={_title}>
       <AccordionPrimitive.Header>
         <AccordionPrimitive.Trigger
           className="flex w-full items-start gap-3 rounded-md py-2 text-lg font-medium leading-relaxed tracking-tighter outline-none ring-accent-500 focus-visible:ring"
           onClick={() => {
-            sendEvent({
-              name: "faq_expanded",
-              _analyticsKey,
+            sendEvent(eventsKey, {
+              eventType: "faq_expanded",
             });
           }}
         >

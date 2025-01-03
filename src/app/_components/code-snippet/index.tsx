@@ -41,7 +41,7 @@ export function CodeSnippet({ code, _id, _title = "Untitled" }: CodeSnippetFragm
           ),
         }}
         lineNumbers={{ className: "line-indicator" }}
-        snippets={[{ code: code.code, lang: code.language as Language, id: _id }]}
+        snippets={[{ code: code.code, language: code.language as Language, id: _id }]}
         theme={theme}
       />
     </div>

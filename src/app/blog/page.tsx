@@ -52,6 +52,7 @@ export default async function BlogPage() {
             },
           },
           site: {
+            generalEvents: { ingestKey: true },
             blog: {
               _analyticsKey: true,
               mainTitle: true,
@@ -69,7 +70,7 @@ export default async function BlogPage() {
       {async ([
         {
           _componentInstances: { blogPost },
-          site: { blog },
+          site: { blog, generalEvents },
           collections: { authors },
         },
       ]) => {
@@ -82,7 +83,7 @@ export default async function BlogPage() {
 
         return (
           <Section className="gap-16">
-            <PageView _analyticsKey={blog._analyticsKey} />
+            <PageView ingestKey={generalEvents.ingestKey} />
             <div className="grid grid-cols-1 gap-5 self-stretch md:grid-cols-2">
               <Heading align="left">
                 <h2>{blog.mainTitle}</h2>
