@@ -185,7 +185,7 @@ export default function FeatureHero({ heading, heroLayout, image, actions }: Fea
           {/* Gradient */}
           <div
             className={clsx(
-              "absolute -top-1/2 left-1/2 z-[0] h-[400px] w-[70vw] -translate-x-1/2 scale-150 rounded-[50%]",
+              "absolute -top-1/2 left-1/2 z-[0] h-[400px] w-[60vw] -translate-x-1/2 scale-150 rounded-[50%]",
               s.gradient,
             )}
           />

@@ -19,7 +19,6 @@ import {
   isHeroComponent,
   isPricingComponent,
   isPricingTableComponent,
-  isSectionReferenceComponent,
   isTestimonialSliderComponent,
   isTestimonialsGridComponent,
 } from ".basehub/schema";
@@ -141,13 +140,6 @@ function SectionsUnion({
         return <PricingTable {...comp} key={comp._id} />;
       case isFeatureHeroComponent(comp):
         return <FeatureHero {...comp} key={comp._id} />;
-      case isSectionReferenceComponent(comp):
-        return (
-          <SectionsUnion
-            key={comp._id}
-            sections={[{ ...comp.sectionReference, _analyticsKey: comp._analyticsKey }]}
-          />
-        );
       case isFreeformTextComponent(comp):
         return <FreeformText {...comp} key={comp._id} />;
       default:
@@ -206,14 +198,7 @@ export default async function DynamicPage({
                 _analyticsKey: true,
                 _id: true,
                 pathname: true,
-                sections: {
-                  ...sectionsFragment.sections,
-                  on_SectionReferenceComponent: {
-                    sectionReference: {
-                      ...sectionsFragment.sections,
-                    },
-                  },
-                },
+                sections: sectionsFragment.sections,
               },
             },
           },
