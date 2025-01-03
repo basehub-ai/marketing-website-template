@@ -1,8 +1,9 @@
+import NextForm from "next/form";
 import * as React from "react";
-
 import { Section } from "@/common/layout";
 import { Pump } from ".basehub/react-pump";
-import { ClientForm } from "./client-form";
+import { Input } from "@/common/input";
+import { parseFormData, sendEvent } from ".basehub/events";
 
 export function Newsletter() {
   return (
@@ -27,6 +28,10 @@ export function Newsletter() {
       {async ([{ site }]) => {
         "use server";
 
+        const emailInput = site.footer.newsletter.submissions.schema.find(
+          (field) => field.type === "email",
+        );
+
         return (
           <Section
             className="bg-surface-secondary !py-10 dark:bg-dark-surface-secondary"
@@ -40,10 +45,22 @@ export function Newsletter() {
                 </p>
               </div>
 
-              <ClientForm
-                ingestKey={site.footer.newsletter.submissions.ingestKey}
-                schema={site.footer.newsletter.submissions.schema}
-              />
+              <NextForm
+                action={async (data) => {
+                  "use server";
+                  const parsedData = parseFormData(
+                    site.footer.newsletter.submissions.ingestKey,
+                    site.footer.newsletter.submissions.schema,
+                    data,
+                  );
+                  if (!parsedData.success) {
+                    throw new Error(JSON.stringify(parsedData.errors));
+                  }
+                  await sendEvent(site.footer.newsletter.submissions.ingestKey, parsedData.data);
+                }}
+              >
+                <Input {...emailInput} />
+              </NextForm>
             </div>
           </Section>
         );
