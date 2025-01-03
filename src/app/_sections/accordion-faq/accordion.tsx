@@ -3,7 +3,7 @@ import * as AccordionPrimitive from "@radix-ui/react-accordion";
 import { MinusCircledIcon, PlusCircledIcon } from "@radix-ui/react-icons";
 import * as React from "react";
 import { type Faq } from "../faq";
-import { sendEvent } from "basehub/analytics";
+import { sendEvent } from "basehub/events";
 
 export function Accordion({ items }: { items: Faq["questions"]["items"] }) {
   const [activeItems, setActiveItems] = React.useState<string[]>([]);
@@ -34,10 +34,10 @@ function AccordionItem({
         <AccordionPrimitive.Trigger
           className="flex w-full items-start gap-3 rounded-md py-2 text-lg font-medium leading-relaxed tracking-tighter outline-none ring-accent-500 focus-visible:ring"
           onClick={() => {
-            sendEvent({
-              name: "faq_expanded",
-              _analyticsKey,
-            });
+            // sendEvent({
+            //   name: "faq_expanded",
+            //   _analyticsKey,
+            // });
           }}
         >
           {isActive ? (
