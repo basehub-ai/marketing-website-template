@@ -81,7 +81,7 @@ export const POST = async (request: Request) => {
         await resend.batch.send(
           subs.map((sub) => {
             return {
-              from: "Acme <onboarding@resend.dev>",
+              from: "Acme <test@notifications.basehub.com>",
               to: sub.email,
               subject: email._title,
               react: (
