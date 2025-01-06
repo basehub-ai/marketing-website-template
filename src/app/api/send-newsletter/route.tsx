@@ -95,7 +95,7 @@ export const POST = async (request: Request) => {
                 to: sub.email,
                 subject: email._title,
                 headers: {
-                  "List-Unsubscribe": siteUrl + "/api/newsletter-unsubscribe?event-id=" + sub.id,
+                  "List-Unsubscribe": `<${siteUrl}/api/newsletter-unsubscribe?event-id=${sub.id}>`,
                   "List-Unsubscribe-Post": "List-Unsubscribe=One-Click",
                 },
                 react: (
