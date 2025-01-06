@@ -4,6 +4,7 @@ import { getEvents } from "basehub/events";
 import { Resend } from "resend";
 import chunk from "lodash/chunk";
 import { RichText } from "basehub/react-rich-text";
+import { siteUrl } from "../../../../next-sitemap.config";
 
 const resend = new Resend("re_RDJvGERe_4F7bUNWuNnJkictAXRddUCnG");
 
@@ -75,25 +76,39 @@ export const POST = async (request: Request) => {
     const chunks = chunk(subscribersResponse.data, 100);
     console.log(`Splitting subscribers into ${chunks.length} chunks of 100`);
 
+    const emailsProcessed = new Set<string>();
+
     for (const [index, subs] of chunks.entries()) {
       console.log(`Processing chunk ${index + 1}/${chunks.length}`);
       try {
         await resend.batch.send(
-          subs.map((sub) => {
-            return {
-              from: "Acme <test@notifications.basehub.com>",
-              to: sub.email,
-              subject: email._title,
-              react: (
-                <div>
-                  <h1>{email._title}</h1>
+          subs
+            .map((sub) => {
+              if (emailsProcessed.has(sub.email)) {
+                return null;
+              }
+
+              emailsProcessed.add(sub.email);
+
+              return {
+                from: "Acme <test@notifications.basehub.com>",
+                to: sub.email,
+                subject: email._title,
+                headers: {
+                  "List-Unsubscribe": siteUrl + "/api/newsletter-unsubscribe?event-id=" + sub.id,
+                  "List-Unsubscribe-Post": "List-Unsubscribe=One-Click",
+                },
+                react: (
                   <div>
-                    <RichText content={email.body.json.content} />
+                    <h1>{email._title}</h1>
+                    <div>
+                      <RichText content={email.body.json.content} />
+                    </div>
                   </div>
-                </div>
-              ),
-            };
-          }),
+                ),
+              } satisfies Parameters<typeof resend.batch.send>[0][number];
+            })
+            .filter((email) => email !== null),
         );
         console.log(`Successfully sent emails to chunk ${index + 1}`);
       } catch (error) {
