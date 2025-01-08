@@ -106,6 +106,7 @@ export default async function BlogPage({ params: _params }: { params: Promise<{ 
         queries={[
           {
             site: {
+              generalEvents: { ingestKey: true },
               blog: {
                 posts: {
                   __args: {
@@ -117,7 +118,6 @@ export default async function BlogPage({ params: _params }: { params: Promise<{ 
                     first: 1,
                   },
                   items: {
-                    _analyticsKey: true,
                     _title: true,
                     description: true,
                     authors: authorFragment,
@@ -147,6 +147,7 @@ export default async function BlogPage({ params: _params }: { params: Promise<{ 
         {async ([
           {
             site: {
+              generalEvents,
               blog: { posts },
             },
           },
@@ -158,7 +159,7 @@ export default async function BlogPage({ params: _params }: { params: Promise<{ 
 
           return (
             <>
-              <PageView _analyticsKey={blogpost._analyticsKey} />
+              <PageView ingestKey={generalEvents.ingestKey} />
               <Section>
                 <Heading subtitle={blogpost.description}>
                   <h1>{blogpost._title}</h1>

@@ -5,6 +5,7 @@ import { AvatarsGroup } from "@/common/avatars-group";
 import { Avatar } from "@/common/avatar";
 import { avatarFragment } from "@/lib/basehub/fragments";
 import { TrackedButtonLink } from "@/app/_components/tracked_button";
+import { GeneralEvents } from ".basehub/schema";
 
 export const heroFragment = fragmentOn("HeroComponent", {
   _analyticsKey: true,
@@ -20,18 +21,15 @@ export const heroFragment = fragmentOn("HeroComponent", {
   title: true,
   subtitle: true,
   actions: {
-    on_ButtonComponent: {
-      _analyticsKey: true,
-      _id: true,
-      href: true,
-      label: true,
-      type: true,
-    },
+    _id: true,
+    href: true,
+    label: true,
+    type: true,
   },
 });
 type Hero = fragmentOn.infer<typeof heroFragment>;
 
-export function Hero(hero: Hero) {
+export function Hero(hero: Hero & { eventsKey: GeneralEvents["ingestKey"] }) {
   return (
     <section className="relative min-h-[calc(630px-var(--header-height))] overflow-hidden pb-10">
       <div className="absolute left-0 top-0 z-0 grid h-full w-full grid-cols-[clamp(28px,10vw,120px)_auto_clamp(28px,10vw,120px)] border-b border-border dark:border-dark-border">
@@ -70,10 +68,10 @@ export function Hero(hero: Hero) {
         </div>
         <div className="flex items-start justify-center px-8 sm:px-24">
           <div className="flex w-full max-w-[80vw] flex-col items-center justify-start md:!max-w-[392px]">
-            {hero.actions?.map(({ href, label, type, _id, _analyticsKey }) => (
+            {hero.actions?.map(({ href, label, type, _id }) => (
               <TrackedButtonLink
                 key={_id}
-                analyticsKey={_analyticsKey}
+                analyticsKey={hero.eventsKey}
                 className={clsx(
                   "!h-14 flex-col items-center justify-center rounded-none !text-base",
                   type === "primary"

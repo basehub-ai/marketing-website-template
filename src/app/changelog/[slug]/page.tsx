@@ -106,6 +106,7 @@ export default async function ChangelogPage({ params: _params }: ChangelogPagePa
       queries={[
         {
           site: {
+            generalEvents: { ingestKey: true },
             changelog: {
               goBackText: true,
               posts: {
@@ -165,7 +166,7 @@ export default async function ChangelogPage({ params: _params }: ChangelogPagePa
     >
       {async ([
         {
-          site: { changelog },
+          site: { changelog, generalEvents },
         },
         allPosts,
       ]) => {
@@ -183,7 +184,7 @@ export default async function ChangelogPage({ params: _params }: ChangelogPagePa
 
         return (
           <>
-            <PageView _analyticsKey={post._analyticsKey} />
+            <PageView ingestKey={generalEvents.ingestKey} />
             <ChangelogLayout>
               <div className="flex flex-col gap-1">
                 <Link

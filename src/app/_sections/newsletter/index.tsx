@@ -1,8 +1,9 @@
+import NextForm from "next/form";
 import * as React from "react";
-
-import { Input } from "@/common/input";
 import { Section } from "@/common/layout";
 import { Pump } from ".basehub/react-pump";
+import { Input } from "@/common/input";
+import { parseFormData, sendEvent } from ".basehub/events";
 
 export function Newsletter() {
   return (
@@ -14,6 +15,10 @@ export function Newsletter() {
               newsletter: {
                 title: true,
                 description: true,
+                submissions: {
+                  ingestKey: true,
+                  schema: true,
+                },
               },
             },
           },
@@ -22,6 +27,10 @@ export function Newsletter() {
     >
       {async ([{ site }]) => {
         "use server";
+
+        const emailInput = site.footer.newsletter.submissions.schema.find(
+          (field) => field.type === "email",
+        );
 
         return (
           <Section
@@ -36,15 +45,22 @@ export function Newsletter() {
                 </p>
               </div>
 
-              <form className="w-full max-w-[400px] flex-shrink-0">
-                <Input
-                  required
-                  buttonContent="Subscribe"
-                  name="email"
-                  placeholder="Enter your email"
-                  type="email"
-                />
-              </form>
+              <NextForm
+                action={async (data) => {
+                  "use server";
+                  const parsedData = parseFormData(
+                    site.footer.newsletter.submissions.ingestKey,
+                    site.footer.newsletter.submissions.schema,
+                    data,
+                  );
+                  if (!parsedData.success) {
+                    throw new Error(JSON.stringify(parsedData.errors));
+                  }
+                  await sendEvent(site.footer.newsletter.submissions.ingestKey, parsedData.data);
+                }}
+              >
+                <Input {...emailInput} />
+              </NextForm>
             </div>
           </Section>
         );

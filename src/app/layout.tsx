@@ -7,7 +7,7 @@ import { basehub } from "basehub";
 import { Providers } from "./providers";
 import { Header } from "./_components/header";
 import { Footer } from "./_components/footer";
-import { Newsletter } from "./_sections/newsletter/newsletter";
+import { Newsletter } from "./_sections/newsletter";
 import { draftMode } from "next/headers";
 
 const geist = Geist({
@@ -71,7 +71,7 @@ export const generateMetadata = async (): Promise<Metadata> => {
       const split = xUrl.pathname.split("/");
 
       xAccount = split[split.length - 1];
-    } catch (error) {
+    } catch {
       // invalid url noop
     }
   }

@@ -13,7 +13,6 @@ interface ChangelogLayoutProps {
 export function ChangelogLayout({
   className = "",
   contentClassName = "",
-  socialLinksClassName = "",
   children,
 }: ChangelogLayoutProps) {
   return (
@@ -46,7 +45,7 @@ export function ChangelogLayout({
             const socialLinks = changelog.socialLinks;
 
             return (
-              <div className={`flex items-center gap-2 md:flex-col ${socialLinksClassName}`}>
+              <div className="flex items-center gap-2 md:flex-col">
                 <p className="text-sm text-text-tertiary dark:text-dark-text-tertiary">
                   {changelog.socialLinksTitle}
                 </p>
