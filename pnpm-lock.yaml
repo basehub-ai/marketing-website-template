@@ -33,8 +33,8 @@ importers:
         specifier: ^4.0.17
         version: 4.0.17
       basehub:
-        specifier: ^8.0.0
-        version: 8.0.0(@babel/runtime@7.26.0)(@types/react@19.0.12)(react-dom@19.1.0(react@19.1.0))(react@19.1.0)(typescript@5.7.2)
+        specifier: ^8.1.30
+        version: 8.1.30(@babel/runtime@7.26.0)(@types/react@19.0.12)(react@19.1.0)(typescript@5.7.2)
       class-variance-authority:
         specifier: ^0.7.0
         version: 0.7.1
@@ -125,11 +125,8 @@ packages:
     resolution: {integrity: sha512-FDSOghenHTiToteC/QRlv2q3DhPZ/oOXTBoirfWNx1Cx3TMVcGWQtMMmQcSvb/JjpNeGzx8Pq/b4fKEJuWm1sw==}
     engines: {node: '>=6.9.0'}
 
-  '@basehub/genql@9.0.0-canary.10':
-    resolution: {integrity: sha512-YdYWfKEsUsgEGvvKvt7H/9469cPeXJODrTKCdmt6OPEtY71Mpa9vg1mqALleiHkVinBeFHr+IEhbqIi5eYYL6w==}
-
-  '@basehub/mutation-api-helpers@2.0.7':
-    resolution: {integrity: sha512-i2WRtQnAkQ1Lowkwl6tkMIQ42AfZ2qs71zR/JYV6wxvl52011sXTMdf8V8jn/X/SZf7M4rR4KU9Bj8FA0DJPBA==}
+  '@basehub/genql@9.0.0-canary.13':
+    resolution: {integrity: sha512-F3pXqJSEJYyQ0JTsp37D7YFkNaCSyQhkJqlDZ6Xr9fORoiz5OvkpHP1795RlYb4zIoQvJ3mtP4vyzQ4tsWo9Dg==}
 
   '@corex/deepmerge@4.0.43':
     resolution: {integrity: sha512-N8uEMrMPL0cu/bdboEWpQYb/0i2K5Qn8eCsxzOmxSggJbbQte7ljMRoXm917AbntqTGOzdTu+vP3KOOzoC70HQ==}
@@ -1277,8 +1274,8 @@ packages:
   balanced-match@1.0.2:
     resolution: {integrity: sha512-3oSeUO0TMV67hN1AmbXsK4yaqU7tjiHlbxRDZOpH0KW9+CeX4bRAaX0Anxt0tx2MrpRpWwQaPwIlISEJhYU5Pw==}
 
-  basehub@8.0.0:
-    resolution: {integrity: sha512-zORDcQeE3vU0CWD9+J/rutuLd95tTFeQFWn0ml1a1oufrNyxONNUyklCJ4U8CM5n2/2vb6dHdwvqmKstjsqtIA==}
+  basehub@8.1.30:
+    resolution: {integrity: sha512-snZGwhv6DsK2SpGUcTvhIADASuuWuFsSjcgH/PJhTnimRxYcynPZLlFEaSslYaIiup1+6pGIcdvZhvytaUxltA==}
     hasBin: true
 
   brace-expansion@1.1.11:
@@ -2176,6 +2173,7 @@ packages:
 
   lodash.get@4.4.2:
     resolution: {integrity: sha512-z+Uw/vLuy6gQe8cfaFWD7p0wVv8fJl3mbzXh33RS+0oW2wvUqiRXiQ69gLWSLpgB5/6sU+r6BlQR0MBILadqTQ==}
+    deprecated: This package is deprecated. Use the optional chaining (?.) operator instead.
 
   lodash.isplainobject@4.0.6:
     resolution: {integrity: sha512-oSXzaWypCMHkPC3NvBEaPHf0KsA5mvPrOPgQWDsbg8n7orZ290M0BmC/jgRZ4vcJ6DTAhjrsSYgdsW/F+MFOBA==}
@@ -2775,12 +2773,6 @@ packages:
     resolution: {integrity: sha512-FC+lgizVPfie0kkhqUScwRu1O/lF6NOgJmlCgK+/LYxDCTk8sGelYaHDhFcDN+Sn3Cv+3VSa4Byeo+IMCzpMgQ==}
     engines: {node: '>=12'}
 
-  sonner@1.7.1:
-    resolution: {integrity: sha512-b6LHBfH32SoVasRFECrdY8p8s7hXPDn3OHUFbZZbiB1ctLS9Gdh6rpX2dVrpQA0kiL5jcRzDDldwwLkSKk3+QQ==}
-    peerDependencies:
-      react: ^18.0.0 || ^19.0.0 || ^19.0.0-rc
-      react-dom: ^18.0.0 || ^19.0.0 || ^19.0.0-rc
-
   source-map-js@1.2.1:
     resolution: {integrity: sha512-UXWMKhLOwVKb728IUtQPXxfYU+usdybtUrK/8uGE8CQMvrhOpwvzDBwj0QhSL7MQc7vIsISBG8VQ8+IDQxpfQA==}
     engines: {node: '>=0.10.0'}
@@ -3086,7 +3078,7 @@ snapshots:
     dependencies:
       regenerator-runtime: 0.14.1
 
-  '@basehub/genql@9.0.0-canary.10':
+  '@basehub/genql@9.0.0-canary.13':
     dependencies:
       '@graphql-tools/graphql-file-loader': 7.5.17(graphql@16.9.0)
       '@graphql-tools/load': 7.8.14(graphql@16.9.0)
@@ -3104,8 +3096,6 @@ snapshots:
       yargs: 15.4.1
     transitivePeerDependencies:
       - enquirer
-
-  '@basehub/mutation-api-helpers@2.0.7': {}
 
   '@corex/deepmerge@4.0.43': {}
 
@@ -4155,10 +4145,9 @@ snapshots:
 
   balanced-match@1.0.2: {}
 
-  basehub@8.0.0(@babel/runtime@7.26.0)(@types/react@19.0.12)(react-dom@19.1.0(react@19.1.0))(react@19.1.0)(typescript@5.7.2):
+  basehub@8.1.30(@babel/runtime@7.26.0)(@types/react@19.0.12)(react@19.1.0)(typescript@5.7.2):
     dependencies:
-      '@basehub/genql': 9.0.0-canary.10
-      '@basehub/mutation-api-helpers': 2.0.7
+      '@basehub/genql': 9.0.0-canary.13
       '@radix-ui/react-slot': 1.1.0(@types/react@19.0.12)(react@19.1.0)
       '@shikijs/transformers': 1.17.7
       '@xmldom/xmldom': 0.9.6
@@ -4174,7 +4163,6 @@ snapshots:
       resolve-pkg: 2.0.0
       server-only: 0.0.1
       shiki: 1.17.7
-      sonner: 1.7.1(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
       typesense: 1.8.2(@babel/runtime@7.26.0)
       zod: 3.22.1
     transitivePeerDependencies:
@@ -4183,7 +4171,6 @@ snapshots:
       - debug
       - enquirer
       - react
-      - react-dom
       - supports-color
       - typescript
 
@@ -5942,11 +5929,6 @@ snapshots:
     dependencies:
       ansi-styles: 6.2.1
       is-fullwidth-code-point: 4.0.0
-
-  sonner@1.7.1(react-dom@19.1.0(react@19.1.0))(react@19.1.0):
-    dependencies:
-      react: 19.1.0
-      react-dom: 19.1.0(react@19.1.0)
 
   source-map-js@1.2.1: {}
 
