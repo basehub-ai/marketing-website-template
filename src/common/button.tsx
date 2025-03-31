@@ -3,11 +3,11 @@ import Link, { type LinkProps } from "next/link";
 import { SVG } from "basehub/react-svg";
 
 export const $button = cva(
-  "gap-1 font-normal shrink-0 rounded-full ring-control focus-visible:ring-2 outline-none outline-0",
+  "gap-1 font-normal shrink-0 rounded-full ring-control focus-visible:ring-2 outline-hidden outline-0",
   {
     variants: {
       intent: {
-        primary: "bg-accent-500 hover:bg-accent-600 text-textOnAccent-primary border-accent-600",
+        primary: "bg-accent-500 hover:bg-accent-600 text-text-on-accent-primary border-accent-600",
         secondary:
           "bg-surface-secondary text-text-primary border-border border dark:bg-dark-surface-secondary dark:text-dark-text-primary dark:border-dark-border hover:bg-surface-tertiary dark:hover:bg-dark-surface-tertiary",
         tertiary:
@@ -17,7 +17,7 @@ export const $button = cva(
         true: "opacity-30",
       },
       onlyButton: {
-        true: "rounded-sm",
+        true: "rounded-xs",
       },
       iconSide: {
         left: "flex-row-reverse pl-3",
@@ -34,8 +34,8 @@ export const $button = cva(
   },
 );
 
-type ButtonProps<C extends keyof JSX.IntrinsicElements> = VariantProps<typeof $button> &
-  JSX.IntrinsicElements[C] & {
+type ButtonProps<C extends keyof React.JSX.IntrinsicElements> = VariantProps<typeof $button> &
+  React.JSX.IntrinsicElements[C] & {
     icon?: React.ReactNode;
     unstyled?: boolean;
   };

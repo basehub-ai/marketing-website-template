@@ -1,0 +1,62 @@
+@import 'tailwindcss';
+
+@config '../../tailwind.config.ts';
+
+/*
+  The default border color has changed to `currentColor` in Tailwind CSS v4,
+  so we've added these compatibility styles to make sure everything still
+  looks the same as it did with Tailwind CSS v3.
+
+  If we ever want to remove these styles, we need to add an explicit border
+  color utility to any element that depends on these defaults.
+*/
+@layer base {
+  *,
+  ::after,
+  ::before,
+  ::backdrop,
+  ::file-selector-button {
+    border-color: var(--color-gray-200, currentColor);
+  }
+}
+
+:root {
+  --header-height: 64px;
+
+  text-rendering: geometricprecision;
+  -webkit-text-size-adjust: 100%;
+  -webkit-font-smoothing: antialiased;
+  -moz-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+:root:not(html.dark) {
+  /* colors */
+  color: var(--color-text-primary);
+  background-color: var(--color-surface-primary);
+}
+
+:root:not(html.dark) ::selection {
+  background-color: var(--color-accent-200);
+}
+
+:root:not(html.dark) *:focus-visible {
+  outline-color: var(--color-accent-300);
+}
+
+:root {
+  color: var(--color-dark-text-primary);
+  background-color: var(--color-dark-surface-primary);
+}
+
+:root ::selection {
+  background-color: var(--color-accent-950);
+}
+
+:root *:focus-visible {
+  outline-color: var(--color-accent-400);
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}

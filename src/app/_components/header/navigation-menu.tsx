@@ -32,7 +32,7 @@ export function NavigationMenuHeader({
 }) {
   return (
     <NavigationMenu
-      className={clsx("relative z-[1] flex-col justify-center lg:flex", className)}
+      className={clsx("relative z-1 flex-col justify-center lg:flex", className)}
       delayDuration={50}
     >
       <NavigationMenuList className="flex flex-1 gap-0.5 px-4">
@@ -153,7 +153,7 @@ export function DesktopMenu({ navbar, rightCtas }: HeaderFragment) {
       <div className="hidden items-center gap-2 justify-self-end lg:flex">
         {rightCtas.items.map((cta) => {
           return (
-            <ButtonLink key={cta._id} className="!px-3.5" href={cta.href} intent={cta.type}>
+            <ButtonLink key={cta._id} className="px-3.5!" href={cta.href} intent={cta.type}>
               {cta.label}
             </ButtonLink>
           );
@@ -175,7 +175,7 @@ export function MobileMenu({ navbar, rightCtas }: HeaderFragment) {
     <>
       <button
         aria-label="Toggle Menu"
-        className="col-start-3 flex items-center justify-center gap-2 justify-self-end rounded border border-border bg-surface-secondary p-2 dark:border-dark-border dark:bg-dark-surface-secondary lg:hidden lg:h-7"
+        className="col-start-3 flex items-center justify-center gap-2 justify-self-end rounded-sm border border-border bg-surface-secondary p-2 dark:border-dark-border dark:bg-dark-surface-secondary lg:hidden lg:h-7"
         onPointerDown={handleToggle}
       >
         <HamburgerMenuIcon className="size-4" />
@@ -197,7 +197,7 @@ export function MobileMenu({ navbar, rightCtas }: HeaderFragment) {
                   ) : (
                     <Link
                       key={link._id}
-                      className="flex items-center gap-2 rounded px-3 py-1.5"
+                      className="flex items-center gap-2 rounded-sm px-3 py-1.5"
                       href={link.href ?? "#"}
                       onClick={handleOff}
                     >

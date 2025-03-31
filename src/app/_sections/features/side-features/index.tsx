@@ -38,7 +38,7 @@ export function SideFeatures({
 }: FeaturesGrid & { eventsKey: GeneralEvents["ingestKey"] }) {
   return (
     <Section
-      className="relative lg:container lg:mx-auto lg:!flex-row lg:gap-0 lg:p-28"
+      className="relative lg:container lg:mx-auto lg:flex-row! lg:gap-0 lg:p-28"
       container="full"
     >
       <div className="container relative top-0 mx-auto shrink self-stretch px-6 lg:w-1/2 lg:pl-0 lg:pr-12 xl:pr-20">

@@ -37,7 +37,7 @@ type Pricing = fragmentOn.infer<typeof pricingFragment>;
 
 export function Pricing(pricing: Pricing) {
   return (
-    <Section className="xl:max-w-screen-xl" id="pricing">
+    <Section className="xl:max-w-(--breakpoint-xl)" id="pricing">
       <Heading {...pricing.heading}>
         <h4>{pricing.heading.title}</h4>
       </Heading>
@@ -75,7 +75,7 @@ function PricingCard(item: PricingPlanItem["plan"]) {
           </p>
         </div>
       </header>
-      <div className="flex flex-1 flex-col gap-6 p-6 !pb-12 lg:p-8">
+      <div className="flex flex-1 flex-col gap-6 p-6 pb-12! lg:p-8">
         <ul className="flex flex-col gap-4">
           {item.list.items.map((feature) => (
             <li

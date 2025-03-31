@@ -45,9 +45,9 @@ function SwitchButton({
       unstyled
       aria-label={`${theme} theme`}
       className={clsx(
-        "!flex !size-6 items-center justify-center rounded-full !p-[3px] text-text-secondary dark:text-dark-text-secondary",
-        "data-[selected='true']:bg-surface-tertiary data-[selected='true']:text-text-primary data-[selected='true']:dark:bg-dark-surface-tertiary data-[selected='true']:dark:text-dark-text-primary",
-        "hover:bg-surface-secondary hover:text-text-primary hover:dark:bg-dark-surface-secondary hover:dark:text-dark-text-primary",
+        "flex! size-6! items-center justify-center rounded-full p-[3px]! text-text-secondary dark:text-dark-text-secondary",
+        "data-[selected='true']:bg-surface-tertiary data-[selected='true']:text-text-primary dark:data-[selected='true']:bg-dark-surface-tertiary dark:data-[selected='true']:text-dark-text-primary",
+        "hover:bg-surface-secondary hover:text-text-primary dark:hover:bg-dark-surface-secondary dark:hover:text-dark-text-primary",
       )}
       data-selected={selectedTheme === theme}
       onClick={() => setTheme(theme)}

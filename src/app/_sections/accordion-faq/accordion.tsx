@@ -44,7 +44,7 @@ function AccordionItem({
     <AccordionPrimitive.Item key={_title} className="flex flex-col" value={_title}>
       <AccordionPrimitive.Header>
         <AccordionPrimitive.Trigger
-          className="flex w-full items-start gap-3 rounded-md py-2 text-lg font-medium leading-relaxed tracking-tighter outline-none ring-accent-500 focus-visible:ring"
+          className="flex w-full items-start gap-3 rounded-md py-2 text-lg font-medium leading-relaxed tracking-tighter outline-hidden ring-accent-500 focus-visible:ring-3"
           onClick={() => {
             sendEvent(eventsKey, {
               eventType: "faq_expanded",

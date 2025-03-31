@@ -35,7 +35,7 @@ export function BlogpostCard({ type = "list", className, ...post }: BlogPostCard
           <ButtonLink
             key={post._id}
             unstyled
-            className="lg:text-md grid w-full grid-cols-[auto_auto] place-content-start items-center justify-items-start rounded-lg p-4 text-text-secondary outline-none transition-colors hover:bg-surface-secondary dark:text-dark-text-secondary dark:hover:bg-dark-surface-secondary max-md:justify-items-start md:grid-cols-[50%,repeat(3,1fr)] md:*:first:place-items-start md:*:last:place-items-end"
+            className="lg:text-md grid w-full grid-cols-[auto_auto] place-content-start items-center justify-items-start rounded-lg p-4 text-text-secondary outline-hidden transition-colors hover:bg-surface-secondary dark:text-dark-text-secondary dark:hover:bg-dark-surface-secondary max-md:justify-items-start md:grid-cols-[50%_repeat(3,1fr)] md:first:*:place-items-start md:last:*:place-items-end"
             href={`/blog/${post._slug}`}
           >
             {/* <article className={clsx("", className)}> */}
@@ -68,8 +68,8 @@ export function BlogpostCard({ type = "list", className, ...post }: BlogPostCard
           key={post._id}
           className={clsx(
             "group flex flex-col self-stretch rounded-xl border transition-shadow [--heading-size:_1.1250rem]",
-            "border-border bg-surface-secondary text-text-secondary hover:shadow-md dark:border-dark-border dark:bg-dark-surface-secondary dark:text-dark-text-secondary dark:hover:shadow dark:hover:shadow-grayscale-700",
-            "outline-0 focus-visible:ring focus-visible:ring-accent-500",
+            "border-border bg-surface-secondary text-text-secondary hover:shadow-md dark:border-dark-border dark:bg-dark-surface-secondary dark:text-dark-text-secondary dark:hover:shadow-sm dark:hover:shadow-grayscale-700",
+            "outline-0 focus-visible:ring-3 focus-visible:ring-accent-500",
             className,
           )}
           href={`/blog/${post._slug}`}
@@ -82,7 +82,7 @@ export function BlogpostCard({ type = "list", className, ...post }: BlogPostCard
               {...post.image}
               priority
               withPlaceholder
-              className="h-full w-full rounded bg-surface-tertiary/20 object-cover dark:bg-dark-surface-tertiary/20"
+              className="h-full w-full rounded-sm bg-surface-tertiary/20 object-cover dark:bg-dark-surface-tertiary/20"
               height={324}
               width={576}
             />

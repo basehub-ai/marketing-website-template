@@ -99,10 +99,10 @@ export async function Footer() {
               <ul className="col-span-2 col-start-1 row-start-3 flex w-full items-center gap-x-3.5 gap-y-4 sm:col-span-1 sm:col-start-3 sm:row-start-2 sm:w-auto sm:flex-wrap sm:justify-self-end">
                 {footer.socialLinks.map((link) => {
                   return (
-                    <li key={link._title} className="shrink-0 first:sm:ml-auto">
+                    <li key={link._title} className="shrink-0 sm:first:ml-auto">
                       <ButtonLink
                         unstyled
-                        className="block aspect-square p-0.5 hover:brightness-75 dark:brightness-50 hover:dark:brightness-75"
+                        className="block aspect-square p-0.5 hover:brightness-75 dark:brightness-50 dark:hover:brightness-75"
                         href={link.url}
                         target="_blank"
                       >

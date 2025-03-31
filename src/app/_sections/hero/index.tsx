@@ -40,12 +40,12 @@ export function Hero(hero: Hero & { eventsKey: GeneralEvents["ingestKey"] }) {
       </div>
       {/* --- */}
       <figure className="pointer-events-none absolute -bottom-[70%] left-1/2 z-0 block aspect-square w-[520px] -translate-x-1/2 rounded-full bg-accent-500/40 blur-[200px]" />
-      <figure className="pointer-events-none absolute left-[4vw] top-[64px] z-20 hidden  aspect-square w-[32vw] rounded-full bg-surface-primary opacity-50 blur-[100px] dark:bg-dark-surface-primary md:block" />
-      <figure className="pointer-events-none absolute bottom-[-50px] right-[7vw] z-20 hidden  aspect-square w-[30vw] rounded-full bg-surface-primary opacity-50 blur-[100px] dark:bg-dark-surface-primary md:block" />
+      <figure className="pointer-events-none absolute left-[4vw] top-[64px] z-20 hidden aspect-square w-[32vw] rounded-full bg-surface-primary opacity-50 blur-[100px] dark:bg-dark-surface-primary md:block" />
+      <figure className="pointer-events-none absolute bottom-[-50px] right-[7vw] z-20 hidden aspect-square w-[30vw] rounded-full bg-surface-primary opacity-50 blur-[100px] dark:bg-dark-surface-primary md:block" />
       {/* --- */}
       <div className="relative z-10 flex flex-col divide-y divide-border pt-[35px] dark:divide-dark-border">
         <div className="flex flex-col items-center justify-end">
-          <div className="flex items-center gap-2 !border !border-b-0 border-border px-4 py-2 dark:border-dark-border">
+          <div className="border! border-b-0! flex items-center gap-2 border-border px-4 py-2 dark:border-dark-border">
             <AvatarsGroup>
               {hero.customerSatisfactionBanner.avatars.items.map(({ avatar, _id }) => (
                 <Avatar priority {...avatar} key={_id} />
@@ -58,7 +58,7 @@ export function Hero(hero: Hero & { eventsKey: GeneralEvents["ingestKey"] }) {
         </div>
         <div>
           <div className="mx-auto flex min-h-[288px] max-w-[80vw] shrink-0 flex-col items-center justify-center gap-2 px-2 py-4 sm:px-16 lg:px-24">
-            <h1 className="max-w-screen-lg text-pretty text-center text-[clamp(32px,7vw,64px)] font-medium leading-none tracking-[-1.44px] text-text-primary dark:text-dark-text-primary md:tracking-[-2.16px]">
+            <h1 className="max-w-(--breakpoint-lg) text-pretty text-center text-[clamp(32px,7vw,64px)] font-medium leading-none tracking-[-1.44px] text-text-primary dark:text-dark-text-primary md:tracking-[-2.16px]">
               {hero.title}
             </h1>
             <h2 className="text-md max-w-2xl text-pretty text-center text-text-tertiary dark:text-dark-text-tertiary md:text-lg">
@@ -67,16 +67,16 @@ export function Hero(hero: Hero & { eventsKey: GeneralEvents["ingestKey"] }) {
           </div>
         </div>
         <div className="flex items-start justify-center px-8 sm:px-24">
-          <div className="flex w-full max-w-[80vw] flex-col items-center justify-start md:!max-w-[392px]">
+          <div className="md:max-w-[392px]! flex w-full max-w-[80vw] flex-col items-center justify-start">
             {hero.actions?.map(({ href, label, type, _id }) => (
               <TrackedButtonLink
                 key={_id}
                 analyticsKey={hero.eventsKey}
                 className={clsx(
-                  "!h-14 flex-col items-center justify-center rounded-none !text-base",
+                  "h-14! text-base! flex-col items-center justify-center rounded-none",
                   type === "primary"
                     ? "flex w-full"
-                    : "max-w-sm:!border-x-0 flex w-full !border-x !border-y-0 border-border !bg-transparent backdrop-blur-xl transition-colors duration-150 hover:!bg-black/5 dark:border-dark-border dark:hover:!bg-white/5",
+                    : "max-w-sm:border-x-0! border-x! border-y-0! bg-transparent! hover:bg-black/5! dark:hover:bg-white/5! flex w-full border-border backdrop-blur-xl transition-colors duration-150 dark:border-dark-border",
                 )}
                 href={href}
                 intent={type}

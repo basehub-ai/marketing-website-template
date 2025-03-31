@@ -30,7 +30,7 @@ export const LabeledTextarea = ({
   ref,
   className,
   ...props
-}: { label: string } & JSX.IntrinsicElements["textarea"]) => {
+}: { label: string } & React.JSX.IntrinsicElements["textarea"]) => {
   const reactId = React.useId();
   const id = _id ?? reactId;
 
@@ -58,7 +58,7 @@ export const LabeledWrapper = ({
   id?: string;
   label: string;
   children: React.ReactNode;
-} & JSX.IntrinsicElements["div"]) => {
+} & React.JSX.IntrinsicElements["div"]) => {
   return (
     <div ref={ref} className="relative flex flex-col">
       <label
