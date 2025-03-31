@@ -106,7 +106,7 @@ export default async function BlogPage() {
             </div>
             <div className="w-full space-y-3">
               <Heading align="left">
-                <h3 className="!text-xl lg:!text-2xl">{blog.listTitle}</h3>
+                <h3 className="text-xl! lg:text-2xl!">{blog.listTitle}</h3>
               </Heading>
               <div className="-mx-4 flex flex-col self-stretch">
                 {posts.items.map((post) => (

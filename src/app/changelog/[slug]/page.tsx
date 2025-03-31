@@ -201,7 +201,7 @@ export default async function ChangelogPage({ params: _params }: ChangelogPagePa
                 </p>
               </div>
             </ChangelogLayout>
-            <div className="mx-auto flex max-w-screen-md flex-col gap-8 px-8 pb-20 pt-16">
+            <div className="mx-auto flex max-w-(--breakpoint-md) flex-col gap-8 px-8 pb-20 pt-16">
               <BaseHubImage
                 priority
                 alt={post.image.alt ?? post._title}

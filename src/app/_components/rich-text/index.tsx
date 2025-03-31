@@ -14,10 +14,10 @@ export const richTextClasses = clsx(
   "prose-h2:text-3xl prose-h2:font-medium prose-h2:text-text-primary dark:prose-h2:text-dark-text-primary",
   "prose-h3:text-2xl prose-h3:font-medium prose-h3:text-text-primary dark:prose-h3:text-dark-text-primary",
   "prose-blockquote:border-border prose-blockquote:pl-5 prose-blockquote:text-2xl prose-blockquote:text-text-primary dark:prose-blockquote:border-dark-border dark:prose-blockquote:text-dark-text-primary",
-  '[&_blockquote>p]:before:[content:""] prose-blockquote:[&_blockquote>p]:after:[content:""]',
+  '[&_blockquote>p]:before:[content:""] [&_blockquote>p]:prose-blockquote:after:[content:""]',
   "prose-h4:text-2xl prose-h4:font-medium",
   "prose-strong:font-medium",
-  "prose-a:outline-accent-500 dark:prose-a:text-accent-400 prose-a:text-accent-600 prose-a:no-underline hover:prose-a:underline prose-a:decoration-accent-500/50",
+  "prose-a:outline-accent-500 dark:prose-a:text-accent-400 prose-a:text-accent-600 prose-a:no-underline prose-a:hover:underline prose-a:decoration-accent-500/50",
   "prose-pre:pl-0",
   s["rich-text"],
 );
@@ -42,7 +42,7 @@ function Code({
 }) {
   if (isInline) {
     return (
-      <code className="rounded border border-border px-2 py-0.5 text-accent-500 before:[content:none] after:[content:none] dark:border-dark-border dark:bg-dark-surface-secondary">
+      <code className="rounded-sm border border-border px-2 py-0.5 text-accent-500 before:[content:none] after:[content:none] dark:border-dark-border dark:bg-dark-surface-secondary">
         {children}
       </code>
     );
@@ -62,7 +62,7 @@ type FaqItemComponentRichText = fragmentOn.infer<typeof FaqItemComponentFragment
 export function FaqRichtextComponent({ answer, _title }: FaqItemComponentRichText) {
   return (
     <details className="group mb-2 flex flex-col gap-4 overflow-hidden rounded-lg border border-border bg-surface-secondary pb-1 dark:border-dark-border dark:bg-dark-surface-secondary">
-      <summary className="flex cursor-pointer items-start text-pretty rounded-md p-3 pb-2 pl-6 font-medium text-text-primary outline-none ring-inset ring-accent-500 focus-visible:ring dark:text-dark-text-primary">
+      <summary className="flex cursor-pointer items-start text-pretty rounded-md p-3 pb-2 pl-6 font-medium text-text-primary outline-hidden ring-inset ring-accent-500 focus-visible:ring-3 dark:text-dark-text-primary">
         <span className="mt-1 flex w-8 pr-2">
           <ChevronDownIcon className="transform group-open:rotate-180" />
         </span>

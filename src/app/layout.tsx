@@ -1,6 +1,6 @@
 import type { Metadata, Viewport } from "next";
 
-import "./globals.scss";
+import "./globals.css";
 import { Geist, Geist_Mono } from "next/font/google";
 import { basehub } from "basehub";
 

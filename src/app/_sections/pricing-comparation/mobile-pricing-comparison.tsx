@@ -51,7 +51,7 @@ export function MobilePricingComparison({
           <SelectTrigger
             aria-label="Plan Data selector"
             className={clsx(
-              "relative flex w-full items-center justify-between rounded px-4 py-2 pr-10 text-text-secondary dark:text-dark-text-secondary",
+              "relative flex w-full items-center justify-between rounded-sm px-4 py-2 pr-10 text-text-secondary dark:text-dark-text-secondary",
               "border border-border bg-surface-secondary",
               "dark:border-dark-border dark:bg-dark-surface-secondary",
             )}
@@ -67,7 +67,7 @@ export function MobilePricingComparison({
           <SelectPortal>
             <SelectContent
               className={clsx(
-                "z-[100] w-full flex-col overflow-hidden rounded border border-border bg-surface-secondary p-0.5",
+                "z-100 w-full flex-col overflow-hidden rounded-sm border border-border bg-surface-secondary p-0.5",
                 "dark:border-dark-border dark:bg-dark-surface-secondary",
               )}
               side="bottom"
@@ -77,7 +77,7 @@ export function MobilePricingComparison({
                   <SelectItem
                     key={plan._id}
                     className={clsx(
-                      "group relative flex w-full flex-1 items-center justify-between rounded px-4 py-2 text-text-secondary dark:text-dark-text-secondary",
+                      "group relative flex w-full flex-1 items-center justify-between rounded-sm px-4 py-2 text-text-secondary dark:text-dark-text-secondary",
                       "hover:bg-surface-tertiary dark:hover:bg-dark-surface-tertiary",
                       {
                         "bg-surface-tertiary text-text-primary dark:bg-dark-surface-tertiary dark:text-dark-text-primary":
@@ -88,7 +88,7 @@ export function MobilePricingComparison({
                   >
                     <SelectItemText className="flex-1">{plan._title}</SelectItemText>
                     <div className="flex items-center gap-2">
-                      <span className="group-radix-state-active:text-text-primary group-radix-state-active:dark:text-dark-text-primary">
+                      <span className="group-radix-state-active:text-text-primary dark:group-radix-state-active:text-dark-text-primary">
                         {plan.price}
                       </span>
                       <div className="flex size-6 items-center justify-center">

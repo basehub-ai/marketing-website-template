@@ -26,8 +26,8 @@ export function Companies(props: Companies) {
         {props.subtitle}
       </h2>
       <div className="no-scrollbar flex max-w-full justify-center overflow-auto">
-        <div className="pointer-events-none absolute left-0 top-0 h-full w-[30vw] bg-transparent bg-gradient-to-r from-surface-primary dark:from-dark-surface-primary xl:hidden" />
-        <div className="pointer-events-none absolute right-0 top-0 h-full w-[30vw] bg-transparent bg-gradient-to-l from-surface-primary dark:from-dark-surface-primary xl:hidden" />
+        <div className="pointer-events-none absolute left-0 top-0 h-full w-[30vw] bg-transparent bg-linear-to-r from-surface-primary dark:from-dark-surface-primary xl:hidden" />
+        <div className="pointer-events-none absolute right-0 top-0 h-full w-[30vw] bg-transparent bg-linear-to-l from-surface-primary dark:from-dark-surface-primary xl:hidden" />
         <div
           className={clsx("flex shrink-0 items-center gap-4 px-6 lg:gap-6 lg:px-12", s.scrollbar)}
         >

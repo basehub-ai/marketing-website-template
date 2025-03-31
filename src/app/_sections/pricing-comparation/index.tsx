@@ -19,13 +19,13 @@ export function PricingTable(props: PricingTableProps) {
   const plans = extractPlans(categories);
 
   return (
-    <Section className="xl:max-w-screen-xl" id="pricing">
+    <Section className="xl:max-w-(--breakpoint-xl)" id="pricing">
       <Heading {...heading}>
         <h4>{heading.title}</h4>
       </Heading>
       {/* Desktop pricing */}
       <table className="hidden w-full table-fixed lg:table">
-        <thead className="sticky top-[--header-height] bg-surface-primary dark:bg-dark-surface-primary">
+        <thead className="top-(--header-height) sticky bg-surface-primary dark:bg-dark-surface-primary">
           <tr>
             <PlanHeader plan={null} />
             {plans.map((plan) => (
@@ -95,7 +95,7 @@ function TableCell<T extends React.ElementType = "td">({
   ...props
 }: TableCellProps<T> &
   React.ComponentPropsWithoutRef<T> &
-  VariantProps<typeof $tableCell>): JSX.Element {
+  VariantProps<typeof $tableCell>): React.JSX.Element {
   const Component = as ?? "div";
 
   return (
@@ -116,7 +116,7 @@ function FeatureTitle(
         <p>{feature._title}</p>
         {feature.tooltip ? (
           <SimpleTooltip
-            className="!max-w-[320px]"
+            className="max-w-[320px]!"
             content={feature.tooltip}
             side="right"
             sideOffset={4}

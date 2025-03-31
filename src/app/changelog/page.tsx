@@ -72,13 +72,13 @@ export default async function ChangelogPage() {
             <ChangelogLayout>
               <Heading
                 align="left"
-                className="flex-1 !flex-col-reverse"
+                className="flex-1 flex-col-reverse!"
                 subtitle={changelog.subtitle}
               >
                 <h1>{changelog.title}</h1>
               </Heading>
             </ChangelogLayout>
-            <div className="mx-auto max-w-screen-md px-8 pt-16">
+            <div className="mx-auto max-w-(--breakpoint-md) px-8 pt-16">
               <ChangelogList changelogPosts={changelog.posts.items} />
             </div>
           </>

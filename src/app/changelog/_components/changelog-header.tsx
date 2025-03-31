@@ -20,7 +20,7 @@ export function ChangelogLayout({
       className={`flex items-center justify-between border-b border-border dark:border-dark-border ${className}`}
     >
       <div
-        className={`mx-auto flex w-full max-w-screen-md flex-col items-start justify-between gap-4 border-r border-border px-8 py-24 dark:border-dark-border md:flex-row md:items-center ${contentClassName}`}
+        className={`mx-auto flex w-full max-w-(--breakpoint-md) flex-col items-start justify-between gap-4 border-r border-border px-8 py-24 dark:border-dark-border md:flex-row md:items-center ${contentClassName}`}
       >
         {children}
 

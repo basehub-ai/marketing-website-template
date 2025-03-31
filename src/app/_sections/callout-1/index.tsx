@@ -23,19 +23,19 @@ export function Callout(callout: Callout & { eventsKey: GeneralEvents["ingestKey
         {/* Lines and bg  */}
         <div
           className={clsx(
-            "absolute left-0 top-10 h-px w-full bg-gradient-to-l from-black/40 to-transparent dark:from-white/40 dark:to-transparent",
+            "absolute left-0 top-10 h-px w-full bg-linear-to-l from-black/40 to-transparent dark:from-white/40 dark:to-transparent",
             s.line,
           )}
         />
         <div
           className={clsx(
-            "absolute bottom-[72px] left-0 h-px w-full bg-gradient-to-l from-black/40 to-transparent dark:from-white/40 dark:to-transparent",
+            "absolute bottom-[72px] left-0 h-px w-full bg-linear-to-l from-black/40 to-transparent dark:from-white/40 dark:to-transparent",
             s.line,
           )}
         />
         <div
           className={clsx(
-            "absolute bottom-7 left-0 h-px w-full bg-gradient-to-l from-black/40 to-transparent dark:from-white/40 dark:to-transparent",
+            "absolute bottom-7 left-0 h-px w-full bg-linear-to-l from-black/40 to-transparent dark:from-white/40 dark:to-transparent",
             s.line,
           )}
         />

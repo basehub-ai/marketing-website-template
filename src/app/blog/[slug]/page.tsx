@@ -165,10 +165,10 @@ export default async function BlogPage({ params: _params }: { params: Promise<{ 
                   <h1>{blogpost._title}</h1>
                 </Heading>
                 <div className="flex flex-col items-center justify-center gap-3">
-                  <div className="flex max-w-screen-lg items-center justify-center gap-12 text-base">
+                  <div className="flex max-w-(--breakpoint-lg) items-center justify-center gap-12 text-base">
                     {blogpost.authors.map((author) => (
                       <figure key={author._id} className="flex items-center gap-2">
-                        <Avatar key={author._id} {...author.image} alt="" className="!size-11" />
+                        <Avatar key={author._id} {...author.image} alt="" className="size-11!" />
                         {author._title}
                       </figure>
                     ))}

@@ -51,7 +51,7 @@ export function SearchContent({ _searchKey }: { _searchKey: string }) {
           {/* eslint-disable-next-line jsx-a11y/label-has-associated-control */}
           <label
             className={clsx(
-              "ml-auto flex w-full cursor-text items-center gap-x-1 rounded-full border border-border px-3.5 py-2.5 !ring-accent-500 focus-within:ring dark:border-dark-border md:max-w-[280px]",
+              "ml-auto flex w-full cursor-text items-center gap-x-1 rounded-full border border-border px-3.5 py-2.5 ring-accent-500! focus-within:ring-3 dark:border-dark-border md:max-w-[280px]",
             )}
           >
             <MagnifyingGlassIcon
@@ -60,13 +60,13 @@ export function SearchContent({ _searchKey }: { _searchKey: string }) {
             />
             <SearchBox.Input
               asChild
-              className="outline-none outline-0"
+              className="outline-hidden outline-0"
               onFocus={() => {
                 if (search.query) setOpen(true);
               }}
             >
               <input
-                className="grow bg-transparent !outline-none placeholder:text-text-tertiary focus-visible:outline-none placeholder:dark:text-dark-text-tertiary"
+                className="grow bg-transparent outline-hidden! placeholder:text-text-tertiary focus-visible:outline-hidden dark:placeholder:text-dark-text-tertiary"
                 placeholder="Search"
                 type="text"
               />
@@ -136,7 +136,7 @@ function HitList({ hits }: { hits: Hit[] }) {
                 className={clsx(
                   "flex grid-rows-[auto_1fr_auto] flex-col gap-y-0.5 rounded-md px-4 py-3",
                   "data-[selected='true']:bg-surface-tertiary",
-                  "data-[selected='true']:dark:bg-dark-surface-tertiary",
+                  "dark:data-[selected='true']:bg-dark-surface-tertiary",
                   "[&_mark]:bg-transparent [&_mark]:text-accent-500",
                 )}
                 href={pathname}

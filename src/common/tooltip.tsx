@@ -26,7 +26,7 @@ export function CustomTooltip({ children, content, className, ...props }: Simple
       <Tooltip.Portal>
         <Tooltip.Content
           className={clsx(
-            "z-[999] max-w-[160px] rounded-md border border-border bg-surface-secondary px-2 py-1 text-sm text-text-secondary dark:border-dark-border dark:bg-dark-surface-secondary dark:text-dark-text-secondary",
+            "z-999 max-w-[160px] rounded-md border border-border bg-surface-secondary px-2 py-1 text-sm text-text-secondary dark:border-dark-border dark:bg-dark-surface-secondary dark:text-dark-text-secondary",
             className,
           )}
           {...props}
