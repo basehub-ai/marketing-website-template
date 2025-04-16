@@ -1,4 +1,4 @@
-@import 'tailwindcss';
+@import "tailwindcss";
 
 @config '../../tailwind.config.ts';
 
@@ -16,7 +16,7 @@
   ::before,
   ::backdrop,
   ::file-selector-button {
-    border-color: var(--color-gray-200, currentColor);
+    border-color: var(--gray-200, currentColor);
   }
 }
 
@@ -32,29 +32,29 @@
 
 :root:not(html.dark) {
   /* colors */
-  color: var(--color-text-primary);
-  background-color: var(--color-surface-primary);
+  color: var(--text-primary);
+  background-color: var(--surface-primary);
 }
 
 :root:not(html.dark) ::selection {
-  background-color: var(--color-accent-200);
+  background-color: var(--accent-200);
 }
 
 :root:not(html.dark) *:focus-visible {
-  outline-color: var(--color-accent-300);
+  outline-color: var(--accent-300);
 }
 
 :root {
-  color: var(--color-dark-text-primary);
-  background-color: var(--color-dark-surface-primary);
+  color: var(--dark-text-primary);
+  background-color: var(--dark-surface-primary);
 }
 
 :root ::selection {
-  background-color: var(--color-accent-950);
+  background-color: var(--accent-950);
 }
 
 :root *:focus-visible {
-  outline-color: var(--color-accent-400);
+  outline-color: var(--accent-400);
 }
 
 .no-scrollbar::-webkit-scrollbar {
