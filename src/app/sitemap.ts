@@ -63,7 +63,5 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   );
 
   const routes = [...formattedPages, ...formattedBlogPosts, ...formattedChangelogPosts];
-  console.log("REVALIDATING SITEMAP");
-  console.log(routes);
   return routes;
 }
