@@ -1,5 +1,6 @@
+import { siteUrl } from "@/lib/constants";
 import { basehub } from "basehub";
-import { siteUrl } from "@/../next-sitemap.config";
+
 
 export async function GET() {
   const data = await basehub().query({

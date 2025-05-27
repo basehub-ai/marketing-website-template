@@ -1,8 +1,7 @@
+import { siteUrl } from "@/lib/constants";
 import { basehub } from "basehub";
 import type { MetadataRoute } from "next";
-const siteHost =
-  process.env.VERCEL_PROJECT_PRODUCTION_URL || "nextjs-marketing-website.basehub.com";
-const siteUrl = `https://${siteHost}`;
+
 
 export const revalidate = 30; // revalidate at most every 30 minutes
 
