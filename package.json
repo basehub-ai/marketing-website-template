@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "scripts": {
     "dev": "basehub dev & next dev --turbopack",
-    "build": "basehub && next build && next-sitemap",
+    "build": "basehub && next build",
     "start": "next start",
     "lint": "next lint"
   },
@@ -41,7 +41,6 @@
     "@types/react-dom": "^19.0.4",
     "eslint": "^8",
     "eslint-config-next": "15.0.1",
-    "next-sitemap": "4.2.3",
     "prettier": "^3.2.5",
     "prettier-plugin-tailwindcss": "^0.6.11",
     "typescript": "^5.4.5"
