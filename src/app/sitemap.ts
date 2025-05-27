@@ -2,8 +2,7 @@ import { siteUrl } from "@/lib/constants";
 import { basehub } from "basehub";
 import type { MetadataRoute } from "next";
 
-
-export const revalidate = 30; // revalidate at most every 30 minutes
+export const revalidate = 1800; // 30 minutes - adjust as needed
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const data = await basehub().query({
