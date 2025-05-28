@@ -2,6 +2,8 @@ import { siteUrl } from "@/lib/constants";
 import { basehub } from "basehub";
 import type { MetadataRoute } from "next";
 
+export const revalidate = false;
+
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const data = await basehub().query({
     site: {
