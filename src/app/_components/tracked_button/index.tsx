@@ -2,7 +2,7 @@
 
 import { sendEvent } from "basehub/events";
 import { Button, ButtonLink } from "@/common/button";
-import { GeneralEvents } from ".basehub/schema";
+import { GeneralEvents } from "@/../basehub";
 
 interface TrackProps {
   analyticsKey: GeneralEvents["ingestKey"];

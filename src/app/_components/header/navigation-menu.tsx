@@ -13,7 +13,6 @@ import {
   type NavigationMenuLinkProps,
 } from "@radix-ui/react-navigation-menu";
 import { Button, ButtonLink } from "@/common/button";
-import { isPageReferenceComponent } from ".basehub/schema";
 import type { HeaderFragment, HeaderLiksFragment } from ".";
 import { useToggleState } from "@/hooks/use-toggle-state";
 import { useHasRendered } from "@/hooks/use-has-rendered";
@@ -60,7 +59,7 @@ function NavigationMenuLink({
     <NavigationMenuLinkPrimitive
       asChild
       className={clsx(
-        "inline-flex h-6 shrink-0 items-center justify-center gap-1 rounded-full px-3 pb-px tracking-tight hover:bg-surface-tertiary dark:hover:bg-dark-surface-tertiary lg:h-7",
+        "hover:bg-surface-tertiary dark:hover:bg-dark-surface-tertiary inline-flex h-6 shrink-0 items-center justify-center gap-1 rounded-full px-3 pb-px tracking-tight lg:h-7",
         className,
       )}
       {...props}
@@ -104,33 +103,34 @@ function NavigationMenuLinkWithMenu({ _title, href, sublinks }: HeaderLiksFragme
         ) : (
           <Button
             unstyled
-            className="inline-flex items-center gap-1 rounded-full pb-px pl-3 pr-2 tracking-tight hover:bg-surface-tertiary dark:hover:bg-dark-surface-tertiary lg:h-7"
+            className="hover:bg-surface-tertiary dark:hover:bg-dark-surface-tertiary inline-flex items-center gap-1 rounded-full pr-2 pb-px pl-3 tracking-tight lg:h-7"
             icon={<ChevronDownIcon className="text-text-tertiary dark:text-dark-text-tertiary" />}
           >
             {_title}
           </Button>
         )}
       </NavigationMenuTrigger>
-      <NavigationMenuContent className="absolute top-[calc(100%+4px)] w-[clamp(180px,30vw,300px)] rounded-md border border-border bg-surface-primary p-0.5 dark:border-dark-border dark:bg-dark-surface-primary">
+      <NavigationMenuContent className="border-border bg-surface-primary dark:border-dark-border dark:bg-dark-surface-primary absolute top-[calc(100%+4px)] w-[clamp(180px,30vw,300px)] rounded-md border p-0.5">
         <div className="flex flex-col gap-1">
           <ul className="flex flex-col">
             {sublinks.items.map((sublink) => {
-              const { href, _title } = isPageReferenceComponent(sublink.link)
-                ? {
-                    href: sublink.link.page.pathname,
-                    _title: sublink.link.page._title,
-                  }
-                : {
-                    href: sublink.link.text,
-                    _title: sublink._title,
-                  };
+              const { href, _title } =
+                sublink.link.__typename === "PageReferenceComponent"
+                  ? {
+                      href: sublink.link.page.pathname,
+                      _title: sublink.link.page._title,
+                    }
+                  : {
+                      href: sublink.link.text,
+                      _title: sublink._title,
+                    };
 
               return (
                 <li key={sublink._id}>
                   <NavigationMenuLinkPrimitive asChild>
                     <ButtonLink
                       unstyled
-                      className="flex w-full items-center gap-2 rounded-md px-3 py-1.5 hover:bg-surface-tertiary dark:hover:bg-dark-surface-tertiary"
+                      className="hover:bg-surface-tertiary dark:hover:bg-dark-surface-tertiary flex w-full items-center gap-2 rounded-md px-3 py-1.5"
                       href={href}
                     >
                       {_title}
@@ -175,14 +175,14 @@ export function MobileMenu({ navbar, rightCtas }: HeaderFragment) {
     <>
       <button
         aria-label="Toggle Menu"
-        className="col-start-3 flex items-center justify-center gap-2 justify-self-end rounded-sm border border-border bg-surface-secondary p-2 dark:border-dark-border dark:bg-dark-surface-secondary lg:hidden lg:h-7"
+        className="border-border bg-surface-secondary dark:border-dark-border dark:bg-dark-surface-secondary col-start-3 flex items-center justify-center gap-2 justify-self-end rounded-sm border p-2 lg:hidden lg:h-7"
         onPointerDown={handleToggle}
       >
         <HamburgerMenuIcon className="size-4" />
       </button>
       <div className="block lg:hidden">
         {isOn ? (
-          <div className="fixed left-0 top-[calc(var(--header-height)+1px)] z-10 h-auto w-full bg-surface-primary dark:bg-dark-surface-primary">
+          <div className="bg-surface-primary dark:bg-dark-surface-primary fixed top-[calc(var(--header-height)+1px)] left-0 z-10 h-auto w-full">
             <div className="flex flex-col gap-8 px-6 py-8">
               <nav className="flex flex-col gap-4">
                 {navbar.items.map((link) =>
@@ -270,7 +270,7 @@ function ItemWithSublinks({
         {_title}
         <ChevronDownIcon
           className={clsx(
-            "h-min transform text-text-tertiary transition-transform dark:text-dark-text-tertiary",
+            "text-text-tertiary dark:text-dark-text-tertiary h-min transform transition-transform",
             isOn ? "rotate-180" : "rotate-0",
           )}
         />
@@ -282,20 +282,21 @@ function ItemWithSublinks({
         )}
       >
         {sublinks.map((sublink) => {
-          const { href, _title } = isPageReferenceComponent(sublink.link)
-            ? {
-                href: sublink.link.page.pathname,
-                _title: sublink.link.page._title,
-              }
-            : {
-                href: sublink.link.text,
-                _title: sublink._title,
-              };
+          const { href, _title } =
+            sublink.link.__typename === "PageReferenceComponent"
+              ? {
+                  href: sublink.link.page.pathname,
+                  _title: sublink.link.page._title,
+                }
+              : {
+                  href: sublink.link.text,
+                  _title: sublink._title,
+                };
 
           return (
             <li key={sublink._id}>
               <Link
-                className="flex items-center gap-2 rounded-md px-3 py-1.5 text-text-tertiary dark:text-dark-text-tertiary"
+                className="text-text-tertiary dark:text-dark-text-tertiary flex items-center gap-2 rounded-md px-3 py-1.5"
                 href={href}
                 onClick={onClick}
               >

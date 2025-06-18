@@ -1,9 +1,9 @@
 import NextForm from "next/form";
 import * as React from "react";
 import { Section } from "@/common/layout";
-import { Pump } from ".basehub/react-pump";
+import { Pump } from "basehub/react-pump";
 import { Input } from "@/common/input";
-import { parseFormData, sendEvent } from ".basehub/events";
+import { parseFormData, sendEvent } from "basehub/events";
 
 export function Newsletter() {
   return (
@@ -34,7 +34,7 @@ export function Newsletter() {
 
         return (
           <Section
-            className="bg-surface-secondary py-10! dark:bg-dark-surface-secondary"
+            className="bg-surface-secondary dark:bg-dark-surface-secondary py-10!"
             container="full"
           >
             <div className="container mx-auto flex flex-col gap-4 px-6 lg:flex-row lg:justify-between">

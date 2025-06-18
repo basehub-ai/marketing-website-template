@@ -6,7 +6,7 @@ import clsx from "clsx";
 import { Heading } from "@/common/heading";
 import { Section } from "@/common/layout";
 import { ButtonLink } from "@/common/button";
-import { type fragmentOn, isBooleanComponent, isCustomTextComponent } from ".basehub/schema";
+import { type fragmentOn } from "basehub";
 import { SimpleTooltip } from "@/common/tooltip";
 
 import { MobilePricingComparison } from "./mobile-pricing-comparison";
@@ -25,7 +25,7 @@ export function PricingTable(props: PricingTableProps) {
       </Heading>
       {/* Desktop pricing */}
       <table className="hidden w-full table-fixed lg:table">
-        <thead className="top-(--header-height) sticky bg-surface-primary dark:bg-dark-surface-primary">
+        <thead className="bg-surface-primary dark:bg-dark-surface-primary sticky top-(--header-height)">
           <tr>
             <PlanHeader plan={null} />
             {plans.map((plan) => (
@@ -40,7 +40,7 @@ export function PricingTable(props: PricingTableProps) {
               {category.features.items.map((feature) => (
                 <tr
                   key={feature._id}
-                  className="border-b border-border/70 dark:border-dark-border/70"
+                  className="border-border/70 dark:border-dark-border/70 border-b"
                 >
                   <FeatureTitle {...feature} />
                   {feature.values.items.map((value) => (
@@ -121,7 +121,7 @@ function FeatureTitle(
             side="right"
             sideOffset={4}
           >
-            <QuestionMarkCircledIcon className="dark:text-dark-text-tetext-text-tertiary size-4 text-text-tertiary" />
+            <QuestionMarkCircledIcon className="dark:text-dark-text-tetext-text-tertiary text-text-tertiary size-4" />
           </SimpleTooltip>
         ) : null}
       </TableCell>
@@ -144,7 +144,7 @@ function CategoryHeader({
         <TableCell
           align="start"
           as="div"
-          className={clsx("px-3 pb-2 pt-10", className)}
+          className={clsx("px-3 pt-10 pb-2", className)}
           type="primary"
         >
           <p className="text-lg font-medium">{category._title}</p>
@@ -163,10 +163,10 @@ type ValueFragment = fragmentOn.infer<typeof valueFragment>;
 
 function PlanHeader({ plan }: { plan: PlanFragment | null }) {
   return plan ? (
-    <th className="w-[1fr] pb-2 pt-6">
+    <th className="w-[1fr] pt-6 pb-2">
       <span className="flex flex-col items-center gap-3 font-normal">
         <div className="flex flex-col items-center gap-0.5">
-          <p className="text-base text-text-secondary dark:text-dark-text-secondary md:text-base">
+          <p className="text-text-secondary dark:text-dark-text-secondary text-base md:text-base">
             {plan._title}
           </p>
           <p className="text-lg font-medium">{plan.price}</p>
@@ -188,17 +188,17 @@ function FeatureValue({ value }: { value?: ValueFragment }) {
     <td className="w-[1fr]">
       <TableCell>
         {value ? (
-          isBooleanComponent(value.value) ? (
+          value.value?.__typename === "BooleanComponent" ? (
             value.value.boolean ? (
-              <span className="flex items-center justify-center rounded-full bg-success/10 p-1.5">
-                <CheckCircledIcon className="size-5 text-success" />
+              <span className="bg-success/10 flex items-center justify-center rounded-full p-1.5">
+                <CheckCircledIcon className="text-success size-5" />
               </span>
             ) : (
-              <span className="text-xl text-text-tertiary/50 dark:text-dark-text-tertiary/50 ">
+              <span className="text-text-tertiary/50 dark:text-dark-text-tertiary/50 text-xl">
                 &mdash;
               </span>
             )
-          ) : isCustomTextComponent(value.value) ? (
+          ) : value.value?.__typename === "CustomTextComponent" ? (
             <p>{value.value.text}</p>
           ) : null
         ) : null}

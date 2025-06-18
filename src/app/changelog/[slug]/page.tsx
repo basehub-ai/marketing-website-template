@@ -13,7 +13,7 @@ import { richTextBaseComponents, richTextClasses } from "@/app/_components/rich-
 import { ButtonLink } from "@/common/button";
 import { AvatarsGroup } from "@/common/avatars-group";
 import { Author } from "@/common/avatar";
-import { basehub } from "basehub/index";
+import { basehub } from "basehub";
 import { formatDate } from "@/utils/dates";
 
 import { ChangelogLayout } from "../_components/changelog-header";
@@ -188,7 +188,7 @@ export default async function ChangelogPage({ params: _params }: ChangelogPagePa
             <ChangelogLayout>
               <div className="flex flex-col gap-1">
                 <Link
-                  className="flex w-max items-center gap-1 text-sm text-text-tertiary hover:underline dark:text-dark-text-tertiary md:text-sm"
+                  className="text-text-tertiary dark:text-dark-text-tertiary flex w-max items-center gap-1 text-sm hover:underline md:text-sm"
                   href={`/changelog#${post._slug}`}
                 >
                   <ArrowLeftIcon /> {changelog.goBackText}
@@ -196,12 +196,12 @@ export default async function ChangelogPage({ params: _params }: ChangelogPagePa
                 <Heading align="left">
                   <h1>{post._title}</h1>
                 </Heading>
-                <p className="text-sm text-text-tertiary dark:text-dark-text-tertiary md:text-base">
+                <p className="text-text-tertiary dark:text-dark-text-tertiary text-sm md:text-base">
                   {formatDate(post.publishedAt)}
                 </p>
               </div>
             </ChangelogLayout>
-            <div className="mx-auto flex max-w-(--breakpoint-md) flex-col gap-8 px-8 pb-20 pt-16">
+            <div className="mx-auto flex max-w-(--breakpoint-md) flex-col gap-8 px-8 pt-16 pb-20">
               <BaseHubImage
                 priority
                 alt={post.image.alt ?? post._title}
@@ -213,7 +213,7 @@ export default async function ChangelogPage({ params: _params }: ChangelogPagePa
                 style={{ aspectRatio: post.image.aspectRatio }}
                 width={post.image.width}
               />
-              <p className="text-sm text-text-secondary dark:text-dark-text-secondary md:text-base">
+              <p className="text-text-secondary dark:text-dark-text-secondary text-sm md:text-base">
                 {post.excerpt}
               </p>
               <div className={richTextClasses}>
@@ -234,7 +234,7 @@ export default async function ChangelogPage({ params: _params }: ChangelogPagePa
                 ) : post.authors[0] ? (
                   <div className="flex items-center gap-2">
                     <Author {...post.authors[0]} />
-                    <p className="text-sm text-text-secondary dark:text-dark-text-secondary md:text-base">
+                    <p className="text-text-secondary dark:text-dark-text-secondary text-sm md:text-base">
                       {post.authors[0]._title}
                     </p>
                   </div>
@@ -242,7 +242,7 @@ export default async function ChangelogPage({ params: _params }: ChangelogPagePa
 
                 {nextPost ? (
                   <ButtonLink
-                    className="text-sm text-text-tertiary hover:underline dark:text-dark-text-tertiary"
+                    className="text-text-tertiary dark:text-dark-text-tertiary text-sm hover:underline"
                     href={`/changelog/${nextPost._slug}`}
                     icon={<ArrowRightIcon />}
                     iconSide="right"

@@ -10,7 +10,7 @@ import { DarkLightImage } from "@/common/dark-light-image";
 import { TrackedButtonLink } from "@/app/_components/tracked_button";
 
 import s from "./hero.module.scss";
-import { GeneralEvents } from ".basehub/schema";
+import { GeneralEvents } from "@/../basehub";
 
 export const featureHeroFragment = fragmentOn("FeatureHeroComponent", {
   _analyticsKey: true,
@@ -59,7 +59,7 @@ export default function FeatureHero({
           </div>
           <DarkLightImage
             priority
-            className="block rounded-lg border border-border dark:border-dark-border"
+            className="border-border dark:border-dark-border block rounded-lg border"
             {...image}
           />
         </Section>
@@ -90,7 +90,7 @@ export default function FeatureHero({
             </div>
             <DarkLightImage
               priority
-              className="block flex-1 rounded-lg border border-border dark:border-dark-border lg:w-1/2"
+              className="border-border dark:border-dark-border block flex-1 rounded-lg border lg:w-1/2"
               {...image}
             />
           </div>
@@ -103,10 +103,10 @@ export default function FeatureHero({
           <DarkLightImage
             {...image}
             priority
-            className="block max-h-[720px] w-full border-y border-t-0 border-border object-cover dark:border-dark-border"
+            className="border-border dark:border-dark-border block max-h-[720px] w-full border-y border-t-0 object-cover"
           />
           <Section>
-            <div className="flex items-center justify-between self-stretch ">
+            <div className="flex items-center justify-between self-stretch">
               <Heading {...heading} align="left">
                 <h4>{heading.title}</h4>
               </Heading>

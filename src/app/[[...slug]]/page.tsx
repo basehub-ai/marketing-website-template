@@ -4,27 +4,8 @@ import { draftMode } from "next/headers";
 import { notFound } from "next/navigation";
 
 import { Pump } from "basehub/react-pump";
-import {
-  GeneralEvents,
-  fragmentOn,
-  isCalloutComponent,
-  isCalloutV2Component,
-  isCompaniesComponent,
-  isFaqComponent,
-  isFeatureHeroComponent,
-  isFeaturesBigImageComponent,
-  isFeaturesCardsComponent,
-  isFeaturesGridComponent,
-  isFeaturesSideBySideComponent,
-  isFormComponent,
-  isFreeformTextComponent,
-  isHeroComponent,
-  isPricingComponent,
-  isPricingTableComponent,
-  isTestimonialSliderComponent,
-  isTestimonialsGridComponent,
-} from ".basehub/schema";
-import { basehub } from "basehub";
+import { GeneralEvents } from "@/../basehub";
+import { basehub, fragmentOn } from "basehub";
 
 import { AccordionFaq } from "../_sections/accordion-faq";
 import { BigFeature, bigFeatureFragment } from "../_sections/features/big-feature";
@@ -114,40 +95,40 @@ function SectionsUnion({
   if (!sections) return null;
 
   return sections.map((comp) => {
-    switch (true) {
-      case isHeroComponent(comp):
+    switch (comp.__typename) {
+      case "HeroComponent":
         return <Hero {...comp} key={comp._id} eventsKey={eventsKey} />;
-      case isFeaturesCardsComponent(comp):
+      case "FeaturesCardsComponent":
         return <FeaturesList {...comp} key={comp._id} />;
-      case isFeaturesGridComponent(comp):
+      case "FeaturesGridComponent":
         return <FeaturesGrid {...comp} key={comp._id} eventsKey={eventsKey} />;
-      case isCompaniesComponent(comp):
+      case "CompaniesComponent":
         return <Companies {...comp} key={comp._id} />;
-      case isFeaturesBigImageComponent(comp):
+      case "FeaturesBigImageComponent":
         return <BigFeature {...comp} key={comp._id} />;
-      case isFeaturesSideBySideComponent(comp):
+      case "FeaturesSideBySideComponent":
         return <SideFeatures {...comp} key={comp._id} eventsKey={eventsKey} />;
-      case isCalloutComponent(comp):
+      case "CalloutComponent":
         return <Callout {...comp} key={comp._id} eventsKey={eventsKey} />;
-      case isCalloutV2Component(comp):
+      case "CalloutV2Component":
         return <Callout2 {...comp} key={comp._id} eventsKey={eventsKey} />;
-      case isTestimonialSliderComponent(comp):
+      case "TestimonialSliderComponent":
         return <Testimonials {...comp} key={comp._id} />;
-      case isTestimonialsGridComponent(comp):
+      case "TestimonialsGridComponent":
         return <TestimonialsGrid {...comp} key={comp._id} />;
-      case isPricingComponent(comp):
+      case "PricingComponent":
         return <Pricing {...comp} key={comp._id} />;
-      case isFaqComponent(comp) && comp.layout === "list":
+      case "FaqComponent":
         return <Faq {...comp} key={comp._id} />;
-      case isFaqComponent(comp) && comp.layout === "accordion":
+      case "FaqComponent":
         return <AccordionFaq {...comp} key={comp._id} eventsKey={eventsKey} />;
-      case isPricingTableComponent(comp):
+      case "PricingTableComponent":
         return <PricingTable {...comp} key={comp._id} />;
-      case isFeatureHeroComponent(comp):
+      case "FeatureHeroComponent":
         return <FeatureHero {...comp} key={comp._id} eventsKey={eventsKey} />;
-      case isFreeformTextComponent(comp):
+      case "FreeformTextComponent":
         return <FreeformText {...comp} key={comp._id} />;
-      case isFormComponent(comp):
+      case "FormComponent":
         return <Form {...comp} key={comp._id} />;
       default:
         return null;

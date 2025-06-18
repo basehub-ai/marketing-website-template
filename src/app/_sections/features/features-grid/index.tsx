@@ -5,7 +5,7 @@ import { Section } from "@/common/layout";
 import { fragmentOn } from "basehub";
 import { buttonFragment, headingFragment } from "@/lib/basehub/fragments";
 import { TrackedButtonLink } from "@/app/_components/tracked_button";
-import { GeneralEvents } from ".basehub/schema";
+import { GeneralEvents } from "@/../basehub";
 
 export const featuresGridFragment = fragmentOn("FeaturesGridComponent", {
   _analyticsKey: true,
@@ -41,9 +41,9 @@ export function FeaturesGrid({
         {featuresGridList.items.map(({ _id, _title, description, icon }) => (
           <article
             key={_id}
-            className="flex flex-col gap-4 rounded-lg border border-border p-4 [box-shadow:_70px_-20px_130px_0px_rgba(255,255,255,0.05)_inset] dark:border-dark-border dark:[box-shadow:_70px_-20px_130px_0px_rgba(255,255,255,0.05)_inset]"
+            className="border-border dark:border-dark-border flex flex-col gap-4 rounded-lg border p-4 [box-shadow:_70px_-20px_130px_0px_rgba(255,255,255,0.05)_inset] dark:[box-shadow:_70px_-20px_130px_0px_rgba(255,255,255,0.05)_inset]"
           >
-            <figure className="flex size-9 items-center justify-center rounded-full border border-border bg-surface-secondary p-2 dark:border-dark-border dark:bg-dark-surface-secondary">
+            <figure className="border-border bg-surface-secondary dark:border-dark-border dark:bg-dark-surface-secondary flex size-9 items-center justify-center rounded-full border p-2">
               <BaseHubImage
                 alt={icon.alt ?? _title}
                 className="dark:invert"
@@ -54,7 +54,7 @@ export function FeaturesGrid({
             </figure>
             <div className="flex flex-col items-start gap-1">
               <h5 className="text-lg font-medium">{_title}</h5>
-              <p className="text-pretty text-text-secondary dark:text-dark-text-secondary">
+              <p className="text-text-secondary dark:text-dark-text-secondary text-pretty">
                 {description}
               </p>
             </div>

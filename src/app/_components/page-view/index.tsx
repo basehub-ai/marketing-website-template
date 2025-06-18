@@ -1,6 +1,6 @@
 "use client";
 
-import { GeneralEvents } from ".basehub/schema";
+import { GeneralEvents } from "@/../basehub";
 import { sendEvent } from "basehub/events";
 import * as React from "react";
 
