@@ -33,8 +33,8 @@ importers:
         specifier: ^4.0.17
         version: 4.0.17
       basehub:
-        specifier: ^9.0.2
-        version: 9.0.2(@babel/runtime@7.26.0)(@types/react@19.0.12)(react@19.1.0)(typescript@5.7.2)
+        specifier: ^9.0.3
+        version: 9.0.3(@babel/runtime@7.26.0)(@types/react@19.0.12)(react@19.1.0)(typescript@5.7.2)
       class-variance-authority:
         specifier: ^0.7.0
         version: 0.7.1
@@ -1252,8 +1252,8 @@ packages:
   balanced-match@1.0.2:
     resolution: {integrity: sha512-3oSeUO0TMV67hN1AmbXsK4yaqU7tjiHlbxRDZOpH0KW9+CeX4bRAaX0Anxt0tx2MrpRpWwQaPwIlISEJhYU5Pw==}
 
-  basehub@9.0.2:
-    resolution: {integrity: sha512-8bC9muWSkXVe7AvAvmDnBGgh7ERquY4CW7ZAYgIVORA0v9G0JDB8GGwdcwvSP9x6ZC2QwQ93w+bEuDyzdyIxLw==}
+  basehub@9.0.3:
+    resolution: {integrity: sha512-QAF2oTxyZSUR1hNoHjQJ909j3JrSP8JQabNua3W1JDCqRffgqUFuTSnY5v8YieIaailArU57pzjX3zcLD9p4Lw==}
     hasBin: true
 
   brace-expansion@1.1.11:
@@ -4038,7 +4038,7 @@ snapshots:
 
   balanced-match@1.0.2: {}
 
-  basehub@9.0.2(@babel/runtime@7.26.0)(@types/react@19.0.12)(react@19.1.0)(typescript@5.7.2):
+  basehub@9.0.3(@babel/runtime@7.26.0)(@types/react@19.0.12)(react@19.1.0)(typescript@5.7.2):
     dependencies:
       '@basehub/mutation-api-helpers': 2.0.11
       '@radix-ui/react-slot': 1.1.0(@types/react@19.0.12)(react@19.1.0)
