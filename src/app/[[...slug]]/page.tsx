@@ -86,60 +86,56 @@ export const generateMetadata = async ({
 };
 
 function SectionsUnion({
-  sections,
+  comp,
   eventsKey,
 }: {
-  sections: fragmentOn.infer<typeof sectionsFragment>["sections"];
+  comp: NonNullable<fragmentOn.infer<typeof sectionsFragment>["sections"]>[number];
   eventsKey: GeneralEvents["ingestKey"];
 }): React.ReactNode {
-  if (!sections) return null;
-
-  return sections.map((comp) => {
-    switch (comp.__typename) {
-      case "HeroComponent":
-        return <Hero {...comp} key={comp._id} eventsKey={eventsKey} />;
-      case "FeaturesCardsComponent":
-        return <FeaturesList {...comp} key={comp._id} />;
-      case "FeaturesGridComponent":
-        return <FeaturesGrid {...comp} key={comp._id} eventsKey={eventsKey} />;
-      case "CompaniesComponent":
-        return <Companies {...comp} key={comp._id} />;
-      case "FeaturesBigImageComponent":
-        return <BigFeature {...comp} key={comp._id} />;
-      case "FeaturesSideBySideComponent":
-        return <SideFeatures {...comp} key={comp._id} eventsKey={eventsKey} />;
-      case "CalloutComponent":
-        return <Callout {...comp} key={comp._id} eventsKey={eventsKey} />;
-      case "CalloutV2Component":
-        return <Callout2 {...comp} key={comp._id} eventsKey={eventsKey} />;
-      case "TestimonialSliderComponent":
-        return <Testimonials {...comp} key={comp._id} />;
-      case "TestimonialsGridComponent":
-        return <TestimonialsGrid {...comp} key={comp._id} />;
-      case "PricingComponent":
-        return <Pricing {...comp} key={comp._id} />;
-      case "FaqComponent":
-        return <Faq {...comp} key={comp._id} />;
-      case "FaqComponent":
-        return <AccordionFaq {...comp} key={comp._id} eventsKey={eventsKey} />;
-      case "PricingTableComponent":
-        return <PricingTable {...comp} key={comp._id} />;
-      case "FeatureHeroComponent":
-        return <FeatureHero {...comp} key={comp._id} eventsKey={eventsKey} />;
-      case "FreeformTextComponent":
-        return <FreeformText {...comp} key={comp._id} />;
-      case "FormComponent":
-        return <Form {...comp} key={comp._id} />;
-      default:
-        return null;
-    }
-  });
+  switch (comp.__typename) {
+    case "HeroComponent":
+      return <Hero {...comp} key={comp._id} eventsKey={eventsKey} />;
+    case "FeaturesCardsComponent":
+      return <FeaturesList {...comp} key={comp._id} />;
+    case "FeaturesGridComponent":
+      return <FeaturesGrid {...comp} key={comp._id} eventsKey={eventsKey} />;
+    case "CompaniesComponent":
+      return <Companies {...comp} key={comp._id} />;
+    case "FeaturesBigImageComponent":
+      return <BigFeature {...comp} key={comp._id} />;
+    case "FeaturesSideBySideComponent":
+      return <SideFeatures {...comp} key={comp._id} eventsKey={eventsKey} />;
+    case "CalloutComponent":
+      return <Callout {...comp} key={comp._id} eventsKey={eventsKey} />;
+    case "CalloutV2Component":
+      return <Callout2 {...comp} key={comp._id} eventsKey={eventsKey} />;
+    case "TestimonialSliderComponent":
+      return <Testimonials {...comp} key={comp._id} />;
+    case "TestimonialsGridComponent":
+      return <TestimonialsGrid {...comp} key={comp._id} />;
+    case "PricingComponent":
+      return <Pricing {...comp} key={comp._id} />;
+    case "FaqComponent":
+      return <Faq {...comp} key={comp._id} />;
+    case "FaqComponent":
+      return <AccordionFaq {...comp} key={comp._id} eventsKey={eventsKey} />;
+    case "PricingTableComponent":
+      return <PricingTable {...comp} key={comp._id} />;
+    case "FeatureHeroComponent":
+      return <FeatureHero {...comp} key={comp._id} eventsKey={eventsKey} />;
+    case "FreeformTextComponent":
+      return <FreeformText {...comp} key={comp._id} />;
+    case "FormComponent":
+      return <Form {...comp} key={comp._id} />;
+    default:
+      return null;
+  }
 }
 
 const sectionsFragment = fragmentOn("PagesItem", {
   sections: {
     __typename: true,
-    on_BlockDocument: { _id: true },
+    on_BlockDocument: { _id: true, _slug: true },
     on_HeroComponent: heroFragment,
     on_FeaturesCardsComponent: featureCardsComponent,
     on_FeaturesSideBySideComponent: featuresSideBySideFragment,
@@ -214,7 +210,13 @@ export default async function DynamicPage({
         return (
           <>
             <PageView ingestKey={generalEvents.ingestKey} />
-            <SectionsUnion sections={sections} eventsKey={generalEvents.ingestKey} />
+            {sections?.map((section) => {
+              return (
+                <div key={section._id} id={section._slug}>
+                  <SectionsUnion comp={section} eventsKey={generalEvents.ingestKey} />
+                </div>
+              );
+            })}
           </>
         );
       }}
