@@ -30,7 +30,7 @@ const headerLinksFragment = fragmentOn("HeaderNavbarLinkComponent", {
   },
 });
 
-export type HeaderLiksFragment = fragmentOn.infer<typeof headerLinksFragment>;
+export type HeaderLinksFragment = fragmentOn.infer<typeof headerLinksFragment>;
 
 export const headerFragment = fragmentOn("Header", {
   navbar: {
