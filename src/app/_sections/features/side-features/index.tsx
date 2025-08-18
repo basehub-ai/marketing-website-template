@@ -5,7 +5,7 @@ import { Section } from "@/common/layout";
 import { fragmentOn } from "basehub";
 import { headingFragment } from "@/lib/basehub/fragments";
 import { TrackedButtonLink } from "@/app/_components/tracked_button";
-import { GeneralEvents } from "@/../basehub";
+import { GeneralEvents } from "@/../basehub-types";
 
 export const featuresSideBySideFragment = fragmentOn("FeaturesSideBySideComponent", {
   featuresSideBySideList: {

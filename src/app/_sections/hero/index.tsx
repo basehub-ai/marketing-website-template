@@ -5,7 +5,7 @@ import { AvatarsGroup } from "@/common/avatars-group";
 import { Avatar } from "@/common/avatar";
 import { avatarFragment } from "@/lib/basehub/fragments";
 import { TrackedButtonLink } from "@/app/_components/tracked_button";
-import { GeneralEvents } from "@/../basehub";
+import { GeneralEvents } from "@/../basehub-types";
 
 export const heroFragment = fragmentOn("HeroComponent", {
   _analyticsKey: true,

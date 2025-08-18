@@ -46,8 +46,7 @@ export interface Scalars {
   options: string[];
   multiple: boolean
 } | {
-  type: "file";
-  private: boolean
+  type: "file"
 }))[],
     BSHBRichTextContentSchema: RichTextNode[],
     BSHBRichTextTOCSchema: RichTextTocNode[],
@@ -190,7 +189,7 @@ export interface BlockColor {
     __typename: 'BlockColor'
 }
 
-export type BlockDocument = (AuthorComponent | Authors | AvatarComponent | Avatars | Blog | BlogPostComponent | BooleanComponent | ButtonComponent | CalloutComponent | CalloutV2Component | Categories | CategoryComponent | Changelog | ChangelogPostComponent | Characteristics | CharacteristicsItem | CodeSnippetComponent | Collections | CompaniesComponent | CompanyComponent | ComparisonOptions | Components | CustomTextComponent | CustomerSatisfactionBannerComponent | DarkLightImageComponent | FaqComponent | FaqItemComponent | FeatureComponent | FeatureHeroComponent | FeatureWithIconComponent | Features | FeaturesBigImageComponent | FeaturesBigImageList | FeaturesCardsComponent | FeaturesCardsList | FeaturesCardsListItem | FeaturesGridComponent | FeaturesGridList | FeaturesSideBySideComponent | FeaturesSideBySideList | FeaturesSideBySideListItem | Footer | FormComponent | FormWrapperComponent | FreeformTextComponent | Header | HeaderNavbarLinkComponent | HeadingComponent | HeroComponent | LimitedTimeOfferBannerComponent | List | ListItem | Metadata | MetadataOverridesComponent | MoreCompanies | Navbar | NavbarItem | Navbar_1 | Newsletter | PageReferenceComponent | Pages | PagesItem | PlanComponent | Plans | Posts | Posts_1 | PricingComponent | PricingPlanComponent | PricingPlans | PricingTableComponent | Questions | QuoteComponent | Quotes | RichTextCalloutComponent | RightCtas | Sections | Settings | Site | SocialLinkComponent | SocialLinks | Sublinks | SublinksItem | TestimonialSliderComponent | TestimonialsGridComponent | Theme | ValueComponent | Values | _AgentStart | authorComponent_AsList | avatarComponent_AsList | blogPostComponent_AsList | booleanComponent_AsList | buttonComponent_AsList | calloutComponent_AsList | calloutV2Component_AsList | categoryComponent_AsList | changelogPostComponent_AsList | characteristicsItem_AsList | codeSnippetComponent_AsList | companiesComponent_AsList | companyComponent_AsList | customTextComponent_AsList | customerSatisfactionBannerComponent_AsList | darkLightImageComponent_AsList | faqComponent_AsList | faqItemComponent_AsList | featureComponent_AsList | featureHeroComponent_AsList | featureWithIconComponent_AsList | featuresBigImageComponent_AsList | featuresCardsComponent_AsList | featuresCardsListItem_AsList | featuresGridComponent_AsList | featuresSideBySideComponent_AsList | featuresSideBySideListItem_AsList | formComponent_AsList | formWrapperComponent_AsList | freeformTextComponent_AsList | headerNavbarLinkComponent_AsList | headingComponent_AsList | heroComponent_AsList | limitedTimeOfferBannerComponent_AsList | listItem_AsList | metadataOverridesComponent_AsList | navbarItem_AsList | pageReferenceComponent_AsList | pagesItem_AsList | planComponent_AsList | pricingComponent_AsList | pricingPlanComponent_AsList | pricingTableComponent_AsList | quoteComponent_AsList | richTextCalloutComponent_AsList | socialLinkComponent_AsList | sublinksItem_AsList | testimonialSliderComponent_AsList | testimonialsGridComponent_AsList | valueComponent_AsList) & { __isUnion?: true }
+export type BlockDocument = (AuthorComponent | Authors | AvatarComponent | Avatars | Blog | BlogPostComponent | BooleanComponent | ButtonComponent | CalloutComponent | CalloutV2Component | Categories | CategoryComponent | Changelog | ChangelogPostComponent | Characteristics | CharacteristicsItem | CodeSnippetComponent | Collections | CompaniesComponent | CompanyComponent | ComparisonOptions | Components | CustomTextComponent | CustomerSatisfactionBannerComponent | DarkLightImageComponent | FaqComponent | FaqItemComponent | FeatureComponent | FeatureHeroComponent | FeatureWithIconComponent | Features | FeaturesBigImageComponent | FeaturesBigImageList | FeaturesCardsComponent | FeaturesCardsList | FeaturesCardsListItem | FeaturesGridComponent | FeaturesGridList | FeaturesSideBySideComponent | FeaturesSideBySideList | FeaturesSideBySideListItem | Footer | FormComponent | FormWrapperComponent | FreeformTextComponent | Header | HeaderNavbarLinkComponent | HeadingComponent | HeroComponent | List | ListItem | Metadata | MetadataOverridesComponent | MoreCompanies | Navbar | NavbarItem | Navbar_1 | Newsletter | PageReferenceComponent | Pages | PagesItem | PlanComponent | Plans | Posts | Posts_1 | PricingComponent | PricingPlanComponent | PricingPlans | PricingTableComponent | Questions | QuoteComponent | Quotes | RichTextCalloutComponent | RightCtas | Sections | Settings | Site | SocialLinkComponent | SocialLinks | Sublinks | SublinksItem | TestimonialSliderComponent | TestimonialsGridComponent | Theme | ValueComponent | Values | _AgentStart | authorComponent_AsList | avatarComponent_AsList | blogPostComponent_AsList | booleanComponent_AsList | buttonComponent_AsList | calloutComponent_AsList | calloutV2Component_AsList | categoryComponent_AsList | changelogPostComponent_AsList | characteristicsItem_AsList | codeSnippetComponent_AsList | companiesComponent_AsList | companyComponent_AsList | customTextComponent_AsList | customerSatisfactionBannerComponent_AsList | darkLightImageComponent_AsList | faqComponent_AsList | faqItemComponent_AsList | featureComponent_AsList | featureHeroComponent_AsList | featureWithIconComponent_AsList | featuresBigImageComponent_AsList | featuresCardsComponent_AsList | featuresCardsListItem_AsList | featuresGridComponent_AsList | featuresSideBySideComponent_AsList | featuresSideBySideListItem_AsList | formComponent_AsList | formWrapperComponent_AsList | freeformTextComponent_AsList | headerNavbarLinkComponent_AsList | headingComponent_AsList | heroComponent_AsList | listItem_AsList | metadataOverridesComponent_AsList | navbarItem_AsList | pageReferenceComponent_AsList | pagesItem_AsList | planComponent_AsList | pricingComponent_AsList | pricingPlanComponent_AsList | pricingTableComponent_AsList | quoteComponent_AsList | richTextCalloutComponent_AsList | socialLinkComponent_AsList | sublinksItem_AsList | testimonialSliderComponent_AsList | testimonialsGridComponent_AsList | valueComponent_AsList) & { __isUnion?: true }
 
 export interface BlockDocumentSys {
     apiNamePath: Scalars['String']
@@ -249,7 +248,7 @@ export interface BlockImage {
     __typename: 'BlockImage'
 }
 
-export type BlockList = (Authors | Avatars | Categories | Characteristics | Features | FeaturesBigImageList | FeaturesCardsList | FeaturesGridList | FeaturesSideBySideList | List | MoreCompanies | Navbar | Navbar_1 | Pages | Plans | Posts | Posts_1 | PricingPlans | Questions | Quotes | RightCtas | SocialLinks | Sublinks | Values | authorComponent_AsList | avatarComponent_AsList | blogPostComponent_AsList | booleanComponent_AsList | buttonComponent_AsList | calloutComponent_AsList | calloutV2Component_AsList | categoryComponent_AsList | changelogPostComponent_AsList | characteristicsItem_AsList | codeSnippetComponent_AsList | companiesComponent_AsList | companyComponent_AsList | customTextComponent_AsList | customerSatisfactionBannerComponent_AsList | darkLightImageComponent_AsList | faqComponent_AsList | faqItemComponent_AsList | featureComponent_AsList | featureHeroComponent_AsList | featureWithIconComponent_AsList | featuresBigImageComponent_AsList | featuresCardsComponent_AsList | featuresCardsListItem_AsList | featuresGridComponent_AsList | featuresSideBySideComponent_AsList | featuresSideBySideListItem_AsList | formComponent_AsList | formWrapperComponent_AsList | freeformTextComponent_AsList | headerNavbarLinkComponent_AsList | headingComponent_AsList | heroComponent_AsList | limitedTimeOfferBannerComponent_AsList | listItem_AsList | metadataOverridesComponent_AsList | navbarItem_AsList | pageReferenceComponent_AsList | pagesItem_AsList | planComponent_AsList | pricingComponent_AsList | pricingPlanComponent_AsList | pricingTableComponent_AsList | quoteComponent_AsList | richTextCalloutComponent_AsList | socialLinkComponent_AsList | sublinksItem_AsList | testimonialSliderComponent_AsList | testimonialsGridComponent_AsList | valueComponent_AsList) & { __isUnion?: true }
+export type BlockList = (Authors | Avatars | Categories | Characteristics | Features | FeaturesBigImageList | FeaturesCardsList | FeaturesGridList | FeaturesSideBySideList | List | MoreCompanies | Navbar | Navbar_1 | Pages | Plans | Posts | Posts_1 | PricingPlans | Questions | Quotes | RightCtas | SocialLinks | Sublinks | Values | authorComponent_AsList | avatarComponent_AsList | blogPostComponent_AsList | booleanComponent_AsList | buttonComponent_AsList | calloutComponent_AsList | calloutV2Component_AsList | categoryComponent_AsList | changelogPostComponent_AsList | characteristicsItem_AsList | codeSnippetComponent_AsList | companiesComponent_AsList | companyComponent_AsList | customTextComponent_AsList | customerSatisfactionBannerComponent_AsList | darkLightImageComponent_AsList | faqComponent_AsList | faqItemComponent_AsList | featureComponent_AsList | featureHeroComponent_AsList | featureWithIconComponent_AsList | featuresBigImageComponent_AsList | featuresCardsComponent_AsList | featuresCardsListItem_AsList | featuresGridComponent_AsList | featuresSideBySideComponent_AsList | featuresSideBySideListItem_AsList | formComponent_AsList | formWrapperComponent_AsList | freeformTextComponent_AsList | headerNavbarLinkComponent_AsList | headingComponent_AsList | heroComponent_AsList | listItem_AsList | metadataOverridesComponent_AsList | navbarItem_AsList | pageReferenceComponent_AsList | pagesItem_AsList | planComponent_AsList | pricingComponent_AsList | pricingPlanComponent_AsList | pricingTableComponent_AsList | quoteComponent_AsList | richTextCalloutComponent_AsList | socialLinkComponent_AsList | sublinksItem_AsList | testimonialSliderComponent_AsList | testimonialsGridComponent_AsList | valueComponent_AsList) & { __isUnion?: true }
 
 export interface BlockOgImage {
     height: Scalars['Int']
@@ -1175,25 +1174,6 @@ export interface HeroComponent {
 
 export type HeroComponentOrderByEnum = '_sys_createdAt__ASC' | '_sys_createdAt__DESC' | '_sys_hash__ASC' | '_sys_hash__DESC' | '_sys_id__ASC' | '_sys_id__DESC' | '_sys_lastModifiedAt__ASC' | '_sys_lastModifiedAt__DESC' | '_sys_slug__ASC' | '_sys_slug__DESC' | '_sys_title__ASC' | '_sys_title__DESC' | 'actions__ASC' | 'actions__DESC' | 'customerSatisfactionBanner__ASC' | 'customerSatisfactionBanner__DESC' | 'subtitle__ASC' | 'subtitle__DESC' | 'title__ASC' | 'title__DESC'
 
-export interface LimitedTimeOfferBannerComponent {
-    _analyticsKey: Scalars['String']
-    _dashboardUrl: Scalars['String']
-    /** Array of search highlight information with field names and HTML markup */
-    _highlight: (SearchHighlight_kjqq89ZLVV2lkOfwtbkKc[] | null)
-    _id: Scalars['String']
-    _idPath: Scalars['String']
-    _slug: Scalars['String']
-    _slugPath: Scalars['String']
-    _sys: BlockDocumentSys
-    _title: Scalars['String']
-    /** ISO 8601 date string. */
-    endsAt: Scalars['String']
-    text: Scalars['String']
-    __typename: 'LimitedTimeOfferBannerComponent'
-}
-
-export type LimitedTimeOfferBannerComponentOrderByEnum = '_sys_createdAt__ASC' | '_sys_createdAt__DESC' | '_sys_hash__ASC' | '_sys_hash__DESC' | '_sys_id__ASC' | '_sys_id__DESC' | '_sys_lastModifiedAt__ASC' | '_sys_lastModifiedAt__DESC' | '_sys_slug__ASC' | '_sys_slug__DESC' | '_sys_title__ASC' | '_sys_title__DESC' | 'endsAt__ASC' | 'endsAt__DESC' | 'text__ASC' | 'text__DESC'
-
 export interface List {
     _analyticsKey: Scalars['String']
     _dashboardUrl: Scalars['String']
@@ -1449,7 +1429,7 @@ export interface PagesItem {
     _title: Scalars['String']
     metadataOverrides: MetadataOverridesComponent
     pathname: Scalars['String']
-    sections: (UnionPricingComponentFormComponentHeroComponentCalloutComponentCalloutV2ComponentCompaniesComponentTestimonialSliderComponentFeaturesCardsComponentPricingTableComponentFeaturesBigImageComponentTestimonialsGridComponentFeatureHeroComponentFeaturesSideBySideComponentFreeformTextComponentFeaturesGridComponentFaqComponentLimitedTimeOfferBannerComponent[] | null)
+    sections: (UnionPricingComponentFormComponentHeroComponentCalloutComponentCalloutV2ComponentCompaniesComponentTestimonialSliderComponentFeaturesCardsComponentPricingTableComponentFeaturesBigImageComponentTestimonialsGridComponentFeatureHeroComponentFeaturesSideBySideComponentFreeformTextComponentFeaturesGridComponentFaqComponent[] | null)
     __typename: 'PagesItem'
 }
 
@@ -2120,14 +2100,6 @@ export interface SearchHighlight_fe92e68a7be397a29dffa {
     __typename: 'SearchHighlight_fe92e68a7be397a29dffa'
 }
 
-export interface SearchHighlight_kjqq89ZLVV2lkOfwtbkKc {
-    /** The field/path that was matched (e.g., "title", "body.content") */
-    by: Scalars['String']
-    /** HTML snippet with <mark> tags around the matched terms */
-    snippet: Scalars['String']
-    __typename: 'SearchHighlight_kjqq89ZLVV2lkOfwtbkKc'
-}
-
 export interface Sections {
     _analyticsKey: Scalars['String']
     _dashboardUrl: Scalars['String']
@@ -2368,7 +2340,7 @@ export type UnionCustomTextComponentBooleanComponent = (BooleanComponent | Custo
 
 export type UnionCustomTextComponentPageReferenceComponent = (CustomTextComponent | PageReferenceComponent) & { __isUnion?: true }
 
-export type UnionPricingComponentFormComponentHeroComponentCalloutComponentCalloutV2ComponentCompaniesComponentTestimonialSliderComponentFeaturesCardsComponentPricingTableComponentFeaturesBigImageComponentTestimonialsGridComponentFeatureHeroComponentFeaturesSideBySideComponentFreeformTextComponentFeaturesGridComponentFaqComponentLimitedTimeOfferBannerComponent = (CalloutComponent | CalloutV2Component | CompaniesComponent | FaqComponent | FeatureHeroComponent | FeaturesBigImageComponent | FeaturesCardsComponent | FeaturesGridComponent | FeaturesSideBySideComponent | FormComponent | FreeformTextComponent | HeroComponent | LimitedTimeOfferBannerComponent | PricingComponent | PricingTableComponent | TestimonialSliderComponent | TestimonialsGridComponent) & { __isUnion?: true }
+export type UnionPricingComponentFormComponentHeroComponentCalloutComponentCalloutV2ComponentCompaniesComponentTestimonialSliderComponentFeaturesCardsComponentPricingTableComponentFeaturesBigImageComponentTestimonialsGridComponentFeatureHeroComponentFeaturesSideBySideComponentFreeformTextComponentFeaturesGridComponentFaqComponent = (CalloutComponent | CalloutV2Component | CompaniesComponent | FaqComponent | FeatureHeroComponent | FeaturesBigImageComponent | FeaturesCardsComponent | FeaturesGridComponent | FeaturesSideBySideComponent | FormComponent | FreeformTextComponent | HeroComponent | PricingComponent | PricingTableComponent | TestimonialSliderComponent | TestimonialsGridComponent) & { __isUnion?: true }
 
 export interface ValueComponent {
     _analyticsKey: Scalars['String']
@@ -2548,7 +2520,6 @@ export interface _components {
     headerNavbarLink: headerNavbarLinkComponent_AsList
     heading: headingComponent_AsList
     hero: heroComponent_AsList
-    limitedTimeOfferBanner: limitedTimeOfferBannerComponent_AsList
     listItem: listItem_AsList
     metadataOverrides: metadataOverridesComponent_AsList
     navbarItem: navbarItem_AsList
@@ -3195,25 +3166,6 @@ export interface heroComponent_AsList {
     __typename: 'heroComponent_AsList'
 }
 
-export interface limitedTimeOfferBannerComponent_AsList {
-    _analyticsKey: Scalars['String']
-    _dashboardUrl: Scalars['String']
-    _id: Scalars['String']
-    _idPath: Scalars['String']
-    _meta: ListMeta
-    /** The key used to search from the frontend. */
-    _searchKey: Scalars['String']
-    _slug: Scalars['String']
-    _slugPath: Scalars['String']
-    _sys: BlockDocumentSys
-    _title: Scalars['String']
-    /** Returns the first item in the list, or null if the list is empty. Useful when you expect only one result. */
-    item: (LimitedTimeOfferBannerComponent | null)
-    /** Returns the list of items after filtering and paginating according to the arguments sent by the client. */
-    items: LimitedTimeOfferBannerComponent[]
-    __typename: 'limitedTimeOfferBannerComponent_AsList'
-}
-
 export interface listItem_AsList {
     _analyticsKey: Scalars['String']
     _dashboardUrl: Scalars['String']
@@ -3540,6 +3492,7 @@ export interface AuthorComponentGenqlSelection{
     role?: boolean | number
     x?: boolean | number
     __typename?: boolean | number
+    __fragmentOn?: "AuthorComponent"
 }
 
 export interface AuthorComponentFilterInput {AND?: (AuthorComponentFilterInput | null),OR?: (AuthorComponentFilterInput | null),_id?: (StringFilter | null),_slug?: (StringFilter | null),_sys_apiNamePath?: (StringFilter | null),_sys_createdAt?: (DateFilter | null),_sys_hash?: (StringFilter | null),_sys_id?: (StringFilter | null),_sys_idPath?: (StringFilter | null),_sys_lastModifiedAt?: (DateFilter | null),_sys_slug?: (StringFilter | null),_sys_slugPath?: (StringFilter | null),_sys_title?: (StringFilter | null),_title?: (StringFilter | null),company?: (AuthorComponentFilterInput__company_0___company | null),role?: (StringFilter | null),x?: (StringFilter | null)}
@@ -3575,6 +3528,7 @@ export interface AuthorsGenqlSelection{
     /** Returns the list of items after filtering and paginating according to the arguments sent by the client. */
     items?: AuthorComponentGenqlSelection
     __typename?: boolean | number
+    __fragmentOn?: "Authors"
 }
 
 export interface AvatarComponentGenqlSelection{
@@ -3596,6 +3550,7 @@ export interface AvatarComponentGenqlSelection{
     _title?: boolean | number
     avatar?: BlockImageGenqlSelection
     __typename?: boolean | number
+    __fragmentOn?: "AvatarComponent"
 }
 
 export interface AvatarComponentFilterInput {AND?: (AvatarComponentFilterInput | null),OR?: (AvatarComponentFilterInput | null),_id?: (StringFilter | null),_slug?: (StringFilter | null),_sys_apiNamePath?: (StringFilter | null),_sys_createdAt?: (DateFilter | null),_sys_hash?: (StringFilter | null),_sys_id?: (StringFilter | null),_sys_idPath?: (StringFilter | null),_sys_lastModifiedAt?: (DateFilter | null),_sys_slug?: (StringFilter | null),_sys_slugPath?: (StringFilter | null),_sys_title?: (StringFilter | null),_title?: (StringFilter | null)}
@@ -3629,6 +3584,7 @@ export interface AvatarsGenqlSelection{
     /** Returns the list of items after filtering and paginating according to the arguments sent by the client. */
     items?: AvatarComponentGenqlSelection
     __typename?: boolean | number
+    __fragmentOn?: "Avatars"
 }
 
 export interface BaseRichTextJsonGenqlSelection{
@@ -3636,6 +3592,7 @@ export interface BaseRichTextJsonGenqlSelection{
     content?: boolean | number
     toc?: boolean | number
     __typename?: boolean | number
+    __fragmentOn?: "BaseRichTextJson"
 }
 
 export interface BlockAudioGenqlSelection{
@@ -3647,6 +3604,7 @@ export interface BlockAudioGenqlSelection{
     mimeType?: boolean | number
     url?: boolean | number
     __typename?: boolean | number
+    __fragmentOn?: "BlockAudio"
 }
 
 export interface BlockCodeSnippetGenqlSelection{
@@ -3658,6 +3616,7 @@ export interface BlockCodeSnippetGenqlSelection{
     theme?: (Scalars['String'] | null)} } | boolean | number
     language?: boolean | number
     __typename?: boolean | number
+    __fragmentOn?: "BlockCodeSnippet"
 }
 
 export interface BlockColorGenqlSelection{
@@ -3668,6 +3627,7 @@ export interface BlockColorGenqlSelection{
     r?: boolean | number
     rgb?: boolean | number
     __typename?: boolean | number
+    __fragmentOn?: "BlockColor"
 }
 
 export interface BlockDocumentGenqlSelection{
@@ -3734,7 +3694,6 @@ export interface BlockDocumentGenqlSelection{
     on_HeaderNavbarLinkComponent?: HeaderNavbarLinkComponentGenqlSelection
     on_HeadingComponent?: HeadingComponentGenqlSelection
     on_HeroComponent?: HeroComponentGenqlSelection
-    on_LimitedTimeOfferBannerComponent?: LimitedTimeOfferBannerComponentGenqlSelection
     on_List?: ListGenqlSelection
     on_ListItem?: ListItemGenqlSelection
     on_Metadata?: MetadataGenqlSelection
@@ -3806,7 +3765,6 @@ export interface BlockDocumentGenqlSelection{
     on_headerNavbarLinkComponent_AsList?: headerNavbarLinkComponent_AsListGenqlSelection
     on_headingComponent_AsList?: headingComponent_AsListGenqlSelection
     on_heroComponent_AsList?: heroComponent_AsListGenqlSelection
-    on_limitedTimeOfferBannerComponent_AsList?: limitedTimeOfferBannerComponent_AsListGenqlSelection
     on_listItem_AsList?: listItem_AsListGenqlSelection
     on_metadataOverridesComponent_AsList?: metadataOverridesComponent_AsListGenqlSelection
     on_navbarItem_AsList?: navbarItem_AsListGenqlSelection
@@ -3824,6 +3782,7 @@ export interface BlockDocumentGenqlSelection{
     on_testimonialsGridComponent_AsList?: testimonialsGridComponent_AsListGenqlSelection
     on_valueComponent_AsList?: valueComponent_AsListGenqlSelection
     __typename?: boolean | number
+    __fragmentOn?: "BlockDocument"
 }
 
 export interface BlockDocumentSysGenqlSelection{
@@ -3837,6 +3796,7 @@ export interface BlockDocumentSysGenqlSelection{
     slugPath?: boolean | number
     title?: boolean | number
     __typename?: boolean | number
+    __fragmentOn?: "BlockDocumentSys"
 }
 
 export interface BlockFileGenqlSelection{
@@ -3846,6 +3806,7 @@ export interface BlockFileGenqlSelection{
     mimeType?: boolean | number
     url?: boolean | number
     __typename?: boolean | number
+    __fragmentOn?: "BlockFile"
 }
 
 export interface BlockImageGenqlSelection{
@@ -3881,6 +3842,7 @@ export interface BlockImageGenqlSelection{
     url?: { __args: {anim?: (Scalars['String'] | null), background?: (Scalars['String'] | null), blur?: (Scalars['Int'] | null), border?: (Scalars['String'] | null), brightness?: (Scalars['Int'] | null), compression?: (Scalars['String'] | null), contrast?: (Scalars['Int'] | null), dpr?: (Scalars['Int'] | null), fit?: (Scalars['String'] | null), format?: (Scalars['String'] | null), gamma?: (Scalars['String'] | null), gravity?: (Scalars['String'] | null), height?: (Scalars['Int'] | null), metadata?: (Scalars['String'] | null), quality?: (Scalars['Int'] | null), rotate?: (Scalars['String'] | null), sharpen?: (Scalars['String'] | null), trim?: (Scalars['String'] | null), width?: (Scalars['Int'] | null)} } | boolean | number
     width?: boolean | number
     __typename?: boolean | number
+    __fragmentOn?: "BlockImage"
 }
 
 export interface BlockListGenqlSelection{
@@ -3958,7 +3920,6 @@ export interface BlockListGenqlSelection{
     on_headerNavbarLinkComponent_AsList?: headerNavbarLinkComponent_AsListGenqlSelection
     on_headingComponent_AsList?: headingComponent_AsListGenqlSelection
     on_heroComponent_AsList?: heroComponent_AsListGenqlSelection
-    on_limitedTimeOfferBannerComponent_AsList?: limitedTimeOfferBannerComponent_AsListGenqlSelection
     on_listItem_AsList?: listItem_AsListGenqlSelection
     on_metadataOverridesComponent_AsList?: metadataOverridesComponent_AsListGenqlSelection
     on_navbarItem_AsList?: navbarItem_AsListGenqlSelection
@@ -3976,6 +3937,7 @@ export interface BlockListGenqlSelection{
     on_testimonialsGridComponent_AsList?: testimonialsGridComponent_AsListGenqlSelection
     on_valueComponent_AsList?: valueComponent_AsListGenqlSelection
     __typename?: boolean | number
+    __fragmentOn?: "BlockList"
 }
 
 export interface BlockOgImageGenqlSelection{
@@ -3983,6 +3945,7 @@ export interface BlockOgImageGenqlSelection{
     url?: boolean | number
     width?: boolean | number
     __typename?: boolean | number
+    __fragmentOn?: "BlockOgImage"
 }
 
 
@@ -4006,6 +3969,7 @@ export interface BlockRichTextGenqlSelection{
     on_Subtitle?: SubtitleGenqlSelection
     on_Subtitle_1?: Subtitle_1GenqlSelection
     __typename?: boolean | number
+    __fragmentOn?: "BlockRichText"
 }
 
 export interface BlockVideoGenqlSelection{
@@ -4020,6 +3984,7 @@ export interface BlockVideoGenqlSelection{
     url?: boolean | number
     width?: boolean | number
     __typename?: boolean | number
+    __fragmentOn?: "BlockVideo"
 }
 
 export interface BlogGenqlSelection{
@@ -4053,6 +4018,7 @@ export interface BlogGenqlSelection{
     /** Skip the first n items. */
     skip?: (Scalars['Int'] | null)} })
     __typename?: boolean | number
+    __fragmentOn?: "Blog"
 }
 
 export interface BlogPostComponentGenqlSelection{
@@ -4081,6 +4047,7 @@ export interface BlogPostComponentGenqlSelection{
     /** ISO 8601 date string. */
     publishedAt?: boolean | number
     __typename?: boolean | number
+    __fragmentOn?: "BlogPostComponent"
 }
 
 export interface BlogPostComponentFilterInput {AND?: (BlogPostComponentFilterInput | null),OR?: (BlogPostComponentFilterInput | null),_id?: (StringFilter | null),_slug?: (StringFilter | null),_sys_apiNamePath?: (StringFilter | null),_sys_createdAt?: (DateFilter | null),_sys_hash?: (StringFilter | null),_sys_id?: (StringFilter | null),_sys_idPath?: (StringFilter | null),_sys_lastModifiedAt?: (DateFilter | null),_sys_slug?: (StringFilter | null),_sys_slugPath?: (StringFilter | null),_sys_title?: (StringFilter | null),_title?: (StringFilter | null),authors?: (BlogPostComponentFilterInput__authors_0___author | null),categories?: (SelectFilter | null),description?: (StringFilter | null),image?: (BlogPostComponentFilterInput__image | null),publishedAt?: (DateFilter | null)}
@@ -4108,12 +4075,14 @@ export interface BodyGenqlSelection{
     /** Words per minute, defaults to average 183wpm */
     wpm?: (Scalars['Int'] | null)} } | boolean | number
     __typename?: boolean | number
+    __fragmentOn?: "Body"
 }
 
 export interface BodyRichTextGenqlSelection{
     content?: boolean | number
     toc?: boolean | number
     __typename?: boolean | number
+    __fragmentOn?: "BodyRichText"
 }
 
 export interface Body_1GenqlSelection{
@@ -4129,6 +4098,7 @@ export interface Body_1GenqlSelection{
     /** Words per minute, defaults to average 183wpm */
     wpm?: (Scalars['Int'] | null)} } | boolean | number
     __typename?: boolean | number
+    __fragmentOn?: "Body_1"
 }
 
 export interface Body_1RichTextGenqlSelection{
@@ -4136,6 +4106,7 @@ export interface Body_1RichTextGenqlSelection{
     content?: boolean | number
     toc?: boolean | number
     __typename?: boolean | number
+    __fragmentOn?: "Body_1RichText"
 }
 
 export interface Body_2GenqlSelection{
@@ -4151,6 +4122,7 @@ export interface Body_2GenqlSelection{
     /** Words per minute, defaults to average 183wpm */
     wpm?: (Scalars['Int'] | null)} } | boolean | number
     __typename?: boolean | number
+    __fragmentOn?: "Body_2"
 }
 
 export interface Body_2RichTextGenqlSelection{
@@ -4158,6 +4130,7 @@ export interface Body_2RichTextGenqlSelection{
     content?: boolean | number
     toc?: boolean | number
     __typename?: boolean | number
+    __fragmentOn?: "Body_2RichText"
 }
 
 export interface BooleanComponentGenqlSelection{
@@ -4179,6 +4152,7 @@ export interface BooleanComponentGenqlSelection{
     _title?: boolean | number
     boolean?: boolean | number
     __typename?: boolean | number
+    __fragmentOn?: "BooleanComponent"
 }
 
 export interface BooleanComponentFilterInput {AND?: (BooleanComponentFilterInput | null),OR?: (BooleanComponentFilterInput | null),_id?: (StringFilter | null),_slug?: (StringFilter | null),_sys_apiNamePath?: (StringFilter | null),_sys_createdAt?: (DateFilter | null),_sys_hash?: (StringFilter | null),_sys_id?: (StringFilter | null),_sys_idPath?: (StringFilter | null),_sys_lastModifiedAt?: (DateFilter | null),_sys_slug?: (StringFilter | null),_sys_slugPath?: (StringFilter | null),_sys_title?: (StringFilter | null),_title?: (StringFilter | null),boolean?: (Scalars['Boolean'] | null)}
@@ -4211,6 +4185,7 @@ export interface ButtonComponentGenqlSelection{
     label?: boolean | number
     type?: boolean | number
     __typename?: boolean | number
+    __fragmentOn?: "ButtonComponent"
 }
 
 export interface ButtonComponentFilterInput {AND?: (ButtonComponentFilterInput | null),OR?: (ButtonComponentFilterInput | null),_id?: (StringFilter | null),_slug?: (StringFilter | null),_sys_apiNamePath?: (StringFilter | null),_sys_createdAt?: (DateFilter | null),_sys_hash?: (StringFilter | null),_sys_id?: (StringFilter | null),_sys_idPath?: (StringFilter | null),_sys_lastModifiedAt?: (DateFilter | null),_sys_slug?: (StringFilter | null),_sys_slugPath?: (StringFilter | null),_sys_title?: (StringFilter | null),_title?: (StringFilter | null),href?: (StringFilter | null),label?: (StringFilter | null),type?: (SelectFilter | null)}
@@ -4242,6 +4217,7 @@ export interface CalloutComponentGenqlSelection{
     subtitle?: boolean | number
     title?: boolean | number
     __typename?: boolean | number
+    __fragmentOn?: "CalloutComponent"
 }
 
 export interface CalloutComponentFilterInput {AND?: (CalloutComponentFilterInput | null),OR?: (CalloutComponentFilterInput | null),_id?: (StringFilter | null),_slug?: (StringFilter | null),_sys_apiNamePath?: (StringFilter | null),_sys_createdAt?: (DateFilter | null),_sys_hash?: (StringFilter | null),_sys_id?: (StringFilter | null),_sys_idPath?: (StringFilter | null),_sys_lastModifiedAt?: (DateFilter | null),_sys_slug?: (StringFilter | null),_sys_slugPath?: (StringFilter | null),_sys_title?: (StringFilter | null),_title?: (StringFilter | null),actions?: (CalloutComponentFilterInput__actions_0___button | null),subtitle?: (StringFilter | null),title?: (StringFilter | null)}
@@ -4275,6 +4251,7 @@ export interface CalloutV2ComponentGenqlSelection{
     subtitle?: boolean | number
     title?: boolean | number
     __typename?: boolean | number
+    __fragmentOn?: "CalloutV2Component"
 }
 
 export interface CalloutV2ComponentFilterInput {AND?: (CalloutV2ComponentFilterInput | null),OR?: (CalloutV2ComponentFilterInput | null),_id?: (StringFilter | null),_slug?: (StringFilter | null),_sys_apiNamePath?: (StringFilter | null),_sys_createdAt?: (DateFilter | null),_sys_hash?: (StringFilter | null),_sys_id?: (StringFilter | null),_sys_idPath?: (StringFilter | null),_sys_lastModifiedAt?: (DateFilter | null),_sys_slug?: (StringFilter | null),_sys_slugPath?: (StringFilter | null),_sys_title?: (StringFilter | null),_title?: (StringFilter | null),actions?: (CalloutV2ComponentFilterInput__actions_0___button | null),subtitle?: (StringFilter | null),title?: (StringFilter | null)}
@@ -4310,6 +4287,7 @@ export interface CategoriesGenqlSelection{
     /** Returns the list of items after filtering and paginating according to the arguments sent by the client. */
     items?: CategoryComponentGenqlSelection
     __typename?: boolean | number
+    __fragmentOn?: "Categories"
 }
 
 export interface CategoryComponentGenqlSelection{
@@ -4342,6 +4320,7 @@ export interface CategoryComponentGenqlSelection{
     skip?: (Scalars['Int'] | null)} })
     tooltip?: boolean | number
     __typename?: boolean | number
+    __fragmentOn?: "CategoryComponent"
 }
 
 export interface CategoryComponentFilterInput {AND?: (CategoryComponentFilterInput | null),OR?: (CategoryComponentFilterInput | null),_id?: (StringFilter | null),_slug?: (StringFilter | null),_sys_apiNamePath?: (StringFilter | null),_sys_createdAt?: (DateFilter | null),_sys_hash?: (StringFilter | null),_sys_id?: (StringFilter | null),_sys_idPath?: (StringFilter | null),_sys_lastModifiedAt?: (DateFilter | null),_sys_slug?: (StringFilter | null),_sys_slugPath?: (StringFilter | null),_sys_title?: (StringFilter | null),_title?: (StringFilter | null),features?: (ListFilter | null),tooltip?: (StringFilter | null)}
@@ -4385,6 +4364,7 @@ export interface ChangelogGenqlSelection{
     subtitle?: boolean | number
     title?: boolean | number
     __typename?: boolean | number
+    __fragmentOn?: "Changelog"
 }
 
 export interface ChangelogPostComponentGenqlSelection{
@@ -4412,6 +4392,7 @@ export interface ChangelogPostComponentGenqlSelection{
     /** ISO 8601 date string. */
     publishedAt?: boolean | number
     __typename?: boolean | number
+    __fragmentOn?: "ChangelogPostComponent"
 }
 
 export interface ChangelogPostComponentFilterInput {AND?: (ChangelogPostComponentFilterInput | null),OR?: (ChangelogPostComponentFilterInput | null),_id?: (StringFilter | null),_slug?: (StringFilter | null),_sys_apiNamePath?: (StringFilter | null),_sys_createdAt?: (DateFilter | null),_sys_hash?: (StringFilter | null),_sys_id?: (StringFilter | null),_sys_idPath?: (StringFilter | null),_sys_lastModifiedAt?: (DateFilter | null),_sys_slug?: (StringFilter | null),_sys_slugPath?: (StringFilter | null),_sys_title?: (StringFilter | null),_title?: (StringFilter | null),authors?: (ChangelogPostComponentFilterInput__authors_0___author | null),excerpt?: (StringFilter | null),publishedAt?: (DateFilter | null)}
@@ -4447,6 +4428,7 @@ export interface CharacteristicsGenqlSelection{
     /** Returns the list of items after filtering and paginating according to the arguments sent by the client. */
     items?: CharacteristicsItemGenqlSelection
     __typename?: boolean | number
+    __fragmentOn?: "Characteristics"
 }
 
 export interface CharacteristicsItemGenqlSelection{
@@ -4467,6 +4449,7 @@ export interface CharacteristicsItemGenqlSelection{
     _sys?: BlockDocumentSysGenqlSelection
     _title?: boolean | number
     __typename?: boolean | number
+    __fragmentOn?: "CharacteristicsItem"
 }
 
 export interface CharacteristicsItemFilterInput {AND?: (CharacteristicsItemFilterInput | null),OR?: (CharacteristicsItemFilterInput | null),_id?: (StringFilter | null),_slug?: (StringFilter | null),_sys_apiNamePath?: (StringFilter | null),_sys_createdAt?: (DateFilter | null),_sys_hash?: (StringFilter | null),_sys_id?: (StringFilter | null),_sys_idPath?: (StringFilter | null),_sys_lastModifiedAt?: (DateFilter | null),_sys_slug?: (StringFilter | null),_sys_slugPath?: (StringFilter | null),_sys_title?: (StringFilter | null),_title?: (StringFilter | null)}
@@ -4496,6 +4479,7 @@ export interface CodeSnippetComponentGenqlSelection{
     _title?: boolean | number
     code?: BlockCodeSnippetGenqlSelection
     __typename?: boolean | number
+    __fragmentOn?: "CodeSnippetComponent"
 }
 
 export interface CodeSnippetComponentFilterInput {AND?: (CodeSnippetComponentFilterInput | null),OR?: (CodeSnippetComponentFilterInput | null),_id?: (StringFilter | null),_slug?: (StringFilter | null),_sys_apiNamePath?: (StringFilter | null),_sys_createdAt?: (DateFilter | null),_sys_hash?: (StringFilter | null),_sys_id?: (StringFilter | null),_sys_idPath?: (StringFilter | null),_sys_lastModifiedAt?: (DateFilter | null),_sys_slug?: (StringFilter | null),_sys_slugPath?: (StringFilter | null),_sys_title?: (StringFilter | null),_title?: (StringFilter | null)}
@@ -4577,6 +4561,7 @@ export interface CollectionsGenqlSelection{
     /** Skip the first n items. */
     skip?: (Scalars['Int'] | null)} })
     __typename?: boolean | number
+    __fragmentOn?: "Collections"
 }
 
 export interface CompaniesComponentGenqlSelection{
@@ -4599,6 +4584,7 @@ export interface CompaniesComponentGenqlSelection{
     companies?: CompanyComponentGenqlSelection
     subtitle?: boolean | number
     __typename?: boolean | number
+    __fragmentOn?: "CompaniesComponent"
 }
 
 export interface CompaniesComponentFilterInput {AND?: (CompaniesComponentFilterInput | null),OR?: (CompaniesComponentFilterInput | null),_id?: (StringFilter | null),_slug?: (StringFilter | null),_sys_apiNamePath?: (StringFilter | null),_sys_createdAt?: (DateFilter | null),_sys_hash?: (StringFilter | null),_sys_id?: (StringFilter | null),_sys_idPath?: (StringFilter | null),_sys_lastModifiedAt?: (DateFilter | null),_sys_slug?: (StringFilter | null),_sys_slugPath?: (StringFilter | null),_sys_title?: (StringFilter | null),_title?: (StringFilter | null),companies?: (CompaniesComponentFilterInput__companies_0___company | null),subtitle?: (StringFilter | null)}
@@ -4631,6 +4617,7 @@ export interface CompanyComponentGenqlSelection{
     image?: BlockImageGenqlSelection
     url?: boolean | number
     __typename?: boolean | number
+    __fragmentOn?: "CompanyComponent"
 }
 
 export interface CompanyComponentFilterInput {AND?: (CompanyComponentFilterInput | null),OR?: (CompanyComponentFilterInput | null),_id?: (StringFilter | null),_slug?: (StringFilter | null),_sys_apiNamePath?: (StringFilter | null),_sys_createdAt?: (DateFilter | null),_sys_hash?: (StringFilter | null),_sys_id?: (StringFilter | null),_sys_idPath?: (StringFilter | null),_sys_lastModifiedAt?: (DateFilter | null),_sys_slug?: (StringFilter | null),_sys_slugPath?: (StringFilter | null),_sys_title?: (StringFilter | null),_title?: (StringFilter | null),url?: (StringFilter | null)}
@@ -4657,6 +4644,7 @@ export interface ComparisonOptionsGenqlSelection{
     _sys?: BlockDocumentSysGenqlSelection
     _title?: boolean | number
     __typename?: boolean | number
+    __fragmentOn?: "ComparisonOptions"
 }
 
 export interface ComponentsGenqlSelection{
@@ -4675,6 +4663,7 @@ export interface ComponentsGenqlSelection{
     _sys?: BlockDocumentSysGenqlSelection
     _title?: boolean | number
     __typename?: boolean | number
+    __fragmentOn?: "Components"
 }
 
 export interface ContentGenqlSelection{
@@ -4690,12 +4679,14 @@ export interface ContentGenqlSelection{
     /** Words per minute, defaults to average 183wpm */
     wpm?: (Scalars['Int'] | null)} } | boolean | number
     __typename?: boolean | number
+    __fragmentOn?: "Content"
 }
 
 export interface ContentRichTextGenqlSelection{
     content?: boolean | number
     toc?: boolean | number
     __typename?: boolean | number
+    __fragmentOn?: "ContentRichText"
 }
 
 export interface CustomTextComponentGenqlSelection{
@@ -4717,6 +4708,7 @@ export interface CustomTextComponentGenqlSelection{
     _title?: boolean | number
     text?: boolean | number
     __typename?: boolean | number
+    __fragmentOn?: "CustomTextComponent"
 }
 
 export interface CustomTextComponentFilterInput {AND?: (CustomTextComponentFilterInput | null),OR?: (CustomTextComponentFilterInput | null),_id?: (StringFilter | null),_slug?: (StringFilter | null),_sys_apiNamePath?: (StringFilter | null),_sys_createdAt?: (DateFilter | null),_sys_hash?: (StringFilter | null),_sys_id?: (StringFilter | null),_sys_idPath?: (StringFilter | null),_sys_lastModifiedAt?: (DateFilter | null),_sys_slug?: (StringFilter | null),_sys_slugPath?: (StringFilter | null),_sys_title?: (StringFilter | null),_title?: (StringFilter | null),text?: (StringFilter | null)}
@@ -4757,6 +4749,7 @@ export interface CustomerSatisfactionBannerComponentGenqlSelection{
     skip?: (Scalars['Int'] | null)} })
     text?: boolean | number
     __typename?: boolean | number
+    __fragmentOn?: "CustomerSatisfactionBannerComponent"
 }
 
 export interface CustomerSatisfactionBannerComponentFilterInput {AND?: (CustomerSatisfactionBannerComponentFilterInput | null),OR?: (CustomerSatisfactionBannerComponentFilterInput | null),_id?: (StringFilter | null),_slug?: (StringFilter | null),_sys_apiNamePath?: (StringFilter | null),_sys_createdAt?: (DateFilter | null),_sys_hash?: (StringFilter | null),_sys_id?: (StringFilter | null),_sys_idPath?: (StringFilter | null),_sys_lastModifiedAt?: (DateFilter | null),_sys_slug?: (StringFilter | null),_sys_slugPath?: (StringFilter | null),_sys_title?: (StringFilter | null),_title?: (StringFilter | null),avatars?: (ListFilter | null),text?: (StringFilter | null)}
@@ -4787,6 +4780,7 @@ export interface DarkLightImageComponentGenqlSelection{
     dark?: BlockImageGenqlSelection
     light?: BlockImageGenqlSelection
     __typename?: boolean | number
+    __fragmentOn?: "DarkLightImageComponent"
 }
 
 export interface DarkLightImageComponentFilterInput {AND?: (DarkLightImageComponentFilterInput | null),OR?: (DarkLightImageComponentFilterInput | null),_id?: (StringFilter | null),_slug?: (StringFilter | null),_sys_apiNamePath?: (StringFilter | null),_sys_createdAt?: (DateFilter | null),_sys_hash?: (StringFilter | null),_sys_id?: (StringFilter | null),_sys_idPath?: (StringFilter | null),_sys_lastModifiedAt?: (DateFilter | null),_sys_slug?: (StringFilter | null),_sys_slugPath?: (StringFilter | null),_sys_title?: (StringFilter | null),_title?: (StringFilter | null)}
@@ -4830,6 +4824,7 @@ export interface FaqComponentGenqlSelection{
     /** Skip the first n items. */
     skip?: (Scalars['Int'] | null)} })
     __typename?: boolean | number
+    __fragmentOn?: "FaqComponent"
 }
 
 export interface FaqComponentFilterInput {AND?: (FaqComponentFilterInput | null),OR?: (FaqComponentFilterInput | null),_id?: (StringFilter | null),_slug?: (StringFilter | null),_sys_apiNamePath?: (StringFilter | null),_sys_createdAt?: (DateFilter | null),_sys_hash?: (StringFilter | null),_sys_id?: (StringFilter | null),_sys_idPath?: (StringFilter | null),_sys_lastModifiedAt?: (DateFilter | null),_sys_slug?: (StringFilter | null),_sys_slugPath?: (StringFilter | null),_sys_title?: (StringFilter | null),_title?: (StringFilter | null),heading?: (FaqComponentFilterInput__heading | null),layout?: (SelectFilter | null),questions?: (ListFilter | null)}
@@ -4863,6 +4858,7 @@ export interface FaqItemComponentGenqlSelection{
     _title?: boolean | number
     answer?: boolean | number
     __typename?: boolean | number
+    __fragmentOn?: "FaqItemComponent"
 }
 
 export interface FaqItemComponentFilterInput {AND?: (FaqItemComponentFilterInput | null),OR?: (FaqItemComponentFilterInput | null),_id?: (StringFilter | null),_slug?: (StringFilter | null),_sys_apiNamePath?: (StringFilter | null),_sys_createdAt?: (DateFilter | null),_sys_hash?: (StringFilter | null),_sys_id?: (StringFilter | null),_sys_idPath?: (StringFilter | null),_sys_lastModifiedAt?: (DateFilter | null),_sys_slug?: (StringFilter | null),_sys_slugPath?: (StringFilter | null),_sys_title?: (StringFilter | null),_title?: (StringFilter | null),answer?: (StringFilter | null)}
@@ -4903,6 +4899,7 @@ export interface FeatureComponentGenqlSelection{
     /** Skip the first n items. */
     skip?: (Scalars['Int'] | null)} })
     __typename?: boolean | number
+    __fragmentOn?: "FeatureComponent"
 }
 
 export interface FeatureComponentFilterInput {AND?: (FeatureComponentFilterInput | null),OR?: (FeatureComponentFilterInput | null),_id?: (StringFilter | null),_slug?: (StringFilter | null),_sys_apiNamePath?: (StringFilter | null),_sys_createdAt?: (DateFilter | null),_sys_hash?: (StringFilter | null),_sys_id?: (StringFilter | null),_sys_idPath?: (StringFilter | null),_sys_lastModifiedAt?: (DateFilter | null),_sys_slug?: (StringFilter | null),_sys_slugPath?: (StringFilter | null),_sys_title?: (StringFilter | null),_title?: (StringFilter | null),tooltip?: (StringFilter | null),values?: (ListFilter | null)}
@@ -4935,6 +4932,7 @@ export interface FeatureHeroComponentGenqlSelection{
     heroLayout?: boolean | number
     image?: DarkLightImageComponentGenqlSelection
     __typename?: boolean | number
+    __fragmentOn?: "FeatureHeroComponent"
 }
 
 export interface FeatureHeroComponentFilterInput {AND?: (FeatureHeroComponentFilterInput | null),OR?: (FeatureHeroComponentFilterInput | null),_id?: (StringFilter | null),_slug?: (StringFilter | null),_sys_apiNamePath?: (StringFilter | null),_sys_createdAt?: (DateFilter | null),_sys_hash?: (StringFilter | null),_sys_id?: (StringFilter | null),_sys_idPath?: (StringFilter | null),_sys_lastModifiedAt?: (DateFilter | null),_sys_slug?: (StringFilter | null),_sys_slugPath?: (StringFilter | null),_sys_title?: (StringFilter | null),_title?: (StringFilter | null),actions?: (FeatureHeroComponentFilterInput__actions_0___button | null),heading?: (FeatureHeroComponentFilterInput__heading | null),heroLayout?: (SelectFilter | null),image?: (FeatureHeroComponentFilterInput__image | null)}
@@ -4971,6 +4969,7 @@ export interface FeatureWithIconComponentGenqlSelection{
     description?: boolean | number
     icon?: BlockImageGenqlSelection
     __typename?: boolean | number
+    __fragmentOn?: "FeatureWithIconComponent"
 }
 
 export interface FeatureWithIconComponentFilterInput {AND?: (FeatureWithIconComponentFilterInput | null),OR?: (FeatureWithIconComponentFilterInput | null),_id?: (StringFilter | null),_slug?: (StringFilter | null),_sys_apiNamePath?: (StringFilter | null),_sys_createdAt?: (DateFilter | null),_sys_hash?: (StringFilter | null),_sys_id?: (StringFilter | null),_sys_idPath?: (StringFilter | null),_sys_lastModifiedAt?: (DateFilter | null),_sys_slug?: (StringFilter | null),_sys_slugPath?: (StringFilter | null),_sys_title?: (StringFilter | null),_title?: (StringFilter | null),description?: (StringFilter | null)}
@@ -5004,6 +5003,7 @@ export interface FeaturesGenqlSelection{
     /** Returns the list of items after filtering and paginating according to the arguments sent by the client. */
     items?: FeatureComponentGenqlSelection
     __typename?: boolean | number
+    __fragmentOn?: "Features"
 }
 
 export interface FeaturesBigImageComponentGenqlSelection{
@@ -5037,6 +5037,7 @@ export interface FeaturesBigImageComponentGenqlSelection{
     heading?: HeadingComponentGenqlSelection
     image?: DarkLightImageComponentGenqlSelection
     __typename?: boolean | number
+    __fragmentOn?: "FeaturesBigImageComponent"
 }
 
 export interface FeaturesBigImageComponentFilterInput {AND?: (FeaturesBigImageComponentFilterInput | null),OR?: (FeaturesBigImageComponentFilterInput | null),_id?: (StringFilter | null),_slug?: (StringFilter | null),_sys_apiNamePath?: (StringFilter | null),_sys_createdAt?: (DateFilter | null),_sys_hash?: (StringFilter | null),_sys_id?: (StringFilter | null),_sys_idPath?: (StringFilter | null),_sys_lastModifiedAt?: (DateFilter | null),_sys_slug?: (StringFilter | null),_sys_slugPath?: (StringFilter | null),_sys_title?: (StringFilter | null),_title?: (StringFilter | null),featuresBigImageList?: (ListFilter | null),heading?: (FeaturesBigImageComponentFilterInput__heading | null),image?: (FeaturesBigImageComponentFilterInput__image | null)}
@@ -5074,6 +5075,7 @@ export interface FeaturesBigImageListGenqlSelection{
     /** Returns the list of items after filtering and paginating according to the arguments sent by the client. */
     items?: FeatureWithIconComponentGenqlSelection
     __typename?: boolean | number
+    __fragmentOn?: "FeaturesBigImageList"
 }
 
 export interface FeaturesCardsComponentGenqlSelection{
@@ -5106,6 +5108,7 @@ export interface FeaturesCardsComponentGenqlSelection{
     skip?: (Scalars['Int'] | null)} })
     heading?: HeadingComponentGenqlSelection
     __typename?: boolean | number
+    __fragmentOn?: "FeaturesCardsComponent"
 }
 
 export interface FeaturesCardsComponentFilterInput {AND?: (FeaturesCardsComponentFilterInput | null),OR?: (FeaturesCardsComponentFilterInput | null),_id?: (StringFilter | null),_slug?: (StringFilter | null),_sys_apiNamePath?: (StringFilter | null),_sys_createdAt?: (DateFilter | null),_sys_hash?: (StringFilter | null),_sys_id?: (StringFilter | null),_sys_idPath?: (StringFilter | null),_sys_lastModifiedAt?: (DateFilter | null),_sys_slug?: (StringFilter | null),_sys_slugPath?: (StringFilter | null),_sys_title?: (StringFilter | null),_title?: (StringFilter | null),featuresCardsList?: (ListFilter | null),heading?: (FeaturesCardsComponentFilterInput__heading | null)}
@@ -5141,6 +5144,7 @@ export interface FeaturesCardsListGenqlSelection{
     /** Returns the list of items after filtering and paginating according to the arguments sent by the client. */
     items?: FeaturesCardsListItemGenqlSelection
     __typename?: boolean | number
+    __fragmentOn?: "FeaturesCardsList"
 }
 
 export interface FeaturesCardsListItemGenqlSelection{
@@ -5174,6 +5178,7 @@ export interface FeaturesCardsListItemGenqlSelection{
     description?: boolean | number
     image?: DarkLightImageComponentGenqlSelection
     __typename?: boolean | number
+    __fragmentOn?: "FeaturesCardsListItem"
 }
 
 export interface FeaturesCardsListItemFilterInput {AND?: (FeaturesCardsListItemFilterInput | null),OR?: (FeaturesCardsListItemFilterInput | null),_id?: (StringFilter | null),_slug?: (StringFilter | null),_sys_apiNamePath?: (StringFilter | null),_sys_createdAt?: (DateFilter | null),_sys_hash?: (StringFilter | null),_sys_id?: (StringFilter | null),_sys_idPath?: (StringFilter | null),_sys_lastModifiedAt?: (DateFilter | null),_sys_slug?: (StringFilter | null),_sys_slugPath?: (StringFilter | null),_sys_title?: (StringFilter | null),_title?: (StringFilter | null),characteristics?: (ListFilter | null),description?: (StringFilter | null),image?: (FeaturesCardsListItemFilterInput__image | null)}
@@ -5217,6 +5222,7 @@ export interface FeaturesGridComponentGenqlSelection{
     skip?: (Scalars['Int'] | null)} })
     heading?: HeadingComponentGenqlSelection
     __typename?: boolean | number
+    __fragmentOn?: "FeaturesGridComponent"
 }
 
 export interface FeaturesGridComponentFilterInput {AND?: (FeaturesGridComponentFilterInput | null),OR?: (FeaturesGridComponentFilterInput | null),_id?: (StringFilter | null),_slug?: (StringFilter | null),_sys_apiNamePath?: (StringFilter | null),_sys_createdAt?: (DateFilter | null),_sys_hash?: (StringFilter | null),_sys_id?: (StringFilter | null),_sys_idPath?: (StringFilter | null),_sys_lastModifiedAt?: (DateFilter | null),_sys_slug?: (StringFilter | null),_sys_slugPath?: (StringFilter | null),_sys_title?: (StringFilter | null),_title?: (StringFilter | null),actions?: (FeaturesGridComponentFilterInput__actions_0___button | null),featuresGridList?: (ListFilter | null),heading?: (FeaturesGridComponentFilterInput__heading | null)}
@@ -5254,6 +5260,7 @@ export interface FeaturesGridListGenqlSelection{
     /** Returns the list of items after filtering and paginating according to the arguments sent by the client. */
     items?: FeatureWithIconComponentGenqlSelection
     __typename?: boolean | number
+    __fragmentOn?: "FeaturesGridList"
 }
 
 export interface FeaturesSideBySideComponentGenqlSelection{
@@ -5287,6 +5294,7 @@ export interface FeaturesSideBySideComponentGenqlSelection{
     skip?: (Scalars['Int'] | null)} })
     heading?: HeadingComponentGenqlSelection
     __typename?: boolean | number
+    __fragmentOn?: "FeaturesSideBySideComponent"
 }
 
 export interface FeaturesSideBySideComponentFilterInput {AND?: (FeaturesSideBySideComponentFilterInput | null),OR?: (FeaturesSideBySideComponentFilterInput | null),_id?: (StringFilter | null),_slug?: (StringFilter | null),_sys_apiNamePath?: (StringFilter | null),_sys_createdAt?: (DateFilter | null),_sys_hash?: (StringFilter | null),_sys_id?: (StringFilter | null),_sys_idPath?: (StringFilter | null),_sys_lastModifiedAt?: (DateFilter | null),_sys_slug?: (StringFilter | null),_sys_slugPath?: (StringFilter | null),_sys_title?: (StringFilter | null),_title?: (StringFilter | null),actions?: (FeaturesSideBySideComponentFilterInput__actions_0___button | null),featuresSideBySideList?: (ListFilter | null),heading?: (FeaturesSideBySideComponentFilterInput__heading | null)}
@@ -5324,6 +5332,7 @@ export interface FeaturesSideBySideListGenqlSelection{
     /** Returns the list of items after filtering and paginating according to the arguments sent by the client. */
     items?: FeaturesSideBySideListItemGenqlSelection
     __typename?: boolean | number
+    __fragmentOn?: "FeaturesSideBySideList"
 }
 
 export interface FeaturesSideBySideListItemGenqlSelection{
@@ -5346,6 +5355,7 @@ export interface FeaturesSideBySideListItemGenqlSelection{
     icon?: BlockImageGenqlSelection
     subtitle?: boolean | number
     __typename?: boolean | number
+    __fragmentOn?: "FeaturesSideBySideListItem"
 }
 
 export interface FeaturesSideBySideListItemFilterInput {AND?: (FeaturesSideBySideListItemFilterInput | null),OR?: (FeaturesSideBySideListItemFilterInput | null),_id?: (StringFilter | null),_slug?: (StringFilter | null),_sys_apiNamePath?: (StringFilter | null),_sys_createdAt?: (DateFilter | null),_sys_hash?: (StringFilter | null),_sys_id?: (StringFilter | null),_sys_idPath?: (StringFilter | null),_sys_lastModifiedAt?: (DateFilter | null),_sys_slug?: (StringFilter | null),_sys_slugPath?: (StringFilter | null),_sys_title?: (StringFilter | null),_title?: (StringFilter | null),subtitle?: (StringFilter | null)}
@@ -5386,6 +5396,7 @@ export interface FooterGenqlSelection{
     newsletter?: NewsletterGenqlSelection
     socialLinks?: SocialLinkComponentGenqlSelection
     __typename?: boolean | number
+    __fragmentOn?: "Footer"
 }
 
 export interface FormComponentGenqlSelection{
@@ -5410,6 +5421,7 @@ export interface FormComponentGenqlSelection{
     subtitle?: SubtitleGenqlSelection
     title?: boolean | number
     __typename?: boolean | number
+    __fragmentOn?: "FormComponent"
 }
 
 export interface FormComponentFilterInput {AND?: (FormComponentFilterInput | null),OR?: (FormComponentFilterInput | null),_id?: (StringFilter | null),_slug?: (StringFilter | null),_sys_apiNamePath?: (StringFilter | null),_sys_createdAt?: (DateFilter | null),_sys_hash?: (StringFilter | null),_sys_id?: (StringFilter | null),_sys_idPath?: (StringFilter | null),_sys_lastModifiedAt?: (DateFilter | null),_sys_slug?: (StringFilter | null),_sys_slugPath?: (StringFilter | null),_sys_title?: (StringFilter | null),_title?: (StringFilter | null),cta?: (FormComponentFilterInput__cta | null),title?: (StringFilter | null)}
@@ -5443,6 +5455,7 @@ export interface FormWrapperComponentGenqlSelection{
     subtitle?: Subtitle_1GenqlSelection
     title?: boolean | number
     __typename?: boolean | number
+    __fragmentOn?: "FormWrapperComponent"
 }
 
 export interface FormWrapperComponentFilterInput {AND?: (FormWrapperComponentFilterInput | null),OR?: (FormWrapperComponentFilterInput | null),_id?: (StringFilter | null),_slug?: (StringFilter | null),_sys_apiNamePath?: (StringFilter | null),_sys_createdAt?: (DateFilter | null),_sys_hash?: (StringFilter | null),_sys_id?: (StringFilter | null),_sys_idPath?: (StringFilter | null),_sys_lastModifiedAt?: (DateFilter | null),_sys_slug?: (StringFilter | null),_sys_slugPath?: (StringFilter | null),_sys_title?: (StringFilter | null),_title?: (StringFilter | null),cta?: (FormWrapperComponentFilterInput__cta | null),title?: (StringFilter | null)}
@@ -5474,6 +5487,7 @@ export interface FreeformTextComponentGenqlSelection{
     _title?: boolean | number
     body?: BodyGenqlSelection
     __typename?: boolean | number
+    __fragmentOn?: "FreeformTextComponent"
 }
 
 export interface FreeformTextComponentFilterInput {AND?: (FreeformTextComponentFilterInput | null),OR?: (FreeformTextComponentFilterInput | null),_id?: (StringFilter | null),_slug?: (StringFilter | null),_sys_apiNamePath?: (StringFilter | null),_sys_createdAt?: (DateFilter | null),_sys_hash?: (StringFilter | null),_sys_id?: (StringFilter | null),_sys_idPath?: (StringFilter | null),_sys_lastModifiedAt?: (DateFilter | null),_sys_slug?: (StringFilter | null),_sys_slugPath?: (StringFilter | null),_sys_title?: (StringFilter | null),_title?: (StringFilter | null)}
@@ -5491,12 +5505,14 @@ export interface GeneralEventsGenqlSelection{
     ingestKey?: boolean | number
     schema?: boolean | number
     __typename?: boolean | number
+    __fragmentOn?: "GeneralEvents"
 }
 
 export interface GetUploadSignedURLGenqlSelection{
     signedURL?: boolean | number
     uploadURL?: boolean | number
     __typename?: boolean | number
+    __fragmentOn?: "GetUploadSignedURL"
 }
 
 export interface HeaderGenqlSelection{
@@ -5537,6 +5553,7 @@ export interface HeaderGenqlSelection{
     /** Skip the first n items. */
     skip?: (Scalars['Int'] | null)} })
     __typename?: boolean | number
+    __fragmentOn?: "Header"
 }
 
 export interface HeaderNavbarLinkComponentGenqlSelection{
@@ -5569,6 +5586,7 @@ export interface HeaderNavbarLinkComponentGenqlSelection{
     /** Skip the first n items. */
     skip?: (Scalars['Int'] | null)} })
     __typename?: boolean | number
+    __fragmentOn?: "HeaderNavbarLinkComponent"
 }
 
 export interface HeaderNavbarLinkComponentFilterInput {AND?: (HeaderNavbarLinkComponentFilterInput | null),OR?: (HeaderNavbarLinkComponentFilterInput | null),_id?: (StringFilter | null),_slug?: (StringFilter | null),_sys_apiNamePath?: (StringFilter | null),_sys_createdAt?: (DateFilter | null),_sys_hash?: (StringFilter | null),_sys_id?: (StringFilter | null),_sys_idPath?: (StringFilter | null),_sys_lastModifiedAt?: (DateFilter | null),_sys_slug?: (StringFilter | null),_sys_slugPath?: (StringFilter | null),_sys_title?: (StringFilter | null),_title?: (StringFilter | null),href?: (StringFilter | null),sublinks?: (ListFilter | null)}
@@ -5601,6 +5619,7 @@ export interface HeadingComponentGenqlSelection{
     tag?: boolean | number
     title?: boolean | number
     __typename?: boolean | number
+    __fragmentOn?: "HeadingComponent"
 }
 
 export interface HeadingComponentFilterInput {AND?: (HeadingComponentFilterInput | null),OR?: (HeadingComponentFilterInput | null),_id?: (StringFilter | null),_slug?: (StringFilter | null),_sys_apiNamePath?: (StringFilter | null),_sys_createdAt?: (DateFilter | null),_sys_hash?: (StringFilter | null),_sys_id?: (StringFilter | null),_sys_idPath?: (StringFilter | null),_sys_lastModifiedAt?: (DateFilter | null),_sys_slug?: (StringFilter | null),_sys_slugPath?: (StringFilter | null),_sys_title?: (StringFilter | null),_title?: (StringFilter | null),align?: (SelectFilter | null),subtitle?: (StringFilter | null),tag?: (StringFilter | null),title?: (StringFilter | null)}
@@ -5633,6 +5652,7 @@ export interface HeroComponentGenqlSelection{
     subtitle?: boolean | number
     title?: boolean | number
     __typename?: boolean | number
+    __fragmentOn?: "HeroComponent"
 }
 
 export interface HeroComponentFilterInput {AND?: (HeroComponentFilterInput | null),OR?: (HeroComponentFilterInput | null),_id?: (StringFilter | null),_slug?: (StringFilter | null),_sys_apiNamePath?: (StringFilter | null),_sys_createdAt?: (DateFilter | null),_sys_hash?: (StringFilter | null),_sys_id?: (StringFilter | null),_sys_idPath?: (StringFilter | null),_sys_lastModifiedAt?: (DateFilter | null),_sys_slug?: (StringFilter | null),_sys_slugPath?: (StringFilter | null),_sys_title?: (StringFilter | null),_title?: (StringFilter | null),actions?: (HeroComponentFilterInput__actions_0___button | null),customerSatisfactionBanner?: (HeroComponentFilterInput__customerSatisfactionBanner | null),subtitle?: (StringFilter | null),title?: (StringFilter | null)}
@@ -5642,37 +5662,6 @@ export interface HeroComponentFilterInput__actions_0___button {_id?: (StringFilt
 export interface HeroComponentFilterInput__customerSatisfactionBanner {_id?: (StringFilter | null),_slug?: (StringFilter | null),_sys_apiNamePath?: (StringFilter | null),_sys_createdAt?: (DateFilter | null),_sys_hash?: (StringFilter | null),_sys_id?: (StringFilter | null),_sys_idPath?: (StringFilter | null),_sys_lastModifiedAt?: (DateFilter | null),_sys_slug?: (StringFilter | null),_sys_slugPath?: (StringFilter | null),_sys_title?: (StringFilter | null),_title?: (StringFilter | null),avatars?: (ListFilter | null),text?: (StringFilter | null)}
 
 export interface HeroComponentSearchInput {
-/** Searchable fields for query */
-by?: (Scalars['String'][] | null),
-/** Search query */
-q?: (Scalars['String'] | null)}
-
-export interface LimitedTimeOfferBannerComponentGenqlSelection{
-    _analyticsKey?: { __args: {
-    /**
-     * The scope of the analytics key. Use `send` for just ingesting data. Use `query` if you need to show an analytics data in your website.
-     * 
-     * Have in mind, if you expose your `query` analytics key in the frontend, you'll be exposing all of this block's analytics data to the public. This is generally safe, but it might not be in your case.
-     */
-    scope?: (AnalyticsKeyScope | null)} } | boolean | number
-    _dashboardUrl?: boolean | number
-    /** Array of search highlight information with field names and HTML markup */
-    _highlight?: SearchHighlight_kjqq89ZLVV2lkOfwtbkKcGenqlSelection
-    _id?: boolean | number
-    _idPath?: boolean | number
-    _slug?: boolean | number
-    _slugPath?: boolean | number
-    _sys?: BlockDocumentSysGenqlSelection
-    _title?: boolean | number
-    /** ISO 8601 date string. */
-    endsAt?: boolean | number
-    text?: boolean | number
-    __typename?: boolean | number
-}
-
-export interface LimitedTimeOfferBannerComponentFilterInput {AND?: (LimitedTimeOfferBannerComponentFilterInput | null),OR?: (LimitedTimeOfferBannerComponentFilterInput | null),_id?: (StringFilter | null),_slug?: (StringFilter | null),_sys_apiNamePath?: (StringFilter | null),_sys_createdAt?: (DateFilter | null),_sys_hash?: (StringFilter | null),_sys_id?: (StringFilter | null),_sys_idPath?: (StringFilter | null),_sys_lastModifiedAt?: (DateFilter | null),_sys_slug?: (StringFilter | null),_sys_slugPath?: (StringFilter | null),_sys_title?: (StringFilter | null),_title?: (StringFilter | null),endsAt?: (DateFilter | null),text?: (StringFilter | null)}
-
-export interface LimitedTimeOfferBannerComponentSearchInput {
 /** Searchable fields for query */
 by?: (Scalars['String'][] | null),
 /** Search query */
@@ -5701,6 +5690,7 @@ export interface ListGenqlSelection{
     /** Returns the list of items after filtering and paginating according to the arguments sent by the client. */
     items?: ListItemGenqlSelection
     __typename?: boolean | number
+    __fragmentOn?: "List"
 }
 
 export interface ListFilter {isEmpty?: (Scalars['Boolean'] | null),length?: (Scalars['Int'] | null)}
@@ -5723,6 +5713,7 @@ export interface ListItemGenqlSelection{
     _sys?: BlockDocumentSysGenqlSelection
     _title?: boolean | number
     __typename?: boolean | number
+    __fragmentOn?: "ListItem"
 }
 
 export interface ListItemFilterInput {AND?: (ListItemFilterInput | null),OR?: (ListItemFilterInput | null),_id?: (StringFilter | null),_slug?: (StringFilter | null),_sys_apiNamePath?: (StringFilter | null),_sys_createdAt?: (DateFilter | null),_sys_hash?: (StringFilter | null),_sys_id?: (StringFilter | null),_sys_idPath?: (StringFilter | null),_sys_lastModifiedAt?: (DateFilter | null),_sys_slug?: (StringFilter | null),_sys_slugPath?: (StringFilter | null),_sys_title?: (StringFilter | null),_title?: (StringFilter | null)}
@@ -5739,6 +5730,7 @@ export interface ListMetaGenqlSelection{
     /** Total number of items in collection before any filtering/pagination */
     totalCount?: boolean | number
     __typename?: boolean | number
+    __fragmentOn?: "ListMeta"
 }
 
 export interface MediaBlockGenqlSelection{
@@ -5752,6 +5744,7 @@ export interface MediaBlockGenqlSelection{
     on_BlockImage?: BlockImageGenqlSelection
     on_BlockVideo?: BlockVideoGenqlSelection
     __typename?: boolean | number
+    __fragmentOn?: "MediaBlock"
 }
 
 export interface MediaBlockUnionGenqlSelection{
@@ -5760,7 +5753,8 @@ export interface MediaBlockUnionGenqlSelection{
     on_BlockImage?:BlockImageGenqlSelection,
     on_BlockVideo?:BlockVideoGenqlSelection,
     on_MediaBlock?: MediaBlockGenqlSelection,
-    __typename?: boolean | number
+    __typename?: boolean | number,
+    __fragmentOn?: "MediaBlockUnion"
 }
 
 export interface MetadataGenqlSelection{
@@ -5786,6 +5780,7 @@ export interface MetadataGenqlSelection{
     titleTemplate?: boolean | number
     xAccount?: SocialLinkComponentGenqlSelection
     __typename?: boolean | number
+    __fragmentOn?: "Metadata"
 }
 
 export interface MetadataOverridesComponentGenqlSelection{
@@ -5808,6 +5803,7 @@ export interface MetadataOverridesComponentGenqlSelection{
     description?: boolean | number
     title?: boolean | number
     __typename?: boolean | number
+    __fragmentOn?: "MetadataOverridesComponent"
 }
 
 export interface MetadataOverridesComponentFilterInput {AND?: (MetadataOverridesComponentFilterInput | null),OR?: (MetadataOverridesComponentFilterInput | null),_id?: (StringFilter | null),_slug?: (StringFilter | null),_sys_apiNamePath?: (StringFilter | null),_sys_createdAt?: (DateFilter | null),_sys_hash?: (StringFilter | null),_sys_id?: (StringFilter | null),_sys_idPath?: (StringFilter | null),_sys_lastModifiedAt?: (DateFilter | null),_sys_slug?: (StringFilter | null),_sys_slugPath?: (StringFilter | null),_sys_title?: (StringFilter | null),_title?: (StringFilter | null),description?: (StringFilter | null),title?: (StringFilter | null)}
@@ -5841,6 +5837,7 @@ export interface MoreCompaniesGenqlSelection{
     /** Returns the list of items after filtering and paginating according to the arguments sent by the client. */
     items?: CompanyComponentGenqlSelection
     __typename?: boolean | number
+    __fragmentOn?: "MoreCompanies"
 }
 
 export interface MutationGenqlSelection{
@@ -5879,7 +5876,7 @@ export interface MutationGenqlSelection{
     /** Auto make a commit in your Repo with the specified message. */
     autoCommit?: (Scalars['String'] | null), 
     /** Transaction data. */
-    data: Scalars['String'], 
+    data: Transaction | Scalars['String'], 
     /** Skip running workflows and event subscribers. Defaults to false. */
     skipWorkflows?: (Scalars['Boolean'] | null), 
     /** Timeout in milliseconds. */
@@ -5898,6 +5895,7 @@ export interface MutationGenqlSelection{
     /** Transaction ID */
     id: Scalars['String']} })
     __typename?: boolean | number
+    __fragmentOn?: "Mutation"
 }
 
 export interface NavbarGenqlSelection{
@@ -5923,6 +5921,7 @@ export interface NavbarGenqlSelection{
     /** Returns the list of items after filtering and paginating according to the arguments sent by the client. */
     items?: HeaderNavbarLinkComponentGenqlSelection
     __typename?: boolean | number
+    __fragmentOn?: "Navbar"
 }
 
 export interface NavbarItemGenqlSelection{
@@ -5944,6 +5943,7 @@ export interface NavbarItemGenqlSelection{
     _title?: boolean | number
     url?: boolean | number
     __typename?: boolean | number
+    __fragmentOn?: "NavbarItem"
 }
 
 export interface NavbarItemFilterInput {AND?: (NavbarItemFilterInput | null),OR?: (NavbarItemFilterInput | null),_id?: (StringFilter | null),_slug?: (StringFilter | null),_sys_apiNamePath?: (StringFilter | null),_sys_createdAt?: (DateFilter | null),_sys_hash?: (StringFilter | null),_sys_id?: (StringFilter | null),_sys_idPath?: (StringFilter | null),_sys_lastModifiedAt?: (DateFilter | null),_sys_slug?: (StringFilter | null),_sys_slugPath?: (StringFilter | null),_sys_title?: (StringFilter | null),_title?: (StringFilter | null),url?: (StringFilter | null)}
@@ -5977,6 +5977,7 @@ export interface Navbar_1GenqlSelection{
     /** Returns the list of items after filtering and paginating according to the arguments sent by the client. */
     items?: NavbarItemGenqlSelection
     __typename?: boolean | number
+    __fragmentOn?: "Navbar_1"
 }
 
 export interface NewsletterGenqlSelection{
@@ -5998,6 +5999,7 @@ export interface NewsletterGenqlSelection{
     submissions?: Submissions_1GenqlSelection
     title?: boolean | number
     __typename?: boolean | number
+    __fragmentOn?: "Newsletter"
 }
 
 export interface NumberFilter {eq?: (Scalars['Float'] | null),gt?: (Scalars['Float'] | null),gte?: (Scalars['Float'] | null),isNull?: (Scalars['Boolean'] | null),lt?: (Scalars['Float'] | null),lte?: (Scalars['Float'] | null),neq?: (Scalars['Float'] | null)}
@@ -6021,6 +6023,7 @@ export interface PageReferenceComponentGenqlSelection{
     _title?: boolean | number
     page?: PagesItemGenqlSelection
     __typename?: boolean | number
+    __fragmentOn?: "PageReferenceComponent"
 }
 
 export interface PageReferenceComponentFilterInput {AND?: (PageReferenceComponentFilterInput | null),OR?: (PageReferenceComponentFilterInput | null),_id?: (StringFilter | null),_slug?: (StringFilter | null),_sys_apiNamePath?: (StringFilter | null),_sys_createdAt?: (DateFilter | null),_sys_hash?: (StringFilter | null),_sys_id?: (StringFilter | null),_sys_idPath?: (StringFilter | null),_sys_lastModifiedAt?: (DateFilter | null),_sys_slug?: (StringFilter | null),_sys_slugPath?: (StringFilter | null),_sys_title?: (StringFilter | null),_title?: (StringFilter | null),page?: (PageReferenceComponentFilterInput__page_0___untitled | null)}
@@ -6058,6 +6061,7 @@ export interface PagesGenqlSelection{
     /** Returns the list of items after filtering and paginating according to the arguments sent by the client. */
     items?: PagesItemGenqlSelection
     __typename?: boolean | number
+    __fragmentOn?: "Pages"
 }
 
 export interface PagesItemGenqlSelection{
@@ -6079,15 +6083,16 @@ export interface PagesItemGenqlSelection{
     _title?: boolean | number
     metadataOverrides?: MetadataOverridesComponentGenqlSelection
     pathname?: boolean | number
-    sections?: UnionPricingComponentFormComponentHeroComponentCalloutComponentCalloutV2ComponentCompaniesComponentTestimonialSliderComponentFeaturesCardsComponentPricingTableComponentFeaturesBigImageComponentTestimonialsGridComponentFeatureHeroComponentFeaturesSideBySideComponentFreeformTextComponentFeaturesGridComponentFaqComponentLimitedTimeOfferBannerComponentGenqlSelection
+    sections?: UnionPricingComponentFormComponentHeroComponentCalloutComponentCalloutV2ComponentCompaniesComponentTestimonialSliderComponentFeaturesCardsComponentPricingTableComponentFeaturesBigImageComponentTestimonialsGridComponentFeatureHeroComponentFeaturesSideBySideComponentFreeformTextComponentFeaturesGridComponentFaqComponentGenqlSelection
     __typename?: boolean | number
+    __fragmentOn?: "PagesItem"
 }
 
 export interface PagesItemFilterInput {AND?: (PagesItemFilterInput | null),OR?: (PagesItemFilterInput | null),_id?: (StringFilter | null),_slug?: (StringFilter | null),_sys_apiNamePath?: (StringFilter | null),_sys_createdAt?: (DateFilter | null),_sys_hash?: (StringFilter | null),_sys_id?: (StringFilter | null),_sys_idPath?: (StringFilter | null),_sys_lastModifiedAt?: (DateFilter | null),_sys_slug?: (StringFilter | null),_sys_slugPath?: (StringFilter | null),_sys_title?: (StringFilter | null),_title?: (StringFilter | null),metadataOverrides?: (PagesItemFilterInput__metadataOverrides | null),pathname?: (StringFilter | null),sections?: (PagesItemFilterInput__sections | null)}
 
 export interface PagesItemFilterInput__metadataOverrides {_id?: (StringFilter | null),_slug?: (StringFilter | null),_sys_apiNamePath?: (StringFilter | null),_sys_createdAt?: (DateFilter | null),_sys_hash?: (StringFilter | null),_sys_id?: (StringFilter | null),_sys_idPath?: (StringFilter | null),_sys_lastModifiedAt?: (DateFilter | null),_sys_slug?: (StringFilter | null),_sys_slugPath?: (StringFilter | null),_sys_title?: (StringFilter | null),_title?: (StringFilter | null),description?: (StringFilter | null),title?: (StringFilter | null)}
 
-export interface PagesItemFilterInput__sections {callout?: (PagesItemFilterInput__sections_11___callout | null),calloutV2?: (PagesItemFilterInput__sections_0___calloutV2 | null),companies?: (PagesItemFilterInput__sections_9___companies | null),faq?: (PagesItemFilterInput__sections_4___faq | null),featureHero?: (PagesItemFilterInput__sections_13___featureHero | null),featuresBigImage?: (PagesItemFilterInput__sections_7___featuresBigImage | null),featuresCards?: (PagesItemFilterInput__sections_8___featuresCards | null),featuresGrid?: (PagesItemFilterInput__sections_6___featuresGrid | null),featuresSideBySide?: (PagesItemFilterInput__sections_5___featuresSideBySide | null),form?: (PagesItemFilterInput__sections_15___form | null),freeformText?: (PagesItemFilterInput__sections_14___freeformText | null),hero?: (PagesItemFilterInput__sections_10___hero | null),limitedTimeOfferBanner?: (PagesItemFilterInput__sections_16___limitedTimeOfferBanner | null),pricing?: (PagesItemFilterInput__sections_3___pricing | null),pricingTable?: (PagesItemFilterInput__sections_12___pricingTable | null),testimonialSlider?: (PagesItemFilterInput__sections_1___testimonialSlider | null),testimonialsGrid?: (PagesItemFilterInput__sections_2___testimonialsGrid | null)}
+export interface PagesItemFilterInput__sections {callout?: (PagesItemFilterInput__sections_11___callout | null),calloutV2?: (PagesItemFilterInput__sections_0___calloutV2 | null),companies?: (PagesItemFilterInput__sections_9___companies | null),faq?: (PagesItemFilterInput__sections_4___faq | null),featureHero?: (PagesItemFilterInput__sections_13___featureHero | null),featuresBigImage?: (PagesItemFilterInput__sections_7___featuresBigImage | null),featuresCards?: (PagesItemFilterInput__sections_8___featuresCards | null),featuresGrid?: (PagesItemFilterInput__sections_6___featuresGrid | null),featuresSideBySide?: (PagesItemFilterInput__sections_5___featuresSideBySide | null),form?: (PagesItemFilterInput__sections_15___form | null),freeformText?: (PagesItemFilterInput__sections_14___freeformText | null),hero?: (PagesItemFilterInput__sections_10___hero | null),pricing?: (PagesItemFilterInput__sections_3___pricing | null),pricingTable?: (PagesItemFilterInput__sections_12___pricingTable | null),testimonialSlider?: (PagesItemFilterInput__sections_1___testimonialSlider | null),testimonialsGrid?: (PagesItemFilterInput__sections_2___testimonialsGrid | null)}
 
 export interface PagesItemFilterInput__sections_0___calloutV2 {_id?: (StringFilter | null),_slug?: (StringFilter | null),_sys_apiNamePath?: (StringFilter | null),_sys_createdAt?: (DateFilter | null),_sys_hash?: (StringFilter | null),_sys_id?: (StringFilter | null),_sys_idPath?: (StringFilter | null),_sys_lastModifiedAt?: (DateFilter | null),_sys_slug?: (StringFilter | null),_sys_slugPath?: (StringFilter | null),_sys_title?: (StringFilter | null),_title?: (StringFilter | null),subtitle?: (StringFilter | null),title?: (StringFilter | null)}
 
@@ -6112,8 +6117,6 @@ export interface PagesItemFilterInput__sections_14___freeformText {_id?: (String
 export interface PagesItemFilterInput__sections_15___form {_id?: (StringFilter | null),_slug?: (StringFilter | null),_sys_apiNamePath?: (StringFilter | null),_sys_createdAt?: (DateFilter | null),_sys_hash?: (StringFilter | null),_sys_id?: (StringFilter | null),_sys_idPath?: (StringFilter | null),_sys_lastModifiedAt?: (DateFilter | null),_sys_slug?: (StringFilter | null),_sys_slugPath?: (StringFilter | null),_sys_title?: (StringFilter | null),_title?: (StringFilter | null),cta?: (PagesItemFilterInput__sections_15___form__cta | null),title?: (StringFilter | null)}
 
 export interface PagesItemFilterInput__sections_15___form__cta {_id?: (StringFilter | null),_slug?: (StringFilter | null),_sys_apiNamePath?: (StringFilter | null),_sys_createdAt?: (DateFilter | null),_sys_hash?: (StringFilter | null),_sys_id?: (StringFilter | null),_sys_idPath?: (StringFilter | null),_sys_lastModifiedAt?: (DateFilter | null),_sys_slug?: (StringFilter | null),_sys_slugPath?: (StringFilter | null),_sys_title?: (StringFilter | null),_title?: (StringFilter | null),href?: (StringFilter | null),label?: (StringFilter | null),type?: (SelectFilter | null)}
-
-export interface PagesItemFilterInput__sections_16___limitedTimeOfferBanner {_id?: (StringFilter | null),_slug?: (StringFilter | null),_sys_apiNamePath?: (StringFilter | null),_sys_createdAt?: (DateFilter | null),_sys_hash?: (StringFilter | null),_sys_id?: (StringFilter | null),_sys_idPath?: (StringFilter | null),_sys_lastModifiedAt?: (DateFilter | null),_sys_slug?: (StringFilter | null),_sys_slugPath?: (StringFilter | null),_sys_title?: (StringFilter | null),_title?: (StringFilter | null),endsAt?: (DateFilter | null),text?: (StringFilter | null)}
 
 export interface PagesItemFilterInput__sections_1___testimonialSlider {_id?: (StringFilter | null),_slug?: (StringFilter | null),_sys_apiNamePath?: (StringFilter | null),_sys_createdAt?: (DateFilter | null),_sys_hash?: (StringFilter | null),_sys_id?: (StringFilter | null),_sys_idPath?: (StringFilter | null),_sys_lastModifiedAt?: (DateFilter | null),_sys_slug?: (StringFilter | null),_sys_slugPath?: (StringFilter | null),_sys_title?: (StringFilter | null),_title?: (StringFilter | null),heading?: (PagesItemFilterInput__sections_1___testimonialSlider__heading | null)}
 
@@ -6176,6 +6179,7 @@ export interface PlanComponentGenqlSelection{
     _title?: boolean | number
     plan?: PricingPlanComponentGenqlSelection
     __typename?: boolean | number
+    __fragmentOn?: "PlanComponent"
 }
 
 export interface PlanComponentFilterInput {AND?: (PlanComponentFilterInput | null),OR?: (PlanComponentFilterInput | null),_id?: (StringFilter | null),_slug?: (StringFilter | null),_sys_apiNamePath?: (StringFilter | null),_sys_createdAt?: (DateFilter | null),_sys_hash?: (StringFilter | null),_sys_id?: (StringFilter | null),_sys_idPath?: (StringFilter | null),_sys_lastModifiedAt?: (DateFilter | null),_sys_slug?: (StringFilter | null),_sys_slugPath?: (StringFilter | null),_sys_title?: (StringFilter | null),_title?: (StringFilter | null),plan?: (PlanComponentFilterInput__plan_0___pricingPlan | null)}
@@ -6211,6 +6215,7 @@ export interface PlansGenqlSelection{
     /** Returns the list of items after filtering and paginating according to the arguments sent by the client. */
     items?: PlanComponentGenqlSelection
     __typename?: boolean | number
+    __fragmentOn?: "Plans"
 }
 
 export interface PostsGenqlSelection{
@@ -6236,6 +6241,7 @@ export interface PostsGenqlSelection{
     /** Returns the list of items after filtering and paginating according to the arguments sent by the client. */
     items?: BlogPostComponentGenqlSelection
     __typename?: boolean | number
+    __fragmentOn?: "Posts"
 }
 
 export interface Posts_1GenqlSelection{
@@ -6261,6 +6267,7 @@ export interface Posts_1GenqlSelection{
     /** Returns the list of items after filtering and paginating according to the arguments sent by the client. */
     items?: ChangelogPostComponentGenqlSelection
     __typename?: boolean | number
+    __fragmentOn?: "Posts_1"
 }
 
 export interface PricingComponentGenqlSelection{
@@ -6293,6 +6300,7 @@ export interface PricingComponentGenqlSelection{
     /** Skip the first n items. */
     skip?: (Scalars['Int'] | null)} })
     __typename?: boolean | number
+    __fragmentOn?: "PricingComponent"
 }
 
 export interface PricingComponentFilterInput {AND?: (PricingComponentFilterInput | null),OR?: (PricingComponentFilterInput | null),_id?: (StringFilter | null),_slug?: (StringFilter | null),_sys_apiNamePath?: (StringFilter | null),_sys_createdAt?: (DateFilter | null),_sys_hash?: (StringFilter | null),_sys_id?: (StringFilter | null),_sys_idPath?: (StringFilter | null),_sys_lastModifiedAt?: (DateFilter | null),_sys_slug?: (StringFilter | null),_sys_slugPath?: (StringFilter | null),_sys_title?: (StringFilter | null),_title?: (StringFilter | null),heading?: (PricingComponentFilterInput__heading | null),plans?: (ListFilter | null)}
@@ -6337,6 +6345,7 @@ export interface PricingPlanComponentGenqlSelection{
     skip?: (Scalars['Int'] | null)} })
     price?: boolean | number
     __typename?: boolean | number
+    __fragmentOn?: "PricingPlanComponent"
 }
 
 export interface PricingPlanComponentFilterInput {AND?: (PricingPlanComponentFilterInput | null),OR?: (PricingPlanComponentFilterInput | null),_id?: (StringFilter | null),_slug?: (StringFilter | null),_sys_apiNamePath?: (StringFilter | null),_sys_createdAt?: (DateFilter | null),_sys_hash?: (StringFilter | null),_sys_id?: (StringFilter | null),_sys_idPath?: (StringFilter | null),_sys_lastModifiedAt?: (DateFilter | null),_sys_slug?: (StringFilter | null),_sys_slugPath?: (StringFilter | null),_sys_title?: (StringFilter | null),_title?: (StringFilter | null),billed?: (StringFilter | null),isMostPopular?: (Scalars['Boolean'] | null),list?: (ListFilter | null),price?: (StringFilter | null)}
@@ -6370,6 +6379,7 @@ export interface PricingPlansGenqlSelection{
     /** Returns the list of items after filtering and paginating according to the arguments sent by the client. */
     items?: PricingPlanComponentGenqlSelection
     __typename?: boolean | number
+    __fragmentOn?: "PricingPlans"
 }
 
 export interface PricingTableComponentGenqlSelection{
@@ -6402,6 +6412,7 @@ export interface PricingTableComponentGenqlSelection{
     skip?: (Scalars['Int'] | null)} })
     heading?: HeadingComponentGenqlSelection
     __typename?: boolean | number
+    __fragmentOn?: "PricingTableComponent"
 }
 
 export interface PricingTableComponentFilterInput {AND?: (PricingTableComponentFilterInput | null),OR?: (PricingTableComponentFilterInput | null),_id?: (StringFilter | null),_slug?: (StringFilter | null),_sys_apiNamePath?: (StringFilter | null),_sys_createdAt?: (DateFilter | null),_sys_hash?: (StringFilter | null),_sys_id?: (StringFilter | null),_sys_idPath?: (StringFilter | null),_sys_lastModifiedAt?: (DateFilter | null),_sys_slug?: (StringFilter | null),_sys_slugPath?: (StringFilter | null),_sys_title?: (StringFilter | null),_title?: (StringFilter | null),categories?: (ListFilter | null),heading?: (PricingTableComponentFilterInput__heading | null)}
@@ -6446,6 +6457,7 @@ export interface QueryGenqlSelection{
     sections?: SectionsGenqlSelection
     site?: SiteGenqlSelection
     __typename?: boolean | number
+    __fragmentOn?: "Query"
 }
 
 export interface QuestionsGenqlSelection{
@@ -6471,6 +6483,7 @@ export interface QuestionsGenqlSelection{
     /** Returns the list of items after filtering and paginating according to the arguments sent by the client. */
     items?: FaqItemComponentGenqlSelection
     __typename?: boolean | number
+    __fragmentOn?: "Questions"
 }
 
 export interface QuoteComponentGenqlSelection{
@@ -6493,6 +6506,7 @@ export interface QuoteComponentGenqlSelection{
     author?: AuthorComponentGenqlSelection
     quote?: boolean | number
     __typename?: boolean | number
+    __fragmentOn?: "QuoteComponent"
 }
 
 export interface QuoteComponentFilterInput {AND?: (QuoteComponentFilterInput | null),OR?: (QuoteComponentFilterInput | null),_id?: (StringFilter | null),_slug?: (StringFilter | null),_sys_apiNamePath?: (StringFilter | null),_sys_createdAt?: (DateFilter | null),_sys_hash?: (StringFilter | null),_sys_id?: (StringFilter | null),_sys_idPath?: (StringFilter | null),_sys_lastModifiedAt?: (DateFilter | null),_sys_slug?: (StringFilter | null),_sys_slugPath?: (StringFilter | null),_sys_title?: (StringFilter | null),_title?: (StringFilter | null),author?: (QuoteComponentFilterInput__author_0___author | null),quote?: (StringFilter | null)}
@@ -6528,6 +6542,7 @@ export interface QuotesGenqlSelection{
     /** Returns the list of items after filtering and paginating according to the arguments sent by the client. */
     items?: QuoteComponentGenqlSelection
     __typename?: boolean | number
+    __fragmentOn?: "Quotes"
 }
 
 export interface RepoSysGenqlSelection{
@@ -6538,6 +6553,7 @@ export interface RepoSysGenqlSelection{
     slug?: boolean | number
     title?: boolean | number
     __typename?: boolean | number
+    __fragmentOn?: "RepoSys"
 }
 
 export interface RichTextCalloutComponentGenqlSelection{
@@ -6561,6 +6577,7 @@ export interface RichTextCalloutComponentGenqlSelection{
     size?: boolean | number
     type?: boolean | number
     __typename?: boolean | number
+    __fragmentOn?: "RichTextCalloutComponent"
 }
 
 export interface RichTextCalloutComponentFilterInput {AND?: (RichTextCalloutComponentFilterInput | null),OR?: (RichTextCalloutComponentFilterInput | null),_id?: (StringFilter | null),_slug?: (StringFilter | null),_sys_apiNamePath?: (StringFilter | null),_sys_createdAt?: (DateFilter | null),_sys_hash?: (StringFilter | null),_sys_id?: (StringFilter | null),_sys_idPath?: (StringFilter | null),_sys_lastModifiedAt?: (DateFilter | null),_sys_slug?: (StringFilter | null),_sys_slugPath?: (StringFilter | null),_sys_title?: (StringFilter | null),_title?: (StringFilter | null),size?: (SelectFilter | null),type?: (SelectFilter | null)}
@@ -6582,6 +6599,7 @@ export interface RichTextJsonGenqlSelection{
     on_SubtitleRichText?: SubtitleRichTextGenqlSelection
     on_Subtitle_1RichText?: Subtitle_1RichTextGenqlSelection
     __typename?: boolean | number
+    __fragmentOn?: "RichTextJson"
 }
 
 export interface RightCtasGenqlSelection{
@@ -6607,6 +6625,7 @@ export interface RightCtasGenqlSelection{
     /** Returns the list of items after filtering and paginating according to the arguments sent by the client. */
     items?: ButtonComponentGenqlSelection
     __typename?: boolean | number
+    __fragmentOn?: "RightCtas"
 }
 
 export interface SearchHighlight_004788d04bb2293c26e1bGenqlSelection{
@@ -6615,6 +6634,7 @@ export interface SearchHighlight_004788d04bb2293c26e1bGenqlSelection{
     /** HTML snippet with <mark> tags around the matched terms */
     snippet?: boolean | number
     __typename?: boolean | number
+    __fragmentOn?: "SearchHighlight_004788d04bb2293c26e1b"
 }
 
 export interface SearchHighlight_0842bd6241f731f478133GenqlSelection{
@@ -6623,6 +6643,7 @@ export interface SearchHighlight_0842bd6241f731f478133GenqlSelection{
     /** HTML snippet with <mark> tags around the matched terms */
     snippet?: boolean | number
     __typename?: boolean | number
+    __fragmentOn?: "SearchHighlight_0842bd6241f731f478133"
 }
 
 export interface SearchHighlight_0c28a4f229c0c59ac12cdGenqlSelection{
@@ -6631,6 +6652,7 @@ export interface SearchHighlight_0c28a4f229c0c59ac12cdGenqlSelection{
     /** HTML snippet with <mark> tags around the matched terms */
     snippet?: boolean | number
     __typename?: boolean | number
+    __fragmentOn?: "SearchHighlight_0c28a4f229c0c59ac12cd"
 }
 
 export interface SearchHighlight_122ba4496a0e6ee6d7a55GenqlSelection{
@@ -6639,6 +6661,7 @@ export interface SearchHighlight_122ba4496a0e6ee6d7a55GenqlSelection{
     /** HTML snippet with <mark> tags around the matched terms */
     snippet?: boolean | number
     __typename?: boolean | number
+    __fragmentOn?: "SearchHighlight_122ba4496a0e6ee6d7a55"
 }
 
 export interface SearchHighlight_12b24c59aab1a055a7b25GenqlSelection{
@@ -6647,6 +6670,7 @@ export interface SearchHighlight_12b24c59aab1a055a7b25GenqlSelection{
     /** HTML snippet with <mark> tags around the matched terms */
     snippet?: boolean | number
     __typename?: boolean | number
+    __fragmentOn?: "SearchHighlight_12b24c59aab1a055a7b25"
 }
 
 export interface SearchHighlight_16a069187a2916f286b6cGenqlSelection{
@@ -6655,6 +6679,7 @@ export interface SearchHighlight_16a069187a2916f286b6cGenqlSelection{
     /** HTML snippet with <mark> tags around the matched terms */
     snippet?: boolean | number
     __typename?: boolean | number
+    __fragmentOn?: "SearchHighlight_16a069187a2916f286b6c"
 }
 
 export interface SearchHighlight_1a2d3a00005a609c441deGenqlSelection{
@@ -6663,6 +6688,7 @@ export interface SearchHighlight_1a2d3a00005a609c441deGenqlSelection{
     /** HTML snippet with <mark> tags around the matched terms */
     snippet?: boolean | number
     __typename?: boolean | number
+    __fragmentOn?: "SearchHighlight_1a2d3a00005a609c441de"
 }
 
 export interface SearchHighlight_1c79cae33098b836d8e36GenqlSelection{
@@ -6671,6 +6697,7 @@ export interface SearchHighlight_1c79cae33098b836d8e36GenqlSelection{
     /** HTML snippet with <mark> tags around the matched terms */
     snippet?: boolean | number
     __typename?: boolean | number
+    __fragmentOn?: "SearchHighlight_1c79cae33098b836d8e36"
 }
 
 export interface SearchHighlight_1cd7d7c607cc4079a3c4eGenqlSelection{
@@ -6679,6 +6706,7 @@ export interface SearchHighlight_1cd7d7c607cc4079a3c4eGenqlSelection{
     /** HTML snippet with <mark> tags around the matched terms */
     snippet?: boolean | number
     __typename?: boolean | number
+    __fragmentOn?: "SearchHighlight_1cd7d7c607cc4079a3c4e"
 }
 
 export interface SearchHighlight_1fcd879da5f410880b195GenqlSelection{
@@ -6687,6 +6715,7 @@ export interface SearchHighlight_1fcd879da5f410880b195GenqlSelection{
     /** HTML snippet with <mark> tags around the matched terms */
     snippet?: boolean | number
     __typename?: boolean | number
+    __fragmentOn?: "SearchHighlight_1fcd879da5f410880b195"
 }
 
 export interface SearchHighlight_2a515c6c34cc8edde664fGenqlSelection{
@@ -6695,6 +6724,7 @@ export interface SearchHighlight_2a515c6c34cc8edde664fGenqlSelection{
     /** HTML snippet with <mark> tags around the matched terms */
     snippet?: boolean | number
     __typename?: boolean | number
+    __fragmentOn?: "SearchHighlight_2a515c6c34cc8edde664f"
 }
 
 export interface SearchHighlight_2b8f09d119ea5d44420a0GenqlSelection{
@@ -6703,6 +6733,7 @@ export interface SearchHighlight_2b8f09d119ea5d44420a0GenqlSelection{
     /** HTML snippet with <mark> tags around the matched terms */
     snippet?: boolean | number
     __typename?: boolean | number
+    __fragmentOn?: "SearchHighlight_2b8f09d119ea5d44420a0"
 }
 
 export interface SearchHighlight_2cd1e44d8ea27f02eb767GenqlSelection{
@@ -6711,6 +6742,7 @@ export interface SearchHighlight_2cd1e44d8ea27f02eb767GenqlSelection{
     /** HTML snippet with <mark> tags around the matched terms */
     snippet?: boolean | number
     __typename?: boolean | number
+    __fragmentOn?: "SearchHighlight_2cd1e44d8ea27f02eb767"
 }
 
 export interface SearchHighlight_39b8886735b7608f5d0c8GenqlSelection{
@@ -6719,6 +6751,7 @@ export interface SearchHighlight_39b8886735b7608f5d0c8GenqlSelection{
     /** HTML snippet with <mark> tags around the matched terms */
     snippet?: boolean | number
     __typename?: boolean | number
+    __fragmentOn?: "SearchHighlight_39b8886735b7608f5d0c8"
 }
 
 export interface SearchHighlight_4045f35a2cc6e0b830b31GenqlSelection{
@@ -6727,6 +6760,7 @@ export interface SearchHighlight_4045f35a2cc6e0b830b31GenqlSelection{
     /** HTML snippet with <mark> tags around the matched terms */
     snippet?: boolean | number
     __typename?: boolean | number
+    __fragmentOn?: "SearchHighlight_4045f35a2cc6e0b830b31"
 }
 
 export interface SearchHighlight_4ad9b699d0714720d2f30GenqlSelection{
@@ -6735,6 +6769,7 @@ export interface SearchHighlight_4ad9b699d0714720d2f30GenqlSelection{
     /** HTML snippet with <mark> tags around the matched terms */
     snippet?: boolean | number
     __typename?: boolean | number
+    __fragmentOn?: "SearchHighlight_4ad9b699d0714720d2f30"
 }
 
 export interface SearchHighlight_51ebe9bc569b719f020c0GenqlSelection{
@@ -6743,6 +6778,7 @@ export interface SearchHighlight_51ebe9bc569b719f020c0GenqlSelection{
     /** HTML snippet with <mark> tags around the matched terms */
     snippet?: boolean | number
     __typename?: boolean | number
+    __fragmentOn?: "SearchHighlight_51ebe9bc569b719f020c0"
 }
 
 export interface SearchHighlight_538456d7c4b22e48b5b19GenqlSelection{
@@ -6751,6 +6787,7 @@ export interface SearchHighlight_538456d7c4b22e48b5b19GenqlSelection{
     /** HTML snippet with <mark> tags around the matched terms */
     snippet?: boolean | number
     __typename?: boolean | number
+    __fragmentOn?: "SearchHighlight_538456d7c4b22e48b5b19"
 }
 
 export interface SearchHighlight_5580e12178aba94edca15GenqlSelection{
@@ -6759,6 +6796,7 @@ export interface SearchHighlight_5580e12178aba94edca15GenqlSelection{
     /** HTML snippet with <mark> tags around the matched terms */
     snippet?: boolean | number
     __typename?: boolean | number
+    __fragmentOn?: "SearchHighlight_5580e12178aba94edca15"
 }
 
 export interface SearchHighlight_58a0640cb9ff56b451a78GenqlSelection{
@@ -6767,6 +6805,7 @@ export interface SearchHighlight_58a0640cb9ff56b451a78GenqlSelection{
     /** HTML snippet with <mark> tags around the matched terms */
     snippet?: boolean | number
     __typename?: boolean | number
+    __fragmentOn?: "SearchHighlight_58a0640cb9ff56b451a78"
 }
 
 export interface SearchHighlight_5abc234b32f1972500399GenqlSelection{
@@ -6775,6 +6814,7 @@ export interface SearchHighlight_5abc234b32f1972500399GenqlSelection{
     /** HTML snippet with <mark> tags around the matched terms */
     snippet?: boolean | number
     __typename?: boolean | number
+    __fragmentOn?: "SearchHighlight_5abc234b32f1972500399"
 }
 
 export interface SearchHighlight_5c51690f64c1d05e1d469GenqlSelection{
@@ -6783,6 +6823,7 @@ export interface SearchHighlight_5c51690f64c1d05e1d469GenqlSelection{
     /** HTML snippet with <mark> tags around the matched terms */
     snippet?: boolean | number
     __typename?: boolean | number
+    __fragmentOn?: "SearchHighlight_5c51690f64c1d05e1d469"
 }
 
 export interface SearchHighlight_5e54edeee87ee99c942a0GenqlSelection{
@@ -6791,6 +6832,7 @@ export interface SearchHighlight_5e54edeee87ee99c942a0GenqlSelection{
     /** HTML snippet with <mark> tags around the matched terms */
     snippet?: boolean | number
     __typename?: boolean | number
+    __fragmentOn?: "SearchHighlight_5e54edeee87ee99c942a0"
 }
 
 export interface SearchHighlight_5f56449a1663aed81d6efGenqlSelection{
@@ -6799,6 +6841,7 @@ export interface SearchHighlight_5f56449a1663aed81d6efGenqlSelection{
     /** HTML snippet with <mark> tags around the matched terms */
     snippet?: boolean | number
     __typename?: boolean | number
+    __fragmentOn?: "SearchHighlight_5f56449a1663aed81d6ef"
 }
 
 export interface SearchHighlight_602f96c6f6b1b83559a6bGenqlSelection{
@@ -6807,6 +6850,7 @@ export interface SearchHighlight_602f96c6f6b1b83559a6bGenqlSelection{
     /** HTML snippet with <mark> tags around the matched terms */
     snippet?: boolean | number
     __typename?: boolean | number
+    __fragmentOn?: "SearchHighlight_602f96c6f6b1b83559a6b"
 }
 
 export interface SearchHighlight_6adf6d3b14b40ac0319b8GenqlSelection{
@@ -6815,6 +6859,7 @@ export interface SearchHighlight_6adf6d3b14b40ac0319b8GenqlSelection{
     /** HTML snippet with <mark> tags around the matched terms */
     snippet?: boolean | number
     __typename?: boolean | number
+    __fragmentOn?: "SearchHighlight_6adf6d3b14b40ac0319b8"
 }
 
 export interface SearchHighlight_7295981b42691ede60371GenqlSelection{
@@ -6823,6 +6868,7 @@ export interface SearchHighlight_7295981b42691ede60371GenqlSelection{
     /** HTML snippet with <mark> tags around the matched terms */
     snippet?: boolean | number
     __typename?: boolean | number
+    __fragmentOn?: "SearchHighlight_7295981b42691ede60371"
 }
 
 export interface SearchHighlight_7470f1eba14e51d37b0eaGenqlSelection{
@@ -6831,6 +6877,7 @@ export interface SearchHighlight_7470f1eba14e51d37b0eaGenqlSelection{
     /** HTML snippet with <mark> tags around the matched terms */
     snippet?: boolean | number
     __typename?: boolean | number
+    __fragmentOn?: "SearchHighlight_7470f1eba14e51d37b0ea"
 }
 
 export interface SearchHighlight_813cb93523d5c9bbf5e4bGenqlSelection{
@@ -6839,6 +6886,7 @@ export interface SearchHighlight_813cb93523d5c9bbf5e4bGenqlSelection{
     /** HTML snippet with <mark> tags around the matched terms */
     snippet?: boolean | number
     __typename?: boolean | number
+    __fragmentOn?: "SearchHighlight_813cb93523d5c9bbf5e4b"
 }
 
 export interface SearchHighlight_836865793b098d04a2052GenqlSelection{
@@ -6847,6 +6895,7 @@ export interface SearchHighlight_836865793b098d04a2052GenqlSelection{
     /** HTML snippet with <mark> tags around the matched terms */
     snippet?: boolean | number
     __typename?: boolean | number
+    __fragmentOn?: "SearchHighlight_836865793b098d04a2052"
 }
 
 export interface SearchHighlight_8918a3acf171152cb6b2cGenqlSelection{
@@ -6855,6 +6904,7 @@ export interface SearchHighlight_8918a3acf171152cb6b2cGenqlSelection{
     /** HTML snippet with <mark> tags around the matched terms */
     snippet?: boolean | number
     __typename?: boolean | number
+    __fragmentOn?: "SearchHighlight_8918a3acf171152cb6b2c"
 }
 
 export interface SearchHighlight_a9ebd869155bcf0314c80GenqlSelection{
@@ -6863,6 +6913,7 @@ export interface SearchHighlight_a9ebd869155bcf0314c80GenqlSelection{
     /** HTML snippet with <mark> tags around the matched terms */
     snippet?: boolean | number
     __typename?: boolean | number
+    __fragmentOn?: "SearchHighlight_a9ebd869155bcf0314c80"
 }
 
 export interface SearchHighlight_abf460e1b03f78fd62d24GenqlSelection{
@@ -6871,6 +6922,7 @@ export interface SearchHighlight_abf460e1b03f78fd62d24GenqlSelection{
     /** HTML snippet with <mark> tags around the matched terms */
     snippet?: boolean | number
     __typename?: boolean | number
+    __fragmentOn?: "SearchHighlight_abf460e1b03f78fd62d24"
 }
 
 export interface SearchHighlight_b4393b44622a931c5f23dGenqlSelection{
@@ -6879,6 +6931,7 @@ export interface SearchHighlight_b4393b44622a931c5f23dGenqlSelection{
     /** HTML snippet with <mark> tags around the matched terms */
     snippet?: boolean | number
     __typename?: boolean | number
+    __fragmentOn?: "SearchHighlight_b4393b44622a931c5f23d"
 }
 
 export interface SearchHighlight_b7692c97ce8325c55f06bGenqlSelection{
@@ -6887,6 +6940,7 @@ export interface SearchHighlight_b7692c97ce8325c55f06bGenqlSelection{
     /** HTML snippet with <mark> tags around the matched terms */
     snippet?: boolean | number
     __typename?: boolean | number
+    __fragmentOn?: "SearchHighlight_b7692c97ce8325c55f06b"
 }
 
 export interface SearchHighlight_b8ff19559c9017af5b1f9GenqlSelection{
@@ -6895,6 +6949,7 @@ export interface SearchHighlight_b8ff19559c9017af5b1f9GenqlSelection{
     /** HTML snippet with <mark> tags around the matched terms */
     snippet?: boolean | number
     __typename?: boolean | number
+    __fragmentOn?: "SearchHighlight_b8ff19559c9017af5b1f9"
 }
 
 export interface SearchHighlight_c2b4d7a32254c52a8e2faGenqlSelection{
@@ -6903,6 +6958,7 @@ export interface SearchHighlight_c2b4d7a32254c52a8e2faGenqlSelection{
     /** HTML snippet with <mark> tags around the matched terms */
     snippet?: boolean | number
     __typename?: boolean | number
+    __fragmentOn?: "SearchHighlight_c2b4d7a32254c52a8e2fa"
 }
 
 export interface SearchHighlight_d05618248942973fe4cccGenqlSelection{
@@ -6911,6 +6967,7 @@ export interface SearchHighlight_d05618248942973fe4cccGenqlSelection{
     /** HTML snippet with <mark> tags around the matched terms */
     snippet?: boolean | number
     __typename?: boolean | number
+    __fragmentOn?: "SearchHighlight_d05618248942973fe4ccc"
 }
 
 export interface SearchHighlight_d6013ac9c819fa22c0ea1GenqlSelection{
@@ -6919,6 +6976,7 @@ export interface SearchHighlight_d6013ac9c819fa22c0ea1GenqlSelection{
     /** HTML snippet with <mark> tags around the matched terms */
     snippet?: boolean | number
     __typename?: boolean | number
+    __fragmentOn?: "SearchHighlight_d6013ac9c819fa22c0ea1"
 }
 
 export interface SearchHighlight_db60e167ea14fe11cea0bGenqlSelection{
@@ -6927,6 +6985,7 @@ export interface SearchHighlight_db60e167ea14fe11cea0bGenqlSelection{
     /** HTML snippet with <mark> tags around the matched terms */
     snippet?: boolean | number
     __typename?: boolean | number
+    __fragmentOn?: "SearchHighlight_db60e167ea14fe11cea0b"
 }
 
 export interface SearchHighlight_dbb5836587be3a85e71f7GenqlSelection{
@@ -6935,6 +6994,7 @@ export interface SearchHighlight_dbb5836587be3a85e71f7GenqlSelection{
     /** HTML snippet with <mark> tags around the matched terms */
     snippet?: boolean | number
     __typename?: boolean | number
+    __fragmentOn?: "SearchHighlight_dbb5836587be3a85e71f7"
 }
 
 export interface SearchHighlight_e0ce13d1b38242cf38b7fGenqlSelection{
@@ -6943,6 +7003,7 @@ export interface SearchHighlight_e0ce13d1b38242cf38b7fGenqlSelection{
     /** HTML snippet with <mark> tags around the matched terms */
     snippet?: boolean | number
     __typename?: boolean | number
+    __fragmentOn?: "SearchHighlight_e0ce13d1b38242cf38b7f"
 }
 
 export interface SearchHighlight_e7c3573412f98a6daee7cGenqlSelection{
@@ -6951,6 +7012,7 @@ export interface SearchHighlight_e7c3573412f98a6daee7cGenqlSelection{
     /** HTML snippet with <mark> tags around the matched terms */
     snippet?: boolean | number
     __typename?: boolean | number
+    __fragmentOn?: "SearchHighlight_e7c3573412f98a6daee7c"
 }
 
 export interface SearchHighlight_eb38f76c8fcb56fb833b3GenqlSelection{
@@ -6959,6 +7021,7 @@ export interface SearchHighlight_eb38f76c8fcb56fb833b3GenqlSelection{
     /** HTML snippet with <mark> tags around the matched terms */
     snippet?: boolean | number
     __typename?: boolean | number
+    __fragmentOn?: "SearchHighlight_eb38f76c8fcb56fb833b3"
 }
 
 export interface SearchHighlight_ec9aa7e3b5e2bf732132cGenqlSelection{
@@ -6967,6 +7030,7 @@ export interface SearchHighlight_ec9aa7e3b5e2bf732132cGenqlSelection{
     /** HTML snippet with <mark> tags around the matched terms */
     snippet?: boolean | number
     __typename?: boolean | number
+    __fragmentOn?: "SearchHighlight_ec9aa7e3b5e2bf732132c"
 }
 
 export interface SearchHighlight_ee591482d2117fd38f87cGenqlSelection{
@@ -6975,6 +7039,7 @@ export interface SearchHighlight_ee591482d2117fd38f87cGenqlSelection{
     /** HTML snippet with <mark> tags around the matched terms */
     snippet?: boolean | number
     __typename?: boolean | number
+    __fragmentOn?: "SearchHighlight_ee591482d2117fd38f87c"
 }
 
 export interface SearchHighlight_f2703cfe25aafa1044ca8GenqlSelection{
@@ -6983,6 +7048,7 @@ export interface SearchHighlight_f2703cfe25aafa1044ca8GenqlSelection{
     /** HTML snippet with <mark> tags around the matched terms */
     snippet?: boolean | number
     __typename?: boolean | number
+    __fragmentOn?: "SearchHighlight_f2703cfe25aafa1044ca8"
 }
 
 export interface SearchHighlight_fa548e798460cfc2b1583GenqlSelection{
@@ -6991,6 +7057,7 @@ export interface SearchHighlight_fa548e798460cfc2b1583GenqlSelection{
     /** HTML snippet with <mark> tags around the matched terms */
     snippet?: boolean | number
     __typename?: boolean | number
+    __fragmentOn?: "SearchHighlight_fa548e798460cfc2b1583"
 }
 
 export interface SearchHighlight_fe92e68a7be397a29dffaGenqlSelection{
@@ -6999,14 +7066,7 @@ export interface SearchHighlight_fe92e68a7be397a29dffaGenqlSelection{
     /** HTML snippet with <mark> tags around the matched terms */
     snippet?: boolean | number
     __typename?: boolean | number
-}
-
-export interface SearchHighlight_kjqq89ZLVV2lkOfwtbkKcGenqlSelection{
-    /** The field/path that was matched (e.g., "title", "body.content") */
-    by?: boolean | number
-    /** HTML snippet with <mark> tags around the matched terms */
-    snippet?: boolean | number
-    __typename?: boolean | number
+    __fragmentOn?: "SearchHighlight_fe92e68a7be397a29dffa"
 }
 
 export interface SectionsGenqlSelection{
@@ -7025,6 +7085,7 @@ export interface SectionsGenqlSelection{
     _sys?: BlockDocumentSysGenqlSelection
     _title?: boolean | number
     __typename?: boolean | number
+    __fragmentOn?: "Sections"
 }
 
 export interface SelectFilter {excludes?: (Scalars['String'] | null),excludesAll?: (Scalars['String'][] | null),includes?: (Scalars['String'] | null),includesAll?: (Scalars['String'][] | null),includesAny?: (Scalars['String'][] | null),isEmpty?: (Scalars['Boolean'] | null)}
@@ -7050,6 +7111,7 @@ export interface SettingsGenqlSelection{
     showUseTemplate?: boolean | number
     theme?: ThemeGenqlSelection
     __typename?: boolean | number
+    __fragmentOn?: "Settings"
 }
 
 export interface SiteGenqlSelection{
@@ -7085,6 +7147,7 @@ export interface SiteGenqlSelection{
     skip?: (Scalars['Int'] | null)} })
     settings?: SettingsGenqlSelection
     __typename?: boolean | number
+    __fragmentOn?: "Site"
 }
 
 export interface SocialLinkComponentGenqlSelection{
@@ -7107,6 +7170,7 @@ export interface SocialLinkComponentGenqlSelection{
     icon?: BlockImageGenqlSelection
     url?: boolean | number
     __typename?: boolean | number
+    __fragmentOn?: "SocialLinkComponent"
 }
 
 export interface SocialLinkComponentFilterInput {AND?: (SocialLinkComponentFilterInput | null),OR?: (SocialLinkComponentFilterInput | null),_id?: (StringFilter | null),_slug?: (StringFilter | null),_sys_apiNamePath?: (StringFilter | null),_sys_createdAt?: (DateFilter | null),_sys_hash?: (StringFilter | null),_sys_id?: (StringFilter | null),_sys_idPath?: (StringFilter | null),_sys_lastModifiedAt?: (DateFilter | null),_sys_slug?: (StringFilter | null),_sys_slugPath?: (StringFilter | null),_sys_title?: (StringFilter | null),_title?: (StringFilter | null),url?: (StringFilter | null)}
@@ -7140,6 +7204,7 @@ export interface SocialLinksGenqlSelection{
     /** Returns the list of items after filtering and paginating according to the arguments sent by the client. */
     items?: SocialLinkComponentGenqlSelection
     __typename?: boolean | number
+    __fragmentOn?: "SocialLinks"
 }
 
 export interface StringFilter {contains?: (Scalars['String'] | null),endsWith?: (Scalars['String'] | null),eq?: (Scalars['String'] | null),in?: (Scalars['String'][] | null),isNull?: (Scalars['Boolean'] | null),matches?: (StringMatchesFilter | null),notEq?: (Scalars['String'] | null),notIn?: (Scalars['String'][] | null),startsWith?: (Scalars['String'] | null)}
@@ -7169,6 +7234,7 @@ export interface SublinksGenqlSelection{
     /** Returns the list of items after filtering and paginating according to the arguments sent by the client. */
     items?: SublinksItemGenqlSelection
     __typename?: boolean | number
+    __fragmentOn?: "Sublinks"
 }
 
 export interface SublinksItemGenqlSelection{
@@ -7190,6 +7256,7 @@ export interface SublinksItemGenqlSelection{
     _title?: boolean | number
     link?: UnionCustomTextComponentPageReferenceComponentGenqlSelection
     __typename?: boolean | number
+    __fragmentOn?: "SublinksItem"
 }
 
 export interface SublinksItemFilterInput {AND?: (SublinksItemFilterInput | null),OR?: (SublinksItemFilterInput | null),_id?: (StringFilter | null),_slug?: (StringFilter | null),_sys_apiNamePath?: (StringFilter | null),_sys_createdAt?: (DateFilter | null),_sys_hash?: (StringFilter | null),_sys_id?: (StringFilter | null),_sys_idPath?: (StringFilter | null),_sys_lastModifiedAt?: (DateFilter | null),_sys_slug?: (StringFilter | null),_sys_slugPath?: (StringFilter | null),_sys_title?: (StringFilter | null),_title?: (StringFilter | null),link?: (SublinksItemFilterInput__link | null)}
@@ -7213,6 +7280,7 @@ export interface SubmissionsGenqlSelection{
     ingestKey?: boolean | number
     schema?: boolean | number
     __typename?: boolean | number
+    __fragmentOn?: "Submissions"
 }
 
 export interface Submissions_1GenqlSelection{
@@ -7222,6 +7290,7 @@ export interface Submissions_1GenqlSelection{
     ingestKey?: boolean | number
     schema?: boolean | number
     __typename?: boolean | number
+    __fragmentOn?: "Submissions_1"
 }
 
 export interface SubtitleGenqlSelection{
@@ -7237,12 +7306,14 @@ export interface SubtitleGenqlSelection{
     /** Words per minute, defaults to average 183wpm */
     wpm?: (Scalars['Int'] | null)} } | boolean | number
     __typename?: boolean | number
+    __fragmentOn?: "Subtitle"
 }
 
 export interface SubtitleRichTextGenqlSelection{
     content?: boolean | number
     toc?: boolean | number
     __typename?: boolean | number
+    __fragmentOn?: "SubtitleRichText"
 }
 
 export interface Subtitle_1GenqlSelection{
@@ -7258,12 +7329,14 @@ export interface Subtitle_1GenqlSelection{
     /** Words per minute, defaults to average 183wpm */
     wpm?: (Scalars['Int'] | null)} } | boolean | number
     __typename?: boolean | number
+    __fragmentOn?: "Subtitle_1"
 }
 
 export interface Subtitle_1RichTextGenqlSelection{
     content?: boolean | number
     toc?: boolean | number
     __typename?: boolean | number
+    __fragmentOn?: "Subtitle_1RichText"
 }
 
 export interface TargetBlock {focus?: (Scalars['Boolean'] | null),id: Scalars['String'],label: Scalars['String']}
@@ -7288,6 +7361,7 @@ export interface TestimonialSliderComponentGenqlSelection{
     heading?: HeadingComponentGenqlSelection
     quotes?: QuoteComponentGenqlSelection
     __typename?: boolean | number
+    __fragmentOn?: "TestimonialSliderComponent"
 }
 
 export interface TestimonialSliderComponentFilterInput {AND?: (TestimonialSliderComponentFilterInput | null),OR?: (TestimonialSliderComponentFilterInput | null),_id?: (StringFilter | null),_slug?: (StringFilter | null),_sys_apiNamePath?: (StringFilter | null),_sys_createdAt?: (DateFilter | null),_sys_hash?: (StringFilter | null),_sys_id?: (StringFilter | null),_sys_idPath?: (StringFilter | null),_sys_lastModifiedAt?: (DateFilter | null),_sys_slug?: (StringFilter | null),_sys_slugPath?: (StringFilter | null),_sys_title?: (StringFilter | null),_title?: (StringFilter | null),heading?: (TestimonialSliderComponentFilterInput__heading | null),quotes?: (TestimonialSliderComponentFilterInput__quotes_0___quote | null)}
@@ -7322,6 +7396,7 @@ export interface TestimonialsGridComponentGenqlSelection{
     heading?: HeadingComponentGenqlSelection
     quotes?: QuoteComponentGenqlSelection
     __typename?: boolean | number
+    __fragmentOn?: "TestimonialsGridComponent"
 }
 
 export interface TestimonialsGridComponentFilterInput {AND?: (TestimonialsGridComponentFilterInput | null),OR?: (TestimonialsGridComponentFilterInput | null),_id?: (StringFilter | null),_slug?: (StringFilter | null),_sys_apiNamePath?: (StringFilter | null),_sys_createdAt?: (DateFilter | null),_sys_hash?: (StringFilter | null),_sys_id?: (StringFilter | null),_sys_idPath?: (StringFilter | null),_sys_lastModifiedAt?: (DateFilter | null),_sys_slug?: (StringFilter | null),_sys_slugPath?: (StringFilter | null),_sys_title?: (StringFilter | null),_title?: (StringFilter | null),heading?: (TestimonialsGridComponentFilterInput__heading | null),quotes?: (TestimonialsGridComponentFilterInput__quotes_0___quote | null)}
@@ -7354,6 +7429,7 @@ export interface ThemeGenqlSelection{
     accent?: boolean | number
     grayScale?: boolean | number
     __typename?: boolean | number
+    __fragmentOn?: "Theme"
 }
 
 export interface TransactionStatusGenqlSelection{
@@ -7365,12 +7441,14 @@ export interface TransactionStatusGenqlSelection{
     startedAt?: boolean | number
     status?: boolean | number
     __typename?: boolean | number
+    __fragmentOn?: "TransactionStatus"
 }
 
 export interface UnionCodeSnippetComponentGenqlSelection{
     on_CodeSnippetComponent?:CodeSnippetComponentGenqlSelection,
     on_BlockDocument?: BlockDocumentGenqlSelection,
-    __typename?: boolean | number
+    __typename?: boolean | number,
+    __fragmentOn?: "UnionCodeSnippetComponent"
 }
 
 export interface UnionCodeSnippetComponentFaqItemComponentRichTextCalloutComponentGenqlSelection{
@@ -7378,24 +7456,27 @@ export interface UnionCodeSnippetComponentFaqItemComponentRichTextCalloutCompone
     on_FaqItemComponent?:FaqItemComponentGenqlSelection,
     on_RichTextCalloutComponent?:RichTextCalloutComponentGenqlSelection,
     on_BlockDocument?: BlockDocumentGenqlSelection,
-    __typename?: boolean | number
+    __typename?: boolean | number,
+    __fragmentOn?: "UnionCodeSnippetComponentFaqItemComponentRichTextCalloutComponent"
 }
 
 export interface UnionCustomTextComponentBooleanComponentGenqlSelection{
     on_BooleanComponent?:BooleanComponentGenqlSelection,
     on_CustomTextComponent?:CustomTextComponentGenqlSelection,
     on_BlockDocument?: BlockDocumentGenqlSelection,
-    __typename?: boolean | number
+    __typename?: boolean | number,
+    __fragmentOn?: "UnionCustomTextComponentBooleanComponent"
 }
 
 export interface UnionCustomTextComponentPageReferenceComponentGenqlSelection{
     on_CustomTextComponent?:CustomTextComponentGenqlSelection,
     on_PageReferenceComponent?:PageReferenceComponentGenqlSelection,
     on_BlockDocument?: BlockDocumentGenqlSelection,
-    __typename?: boolean | number
+    __typename?: boolean | number,
+    __fragmentOn?: "UnionCustomTextComponentPageReferenceComponent"
 }
 
-export interface UnionPricingComponentFormComponentHeroComponentCalloutComponentCalloutV2ComponentCompaniesComponentTestimonialSliderComponentFeaturesCardsComponentPricingTableComponentFeaturesBigImageComponentTestimonialsGridComponentFeatureHeroComponentFeaturesSideBySideComponentFreeformTextComponentFeaturesGridComponentFaqComponentLimitedTimeOfferBannerComponentGenqlSelection{
+export interface UnionPricingComponentFormComponentHeroComponentCalloutComponentCalloutV2ComponentCompaniesComponentTestimonialSliderComponentFeaturesCardsComponentPricingTableComponentFeaturesBigImageComponentTestimonialsGridComponentFeatureHeroComponentFeaturesSideBySideComponentFreeformTextComponentFeaturesGridComponentFaqComponentGenqlSelection{
     on_CalloutComponent?:CalloutComponentGenqlSelection,
     on_CalloutV2Component?:CalloutV2ComponentGenqlSelection,
     on_CompaniesComponent?:CompaniesComponentGenqlSelection,
@@ -7408,13 +7489,13 @@ export interface UnionPricingComponentFormComponentHeroComponentCalloutComponent
     on_FormComponent?:FormComponentGenqlSelection,
     on_FreeformTextComponent?:FreeformTextComponentGenqlSelection,
     on_HeroComponent?:HeroComponentGenqlSelection,
-    on_LimitedTimeOfferBannerComponent?:LimitedTimeOfferBannerComponentGenqlSelection,
     on_PricingComponent?:PricingComponentGenqlSelection,
     on_PricingTableComponent?:PricingTableComponentGenqlSelection,
     on_TestimonialSliderComponent?:TestimonialSliderComponentGenqlSelection,
     on_TestimonialsGridComponent?:TestimonialsGridComponentGenqlSelection,
     on_BlockDocument?: BlockDocumentGenqlSelection,
-    __typename?: boolean | number
+    __typename?: boolean | number,
+    __fragmentOn?: "UnionPricingComponentFormComponentHeroComponentCalloutComponentCalloutV2ComponentCompaniesComponentTestimonialSliderComponentFeaturesCardsComponentPricingTableComponentFeaturesBigImageComponentTestimonialsGridComponentFeatureHeroComponentFeaturesSideBySideComponentFreeformTextComponentFeaturesGridComponentFaqComponent"
 }
 
 export interface ValueComponentGenqlSelection{
@@ -7437,6 +7518,7 @@ export interface ValueComponentGenqlSelection{
     plan?: PricingPlanComponentGenqlSelection
     value?: UnionCustomTextComponentBooleanComponentGenqlSelection
     __typename?: boolean | number
+    __fragmentOn?: "ValueComponent"
 }
 
 export interface ValueComponentFilterInput {AND?: (ValueComponentFilterInput | null),OR?: (ValueComponentFilterInput | null),_id?: (StringFilter | null),_slug?: (StringFilter | null),_sys_apiNamePath?: (StringFilter | null),_sys_createdAt?: (DateFilter | null),_sys_hash?: (StringFilter | null),_sys_id?: (StringFilter | null),_sys_idPath?: (StringFilter | null),_sys_lastModifiedAt?: (DateFilter | null),_sys_slug?: (StringFilter | null),_sys_slugPath?: (StringFilter | null),_sys_title?: (StringFilter | null),_title?: (StringFilter | null),plan?: (ValueComponentFilterInput__plan_0___pricingPlan | null),value?: (ValueComponentFilterInput__value | null)}
@@ -7478,6 +7560,7 @@ export interface ValuesGenqlSelection{
     /** Returns the list of items after filtering and paginating according to the arguments sent by the client. */
     items?: ValueComponentGenqlSelection
     __typename?: boolean | number
+    __fragmentOn?: "Values"
 }
 
 export interface VariantGenqlSelection{
@@ -7487,6 +7570,7 @@ export interface VariantGenqlSelection{
     isDefault?: boolean | number
     label?: boolean | number
     __typename?: boolean | number
+    __fragmentOn?: "Variant"
 }
 
 export interface _AgentStartGenqlSelection{
@@ -7521,6 +7605,7 @@ export interface _AgentStartGenqlSelection{
     slackInstallUrl?: boolean | number
     systemPrompt?: boolean | number
     __typename?: boolean | number
+    __fragmentOn?: "_AgentStart"
 }
 
 export interface _BranchInfoGenqlSelection{
@@ -7545,12 +7630,14 @@ export interface _BranchInfoGenqlSelection{
     updatedAt?: boolean | number
     workingRootBlockId?: boolean | number
     __typename?: boolean | number
+    __fragmentOn?: "_BranchInfo"
 }
 
 export interface _BranchesGenqlSelection{
     _meta?: ListMetaGenqlSelection
     items?: _BranchInfoGenqlSelection
     __typename?: boolean | number
+    __fragmentOn?: "_Branches"
 }
 
 export interface _CommitInfoGenqlSelection{
@@ -7568,12 +7655,14 @@ export interface _CommitInfoGenqlSelection{
     repoId?: boolean | number
     rootBlockId?: boolean | number
     __typename?: boolean | number
+    __fragmentOn?: "_CommitInfo"
 }
 
 export interface _GitInfoGenqlSelection{
     branch?: boolean | number
     deploymentUrl?: boolean | number
     __typename?: boolean | number
+    __fragmentOn?: "_GitInfo"
 }
 
 export interface _PlaygroundInfoGenqlSelection{
@@ -7582,11 +7671,13 @@ export interface _PlaygroundInfoGenqlSelection{
     expiresAt?: boolean | number
     id?: boolean | number
     __typename?: boolean | number
+    __fragmentOn?: "_PlaygroundInfo"
 }
 
 export interface _agentsGenqlSelection{
     start?: _AgentStartGenqlSelection
     __typename?: boolean | number
+    __fragmentOn?: "_agents"
 }
 
 export interface _componentsGenqlSelection{
@@ -7953,17 +8044,6 @@ export interface _componentsGenqlSelection{
     search?: (HeroComponentSearchInput | null), 
     /** Skip the first n items. */
     skip?: (Scalars['Int'] | null)} })
-    limitedTimeOfferBanner?: (limitedTimeOfferBannerComponent_AsListGenqlSelection & { __args?: {
-    /** Filter by a field. */
-    filter?: (LimitedTimeOfferBannerComponentFilterInput | null), 
-    /** Limit the number of items returned. Defaults to 500. */
-    first?: (Scalars['Int'] | null), 
-    /** Order by a field. */
-    orderBy?: (LimitedTimeOfferBannerComponentOrderByEnum | null), 
-    /** Search configuration */
-    search?: (LimitedTimeOfferBannerComponentSearchInput | null), 
-    /** Skip the first n items. */
-    skip?: (Scalars['Int'] | null)} })
     listItem?: (listItem_AsListGenqlSelection & { __args?: {
     /** Filter by a field. */
     filter?: (ListItemFilterInput | null), 
@@ -8141,6 +8221,7 @@ export interface _componentsGenqlSelection{
     /** Skip the first n items. */
     skip?: (Scalars['Int'] | null)} })
     __typename?: boolean | number
+    __fragmentOn?: "_components"
 }
 
 export interface authorComponent_AsListGenqlSelection{
@@ -8166,6 +8247,7 @@ export interface authorComponent_AsListGenqlSelection{
     /** Returns the list of items after filtering and paginating according to the arguments sent by the client. */
     items?: AuthorComponentGenqlSelection
     __typename?: boolean | number
+    __fragmentOn?: "authorComponent_AsList"
 }
 
 export interface avatarComponent_AsListGenqlSelection{
@@ -8191,6 +8273,7 @@ export interface avatarComponent_AsListGenqlSelection{
     /** Returns the list of items after filtering and paginating according to the arguments sent by the client. */
     items?: AvatarComponentGenqlSelection
     __typename?: boolean | number
+    __fragmentOn?: "avatarComponent_AsList"
 }
 
 export interface blogPostComponent_AsListGenqlSelection{
@@ -8216,6 +8299,7 @@ export interface blogPostComponent_AsListGenqlSelection{
     /** Returns the list of items after filtering and paginating according to the arguments sent by the client. */
     items?: BlogPostComponentGenqlSelection
     __typename?: boolean | number
+    __fragmentOn?: "blogPostComponent_AsList"
 }
 
 export interface booleanComponent_AsListGenqlSelection{
@@ -8241,6 +8325,7 @@ export interface booleanComponent_AsListGenqlSelection{
     /** Returns the list of items after filtering and paginating according to the arguments sent by the client. */
     items?: BooleanComponentGenqlSelection
     __typename?: boolean | number
+    __fragmentOn?: "booleanComponent_AsList"
 }
 
 export interface buttonComponent_AsListGenqlSelection{
@@ -8266,6 +8351,7 @@ export interface buttonComponent_AsListGenqlSelection{
     /** Returns the list of items after filtering and paginating according to the arguments sent by the client. */
     items?: ButtonComponentGenqlSelection
     __typename?: boolean | number
+    __fragmentOn?: "buttonComponent_AsList"
 }
 
 export interface calloutComponent_AsListGenqlSelection{
@@ -8291,6 +8377,7 @@ export interface calloutComponent_AsListGenqlSelection{
     /** Returns the list of items after filtering and paginating according to the arguments sent by the client. */
     items?: CalloutComponentGenqlSelection
     __typename?: boolean | number
+    __fragmentOn?: "calloutComponent_AsList"
 }
 
 export interface calloutV2Component_AsListGenqlSelection{
@@ -8316,6 +8403,7 @@ export interface calloutV2Component_AsListGenqlSelection{
     /** Returns the list of items after filtering and paginating according to the arguments sent by the client. */
     items?: CalloutV2ComponentGenqlSelection
     __typename?: boolean | number
+    __fragmentOn?: "calloutV2Component_AsList"
 }
 
 export interface categoryComponent_AsListGenqlSelection{
@@ -8341,6 +8429,7 @@ export interface categoryComponent_AsListGenqlSelection{
     /** Returns the list of items after filtering and paginating according to the arguments sent by the client. */
     items?: CategoryComponentGenqlSelection
     __typename?: boolean | number
+    __fragmentOn?: "categoryComponent_AsList"
 }
 
 export interface changelogPostComponent_AsListGenqlSelection{
@@ -8366,6 +8455,7 @@ export interface changelogPostComponent_AsListGenqlSelection{
     /** Returns the list of items after filtering and paginating according to the arguments sent by the client. */
     items?: ChangelogPostComponentGenqlSelection
     __typename?: boolean | number
+    __fragmentOn?: "changelogPostComponent_AsList"
 }
 
 export interface characteristicsItem_AsListGenqlSelection{
@@ -8391,6 +8481,7 @@ export interface characteristicsItem_AsListGenqlSelection{
     /** Returns the list of items after filtering and paginating according to the arguments sent by the client. */
     items?: CharacteristicsItemGenqlSelection
     __typename?: boolean | number
+    __fragmentOn?: "characteristicsItem_AsList"
 }
 
 export interface codeSnippetComponent_AsListGenqlSelection{
@@ -8416,6 +8507,7 @@ export interface codeSnippetComponent_AsListGenqlSelection{
     /** Returns the list of items after filtering and paginating according to the arguments sent by the client. */
     items?: CodeSnippetComponentGenqlSelection
     __typename?: boolean | number
+    __fragmentOn?: "codeSnippetComponent_AsList"
 }
 
 export interface companiesComponent_AsListGenqlSelection{
@@ -8441,6 +8533,7 @@ export interface companiesComponent_AsListGenqlSelection{
     /** Returns the list of items after filtering and paginating according to the arguments sent by the client. */
     items?: CompaniesComponentGenqlSelection
     __typename?: boolean | number
+    __fragmentOn?: "companiesComponent_AsList"
 }
 
 export interface companyComponent_AsListGenqlSelection{
@@ -8466,6 +8559,7 @@ export interface companyComponent_AsListGenqlSelection{
     /** Returns the list of items after filtering and paginating according to the arguments sent by the client. */
     items?: CompanyComponentGenqlSelection
     __typename?: boolean | number
+    __fragmentOn?: "companyComponent_AsList"
 }
 
 export interface customTextComponent_AsListGenqlSelection{
@@ -8491,6 +8585,7 @@ export interface customTextComponent_AsListGenqlSelection{
     /** Returns the list of items after filtering and paginating according to the arguments sent by the client. */
     items?: CustomTextComponentGenqlSelection
     __typename?: boolean | number
+    __fragmentOn?: "customTextComponent_AsList"
 }
 
 export interface customerSatisfactionBannerComponent_AsListGenqlSelection{
@@ -8516,6 +8611,7 @@ export interface customerSatisfactionBannerComponent_AsListGenqlSelection{
     /** Returns the list of items after filtering and paginating according to the arguments sent by the client. */
     items?: CustomerSatisfactionBannerComponentGenqlSelection
     __typename?: boolean | number
+    __fragmentOn?: "customerSatisfactionBannerComponent_AsList"
 }
 
 export interface darkLightImageComponent_AsListGenqlSelection{
@@ -8541,6 +8637,7 @@ export interface darkLightImageComponent_AsListGenqlSelection{
     /** Returns the list of items after filtering and paginating according to the arguments sent by the client. */
     items?: DarkLightImageComponentGenqlSelection
     __typename?: boolean | number
+    __fragmentOn?: "darkLightImageComponent_AsList"
 }
 
 export interface faqComponent_AsListGenqlSelection{
@@ -8566,6 +8663,7 @@ export interface faqComponent_AsListGenqlSelection{
     /** Returns the list of items after filtering and paginating according to the arguments sent by the client. */
     items?: FaqComponentGenqlSelection
     __typename?: boolean | number
+    __fragmentOn?: "faqComponent_AsList"
 }
 
 export interface faqItemComponent_AsListGenqlSelection{
@@ -8591,6 +8689,7 @@ export interface faqItemComponent_AsListGenqlSelection{
     /** Returns the list of items after filtering and paginating according to the arguments sent by the client. */
     items?: FaqItemComponentGenqlSelection
     __typename?: boolean | number
+    __fragmentOn?: "faqItemComponent_AsList"
 }
 
 export interface featureComponent_AsListGenqlSelection{
@@ -8616,6 +8715,7 @@ export interface featureComponent_AsListGenqlSelection{
     /** Returns the list of items after filtering and paginating according to the arguments sent by the client. */
     items?: FeatureComponentGenqlSelection
     __typename?: boolean | number
+    __fragmentOn?: "featureComponent_AsList"
 }
 
 export interface featureHeroComponent_AsListGenqlSelection{
@@ -8641,6 +8741,7 @@ export interface featureHeroComponent_AsListGenqlSelection{
     /** Returns the list of items after filtering and paginating according to the arguments sent by the client. */
     items?: FeatureHeroComponentGenqlSelection
     __typename?: boolean | number
+    __fragmentOn?: "featureHeroComponent_AsList"
 }
 
 export interface featureWithIconComponent_AsListGenqlSelection{
@@ -8666,6 +8767,7 @@ export interface featureWithIconComponent_AsListGenqlSelection{
     /** Returns the list of items after filtering and paginating according to the arguments sent by the client. */
     items?: FeatureWithIconComponentGenqlSelection
     __typename?: boolean | number
+    __fragmentOn?: "featureWithIconComponent_AsList"
 }
 
 export interface featuresBigImageComponent_AsListGenqlSelection{
@@ -8691,6 +8793,7 @@ export interface featuresBigImageComponent_AsListGenqlSelection{
     /** Returns the list of items after filtering and paginating according to the arguments sent by the client. */
     items?: FeaturesBigImageComponentGenqlSelection
     __typename?: boolean | number
+    __fragmentOn?: "featuresBigImageComponent_AsList"
 }
 
 export interface featuresCardsComponent_AsListGenqlSelection{
@@ -8716,6 +8819,7 @@ export interface featuresCardsComponent_AsListGenqlSelection{
     /** Returns the list of items after filtering and paginating according to the arguments sent by the client. */
     items?: FeaturesCardsComponentGenqlSelection
     __typename?: boolean | number
+    __fragmentOn?: "featuresCardsComponent_AsList"
 }
 
 export interface featuresCardsListItem_AsListGenqlSelection{
@@ -8741,6 +8845,7 @@ export interface featuresCardsListItem_AsListGenqlSelection{
     /** Returns the list of items after filtering and paginating according to the arguments sent by the client. */
     items?: FeaturesCardsListItemGenqlSelection
     __typename?: boolean | number
+    __fragmentOn?: "featuresCardsListItem_AsList"
 }
 
 export interface featuresGridComponent_AsListGenqlSelection{
@@ -8766,6 +8871,7 @@ export interface featuresGridComponent_AsListGenqlSelection{
     /** Returns the list of items after filtering and paginating according to the arguments sent by the client. */
     items?: FeaturesGridComponentGenqlSelection
     __typename?: boolean | number
+    __fragmentOn?: "featuresGridComponent_AsList"
 }
 
 export interface featuresSideBySideComponent_AsListGenqlSelection{
@@ -8791,6 +8897,7 @@ export interface featuresSideBySideComponent_AsListGenqlSelection{
     /** Returns the list of items after filtering and paginating according to the arguments sent by the client. */
     items?: FeaturesSideBySideComponentGenqlSelection
     __typename?: boolean | number
+    __fragmentOn?: "featuresSideBySideComponent_AsList"
 }
 
 export interface featuresSideBySideListItem_AsListGenqlSelection{
@@ -8816,6 +8923,7 @@ export interface featuresSideBySideListItem_AsListGenqlSelection{
     /** Returns the list of items after filtering and paginating according to the arguments sent by the client. */
     items?: FeaturesSideBySideListItemGenqlSelection
     __typename?: boolean | number
+    __fragmentOn?: "featuresSideBySideListItem_AsList"
 }
 
 export interface formComponent_AsListGenqlSelection{
@@ -8841,6 +8949,7 @@ export interface formComponent_AsListGenqlSelection{
     /** Returns the list of items after filtering and paginating according to the arguments sent by the client. */
     items?: FormComponentGenqlSelection
     __typename?: boolean | number
+    __fragmentOn?: "formComponent_AsList"
 }
 
 export interface formWrapperComponent_AsListGenqlSelection{
@@ -8866,6 +8975,7 @@ export interface formWrapperComponent_AsListGenqlSelection{
     /** Returns the list of items after filtering and paginating according to the arguments sent by the client. */
     items?: FormWrapperComponentGenqlSelection
     __typename?: boolean | number
+    __fragmentOn?: "formWrapperComponent_AsList"
 }
 
 export interface freeformTextComponent_AsListGenqlSelection{
@@ -8891,6 +9001,7 @@ export interface freeformTextComponent_AsListGenqlSelection{
     /** Returns the list of items after filtering and paginating according to the arguments sent by the client. */
     items?: FreeformTextComponentGenqlSelection
     __typename?: boolean | number
+    __fragmentOn?: "freeformTextComponent_AsList"
 }
 
 export interface headerNavbarLinkComponent_AsListGenqlSelection{
@@ -8916,6 +9027,7 @@ export interface headerNavbarLinkComponent_AsListGenqlSelection{
     /** Returns the list of items after filtering and paginating according to the arguments sent by the client. */
     items?: HeaderNavbarLinkComponentGenqlSelection
     __typename?: boolean | number
+    __fragmentOn?: "headerNavbarLinkComponent_AsList"
 }
 
 export interface headingComponent_AsListGenqlSelection{
@@ -8941,6 +9053,7 @@ export interface headingComponent_AsListGenqlSelection{
     /** Returns the list of items after filtering and paginating according to the arguments sent by the client. */
     items?: HeadingComponentGenqlSelection
     __typename?: boolean | number
+    __fragmentOn?: "headingComponent_AsList"
 }
 
 export interface heroComponent_AsListGenqlSelection{
@@ -8966,31 +9079,7 @@ export interface heroComponent_AsListGenqlSelection{
     /** Returns the list of items after filtering and paginating according to the arguments sent by the client. */
     items?: HeroComponentGenqlSelection
     __typename?: boolean | number
-}
-
-export interface limitedTimeOfferBannerComponent_AsListGenqlSelection{
-    _analyticsKey?: { __args: {
-    /**
-     * The scope of the analytics key. Use `send` for just ingesting data. Use `query` if you need to show an analytics data in your website.
-     * 
-     * Have in mind, if you expose your `query` analytics key in the frontend, you'll be exposing all of this block's analytics data to the public. This is generally safe, but it might not be in your case.
-     */
-    scope?: (AnalyticsKeyScope | null)} } | boolean | number
-    _dashboardUrl?: boolean | number
-    _id?: boolean | number
-    _idPath?: boolean | number
-    _meta?: ListMetaGenqlSelection
-    /** The key used to search from the frontend. */
-    _searchKey?: boolean | number
-    _slug?: boolean | number
-    _slugPath?: boolean | number
-    _sys?: BlockDocumentSysGenqlSelection
-    _title?: boolean | number
-    /** Returns the first item in the list, or null if the list is empty. Useful when you expect only one result. */
-    item?: LimitedTimeOfferBannerComponentGenqlSelection
-    /** Returns the list of items after filtering and paginating according to the arguments sent by the client. */
-    items?: LimitedTimeOfferBannerComponentGenqlSelection
-    __typename?: boolean | number
+    __fragmentOn?: "heroComponent_AsList"
 }
 
 export interface listItem_AsListGenqlSelection{
@@ -9016,6 +9105,7 @@ export interface listItem_AsListGenqlSelection{
     /** Returns the list of items after filtering and paginating according to the arguments sent by the client. */
     items?: ListItemGenqlSelection
     __typename?: boolean | number
+    __fragmentOn?: "listItem_AsList"
 }
 
 export interface metadataOverridesComponent_AsListGenqlSelection{
@@ -9041,6 +9131,7 @@ export interface metadataOverridesComponent_AsListGenqlSelection{
     /** Returns the list of items after filtering and paginating according to the arguments sent by the client. */
     items?: MetadataOverridesComponentGenqlSelection
     __typename?: boolean | number
+    __fragmentOn?: "metadataOverridesComponent_AsList"
 }
 
 export interface navbarItem_AsListGenqlSelection{
@@ -9066,6 +9157,7 @@ export interface navbarItem_AsListGenqlSelection{
     /** Returns the list of items after filtering and paginating according to the arguments sent by the client. */
     items?: NavbarItemGenqlSelection
     __typename?: boolean | number
+    __fragmentOn?: "navbarItem_AsList"
 }
 
 export interface pageReferenceComponent_AsListGenqlSelection{
@@ -9091,6 +9183,7 @@ export interface pageReferenceComponent_AsListGenqlSelection{
     /** Returns the list of items after filtering and paginating according to the arguments sent by the client. */
     items?: PageReferenceComponentGenqlSelection
     __typename?: boolean | number
+    __fragmentOn?: "pageReferenceComponent_AsList"
 }
 
 export interface pagesItem_AsListGenqlSelection{
@@ -9116,6 +9209,7 @@ export interface pagesItem_AsListGenqlSelection{
     /** Returns the list of items after filtering and paginating according to the arguments sent by the client. */
     items?: PagesItemGenqlSelection
     __typename?: boolean | number
+    __fragmentOn?: "pagesItem_AsList"
 }
 
 export interface planComponent_AsListGenqlSelection{
@@ -9141,6 +9235,7 @@ export interface planComponent_AsListGenqlSelection{
     /** Returns the list of items after filtering and paginating according to the arguments sent by the client. */
     items?: PlanComponentGenqlSelection
     __typename?: boolean | number
+    __fragmentOn?: "planComponent_AsList"
 }
 
 export interface pricingComponent_AsListGenqlSelection{
@@ -9166,6 +9261,7 @@ export interface pricingComponent_AsListGenqlSelection{
     /** Returns the list of items after filtering and paginating according to the arguments sent by the client. */
     items?: PricingComponentGenqlSelection
     __typename?: boolean | number
+    __fragmentOn?: "pricingComponent_AsList"
 }
 
 export interface pricingPlanComponent_AsListGenqlSelection{
@@ -9191,6 +9287,7 @@ export interface pricingPlanComponent_AsListGenqlSelection{
     /** Returns the list of items after filtering and paginating according to the arguments sent by the client. */
     items?: PricingPlanComponentGenqlSelection
     __typename?: boolean | number
+    __fragmentOn?: "pricingPlanComponent_AsList"
 }
 
 export interface pricingTableComponent_AsListGenqlSelection{
@@ -9216,6 +9313,7 @@ export interface pricingTableComponent_AsListGenqlSelection{
     /** Returns the list of items after filtering and paginating according to the arguments sent by the client. */
     items?: PricingTableComponentGenqlSelection
     __typename?: boolean | number
+    __fragmentOn?: "pricingTableComponent_AsList"
 }
 
 export interface quoteComponent_AsListGenqlSelection{
@@ -9241,6 +9339,7 @@ export interface quoteComponent_AsListGenqlSelection{
     /** Returns the list of items after filtering and paginating according to the arguments sent by the client. */
     items?: QuoteComponentGenqlSelection
     __typename?: boolean | number
+    __fragmentOn?: "quoteComponent_AsList"
 }
 
 export interface richTextCalloutComponent_AsListGenqlSelection{
@@ -9266,6 +9365,7 @@ export interface richTextCalloutComponent_AsListGenqlSelection{
     /** Returns the list of items after filtering and paginating according to the arguments sent by the client. */
     items?: RichTextCalloutComponentGenqlSelection
     __typename?: boolean | number
+    __fragmentOn?: "richTextCalloutComponent_AsList"
 }
 
 export interface socialLinkComponent_AsListGenqlSelection{
@@ -9291,6 +9391,7 @@ export interface socialLinkComponent_AsListGenqlSelection{
     /** Returns the list of items after filtering and paginating according to the arguments sent by the client. */
     items?: SocialLinkComponentGenqlSelection
     __typename?: boolean | number
+    __fragmentOn?: "socialLinkComponent_AsList"
 }
 
 export interface sublinksItem_AsListGenqlSelection{
@@ -9316,6 +9417,7 @@ export interface sublinksItem_AsListGenqlSelection{
     /** Returns the list of items after filtering and paginating according to the arguments sent by the client. */
     items?: SublinksItemGenqlSelection
     __typename?: boolean | number
+    __fragmentOn?: "sublinksItem_AsList"
 }
 
 export interface testimonialSliderComponent_AsListGenqlSelection{
@@ -9341,6 +9443,7 @@ export interface testimonialSliderComponent_AsListGenqlSelection{
     /** Returns the list of items after filtering and paginating according to the arguments sent by the client. */
     items?: TestimonialSliderComponentGenqlSelection
     __typename?: boolean | number
+    __fragmentOn?: "testimonialSliderComponent_AsList"
 }
 
 export interface testimonialsGridComponent_AsListGenqlSelection{
@@ -9366,6 +9469,7 @@ export interface testimonialsGridComponent_AsListGenqlSelection{
     /** Returns the list of items after filtering and paginating according to the arguments sent by the client. */
     items?: TestimonialsGridComponentGenqlSelection
     __typename?: boolean | number
+    __fragmentOn?: "testimonialsGridComponent_AsList"
 }
 
 export interface valueComponent_AsListGenqlSelection{
@@ -9391,6 +9495,7 @@ export interface valueComponent_AsListGenqlSelection{
     /** Returns the list of items after filtering and paginating according to the arguments sent by the client. */
     items?: ValueComponentGenqlSelection
     __typename?: boolean | number
+    __fragmentOn?: "valueComponent_AsList"
 }
 
 export interface FragmentsMap {
@@ -9677,10 +9782,6 @@ export interface FragmentsMap {
   HeroComponent: {
     root: HeroComponent,
     selection: HeroComponentGenqlSelection,
-}
-  LimitedTimeOfferBannerComponent: {
-    root: LimitedTimeOfferBannerComponent,
-    selection: LimitedTimeOfferBannerComponentGenqlSelection,
 }
   List: {
     root: List,
@@ -10002,10 +10103,6 @@ export interface FragmentsMap {
     root: SearchHighlight_fe92e68a7be397a29dffa,
     selection: SearchHighlight_fe92e68a7be397a29dffaGenqlSelection,
 }
-  SearchHighlight_kjqq89ZLVV2lkOfwtbkKc: {
-    root: SearchHighlight_kjqq89ZLVV2lkOfwtbkKc,
-    selection: SearchHighlight_kjqq89ZLVV2lkOfwtbkKcGenqlSelection,
-}
   Sections: {
     root: Sections,
     selection: SectionsGenqlSelection,
@@ -10249,10 +10346,6 @@ export interface FragmentsMap {
   heroComponent_AsList: {
     root: heroComponent_AsList,
     selection: heroComponent_AsListGenqlSelection,
-}
-  limitedTimeOfferBannerComponent_AsList: {
-    root: limitedTimeOfferBannerComponent_AsList,
-    selection: limitedTimeOfferBannerComponent_AsListGenqlSelection,
 }
   listItem_AsList: {
     root: listItem_AsList,

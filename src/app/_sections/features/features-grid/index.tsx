@@ -5,7 +5,7 @@ import { Section } from "@/common/layout";
 import { fragmentOn } from "basehub";
 import { buttonFragment, headingFragment } from "@/lib/basehub/fragments";
 import { TrackedButtonLink } from "@/app/_components/tracked_button";
-import { GeneralEvents } from "@/../basehub";
+import { GeneralEvents } from "@/../basehub-types";
 
 export const featuresGridFragment = fragmentOn("FeaturesGridComponent", {
   _analyticsKey: true,

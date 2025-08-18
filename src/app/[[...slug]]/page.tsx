@@ -4,7 +4,7 @@ import { draftMode } from "next/headers";
 import { notFound } from "next/navigation";
 
 import { Pump } from "basehub/react-pump";
-import { GeneralEvents } from "@/../basehub";
+import { GeneralEvents } from "@/../basehub-types";
 import { basehub, fragmentOn } from "basehub";
 
 import { AccordionFaq } from "../_sections/accordion-faq";

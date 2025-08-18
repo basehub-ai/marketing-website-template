@@ -10,7 +10,7 @@ import { DarkLightImage } from "@/common/dark-light-image";
 import { TrackedButtonLink } from "@/app/_components/tracked_button";
 
 import s from "./hero.module.scss";
-import { GeneralEvents } from "@/../basehub";
+import { GeneralEvents } from "@/../basehub-types";
 
 export const featureHeroFragment = fragmentOn("FeatureHeroComponent", {
   _analyticsKey: true,
