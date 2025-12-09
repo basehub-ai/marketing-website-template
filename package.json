@@ -24,7 +24,7 @@
     "embla-carousel-react": "^8.0.4",
     "embla-carousel-wheel-gestures": "^8.0.1",
     "hast-util-to-jsx-runtime": "^2.3.0",
-    "next": "16.0.0",
+    "next": "16.0.7",
     "next-themes": "^0.4.6",
     "postcss": "^8.4.38",
     "react": "19.2.0",
