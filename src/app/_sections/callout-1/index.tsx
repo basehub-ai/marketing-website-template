@@ -43,10 +43,10 @@ export function Callout(callout: Callout & { eventsKey: GeneralEvents["ingestKey
         {/* -------- */}
         <div className="relative z-20 flex flex-col items-center gap-2 text-center">
           <h4 className="text-text-primary dark:text-dark-text-primary text-center text-3xl font-medium tracking-tighter sm:max-w-full sm:px-0 md:text-4xl">
-            {callout.title}
+            Ship with confidence at AI scale.
           </h4>
           <p className="text-text-secondary dark:text-dark-text-secondary text-lg md:text-xl">
-            {callout.subtitle}
+            Secure product delivery, transparent risk controls, and growth-stage reliability for modern SaaS teams.
           </p>
         </div>
         <div className="relative z-10 flex items-center gap-2">

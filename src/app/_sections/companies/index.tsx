@@ -10,7 +10,6 @@ export const companiesFragment = fragmentOn("CompaniesComponent", {
   subtitle: true,
   companies: {
     _title: true,
-    url: true,
     image: {
       url: true,
     },

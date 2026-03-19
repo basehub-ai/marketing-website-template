@@ -59,10 +59,10 @@ export function Hero(hero: Hero & { eventsKey: GeneralEvents["ingestKey"] }) {
         <div>
           <div className="mx-auto flex min-h-[288px] max-w-[80vw] shrink-0 flex-col items-center justify-center gap-2 px-2 py-4 sm:px-16 lg:px-24">
             <h1 className="text-text-primary dark:text-dark-text-primary max-w-(--breakpoint-lg) text-center text-[clamp(32px,7vw,64px)] leading-none font-medium tracking-[-1.44px] text-pretty md:tracking-[-2.16px]">
-              {hero.title}
+              Build the next generation of product teams with one AI ops platform.
             </h1>
             <h2 className="text-md text-text-tertiary dark:text-dark-text-tertiary max-w-2xl text-center text-pretty md:text-lg">
-              {hero.subtitle}
+              SuprBuild turns complex multi-team product delivery into structured, secure, and high-velocity execution.
             </h2>
           </div>
         </div>

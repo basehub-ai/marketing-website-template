@@ -50,15 +50,15 @@ export interface Scalars {
 }))[],
     BSHBRichTextContentSchema: RichTextNode[],
     BSHBRichTextTOCSchema: RichTextTocNode[],
-    BSHBSelect_111227338: 'Efficiency' | 'Guide' | 'Productivity' | 'Success',
-    BSHBSelect_1795611679: 'info' | 'warning',
-    BSHBSelect_1868728927: 'right' | 'center' | 'left' | 'none',
-    BSHBSelect_1879002554: 'full image' | 'gradient' | 'Image bottom' | 'Image Right',
-    BSHBSelect_1961083722: 'amber' | 'blue' | 'cyan' | 'emerald' | 'fuchsia' | 'gray' | 'green' | 'indigo' | 'lime' | 'neutral' | 'orange' | 'pink' | 'purple' | 'red' | 'rose' | 'sky' | 'slate' | 'stone' | 'teal' | 'violet' | 'yellow' | 'zinc',
-    BSHBSelect__1142171011: 'large',
-    BSHBSelect__1219632885: 'primary' | 'secondary' | 'tertiary',
-    BSHBSelect__2134102963: 'accordion' | 'list',
-    BSHBSelect__605999048: 'gray' | 'neutral' | 'slate' | 'stone' | 'zinc',
+    BSHBSelect_1837708130: 'Efficiency' | 'Guide' | 'Productivity' | 'Success',
+    BSHBSelect_1867466044: 'primary' | 'secondary' | 'tertiary',
+    BSHBSelect_1885808492: 'full image' | 'gradient' | 'Image bottom' | 'Image Right',
+    BSHBSelect_1960434833: 'large',
+    BSHBSelect_262811106: 'amber' | 'blue' | 'cyan' | 'emerald' | 'fuchsia' | 'gray' | 'green' | 'indigo' | 'lime' | 'neutral' | 'orange' | 'pink' | 'purple' | 'red' | 'rose' | 'sky' | 'slate' | 'stone' | 'teal' | 'violet' | 'yellow' | 'zinc',
+    BSHBSelect_604783081: 'accordion' | 'list',
+    BSHBSelect__108045351: 'info' | 'warning',
+    BSHBSelect__1086199789: 'right' | 'center' | 'left' | 'none',
+    BSHBSelect__1721217313: 'gray' | 'neutral' | 'slate' | 'stone' | 'zinc',
     Boolean: boolean,
     CodeSnippetLanguage: B_Language,
     DateTime: any,
@@ -67,12 +67,12 @@ export interface Scalars {
     Int: number,
     JSON: any,
     String: string,
-    bshb_event_1238049471: `bshb_event_1238049471:${string}`,
-    schema_bshb_event_1238049471: never,
-    bshb_event__1457496544: `bshb_event__1457496544:${string}`,
-    schema_bshb_event__1457496544: {eventType: string;},
-    bshb_event__72079289: `bshb_event__72079289:${string}`,
-    schema_bshb_event__72079289: {email: string;},
+    bshb_event_199695012: `bshb_event_199695012:${string}`,
+    schema_bshb_event_199695012: {email: string;},
+    bshb_event_514328939: `bshb_event_514328939:${string}`,
+    schema_bshb_event_514328939: never,
+    bshb_event__272409232: `bshb_event__272409232:${string}`,
+    schema_bshb_event__272409232: {eventType: string;},
 }
 
 export type AnalyticsKeyScope = 'query' | 'send'
@@ -189,7 +189,7 @@ export interface BlockColor {
     __typename: 'BlockColor'
 }
 
-export type BlockDocument = (AuthorComponent | Authors | AvatarComponent | Avatars | Blog | BlogPostComponent | BooleanComponent | ButtonComponent | CalloutComponent | CalloutV2Component | Categories | CategoryComponent | Changelog | ChangelogPostComponent | Characteristics | CharacteristicsItem | CodeSnippetComponent | Collections | CompaniesComponent | CompanyComponent | ComparisonOptions | Components | CustomTextComponent | CustomerSatisfactionBannerComponent | DarkLightImageComponent | FaqComponent | FaqItemComponent | FeatureComponent | FeatureHeroComponent | FeatureWithIconComponent | Features | FeaturesBigImageComponent | FeaturesBigImageList | FeaturesCardsComponent | FeaturesCardsList | FeaturesCardsListItem | FeaturesGridComponent | FeaturesGridList | FeaturesSideBySideComponent | FeaturesSideBySideList | FeaturesSideBySideListItem | Footer | FormComponent | FormWrapperComponent | FreeformTextComponent | Header | HeaderNavbarLinkComponent | HeadingComponent | HeroComponent | List | ListItem | Metadata | MetadataOverridesComponent | MoreCompanies | Navbar | NavbarItem | Navbar_1 | Newsletter | PageReferenceComponent | Pages | PagesItem | PlanComponent | Plans | Posts | Posts_1 | PricingComponent | PricingPlanComponent | PricingPlans | PricingTableComponent | Questions | QuoteComponent | Quotes | RichTextCalloutComponent | RightCtas | Sections | Settings | Site | SocialLinkComponent | SocialLinks | Sublinks | SublinksItem | TestimonialSliderComponent | TestimonialsGridComponent | Theme | ValueComponent | Values | _AgentStart | authorComponent_AsList | avatarComponent_AsList | blogPostComponent_AsList | booleanComponent_AsList | buttonComponent_AsList | calloutComponent_AsList | calloutV2Component_AsList | categoryComponent_AsList | changelogPostComponent_AsList | characteristicsItem_AsList | codeSnippetComponent_AsList | companiesComponent_AsList | companyComponent_AsList | customTextComponent_AsList | customerSatisfactionBannerComponent_AsList | darkLightImageComponent_AsList | faqComponent_AsList | faqItemComponent_AsList | featureComponent_AsList | featureHeroComponent_AsList | featureWithIconComponent_AsList | featuresBigImageComponent_AsList | featuresCardsComponent_AsList | featuresCardsListItem_AsList | featuresGridComponent_AsList | featuresSideBySideComponent_AsList | featuresSideBySideListItem_AsList | formComponent_AsList | formWrapperComponent_AsList | freeformTextComponent_AsList | headerNavbarLinkComponent_AsList | headingComponent_AsList | heroComponent_AsList | listItem_AsList | metadataOverridesComponent_AsList | navbarItem_AsList | pageReferenceComponent_AsList | pagesItem_AsList | planComponent_AsList | pricingComponent_AsList | pricingPlanComponent_AsList | pricingTableComponent_AsList | quoteComponent_AsList | richTextCalloutComponent_AsList | socialLinkComponent_AsList | sublinksItem_AsList | testimonialSliderComponent_AsList | testimonialsGridComponent_AsList | valueComponent_AsList) & { __isUnion?: true }
+export type BlockDocument = (AuthorComponent | Authors | AvatarComponent | Avatars | Blog | BlogPostComponent | BooleanComponent | ButtonComponent | CalloutComponent | CalloutV2Component | Categories | CategoryComponent | Changelog | ChangelogPostComponent | Characteristics | CharacteristicsItem | CodeSnippetComponent | Collections | CompaniesComponent | CompanyComponent | ComparisonOptions | Components | CustomTextComponent | CustomerSatisfactionBannerComponent | DarkLightImageComponent | FaqComponent | FaqItemComponent | FeatureComponent | FeatureHeroComponent | FeatureWithIconComponent | Features | FeaturesBigImageComponent | FeaturesBigImageList | FeaturesCardsComponent | FeaturesCardsList | FeaturesCardsListItem | FeaturesGridComponent | FeaturesGridList | FeaturesSideBySideComponent | FeaturesSideBySideList | FeaturesSideBySideListItem | Footer | FormComponent | FormWrapperComponent | FreeformTextComponent | Header | HeaderNavbarLinkComponent | HeadingComponent | HeroComponent | List | ListItem | Metadata | MetadataOverridesComponent | MoreCompanies | Navbar | NavbarItem | Navbar_1 | Newsletter | PageReferenceComponent | Pages | PagesItem | PlanComponent | Plans | Posts | Posts_1 | PricingComponent | PricingPlanComponent | PricingPlans | PricingTableComponent | Questions | QuoteComponent | Quotes | RichTextCalloutComponent | RightCtas | Sections | Settings | Site | SocialLinkComponent | SocialLinks | Sublinks | SublinksItem | TestimonialSliderComponent | TestimonialsGridComponent | Theme | ValueComponent | Values | _AgentStart | _AgentUntitled | authorComponent_AsList | avatarComponent_AsList | blogPostComponent_AsList | booleanComponent_AsList | buttonComponent_AsList | calloutComponent_AsList | calloutV2Component_AsList | categoryComponent_AsList | changelogPostComponent_AsList | characteristicsItem_AsList | codeSnippetComponent_AsList | companiesComponent_AsList | companyComponent_AsList | customTextComponent_AsList | customerSatisfactionBannerComponent_AsList | darkLightImageComponent_AsList | faqComponent_AsList | faqItemComponent_AsList | featureComponent_AsList | featureHeroComponent_AsList | featureWithIconComponent_AsList | featuresBigImageComponent_AsList | featuresCardsComponent_AsList | featuresCardsListItem_AsList | featuresGridComponent_AsList | featuresSideBySideComponent_AsList | featuresSideBySideListItem_AsList | formComponent_AsList | formWrapperComponent_AsList | freeformTextComponent_AsList | headerNavbarLinkComponent_AsList | headingComponent_AsList | heroComponent_AsList | listItem_AsList | metadataOverridesComponent_AsList | navbarItem_AsList | pageReferenceComponent_AsList | pagesItem_AsList | planComponent_AsList | pricingComponent_AsList | pricingPlanComponent_AsList | pricingTableComponent_AsList | quoteComponent_AsList | richTextCalloutComponent_AsList | socialLinkComponent_AsList | sublinksItem_AsList | testimonialSliderComponent_AsList | testimonialsGridComponent_AsList | valueComponent_AsList) & { __isUnion?: true }
 
 export interface BlockDocumentSys {
     apiNamePath: Scalars['String']
@@ -305,7 +305,7 @@ export interface BlogPostComponent {
     _title: Scalars['String']
     authors: AuthorComponent[]
     body: Body_1
-    categories: Scalars['BSHBSelect_111227338'][]
+    categories: Scalars['BSHBSelect_1837708130'][]
     description: Scalars['String']
     image: DarkLightImageComponent
     ogImage: BlockOgImage
@@ -341,7 +341,7 @@ export interface Body_1 {
 }
 
 export interface Body_1RichText {
-    blocks: UnionCodeSnippetComponentFaqItemComponentRichTextCalloutComponent[]
+    blocks: UnionRichTextCalloutComponentCodeSnippetComponentFaqItemComponent[]
     content: Scalars['BSHBRichTextContentSchema']
     toc: Scalars['BSHBRichTextTOCSchema']
     __typename: 'Body_1RichText'
@@ -394,7 +394,7 @@ export interface ButtonComponent {
     href: Scalars['String']
     icon: (Scalars['String'] | null)
     label: Scalars['String']
-    type: Scalars['BSHBSelect__1219632885']
+    type: Scalars['BSHBSelect_1867466044']
     __typename: 'ButtonComponent'
 }
 
@@ -616,11 +616,11 @@ export interface CompanyComponent {
     _sys: BlockDocumentSys
     _title: Scalars['String']
     image: (BlockImage | null)
-    url: (Scalars['String'] | null)
+    suprbuild: (Scalars['String'] | null)
     __typename: 'CompanyComponent'
 }
 
-export type CompanyComponentOrderByEnum = '_sys_createdAt__ASC' | '_sys_createdAt__DESC' | '_sys_hash__ASC' | '_sys_hash__DESC' | '_sys_id__ASC' | '_sys_id__DESC' | '_sys_lastModifiedAt__ASC' | '_sys_lastModifiedAt__DESC' | '_sys_slug__ASC' | '_sys_slug__DESC' | '_sys_title__ASC' | '_sys_title__DESC' | 'image__ASC' | 'image__DESC' | 'url__ASC' | 'url__DESC'
+export type CompanyComponentOrderByEnum = '_sys_createdAt__ASC' | '_sys_createdAt__DESC' | '_sys_hash__ASC' | '_sys_hash__DESC' | '_sys_id__ASC' | '_sys_id__DESC' | '_sys_lastModifiedAt__ASC' | '_sys_lastModifiedAt__DESC' | '_sys_slug__ASC' | '_sys_slug__DESC' | '_sys_title__ASC' | '_sys_title__DESC' | 'image__ASC' | 'image__DESC' | 'suprbuild__ASC' | 'suprbuild__DESC'
 
 export interface ComparisonOptions {
     _analyticsKey: Scalars['String']
@@ -631,6 +631,8 @@ export interface ComparisonOptions {
     _slugPath: Scalars['String']
     _sys: BlockDocumentSys
     _title: Scalars['String']
+    boolean: BooleanComponent
+    comparativeText: CustomTextComponent
     __typename: 'ComparisonOptions'
 }
 
@@ -643,6 +645,18 @@ export interface Components {
     _slugPath: Scalars['String']
     _sys: BlockDocumentSys
     _title: Scalars['String']
+    button: ButtonComponent
+    codeSnippet: CodeSnippetComponent
+    company: CompanyComponent
+    comparisonOptions: ComparisonOptions
+    darkLightImage: DarkLightImageComponent
+    faqItem: FaqItemComponent
+    featureWithIcon: FeatureWithIconComponent
+    formWrapper: FormWrapperComponent
+    heading: HeadingComponent
+    metadataOverrides: MetadataOverridesComponent
+    quote: QuoteComponent
+    richTextCallout: RichTextCalloutComponent
     __typename: 'Components'
 }
 
@@ -726,7 +740,7 @@ export interface FaqComponent {
     _sys: BlockDocumentSys
     _title: Scalars['String']
     heading: HeadingComponent
-    layout: (Scalars['BSHBSelect__2134102963'] | null)
+    layout: (Scalars['BSHBSelect_604783081'] | null)
     questions: Questions
     __typename: 'FaqComponent'
 }
@@ -783,7 +797,7 @@ export interface FeatureHeroComponent {
     _title: Scalars['String']
     actions: (ButtonComponent[] | null)
     heading: HeadingComponent
-    heroLayout: Scalars['BSHBSelect_1879002554']
+    heroLayout: Scalars['BSHBSelect_1885808492']
     image: DarkLightImageComponent
     __typename: 'FeatureHeroComponent'
 }
@@ -1089,9 +1103,9 @@ export type FreeformTextComponentOrderByEnum = '_sys_createdAt__ASC' | '_sys_cre
 
 export interface GeneralEvents {
     /** The `adminKey` gives clients the ability to query, delete and update this block's data. **It's not meant to be exposed to the public.** */
-    adminKey: Scalars['bshb_event__1457496544']
+    adminKey: Scalars['bshb_event__272409232']
     /** The `ingestKey` gives clients the ability to send new events to this block. Generally, it's safe to expose it to the public. */
-    ingestKey: Scalars['bshb_event__1457496544']
+    ingestKey: Scalars['bshb_event__272409232']
     schema: Scalars['BSHBEventSchema']
     __typename: 'GeneralEvents'
 }
@@ -1145,7 +1159,7 @@ export interface HeadingComponent {
     _slugPath: Scalars['String']
     _sys: BlockDocumentSys
     _title: Scalars['String']
-    align: (Scalars['BSHBSelect_1868728927'] | null)
+    align: (Scalars['BSHBSelect__1086199789'] | null)
     subtitle: (Scalars['String'] | null)
     tag: (Scalars['String'] | null)
     title: Scalars['String']
@@ -1660,6 +1674,8 @@ export interface Quotes {
 
 export interface RepoSys {
     branches: _Branches
+    dashboardUrl: Scalars['String']
+    forkUrl: Scalars['String']
     hash: Scalars['String']
     id: Scalars['ID']
     playgroundInfo: (_PlaygroundInfo | null)
@@ -1680,8 +1696,8 @@ export interface RichTextCalloutComponent {
     _sys: BlockDocumentSys
     _title: Scalars['String']
     content: (Content | null)
-    size: (Scalars['BSHBSelect__1142171011'] | null)
-    type: Scalars['BSHBSelect_1795611679']
+    size: (Scalars['BSHBSelect_1960434833'] | null)
+    type: Scalars['BSHBSelect__108045351']
     __typename: 'RichTextCalloutComponent'
 }
 
@@ -1839,18 +1855,18 @@ export type SublinksItemOrderByEnum = '_sys_createdAt__ASC' | '_sys_createdAt__D
 
 export interface Submissions {
     /** The `adminKey` gives clients the ability to query, delete and update this block's data. **It's not meant to be exposed to the public.** */
-    adminKey: Scalars['bshb_event_1238049471']
+    adminKey: Scalars['bshb_event_514328939']
     /** The `ingestKey` gives clients the ability to send new events to this block. Generally, it's safe to expose it to the public. */
-    ingestKey: Scalars['bshb_event_1238049471']
+    ingestKey: Scalars['bshb_event_514328939']
     schema: Scalars['BSHBEventSchema']
     __typename: 'Submissions'
 }
 
 export interface Submissions_1 {
     /** The `adminKey` gives clients the ability to query, delete and update this block's data. **It's not meant to be exposed to the public.** */
-    adminKey: Scalars['bshb_event__72079289']
+    adminKey: Scalars['bshb_event_199695012']
     /** The `ingestKey` gives clients the ability to send new events to this block. Generally, it's safe to expose it to the public. */
-    ingestKey: Scalars['bshb_event__72079289']
+    ingestKey: Scalars['bshb_event_199695012']
     schema: Scalars['BSHBEventSchema']
     __typename: 'Submissions_1'
 }
@@ -1930,8 +1946,8 @@ export interface Theme {
     _slugPath: Scalars['String']
     _sys: BlockDocumentSys
     _title: Scalars['String']
-    accent: Scalars['BSHBSelect_1961083722']
-    grayScale: Scalars['BSHBSelect__605999048']
+    accent: Scalars['BSHBSelect_262811106']
+    grayScale: Scalars['BSHBSelect__1721217313']
     __typename: 'Theme'
 }
 
@@ -1948,15 +1964,15 @@ export interface TransactionStatus {
 
 export type TransactionStatusEnum = 'Cancelled' | 'Completed' | 'Failed' | 'Running' | 'Scheduled'
 
+export type UnionBooleanComponentCustomTextComponent = (BooleanComponent | CustomTextComponent) & { __isUnion?: true }
+
 export type UnionCodeSnippetComponent = (CodeSnippetComponent) & { __isUnion?: true }
-
-export type UnionCodeSnippetComponentFaqItemComponentRichTextCalloutComponent = (CodeSnippetComponent | FaqItemComponent | RichTextCalloutComponent) & { __isUnion?: true }
-
-export type UnionCustomTextComponentBooleanComponent = (BooleanComponent | CustomTextComponent) & { __isUnion?: true }
 
 export type UnionCustomTextComponentPageReferenceComponent = (CustomTextComponent | PageReferenceComponent) & { __isUnion?: true }
 
 export type UnionPricingComponentFormComponentHeroComponentCalloutComponentCalloutV2ComponentCompaniesComponentTestimonialSliderComponentFeaturesCardsComponentPricingTableComponentFeaturesBigImageComponentTestimonialsGridComponentFeatureHeroComponentFeaturesSideBySideComponentFreeformTextComponentFeaturesGridComponentFaqComponent = (CalloutComponent | CalloutV2Component | CompaniesComponent | FaqComponent | FeatureHeroComponent | FeaturesBigImageComponent | FeaturesCardsComponent | FeaturesGridComponent | FeaturesSideBySideComponent | FormComponent | FreeformTextComponent | HeroComponent | PricingComponent | PricingTableComponent | TestimonialSliderComponent | TestimonialsGridComponent) & { __isUnion?: true }
+
+export type UnionRichTextCalloutComponentCodeSnippetComponentFaqItemComponent = (CodeSnippetComponent | FaqItemComponent | RichTextCalloutComponent) & { __isUnion?: true }
 
 export interface ValueComponent {
     _analyticsKey: Scalars['String']
@@ -1970,7 +1986,7 @@ export interface ValueComponent {
     _sys: BlockDocumentSys
     _title: Scalars['String']
     plan: PricingPlanComponent
-    value: (UnionCustomTextComponentBooleanComponent | null)
+    value: (UnionBooleanComponentCustomTextComponent | null)
     __typename: 'ValueComponent'
 }
 
@@ -2031,6 +2047,35 @@ export interface _AgentStart {
     slackInstallUrl: Scalars['String']
     systemPrompt: Scalars['String']
     __typename: '_AgentStart'
+}
+
+export interface _AgentUntitled {
+    _agentKey: Scalars['String']
+    _analyticsKey: Scalars['String']
+    _dashboardUrl: Scalars['String']
+    _id: Scalars['String']
+    _idPath: Scalars['String']
+    _slug: Scalars['String']
+    _slugPath: Scalars['String']
+    _sys: BlockDocumentSys
+    _title: Scalars['String']
+    accent: Scalars['String']
+    avatar: Scalars['String']
+    chatUrl: Scalars['String']
+    commit: Scalars['Boolean']
+    description: Scalars['String']
+    edit: Scalars['Boolean']
+    embedUrl: Scalars['String']
+    getUserInfo: Scalars['Boolean']
+    grayscale: Scalars['String']
+    manageBranches: Scalars['Boolean']
+    mcpUrl: Scalars['String']
+    model: Scalars['String']
+    openRouterKey: (Scalars['String'] | null)
+    searchTheWeb: Scalars['Boolean']
+    slackInstallUrl: Scalars['String']
+    systemPrompt: Scalars['String']
+    __typename: '_AgentUntitled'
 }
 
 export interface _BranchInfo {
@@ -2100,6 +2145,7 @@ export type _StructureFormatEnum = 'json' | 'xml'
 
 export interface _agents {
     start: _AgentStart
+    untitled: _AgentUntitled
     __typename: '_agents'
 }
 
@@ -3114,7 +3160,7 @@ export interface AuthorComponentGenqlSelection{
 
 export interface AuthorComponentFilterInput {AND?: (AuthorComponentFilterInput | null),OR?: (AuthorComponentFilterInput | null),_id?: (StringFilter | null),_slug?: (StringFilter | null),_sys_apiNamePath?: (StringFilter | null),_sys_createdAt?: (DateFilter | null),_sys_hash?: (StringFilter | null),_sys_id?: (StringFilter | null),_sys_idPath?: (StringFilter | null),_sys_lastModifiedAt?: (DateFilter | null),_sys_slug?: (StringFilter | null),_sys_slugPath?: (StringFilter | null),_sys_title?: (StringFilter | null),_title?: (StringFilter | null),company?: (AuthorComponentFilterInput__company_0___company | null),role?: (StringFilter | null),x?: (StringFilter | null)}
 
-export interface AuthorComponentFilterInput__company_0___company {_id?: (StringFilter | null),_slug?: (StringFilter | null),_sys_apiNamePath?: (StringFilter | null),_sys_createdAt?: (DateFilter | null),_sys_hash?: (StringFilter | null),_sys_id?: (StringFilter | null),_sys_idPath?: (StringFilter | null),_sys_lastModifiedAt?: (DateFilter | null),_sys_slug?: (StringFilter | null),_sys_slugPath?: (StringFilter | null),_sys_title?: (StringFilter | null),_title?: (StringFilter | null),url?: (StringFilter | null)}
+export interface AuthorComponentFilterInput__company_0___company {_id?: (StringFilter | null),_slug?: (StringFilter | null),_sys_apiNamePath?: (StringFilter | null),_sys_createdAt?: (DateFilter | null),_sys_hash?: (StringFilter | null),_sys_id?: (StringFilter | null),_sys_idPath?: (StringFilter | null),_sys_lastModifiedAt?: (DateFilter | null),_sys_slug?: (StringFilter | null),_sys_slugPath?: (StringFilter | null),_sys_title?: (StringFilter | null),_title?: (StringFilter | null),suprbuild?: (StringFilter | null)}
 
 export interface AuthorComponentSearchInput {
 /** Searchable fields for query */
@@ -3349,6 +3395,7 @@ export interface BlockDocumentGenqlSelection{
     on_ValueComponent?: ValueComponentGenqlSelection
     on_Values?: ValuesGenqlSelection
     on__AgentStart?: _AgentStartGenqlSelection
+    on__AgentUntitled?: _AgentUntitledGenqlSelection
     on_authorComponent_AsList?: authorComponent_AsListGenqlSelection
     on_avatarComponent_AsList?: avatarComponent_AsListGenqlSelection
     on_blogPostComponent_AsList?: blogPostComponent_AsListGenqlSelection
@@ -3719,7 +3766,7 @@ export interface Body_1GenqlSelection{
 }
 
 export interface Body_1RichTextGenqlSelection{
-    blocks?: UnionCodeSnippetComponentFaqItemComponentRichTextCalloutComponentGenqlSelection
+    blocks?: UnionRichTextCalloutComponentCodeSnippetComponentFaqItemComponentGenqlSelection
     content?: boolean | number
     toc?: boolean | number
     __typename?: boolean | number
@@ -4206,7 +4253,7 @@ export interface CompaniesComponentGenqlSelection{
 
 export interface CompaniesComponentFilterInput {AND?: (CompaniesComponentFilterInput | null),OR?: (CompaniesComponentFilterInput | null),_id?: (StringFilter | null),_slug?: (StringFilter | null),_sys_apiNamePath?: (StringFilter | null),_sys_createdAt?: (DateFilter | null),_sys_hash?: (StringFilter | null),_sys_id?: (StringFilter | null),_sys_idPath?: (StringFilter | null),_sys_lastModifiedAt?: (DateFilter | null),_sys_slug?: (StringFilter | null),_sys_slugPath?: (StringFilter | null),_sys_title?: (StringFilter | null),_title?: (StringFilter | null),companies?: (CompaniesComponentFilterInput__companies_0___company | null),subtitle?: (StringFilter | null)}
 
-export interface CompaniesComponentFilterInput__companies_0___company {_id?: (StringFilter | null),_slug?: (StringFilter | null),_sys_apiNamePath?: (StringFilter | null),_sys_createdAt?: (DateFilter | null),_sys_hash?: (StringFilter | null),_sys_id?: (StringFilter | null),_sys_idPath?: (StringFilter | null),_sys_lastModifiedAt?: (DateFilter | null),_sys_slug?: (StringFilter | null),_sys_slugPath?: (StringFilter | null),_sys_title?: (StringFilter | null),_title?: (StringFilter | null),url?: (StringFilter | null)}
+export interface CompaniesComponentFilterInput__companies_0___company {_id?: (StringFilter | null),_slug?: (StringFilter | null),_sys_apiNamePath?: (StringFilter | null),_sys_createdAt?: (DateFilter | null),_sys_hash?: (StringFilter | null),_sys_id?: (StringFilter | null),_sys_idPath?: (StringFilter | null),_sys_lastModifiedAt?: (DateFilter | null),_sys_slug?: (StringFilter | null),_sys_slugPath?: (StringFilter | null),_sys_title?: (StringFilter | null),_title?: (StringFilter | null),suprbuild?: (StringFilter | null)}
 
 export interface CompaniesComponentSearchInput {
 /** Searchable fields for query */
@@ -4232,12 +4279,12 @@ export interface CompanyComponentGenqlSelection{
     _sys?: BlockDocumentSysGenqlSelection
     _title?: boolean | number
     image?: BlockImageGenqlSelection
-    url?: boolean | number
+    suprbuild?: boolean | number
     __typename?: boolean | number
     __fragmentOn?: "CompanyComponent"
 }
 
-export interface CompanyComponentFilterInput {AND?: (CompanyComponentFilterInput | null),OR?: (CompanyComponentFilterInput | null),_id?: (StringFilter | null),_slug?: (StringFilter | null),_sys_apiNamePath?: (StringFilter | null),_sys_createdAt?: (DateFilter | null),_sys_hash?: (StringFilter | null),_sys_id?: (StringFilter | null),_sys_idPath?: (StringFilter | null),_sys_lastModifiedAt?: (DateFilter | null),_sys_slug?: (StringFilter | null),_sys_slugPath?: (StringFilter | null),_sys_title?: (StringFilter | null),_title?: (StringFilter | null),url?: (StringFilter | null)}
+export interface CompanyComponentFilterInput {AND?: (CompanyComponentFilterInput | null),OR?: (CompanyComponentFilterInput | null),_id?: (StringFilter | null),_slug?: (StringFilter | null),_sys_apiNamePath?: (StringFilter | null),_sys_createdAt?: (DateFilter | null),_sys_hash?: (StringFilter | null),_sys_id?: (StringFilter | null),_sys_idPath?: (StringFilter | null),_sys_lastModifiedAt?: (DateFilter | null),_sys_slug?: (StringFilter | null),_sys_slugPath?: (StringFilter | null),_sys_title?: (StringFilter | null),_title?: (StringFilter | null),suprbuild?: (StringFilter | null)}
 
 export interface CompanyComponentSearchInput {
 /** Searchable fields for query */
@@ -4260,6 +4307,8 @@ export interface ComparisonOptionsGenqlSelection{
     _slugPath?: boolean | number
     _sys?: BlockDocumentSysGenqlSelection
     _title?: boolean | number
+    boolean?: BooleanComponentGenqlSelection
+    comparativeText?: CustomTextComponentGenqlSelection
     __typename?: boolean | number
     __fragmentOn?: "ComparisonOptions"
 }
@@ -4279,6 +4328,18 @@ export interface ComponentsGenqlSelection{
     _slugPath?: boolean | number
     _sys?: BlockDocumentSysGenqlSelection
     _title?: boolean | number
+    button?: ButtonComponentGenqlSelection
+    codeSnippet?: CodeSnippetComponentGenqlSelection
+    company?: CompanyComponentGenqlSelection
+    comparisonOptions?: ComparisonOptionsGenqlSelection
+    darkLightImage?: DarkLightImageComponentGenqlSelection
+    faqItem?: FaqItemComponentGenqlSelection
+    featureWithIcon?: FeatureWithIconComponentGenqlSelection
+    formWrapper?: FormWrapperComponentGenqlSelection
+    heading?: HeadingComponentGenqlSelection
+    metadataOverrides?: MetadataOverridesComponentGenqlSelection
+    quote?: QuoteComponentGenqlSelection
+    richTextCallout?: RichTextCalloutComponentGenqlSelection
     __typename?: boolean | number
     __fragmentOn?: "Components"
 }
@@ -6164,6 +6225,8 @@ export interface QuotesGenqlSelection{
 
 export interface RepoSysGenqlSelection{
     branches?: (_BranchesGenqlSelection & { __args?: {limit?: (Scalars['Int'] | null), offset?: (Scalars['Int'] | null)} })
+    dashboardUrl?: boolean | number
+    forkUrl?: boolean | number
     hash?: boolean | number
     id?: boolean | number
     playgroundInfo?: _PlaygroundInfoGenqlSelection
@@ -6629,28 +6692,19 @@ export interface TransactionStatusGenqlSelection{
     __fragmentOn?: "TransactionStatus"
 }
 
+export interface UnionBooleanComponentCustomTextComponentGenqlSelection{
+    on_BooleanComponent?:BooleanComponentGenqlSelection,
+    on_CustomTextComponent?:CustomTextComponentGenqlSelection,
+    on_BlockDocument?: BlockDocumentGenqlSelection,
+    __typename?: boolean | number,
+    __fragmentOn?: "UnionBooleanComponentCustomTextComponent"
+}
+
 export interface UnionCodeSnippetComponentGenqlSelection{
     on_CodeSnippetComponent?:CodeSnippetComponentGenqlSelection,
     on_BlockDocument?: BlockDocumentGenqlSelection,
     __typename?: boolean | number,
     __fragmentOn?: "UnionCodeSnippetComponent"
-}
-
-export interface UnionCodeSnippetComponentFaqItemComponentRichTextCalloutComponentGenqlSelection{
-    on_CodeSnippetComponent?:CodeSnippetComponentGenqlSelection,
-    on_FaqItemComponent?:FaqItemComponentGenqlSelection,
-    on_RichTextCalloutComponent?:RichTextCalloutComponentGenqlSelection,
-    on_BlockDocument?: BlockDocumentGenqlSelection,
-    __typename?: boolean | number,
-    __fragmentOn?: "UnionCodeSnippetComponentFaqItemComponentRichTextCalloutComponent"
-}
-
-export interface UnionCustomTextComponentBooleanComponentGenqlSelection{
-    on_BooleanComponent?:BooleanComponentGenqlSelection,
-    on_CustomTextComponent?:CustomTextComponentGenqlSelection,
-    on_BlockDocument?: BlockDocumentGenqlSelection,
-    __typename?: boolean | number,
-    __fragmentOn?: "UnionCustomTextComponentBooleanComponent"
 }
 
 export interface UnionCustomTextComponentPageReferenceComponentGenqlSelection{
@@ -6683,6 +6737,15 @@ export interface UnionPricingComponentFormComponentHeroComponentCalloutComponent
     __fragmentOn?: "UnionPricingComponentFormComponentHeroComponentCalloutComponentCalloutV2ComponentCompaniesComponentTestimonialSliderComponentFeaturesCardsComponentPricingTableComponentFeaturesBigImageComponentTestimonialsGridComponentFeatureHeroComponentFeaturesSideBySideComponentFreeformTextComponentFeaturesGridComponentFaqComponent"
 }
 
+export interface UnionRichTextCalloutComponentCodeSnippetComponentFaqItemComponentGenqlSelection{
+    on_CodeSnippetComponent?:CodeSnippetComponentGenqlSelection,
+    on_FaqItemComponent?:FaqItemComponentGenqlSelection,
+    on_RichTextCalloutComponent?:RichTextCalloutComponentGenqlSelection,
+    on_BlockDocument?: BlockDocumentGenqlSelection,
+    __typename?: boolean | number,
+    __fragmentOn?: "UnionRichTextCalloutComponentCodeSnippetComponentFaqItemComponent"
+}
+
 export interface ValueComponentGenqlSelection{
     _analyticsKey?: { __args: {
     /**
@@ -6701,7 +6764,7 @@ export interface ValueComponentGenqlSelection{
     _sys?: BlockDocumentSysGenqlSelection
     _title?: boolean | number
     plan?: PricingPlanComponentGenqlSelection
-    value?: UnionCustomTextComponentBooleanComponentGenqlSelection
+    value?: UnionBooleanComponentCustomTextComponentGenqlSelection
     __typename?: boolean | number
     __fragmentOn?: "ValueComponent"
 }
@@ -6794,6 +6857,42 @@ export interface _AgentStartGenqlSelection{
     __fragmentOn?: "_AgentStart"
 }
 
+export interface _AgentUntitledGenqlSelection{
+    _agentKey?: boolean | number
+    _analyticsKey?: { __args: {
+    /**
+     * The scope of the analytics key. Use `send` for just ingesting data. Use `query` if you need to show an analytics data in your website.
+     * 
+     * Have in mind, if you expose your `query` analytics key in the frontend, you'll be exposing all of this block's analytics data to the public. This is generally safe, but it might not be in your case.
+     */
+    scope?: (AnalyticsKeyScope | null)} } | boolean | number
+    _dashboardUrl?: boolean | number
+    _id?: boolean | number
+    _idPath?: boolean | number
+    _slug?: boolean | number
+    _slugPath?: boolean | number
+    _sys?: BlockDocumentSysGenqlSelection
+    _title?: boolean | number
+    accent?: boolean | number
+    avatar?: boolean | number
+    chatUrl?: boolean | number
+    commit?: boolean | number
+    description?: boolean | number
+    edit?: boolean | number
+    embedUrl?: boolean | number
+    getUserInfo?: boolean | number
+    grayscale?: boolean | number
+    manageBranches?: boolean | number
+    mcpUrl?: boolean | number
+    model?: boolean | number
+    openRouterKey?: boolean | number
+    searchTheWeb?: boolean | number
+    slackInstallUrl?: boolean | number
+    systemPrompt?: boolean | number
+    __typename?: boolean | number
+    __fragmentOn?: "_AgentUntitled"
+}
+
 export interface _BranchInfoGenqlSelection{
     archivedAt?: boolean | number
     archivedBy?: boolean | number
@@ -6862,6 +6961,7 @@ export interface _PlaygroundInfoGenqlSelection{
 
 export interface _agentsGenqlSelection{
     start?: _AgentStartGenqlSelection
+    untitled?: _AgentUntitledGenqlSelection
     __typename?: boolean | number
     __fragmentOn?: "_agents"
 }
@@ -9180,6 +9280,10 @@ export interface FragmentsMap {
   _AgentStart: {
     root: _AgentStart,
     selection: _AgentStartGenqlSelection,
+}
+  _AgentUntitled: {
+    root: _AgentUntitled,
+    selection: _AgentUntitledGenqlSelection,
 }
   _BranchInfo: {
     root: _BranchInfo,

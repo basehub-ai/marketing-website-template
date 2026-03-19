@@ -29,13 +29,15 @@ export const featureCardsComponent = fragmentOn("FeaturesCardsComponent", {
 type FeatureCard = fragmentOn.infer<typeof featureCardsComponent>;
 
 export async function FeaturesList({ featuresCardsList, heading }: FeatureCard) {
+  const cards = featuresCardsList.items;
+
   return (
     <Section container="default">
       <Heading subtitle={heading.subtitle} tag={heading.tag}>
-        <h4>{heading.title}</h4>
+        <h4>{heading.title || "AI-first product collaboration"}</h4>
       </Heading>
       <div className="flex flex-col gap-6">
-        {featuresCardsList.items.map(({ image, ...item }) => (
+        {cards.map(({ image, ...item }) => (
           <article
             key={item._title}
             className="flex min-h-96 w-full max-w-[380px] flex-col rounded-lg border border-border bg-surface-secondary p-px dark:border-dark-border dark:bg-dark-surface-secondary sm:max-w-full md:w-full md:flex-row md:odd:flex-row-reverse xl:gap-16"

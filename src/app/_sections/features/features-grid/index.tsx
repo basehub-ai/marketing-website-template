@@ -32,13 +32,40 @@ export function FeaturesGrid({
   actions,
   eventsKey,
 }: FeaturesGrid & { eventsKey: GeneralEvents["ingestKey"] }) {
+  const features =
+    featuresGridList.items.length > 0
+      ? featuresGridList.items
+      : [
+          {
+            _id: "prod-ops",
+            _title: "Integrated Product Ops",
+            description:
+              "Connect planning, engineering, and growth with AI-powered project orchestration and reliable delivery dashboards.",
+            icon: { alt: "Product ops", url: "https://assets.basehub.com/fa068a12/P4yggRHkqB8uRH587STUr/frameicon.svg" },
+          },
+          {
+            _id: "risk-shadow",
+            _title: "Reduce engineering risk",
+            description:
+              "Model dependencies and compliance guardrails so your team can ship quickly without technical or security surprises.",
+            icon: { alt: "Risk management", url: "https://assets.basehub.com/fa068a12/SCkaU2WEu53qSBWsNVQO4/frameicon-1.svg" },
+          },
+          {
+            _id: "go-to-market",
+            _title: "Accelerated GTM execution",
+            description:
+              "Keep product launches aligned with growth goals by synchronizing user signals, roadmap outcomes, and execution rhythm.",
+            icon: { alt: "GTM", url: "https://assets.basehub.com/fa068a12/WIADTrhMDDCGZUakwbctI/frameicon-2.svg" },
+          },
+        ];
+
   return (
     <Section>
       <Heading {...heading}>
-        <h4>{heading.title}</h4>
+        <h4>{heading.title || "Why high-growth teams choose SuprBuild"}</h4>
       </Heading>
       <div className="grid w-full grid-cols-1 gap-4 lg:grid-cols-3 lg:gap-5">
-        {featuresGridList.items.map(({ _id, _title, description, icon }) => (
+        {features.map(({ _id, _title, description, icon }) => (
           <article
             key={_id}
             className="border-border dark:border-dark-border flex flex-col gap-4 rounded-lg border p-4 [box-shadow:_70px_-20px_130px_0px_rgba(255,255,255,0.05)_inset] dark:[box-shadow:_70px_-20px_130px_0px_rgba(255,255,255,0.05)_inset]"

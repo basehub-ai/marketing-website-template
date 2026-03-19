@@ -36,6 +36,27 @@ export function SideFeatures({
   actions,
   eventsKey,
 }: FeaturesGrid & { eventsKey: GeneralEvents["ingestKey"] }) {
+  const items =
+    featuresSideBySideList.items.length > 0
+      ? featuresSideBySideList.items
+      : [
+          {
+            _title: "Unified product delivery control",
+            subtitle: "Track feature progress, risks, and dependencies in one source of truth.",
+            icon: { alt: "Delivery", url: "https://assets.basehub.com/fa068a12/P4yggRHkqB8uRH587STUr/frameicon.svg" },
+          },
+          {
+            _title: "AI compliance guardrails",
+            subtitle: "Enforce security and governance checks automatically across release pipelines.",
+            icon: { alt: "Compliance", url: "https://assets.basehub.com/fa068a12/SCkaU2WEu53qSBWsNVQO4/frameicon-1.svg" },
+          },
+          {
+            _title: "Outcome-driven collaboration",
+            subtitle: "Keep growth and engineering teams aligned using real-time goals and value signals.",
+            icon: { alt: "Outcome", url: "https://assets.basehub.com/fa068a12/WIADTrhMDDCGZUakwbctI/frameicon-2.svg" },
+          },
+        ];
+
   return (
     <Section
       className="relative lg:container lg:mx-auto lg:flex-row! lg:gap-0 lg:p-28"
@@ -44,7 +65,7 @@ export function SideFeatures({
       <div className="relative top-0 container mx-auto shrink self-stretch px-6 lg:w-1/2 lg:pr-12 lg:pl-0 xl:pr-20">
         <div className="sticky top-[calc(var(--header-height)+40px)] bottom-0 flex flex-col gap-10">
           <Heading className="items-start" {...heading}>
-            <h4>{heading.title}</h4>
+            <h4>{heading.title || "Keep product teams aligned and accountable"}</h4>
           </Heading>
           <div className="flex items-center gap-3 md:order-3">
             {actions?.map((action) => (
@@ -64,7 +85,7 @@ export function SideFeatures({
       </div>
       <div className="w-full flex-1 shrink-0 lg:w-1/2 lg:flex-1">
         <div className="no-scrollbar flex gap-10 overflow-auto px-6 lg:flex-col lg:px-0">
-          {featuresSideBySideList.items.map(({ _title, icon, subtitle }) => (
+          {items.map(({ _title, icon, subtitle }) => (
             <article
               key={_title}
               className="border-border bg-surface-secondary dark:border-dark-border dark:bg-dark-surface-secondary flex w-[280px] shrink-0 flex-col gap-4 rounded-lg border p-4 lg:w-full lg:flex-row lg:p-5"
